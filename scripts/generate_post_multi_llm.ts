@@ -132,7 +132,7 @@ async function callGrok(prompt: string): Promise<string> {
       return callGPT(prompt);
     }
     
-    const data = await response.json();
+    const data = await response.json() as any;
     return data.choices[0].message.content;
   } catch (e) {
     console.warn(`⚠️ Grok error: ${e}, using GPT as fallback`);
@@ -164,7 +164,7 @@ async function callGPT(prompt: string): Promise<string> {
     throw new Error(`GPT API error: ${error}`);
   }
   
-  const data = await response.json();
+  const data = await response.json() as any;
   return data.choices[0].message.content;
 }
 
@@ -195,7 +195,7 @@ async function callClaude(prompt: string): Promise<string> {
       return callGPT(prompt);
     }
     
-    const data = await response.json();
+    const data = await response.json() as any;
     return data.candidates[0].content.parts[0].text;
   } catch (e) {
     console.warn(`⚠️ Gemini error: ${e}, using GPT as fallback`);

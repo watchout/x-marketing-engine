@@ -254,7 +254,7 @@ async function generateWithGemini(prompt: string): Promise<ImageGenerationResult
       return { success: false, error: 'No image in Gemini response' };
     }
     
-    const data = await response.json();
+    const data = await response.json() as any;
     
     // Imagen API response
     const imageData = data.predictions?.[0]?.bytesBase64Encoded;
@@ -378,7 +378,7 @@ async function generateWithDalle(prompt: string): Promise<ImageGenerationResult>
       return { success: false, error: `DALL-E API error: ${error}` };
     }
     
-    const data = await response.json();
+    const data = await response.json() as any;
     const imageUrl = data.data?.[0]?.url;
     
     if (imageUrl) {
