@@ -1,0 +1,25 @@
+# Dependencies
+node_modules/
+
+# Environment
+.env
+.env.local
+.env.api
+
+# Logs
+*.log
+npm-debug.log*
+
+# Generated images (large files)
+content/images/generated/*.png
+content/images/generated/*.jpg
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo

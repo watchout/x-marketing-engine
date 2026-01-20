@@ -1,0 +1,464 @@
+metadata:
+  version: '1.0'
+  created: '2026-01-17'
+  goal: テストマーケティングによる需要検証 → SaaS申し込み獲得
+  weekly_story:
+    week1: 問題提起 & 存在認知（ペイン共感）
+    week2: 解決策の具体化 & 信頼構築
+    week3: 価値証明 & CTA誘導
+    week4: LP誘導 & 申し込み獲得
+time_slots:
+  morning:
+    time: '09:30'
+    purpose: 有益情報を与える
+    type: Type4_Tips
+  noon:
+    time: '12:00'
+    purpose: 製品の価値を証明
+    type: Type1_対比
+  night:
+    time: '21:00'
+    purpose: 思想でファンにする
+    type: Type3_思想
+posts:
+  - id: post_1768894621481
+    generated_at: '2026-01-20T07:37:01.481Z'
+    topic: 「AIに任せっきりは危険！バイブコーディングを卒業するための5つのステップ」
+    theme: バイブコーディングの限界
+    type: problem_statement
+    quality_score: 85
+    refinement_rounds: 1
+    variants:
+      A:
+        content: '正直、AI任せの「バイブコーディング」はマジで危険！指示が曖昧だと手戻り地獄。脱却への5Step：①要件定義を明確に ②設計書作成 ③実装 ④テスト ⑤改善。dev-OSで開発環境を統一し、SSOTで情報の一元化も重要！今日から脱・雰囲気コーディング！ #AI開発 #開発効率化 #エンジニア'
+        hook_type: フック型A
+      B:
+        content: '🚨緊急警報🚨 AIコーディング、使い方間違えると手戻り無限ループに突入します！😱 要件定義→設計→実装→テスト→改善の5Stepで確実に脱出しましょう。さらにdev-OSで環境統一、SSOTで情報一元化すれば鬼に金棒👹 #AI開発 #開発効率化 #エンジニア'
+        hook_type: フック型B
+    scores:
+      hook_strength: 21
+      persona_fit: 19
+      x_culture_fit: 23
+      specificity: 13
+      credibility: 9
+      total: 85
+      feedback: |-
+        この投稿は非常に効果的にターゲット層に訴求しています。最初の文でAI任せの危険性を強調しており、読者の興味を引きやすいです。ターゲットのペインポイントにも具体的に言及しており、問題解決のための5ステップが明確に示されています。dev-OSやSSOTといった具体的な技術的対策も含まれており、専門性と信頼性を感じさせます。改善点としては、さらに具体例や成功事例を加えることで、より一層の信頼性を高めることができるかもしれません。 | 全体的に良くまとまっており、ターゲットに刺さる可能性が高い投稿です。
+
+        **良い点:**
+        *   **Hook:** 「正直、AI任せの「バイブコーディング」はマジで危険！」という冒頭は、共感と問題提起を同時に行い、読者の注意を引きつけます。「マジで」という言葉遣いもXのカジュアルな雰囲気に合っています。
+        *   **Persona Fit:** ターゲットのペイン（AIに任せきりにすることの危険性、手戻りの多さ、指示の不明確さなど）に直接的に言及しており、共感を呼びます。
+        *   **X Culture Fit:** Xらしい短く、率直な表現で、共感を呼ぶ言葉遣い（「マジで」「雰囲気コーディング」）を使用しており、自然な投稿として受け入れられやすいでしょう。
+        *   **Specificity:** 要件定義、設計書作成、実装、テスト、改善という具体的なステップを示しており、具体的な行動を促すことができます。dev-OSやSSOTといった具体的なキーワードも効果的です。
+
+        **改善点:**
+        *   **Credibility:** 5Stepは一般的で理解しやすいものの、それぞれのステップの具体的な方法や、dev-OSやSSOTの具体的なメリットについて触れることで、より信頼性を高めることができます。例えば、「要件定義を明確に：ユーザーインタビューやプロトタイピングを活用」のように、具体的なアクションを付け加えることを検討してください。
+        *   **CTA（Call to Action）:** 最後に「今日から脱・雰囲気コーディング！」と締めくくられていますが、さらに具体的な行動を促すCTAを加えることを検討してください。例えば、「まずは要件定義を見直してみましょう！」や「コメント欄であなたのバイブコーディング経験を教えてください！」といった、エンゲージメントを高めるようなCTAが効果的です。
+        *   **ハッシュタグ:** ハッシュタグは適切ですが、より具体的なハッシュタグ（例：#AI開発の落とし穴 #開発プロセス改善 #アジャイル開発）などを追加することで、検索流入を増やすことができます。 | この投稿は、ターゲットとなる読者の共感を引きやすいフレーズで始まっており、最初の一行で興味を引く力があります。ペインポイントを明確に捉えており、特にAI任せの危険性を指摘する点でターゲットに刺さります。提案されている5つのステップも具体的で、実践的なアドバイスとして説得力を持っています。Xマーケティングの投稿としても自然で、専門家としての信頼性を感じさせます。改善点としては、さらに具体的な成功事例や数値データを加えることで、より一層の信頼性を高めることができるかもしれません。また、用語の簡単な説明を加えることで、技術に詳しくない読者にも理解しやすくなるでしょう。
+    status: pending
+  - id: w1d1_noon_vibe_vs_spec
+    week: 1
+    day: 1
+    slot: noon
+    theme: バイブコーディングの限界
+    type: Type1_対比
+    variants:
+      A:
+        content: |
+          【バイブコーディング vs 仕様駆動】
+
+          ❌ バイブ（感覚）で開発
+          「いい感じに作って」→「なんか違う…」→「もう一回」
+          → 結局、直す時間が溶ける
+
+          ✅ 仕様を整えてから開発
+          「これを、こう作って」→「はい、できました」
+          → AIが意図を正確に理解
+
+          違いは「指示の解像度」だけ。
+
+          #AI開発 #Cursor #バイブコーディング
+        hook_type: 対比リスト
+      B:
+        content: |
+          バイブコーディング、そろそろ限界じゃないですか？
+
+          「なんとなく」で作ると「なんとなく」のものしかできない。
+
+          Cursorに「いい感じに作って」と言っても、
+          AIは「いい感じ」が分からない。
+
+          仕様を整えれば、AIはあなたの意図を理解する。
+
+          #AI開発 #Cursor #バイブコーディング
+        hook_type: 問いかけ
+    status: active
+    scheduled_date: '2026-01-17'
+  - id: w1d1_night_philosophy
+    week: 1
+    day: 1
+    slot: night
+    theme: 整える思想
+    type: Type3_思想
+    variants:
+      A:
+        content: |
+          AIと開発するようになって気づいたこと。
+
+          「なんとなく」で始めると、
+          「なんとなく」のものしかできない。
+
+          AIは曖昧な指示には曖昧な出力しか返せない。
+          これは技術の問題じゃなく、人間の問題。
+
+          整えれば、AIはあなたの意図を理解する。
+          「確信」を持って開発できる。
+
+          その仕組みを作っています。
+
+          #BuildInPublic
+        hook_type: 気づき共有
+      B:
+        content: |
+          Cursorを使い始めて3ヶ月。
+
+          最初は「魔法だ！」と思った。
+          でも複雑になるほど、AIが迷走し始めた。
+
+          原因は明確だった。
+          僕の指示が曖昧だったから。
+
+          AIは悪くない。
+          人間が「何を作りたいか」を整理してなかっただけ。
+
+          #AI開発 #BuildInPublic
+        hook_type: 体験談
+    status: active
+    scheduled_date: '2026-01-17'
+  - id: w1d2_noon_fixing_hell
+    week: 1
+    day: 2
+    slot: noon
+    theme: 修正地獄
+    type: Type1_対比
+    variants:
+      A:
+        content: |
+          AIで作ったコード、
+          結局自分で直してませんか？
+
+          ・エッジケース漏れ
+          ・権限チェック忘れ
+          ・テナント分離してない
+
+          「AIに任せたら楽になる」は幻想でした。
+
+          でも、仕様を整えたら世界が変わった。
+
+          #AI開発 #Cursor
+        hook_type: 問題提起リスト
+      B:
+        content: |
+          AIが書いたコードのレビューに
+          1日の半分使ってませんか？
+
+          生成は速い。
+          でも「本番品質」にする作業が終わらない。
+
+          問題はAIじゃなく、
+          「何を作るか」が曖昧なこと。
+
+          #AI開発 #Cursor
+        hook_type: 問いかけ
+    status: active
+    scheduled_date: '2026-01-18'
+  - id: w1d2_night_yaml_insight
+    week: 1
+    day: 2
+    slot: night
+    theme: YAMLの気づき
+    type: Type3_思想
+    variants:
+      A:
+        content: |
+          dev-OS の開発で学んだこと 💡
+
+          YAMLで仕様を書くと、AIへの指示が安定する。
+          「あれ、昨日と違うこと言ってる？」がなくなった。
+
+          人間が曖昧なら、AIも曖昧になる。
+          仕様を整えることが、AI活用の第一歩。
+
+          #SSOT #Cursor #BuildInPublic
+        hook_type: 学び共有
+      B:
+        content: |
+          気づいたこと。
+
+          プロンプトを毎回考えるのは非効率。
+          仕様をYAMLで書いておけば、
+          AIへの指示が「再現可能」になる。
+
+          同じ品質のコードが、何度でも出せる。
+
+          #SSOT #AI開発
+        hook_type: 気づき
+    status: active
+    scheduled_date: '2026-01-18'
+  - id: w1d3_morning_mistake
+    week: 1
+    day: 3
+    slot: morning
+    theme: よくあるミス
+    type: Type4_Tips
+    variants:
+      A:
+        content: |
+          AI開発でよくあるミス ⚠️
+
+          × 「ユーザー管理機能を作って」
+          ○ 「organization_id でテナント分離された、招待制のユーザー管理機能を作って」
+
+          前提を言わないと、AIは一般的な実装しかしない。
+
+          #AI開発 #Tips
+        hook_type: Before/After例
+      B:
+        content: |
+          Cursorへの指示、これだけで変わる 💡
+
+          NG: 「認証機能を作って」
+          OK: 「JWT認証 + リフレッシュトークン + 失効管理を作って」
+
+          具体的に言えば言うほど、
+          AIは正確に理解する。
+
+          #Cursor #Tips
+        hook_type: 具体例
+    status: active
+    scheduled_date: '2026-01-19'
+  - id: w1d3_noon_20percent
+    week: 1
+    day: 3
+    slot: noon
+    theme: 残り20%問題
+    type: Type1_対比
+    variants:
+      A:
+        content: |
+          AI開発の「残り20%」が地獄な理由
+
+          プロトは1日で完成。
+          でも本番品質にするのに2週間。
+
+          ・認証・認可
+          ・監査ログ
+          ・エラーハンドリング
+          ・マルチテナント分離
+
+          AIは「言われたこと」しかやらない。
+          だから「言うべきこと」を整えるしかない。
+
+          #AI開発 #SaaS開発
+        hook_type: 数字インパクト
+      B:
+        content: |
+          80%までは爆速。
+          残り20%で詰む。
+
+          これ、AI開発の「あるある」じゃないですか？
+
+          原因は明確。
+          「本番に必要なこと」を最初から指示してないから。
+
+          #AI開発 #SaaS開発
+        hook_type: 共感問いかけ
+    status: active
+    scheduled_date: '2026-01-19'
+  - id: w1d3_night_saas_checklist
+    week: 1
+    day: 3
+    slot: night
+    theme: SaaS必須要件
+    type: Type4_Tips
+    variants:
+      A:
+        content: |
+          認証・課金・監査ログ
+
+          SaaS開発で忘れがちな3つの要件 📋
+
+          AIは言われた機能しか作らない。
+          これらは明示的に指示しないと抜ける。
+
+          チェックリストを仕様に入れておくのがコツ。
+
+          #SaaS開発 #Tips
+        hook_type: チェックリスト
+      B:
+        content: |
+          SaaS開発、これ抜けてませんか？
+
+          □ マルチテナント分離
+          □ 権限管理（RBAC）
+          □ 監査ログ
+          □ 課金連携（Stripe等）
+          □ メール通知
+
+          AIに「SaaSを作って」と言っても、
+          これらは自動で入らない。
+
+          #SaaS開発 #チェックリスト
+        hook_type: チェックリスト形式
+    status: active
+    scheduled_date: '2026-01-19'
+  - id: w1d4_noon_team_quality
+    week: 1
+    day: 4
+    slot: noon
+    theme: チーム品質差
+    type: Type1_対比
+    variants:
+      A:
+        content: |
+          チームでAI開発すると起きること。
+
+          Aさん: 「完璧なコードが出た！」
+          Bさん: 「全然使えない...」
+
+          同じCursorなのに、なぜ？
+
+          答え: プロンプトの書き方が違うから。
+
+          でも本当の問題は、
+          「何を作るか」がチームで統一されてないこと。
+
+          #AI開発 #チーム開発
+        hook_type: 会話形式
+      B:
+        content: |
+          メンバーによって、AIの使いこなしがバラバラ。
+
+          結果、コードレビューで品質を揃える羽目に。
+          レビュー負荷が特定の人間に集中。
+
+          これ、仕様を統一すれば解決できる。
+
+          #AI開発 #チーム開発
+        hook_type: 問題→解決
+    status: active
+    scheduled_date: '2026-01-20'
+  - id: w1d5_noon_handover
+    week: 1
+    day: 5
+    slot: noon
+    theme: 引き継ぎ問題
+    type: Type1_対比
+    variants:
+      A:
+        content: |
+          半年後の自分に聞きたい。
+
+          「この仕様、どこにあるんだっけ？」
+
+          AIとのチャット履歴を掘り返す地獄。
+          新メンバーへの説明に丸1日。
+
+          仕様を「正本」として残しておけば、
+          こうはならなかった。
+
+          #AI開発 #ドキュメント
+        hook_type: 未来の自分
+      B:
+        content: |
+          最新の仕様はどこにありますか？
+
+          「えーと、Cursorとの履歴を見れば...」
+          「Slackのあのスレッドに...」
+          「たしかNotionに...」
+
+          これ、詰んでます。
+
+          #AI開発 #ドキュメント
+        hook_type: あるある
+    status: active
+    scheduled_date: '2026-01-21'
+  - id: w1d6_noon_solution_hint
+    week: 1
+    day: 6
+    slot: noon
+    theme: 解決策の示唆
+    type: Type2_チラ見せ
+    variants:
+      A:
+        content: |
+          バイブコーディングの限界を突破する方法。
+
+          1. 仕様を「正本（SSOT）」として整理する
+          2. AIへの指示を「再現可能」にする
+          3. 複数のAIで多重チェックする
+
+          この3つで、「確信」を持って開発できる。
+
+          詳しくは来週のnote記事で。
+
+          #AI開発 #SSOT
+        hook_type: 解決策リスト
+      B:
+        content: |
+          「いい感じに」から「確信を持って」へ。
+
+          AIと開発するなら、
+          「何を作るか」を整えてから始める。
+
+          これだけで、手直し地獄から解放される。
+
+          具体的な方法、まとめています。
+
+          #AI開発 #SSOT
+        hook_type: 変化の提示
+    status: active
+    scheduled_date: '2026-01-22'
+  - id: w1d7_noon_week_summary
+    week: 1
+    day: 7
+    slot: noon
+    theme: Week1まとめ
+    type: Type3_思想
+    variants:
+      A:
+        content: |
+          今週のまとめ。
+
+          バイブコーディングの問題点:
+          ❌ 曖昧な指示 → 曖昧な出力
+          ❌ 修正地獄 → 時間が溶ける
+          ❌ 品質バラバラ → レビュー地獄
+
+          解決の方向性:
+          ✅ 仕様を整える → AIが理解する
+
+          来週は具体的な方法論を共有します。
+
+          #AI開発 #BuildInPublic
+        hook_type: まとめリスト
+      B:
+        content: |
+          1週間、AI開発の「あるある」を共有してきました。
+
+          共感してくれた方、ありがとうございます。
+
+          来週からは「じゃあどうすればいいの？」に答えていきます。
+
+          解決策、一緒に探っていきましょう。
+
+          #AI開発 #BuildInPublic
+        hook_type: 振り返り
+    status: active
+    scheduled_date: '2026-01-23'
+stats:
+  total_posts: 0
+  total_impressions: 0
+  total_likes: 0
+  total_retweets: 0
+  winning_patterns: []

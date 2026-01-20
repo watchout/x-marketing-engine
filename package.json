@@ -1,0 +1,32 @@
+{
+  "name": "x-marketing-engine",
+  "version": "1.0.0",
+  "description": "AI-powered X (Twitter) marketing automation with multi-LLM refinement",
+  "main": "scripts/generate_post_multi_llm.ts",
+  "scripts": {
+    "generate": "npx ts-node scripts/generate_post_multi_llm.ts generate",
+    "generate:dry": "npx ts-node scripts/generate_post_multi_llm.ts generate --dry-run",
+    "post:morning": "npx ts-node scripts/auto_post.ts post morning",
+    "post:night": "npx ts-node scripts/auto_post.ts post night",
+    "watch": "npx ts-node scripts/watch_influencers.ts watch",
+    "metrics": "npx ts-node scripts/collect_metrics.ts collect",
+    "analyze": "npx ts-node scripts/analyze_performance.ts analyze",
+    "sync": "npx ts-node scripts/sync_x_timeline.ts sync",
+    "log:summary": "npx ts-node scripts/logger.ts summary 7",
+    "log:daily": "npx ts-node scripts/logger.ts daily",
+    "test:connection": "npx ts-node scripts/test_x_connection.ts"
+  },
+  "dependencies": {
+    "js-yaml": "^4.1.0",
+    "twitter-api-v2": "^1.15.0"
+  },
+  "devDependencies": {
+    "@types/js-yaml": "^4.0.5",
+    "@types/node": "^20.0.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.0.0"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}

@@ -1,0 +1,79 @@
+# X Marketing Engine 設定ファイル
+# 
+# このファイルでアカウントごとの設定を管理します
+
+version: "1.0"
+
+# ===== アカウント情報 =====
+account:
+  handle: "@ai_risukirin"
+  name: "dev-OS公式"
+  description: "AI開発の新常識。バイブコーディングからの脱却。"
+
+# ===== ターゲットペルソナ =====
+persona:
+  name: "バイブコーディング脱却希望者"
+  pain_points:
+    - "AIに「いい感じにやって」と言っても結果がブレる"
+    - "複雑になると手戻りが多すぎる"
+    - "何を指示すればいいかわからない"
+    - "品質が安定しない"
+  desires:
+    - "再現性のあるAI開発がしたい"
+    - "仕様を決めれば自動で動く仕組みがほしい"
+    - "時間を無駄にしたくない"
+  keywords:
+    - "バイブコーディング"
+    - "Cursor"
+    - "AI開発"
+    - "SSOT"
+    - "dev-OS"
+
+# ===== 投稿設定 =====
+posting:
+  schedule:
+    morning:
+      time: "09:00"
+      timezone: "Asia/Tokyo"
+    night:
+      time: "20:00"
+      timezone: "Asia/Tokyo"
+  
+  hashtags:
+    default:
+      - "#AI開発"
+      - "#Cursor"
+    optional:
+      - "#エンジニア"
+      - "#開発効率化"
+      - "#バイブコーディング"
+
+# ===== 品質基準 =====
+quality:
+  score_threshold: 75
+  max_refinement_rounds: 3
+
+# ===== 監視対象インフルエンサー =====
+influencers:
+  - handle: "ai_jitan"
+    min_likes: 300
+  - handle: "masahirochaen"
+    min_likes: 500
+  - handle: "Fujin_Metaverse"
+    min_likes: 100
+  - handle: "commte"
+    min_likes: 100
+
+# ===== LLM設定 =====
+llm:
+  providers:
+    - name: "gpt"
+      model: "gpt-4o"
+      role: "フック評価"
+    - name: "gemini"
+      model: "gemini-2.0-flash-exp"
+      role: "ペルソナ分析・初稿生成"
+    - name: "grok"
+      model: "grok-2-latest"
+      role: "X文化評価"
+      optional: true

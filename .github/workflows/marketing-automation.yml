@@ -1,0 +1,190 @@
+# X Marketing Engine - 自動化ワークフロー
+#
+# 日次サイクル:
+#   06:00 JST - メトリクス収集 + 分析
+#   08:00 JST - マルチLLM投稿生成
+#   09:00 JST - 朝投稿
+#   20:00 JST - 夜投稿
+#
+# 必要なSecrets:
+#   X_API_KEY, X_API_SECRET, X_ACCESS_TOKEN, X_ACCESS_SECRET
+#   OPENAI_API_KEY, GOOGLE_AI_API_KEY
+#   GROK_API_KEY (オプション)
+
+name: X Marketing Automation
+
+on:
+  schedule:
+    # 分析 (06:00 JST = 21:00 UTC前日)
+    - cron: '0 21 * * *'
+    # 投稿生成 (08:00 JST = 23:00 UTC前日)
+    - cron: '0 23 * * *'
+    # 朝投稿 (09:00 JST = 00:00 UTC)
+    - cron: '0 0 * * *'
+    # 夜投稿 (20:00 JST = 11:00 UTC)
+    - cron: '0 11 * * *'
+  
+  workflow_dispatch:
+    inputs:
+      action:
+        description: 'Action to run'
+        required: true
+        default: 'generate'
+        type: choice
+        options:
+          - generate
+          - post_morning
+          - post_night
+          - analyze
+          - watch_influencers
+          - sync_timeline
+          - log_summary
+          - full_cycle
+
+env:
+  X_API_KEY: ${{ secrets.X_API_KEY }}
+  X_API_SECRET: ${{ secrets.X_API_SECRET }}
+  X_ACCESS_TOKEN: ${{ secrets.X_ACCESS_TOKEN }}
+  X_ACCESS_SECRET: ${{ secrets.X_ACCESS_SECRET }}
+  OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+  GOOGLE_AI_API_KEY: ${{ secrets.GOOGLE_AI_API_KEY }}
+  GROK_API_KEY: ${{ secrets.GROK_API_KEY }}
+
+jobs:
+  # ===== 分析 (06:00 JST) =====
+  analyze:
+    if: github.event.schedule == '0 21 * * *' || github.event.inputs.action == 'analyze' || github.event.inputs.action == 'full_cycle'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+      - run: npm ci
+      
+      - name: Sync timeline
+        run: npm run sync
+      
+      - name: Collect metrics
+        run: npm run metrics
+      
+      - name: Analyze performance
+        run: npm run analyze
+      
+      - name: Commit updates
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add content/
+          git diff --staged --quiet || git commit -m "📊 Daily analysis"
+          git push
+
+  # ===== 投稿生成 (08:00 JST) =====
+  generate:
+    if: github.event.schedule == '0 23 * * *' || github.event.inputs.action == 'generate' || github.event.inputs.action == 'full_cycle'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+      - run: npm ci
+      
+      - name: Generate posts with Multi-LLM
+        run: npm run generate
+      
+      - name: Commit posts
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add content/
+          git diff --staged --quiet || git commit -m "🧠 Generated new posts"
+          git push
+
+  # ===== 朝投稿 (09:00 JST) =====
+  post_morning:
+    if: github.event.schedule == '0 0 * * *' || github.event.inputs.action == 'post_morning' || github.event.inputs.action == 'full_cycle'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref }}
+      - run: git pull origin ${{ github.ref_name }} || true
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+      - run: npm ci
+      
+      - name: Post morning content
+        run: npm run post:morning
+      
+      - name: Commit history
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add content/
+          git diff --staged --quiet || git commit -m "📤 Morning post"
+          git push
+
+  # ===== 夜投稿 (20:00 JST) =====
+  post_night:
+    if: github.event.schedule == '0 11 * * *' || github.event.inputs.action == 'post_night' || github.event.inputs.action == 'full_cycle'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: git pull origin ${{ github.ref_name }} || true
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+      - run: npm ci
+      
+      - name: Post night content
+        run: npm run post:night
+      
+      - name: Commit history
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add content/
+          git diff --staged --quiet || git commit -m "📤 Night post"
+          git push
+
+  # ===== インフルエンサー監視 =====
+  watch_influencers:
+    if: github.event.inputs.action == 'watch_influencers'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+      - run: npm ci
+      
+      - name: Watch influencers
+        run: npm run watch
+      
+      - name: Commit patterns
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add content/
+          git diff --staged --quiet || git commit -m "📡 Influencer patterns"
+          git push
+
+  # ===== ログサマリー =====
+  log_summary:
+    if: github.event.inputs.action == 'log_summary'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+      - run: npm ci
+      - run: npm run log:summary
