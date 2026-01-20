@@ -21,6 +21,8 @@ on:
     - cron: '0 23 * * *'
     # 朝投稿 (09:00 JST = 00:00 UTC)
     - cron: '0 0 * * *'
+    # 昼投稿 (12:00 JST = 03:00 UTC)
+    - cron: '0 3 * * *'
     # 夜投稿 (20:00 JST = 11:00 UTC)
     - cron: '0 11 * * *'
   
@@ -34,6 +36,7 @@ on:
         options:
           - generate
           - post_morning
+          - post_noon
           - post_night
           - analyze
           - watch_influencers
@@ -127,6 +130,30 @@ jobs:
           git config --local user.name "GitHub Action"
           git add content/
           git diff --staged --quiet || git commit -m "📤 Morning post"
+          git push
+
+  # ===== 昼投稿 (12:00 JST) =====
+  post_noon:
+    if: github.event.schedule == '0 3 * * *' || github.event.inputs.action == 'post_noon' || github.event.inputs.action == 'full_cycle'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: git pull origin ${{ github.ref_name }} || true
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+      - run: npm ci
+      
+      - name: Post noon content
+        run: npm run post:noon
+      
+      - name: Commit history
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add content/
+          git diff --staged --quiet || git commit -m "📤 Noon post"
           git push
 
   # ===== 夜投稿 (20:00 JST) =====

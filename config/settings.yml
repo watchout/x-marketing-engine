@@ -30,14 +30,21 @@ persona:
     - "dev-OS"
 
 # ===== 投稿設定 =====
+# インフルエンサー分析結果: 毎日1-3投稿が標準
 posting:
   schedule:
     morning:
       time: "09:00"
       timezone: "Asia/Tokyo"
+      type: "Tips型"
+    noon:
+      time: "12:00"
+      timezone: "Asia/Tokyo"
+      type: "バズ狙い型"
     night:
       time: "20:00"
       timezone: "Asia/Tokyo"
+      type: "物語型"
   
   hashtags:
     default:
@@ -53,16 +60,90 @@ quality:
   score_threshold: 75
   max_refinement_rounds: 3
 
-# ===== 監視対象インフルエンサー =====
-influencers:
-  - handle: "ai_jitan"
-    min_likes: 300
-  - handle: "masahirochaen"
-    min_likes: 500
-  - handle: "Fujin_Metaverse"
-    min_likes: 100
-  - handle: "commte"
-    min_likes: 100
+# ===== ベンチマークアカウント（Grok分析 2026-01-20） =====
+benchmark_accounts:
+  tier1_large:  # 10万+フォロワー
+    - handle: "masahirochaen"
+      name: "チャエン | デジライズ CEO"
+      followers: 150000
+      frequency: "毎日1-3投稿"
+      posting_time: "朝7-8時"
+      style: "AIニュース最速発信"
+      min_likes: 500
+      learn_from:
+        - "速報性"
+        - "毎日の習慣化"
+        - "実務寄りの内容"
+    
+    - handle: "shota7180"
+      name: "木内翔大 | SHIFT AI代表"
+      followers: 140000
+      frequency: "週5-7投稿"
+      posting_time: "夕方-夜"
+      style: "モチベ系＋ツールTips"
+      min_likes: 500
+      learn_from:
+        - "ビジョン語り"
+        - "コミュニティ形成"
+  
+  tier2_medium:  # 3-10万フォロワー
+    - handle: "ai_jitan"
+      name: "えーたん/AI×時短で仕事効率化"
+      followers: 80000
+      frequency: "毎日1-2投稿"
+      posting_time: "朝10時-夕方"
+      style: "ツール活用法を動画付き解説"
+      min_likes: 300
+      buzz_rate: "最高（万バズ複数）"
+      priority: "最重要"
+      learn_from:
+        - "動画デモ必須"
+        - "再現可能な手順"
+        - "コピペで完了"
+    
+    - handle: "taziku_co"
+      name: "田中義弘 | AI×Creative"
+      followers: 50000
+      frequency: "毎日"
+      posting_time: "夜中心"
+      style: "生成AI動画・アニメ制作"
+      min_likes: 200
+  
+  tier3_growing:  # 1-3万フォロワー
+    - handle: "Fujin_Metaverse"
+      name: "Fujin | AI自動化の人"
+      followers: 30000
+      frequency: "毎日"
+      posting_time: "朝-昼"
+      style: "AIエージェント・自動化ステップバイステップ"
+      min_likes: 100
+      learn_from:
+        - "スレッド形式"
+        - "詳細な手順"
+    
+    - handle: "commte"
+      name: "コムテ | Agentic AI"
+      followers: 25000
+      frequency: "週4-6"
+      posting_time: "朝-夕方"
+      style: "Claude Code/Skill Marketplace実践"
+      min_likes: 100
+    
+    - handle: "akira_papa_IT"
+      name: "あきらパパ | 生成AI活用エンジニア"
+      followers: 20000
+      frequency: "週3-5"
+      posting_time: "夕方-夜"
+      style: "AIエージェント組織構築"
+      min_likes: 100
+    
+    - handle: "ai_database"
+      name: "AIDB"
+      followers: 30000
+      frequency: "週3-5"
+      posting_time: "夕方"
+      style: "論文ベースのAI科学解説"
+      min_likes: 100
 
 # ===== LLM設定 =====
 llm:
