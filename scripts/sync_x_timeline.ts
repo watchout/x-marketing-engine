@@ -79,8 +79,8 @@ interface PostHistory {
 }
 
 // ファイルパス
-const HISTORY_FILE = path.join(__dirname, '../../content/post_history.json');
-const PLATFORM_HISTORY_FILE = path.join(__dirname, '../../apps/platform/content/post_history.json');
+const HISTORY_FILE = path.join(__dirname, '../content/post_history.json');
+const PLATFORM_HISTORY_FILE = path.join(__dirname, '../content/post_history.json');
 
 // X API クライアント
 async function getXClient() {

@@ -1,0 +1,56 @@
+# X コンテンツ戦略
+version: "1.0"
+
+post_types:
+  tips:
+    description: "具体的なTips・ノウハウ"
+    hook_words: ["正直", "これだけで変わる", "知らないと損"]
+    time_slot: morning
+  
+  problem_statement:
+    description: "問題提起・共感"
+    hook_words: ["〜していませんか？", "実は", "多くの人が"]
+    time_slot: noon
+  
+  story:
+    description: "物語・体験談"
+    hook_words: ["〜を始めて", "気づいた", "変わった"]
+    time_slot: night
+  
+  discovery:
+    description: "発見・気づき"
+    hook_words: ["発見した", "わかった", "見つけた"]
+    time_slot: any
+  
+  thread:
+    description: "スレッド形式の詳細解説"
+    hook_words: ["解説します", "ステップ", "手順"]
+    time_slot: any
+
+buzz_elements:
+  visuals:
+    - "動画デモ"
+    - "スクリーンショット"
+    - "Before/After画像"
+  
+  hook_words:
+    - "正直"
+    - "断言します"
+    - "最強すぎ"
+    - "有能すぎ"
+    - "やばい"
+  
+  structure:
+    - "①②③のステップ形式"
+    - "問題→解決の流れ"
+    - "質問形式の導入"
+  
+  numbers:
+    - "具体的な数字を入れる"
+    - "時間短縮の数値"
+    - "成果の数字"
+
+optimal_times:
+  morning: "09:00"
+  noon: "12:00"
+  night: "20:00"

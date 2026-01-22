@@ -103,9 +103,9 @@ interface PostHistory {
   };
 }
 
-// ファイルパス
-const POOL_FILE = path.join(__dirname, '../../content/ab_test_pool.yml');
-const HISTORY_FILE = path.join(__dirname, '../../content/post_history.json');
+// ファイルパス（scriptsディレクトリからの相対パス）
+const POOL_FILE = path.join(__dirname, '../content/ab_test_pool.yml');
+const HISTORY_FILE = path.join(__dirname, '../content/post_history.json');
 
 // プールを読み込み
 function loadPool(): ABTestPool {

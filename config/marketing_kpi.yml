@@ -1,0 +1,33 @@
+# X Marketing KPI 定義
+version: "1.0"
+
+kgi:
+  name: "dev-OS認知拡大"
+  description: "バイブコーディング脱却を求める開発者にdev-OSを認知させる"
+
+kpi_tree:
+  primary:
+    - name: "週間インプレッション"
+      target: 5000
+      current: 0
+    - name: "フォロワー数"
+      target: 500
+      current: 23
+  
+  secondary:
+    - name: "週間投稿数"
+      target: 21
+    - name: "エンゲージメント率"
+      target: 1.0
+    - name: "平均いいね数"
+      target: 5
+
+daily_targets:
+  posts: 3
+  impressions: 700
+  likes: 3
+
+alert_thresholds:
+  er_warning: 0.5
+  er_critical: 0.3
+  post_gap_hours: 24

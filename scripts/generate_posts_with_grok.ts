@@ -253,7 +253,7 @@ async function generateWeeklyPosts(): Promise<void> {
       });
       
       // ファイルに保存
-      const outputPath = path.join(__dirname, '../../content/grok_generated/weekly_posts.json');
+      const outputPath = path.join(__dirname, '../content/grok_generated/weekly_posts.json');
       const dir = path.dirname(outputPath);
       if (!fs.existsSync(dir)) {
         fs.mkdirSync(dir, { recursive: true });

@@ -87,9 +87,9 @@ interface WeeklyKPI {
 }
 
 // ディレクトリ設定
-const REPORTS_DIR = path.join(__dirname, '../../docs/reports');
-const POSTED_LOG_FILE = path.join(__dirname, '../../content/x_posted_log.json');
-const KPI_HISTORY_FILE = path.join(__dirname, '../../content/kpi_history.json');
+const REPORTS_DIR = path.join(__dirname, '../docs/reports');
+const POSTED_LOG_FILE = path.join(__dirname, '../content/x_posted_log.json');
+const KPI_HISTORY_FILE = path.join(__dirname, '../content/kpi_history.json');
 
 // X APIからメトリクスを取得
 async function getXMetrics(): Promise<XMetrics | null> {
@@ -166,7 +166,7 @@ function countWeeklyPosts(logs: PostedLog[]): number {
 
 // 公開された記事を検出
 function findPublishedArticles(): { slug: string; title: string }[] {
-  const articlesDir = path.join(__dirname, '../../articles');
+  const articlesDir = path.join(__dirname, '../articles');
   if (!fs.existsSync(articlesDir)) {
     return [];
   }

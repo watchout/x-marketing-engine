@@ -65,7 +65,7 @@ interface ImageGenerationResult {
 }
 
 // 画像保存ディレクトリ
-const IMAGES_DIR = path.join(__dirname, '../../content/images/generated');
+const IMAGES_DIR = path.join(__dirname, '../content/images/generated');
 
 // スタイル別プロンプトテンプレート
 const STYLE_TEMPLATES: Record<ImageStyle, string> = {

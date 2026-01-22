@@ -71,8 +71,8 @@ interface PostHistory {
 }
 
 // ファイルパス
-const HISTORY_FILE = path.join(__dirname, '../../content/post_history.json');
-const METRICS_DIR = path.join(__dirname, '../../content/metrics');
+const HISTORY_FILE = path.join(__dirname, '../content/post_history.json');
+const METRICS_DIR = path.join(__dirname, '../content/metrics');
 
 // 履歴を読み込み
 function loadHistory(): PostHistory[] {

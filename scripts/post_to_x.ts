@@ -74,8 +74,8 @@ interface ContentCalendarEntry {
 }
 
 // 設定
-const SCHEDULE_FILE = path.join(__dirname, '../../content/x_schedule.json');
-const POSTED_LOG_FILE = path.join(__dirname, '../../content/x_posted_log.json');
+const SCHEDULE_FILE = path.join(__dirname, '../content/x_schedule.json');
+const POSTED_LOG_FILE = path.join(__dirname, '../content/x_posted_log.json');
 
 // X API クライアント（twitter-api-v2 を使用）
 async function getXClient() {
@@ -209,7 +209,7 @@ async function processScheduledPosts(): Promise<void> {
 
 // コンテンツカレンダーから読み込み
 function loadContentCalendar(): ContentCalendarEntry[] {
-  const calendarPath = path.join(__dirname, '../../content/x_calendar.json');
+  const calendarPath = path.join(__dirname, '../content/x_calendar.json');
   
   if (!fs.existsSync(calendarPath)) {
     console.log('📝 Creating sample calendar...');

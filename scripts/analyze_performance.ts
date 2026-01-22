@@ -78,17 +78,17 @@ interface KPITargets {
 }
 
 // ファイルパス
-const HISTORY_FILE = path.join(__dirname, '../../content/post_history.json');
-const WINNING_PATTERNS_FILE = path.join(__dirname, '../../apps/platform/ssot/winning_patterns.yml');
-const KPI_FILE = path.join(__dirname, '../../apps/platform/ssot/marketing_kpi.yml');
-const CONTENT_STRATEGY_FILE = path.join(__dirname, '../../apps/platform/ssot/x_content_strategy.yml');
+const HISTORY_FILE = path.join(__dirname, '../content/post_history.json');
+const WINNING_PATTERNS_FILE = path.join(__dirname, '../config/winning_patterns.yml');
+const KPI_FILE = path.join(__dirname, '../config/marketing_kpi.yml');
+const CONTENT_STRATEGY_FILE = path.join(__dirname, '../config/x_content_strategy.yml');
 
 // 履歴を読み込み
 function loadHistory(): PostHistory[] {
   // 複数の場所を探す
   const paths = [
     HISTORY_FILE,
-    path.join(__dirname, '../../apps/platform/content/post_history.json'),
+    path.join(__dirname, '../content/post_history.json'),
   ];
   
   for (const p of paths) {
