@@ -1371,15 +1371,34 @@
     }
 
     // ===== データ読み込み =====
+    // GitHub raw URL または ローカルパスからデータを取得
+    const DATA_SOURCES = {
+      // Vercel/本番環境用: GitHub raw URL
+      github: 'https://raw.githubusercontent.com/watchout/x-marketing-engine/main/content/post_history.json',
+      // ローカル開発用
+      local: '../content/post_history.json'
+    };
+    
     async function loadData() {
-      try {
-        const res = await fetch('../content/post_history.json');
-        if (res.ok) {
-          postHistory = await res.json();
-          systemStatus = 'active';
+      // まずローカルを試し、失敗したらGitHubから取得
+      const sources = [DATA_SOURCES.local, DATA_SOURCES.github];
+      
+      for (const url of sources) {
+        try {
+          const res = await fetch(url);
+          if (res.ok) {
+            postHistory = await res.json();
+            systemStatus = 'active';
+            console.log('Data loaded from:', url);
+            break;
+          }
+        } catch (e) {
+          console.log('Failed to load from:', url);
         }
-      } catch (e) {
-        console.error('Failed to load data:', e);
+      }
+      
+      if (postHistory.length === 0) {
+        console.error('Failed to load data from all sources');
         systemStatus = 'error';
       }
       

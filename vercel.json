@@ -1,0 +1,23 @@
+{
+  "version": 2,
+  "name": "x-marketing-engine",
+  "buildCommand": null,
+  "outputDirectory": "dashboard",
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=60, stale-while-revalidate=300"
+        }
+      ]
+    }
+  ]
+}
