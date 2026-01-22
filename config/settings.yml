@@ -30,21 +30,35 @@ persona:
     - "dev-OS"
 
 # ===== 投稿設定 =====
-# インフルエンサー分析結果: 毎日1-3投稿が標準
+# 1日5投稿スケジュール（段階的に増加予定）
 posting:
+  daily_count: 5
   schedule:
-    morning:
-      time: "09:00"
+    slot_1:
+      time: "08:00"
       timezone: "Asia/Tokyo"
       type: "Tips型"
-    noon:
+      description: "朝イチ - 実用的なTips"
+    slot_2:
+      time: "10:00"
+      timezone: "Asia/Tokyo"
+      type: "発見型"
+      description: "午前 - 発見・気づき"
+    slot_3:
       time: "12:00"
       timezone: "Asia/Tokyo"
       type: "バズ狙い型"
-    night:
-      time: "20:00"
+      description: "昼ピーク - 強いフック"
+    slot_4:
+      time: "18:00"
+      timezone: "Asia/Tokyo"
+      type: "問題提起型"
+      description: "夕方 - 共感を呼ぶ問題提起"
+    slot_5:
+      time: "21:00"
       timezone: "Asia/Tokyo"
       type: "物語型"
+      description: "夜 - ストーリー・体験談"
   
   hashtags:
     default:

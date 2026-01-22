@@ -1286,13 +1286,16 @@
     
     function renderSchedule() {
       const container = document.getElementById('schedule-grid');
+      container.style.gridTemplateColumns = 'repeat(5, 1fr)';
       const now = new Date();
       const currentHour = now.getHours();
       
       const slots = [
-        { time: '09:00', type: 'Tips型', icon: '💡', hour: 9 },
-        { time: '12:00', type: 'バズ狙い型', icon: '🔥', hour: 12 },
-        { time: '20:00', type: '物語型', icon: '📖', hour: 20 },
+        { time: '08:00', type: 'Tips型', icon: '💡', hour: 8 },
+        { time: '10:00', type: '発見型', icon: '🔍', hour: 10 },
+        { time: '12:00', type: 'バズ狙い', icon: '🔥', hour: 12 },
+        { time: '18:00', type: '問題提起', icon: '❓', hour: 18 },
+        { time: '21:00', type: '物語型', icon: '📖', hour: 21 },
       ];
       
       container.innerHTML = slots.map(slot => {
