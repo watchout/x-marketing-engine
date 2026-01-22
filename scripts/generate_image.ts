@@ -231,7 +231,7 @@ async function generateWithGemini(prompt: string): Promise<ImageGenerationResult
         return { success: false, error: `Gemini API error: ${geminiError}` };
       }
       
-      const geminiData = await geminiResponse.json();
+      const geminiData = await geminiResponse.json() as any;
       
       // 画像データを抽出
       const imagePart = geminiData.candidates?.[0]?.content?.parts?.find(
@@ -310,7 +310,7 @@ async function generateWithFlux(prompt: string): Promise<ImageGenerationResult> 
       return { success: false, error: `Replicate API error: ${error}` };
     }
     
-    const prediction = await response.json();
+    const prediction = await response.json() as any;
     
     // ポーリングで完了を待つ
     let result = prediction;
@@ -322,7 +322,7 @@ async function generateWithFlux(prompt: string): Promise<ImageGenerationResult> 
           headers: { 'Authorization': `Bearer ${apiKey}` }
         }
       );
-      result = await statusResponse.json();
+      result = await statusResponse.json() as any;
     }
     
     if (result.status === 'succeeded' && result.output?.[0]) {

@@ -1,0 +1,35 @@
+# X Marketing Engine - 勝ちパターンDB
+# 
+# このファイルは analyze_performance.ts によって自動更新されます
+# 高パフォーマンス投稿のパターンを蓄積し、生成に活用
+
+version: "1.0"
+last_updated: null
+
+# 勝ち判定基準
+criteria:
+  impressions_threshold: 100
+  likes_threshold: 3
+  er_threshold: 0.5
+
+# 型別トップパフォーマー
+top_performers:
+  tips: []
+  problem_statement: []
+  before_after: []
+  discovery: []
+  story: []
+  comparison: []
+  trend: []
+  thread: []
+
+# 成功要素の抽出
+winning_elements:
+  hooks: []
+  structures: []
+  themes: []
+  hashtags: []
+  posting_times: []
+
+# Few-shot examples（生成時に使用）
+few_shot_examples: []

@@ -229,7 +229,7 @@ RT: ${tweet.public_metrics.retweet_count}
       });
       
       if (res.ok) {
-        const data = await res.json();
+        const data = await res.json() as any;
         response = data.choices[0].message.content;
       } else {
         throw new Error('Grok API failed');
@@ -253,7 +253,7 @@ RT: ${tweet.public_metrics.retweet_count}
       });
       
       if (!res.ok) throw new Error('GPT API failed');
-      const data = await res.json();
+      const data = await res.json() as any;
       response = data.choices[0].message.content;
     }
     
