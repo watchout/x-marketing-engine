@@ -9,128 +9,306 @@
       --bg-primary: #0d1117;
       --bg-secondary: #161b22;
       --bg-card: #21262d;
+      --bg-hover: #30363d;
       --text-primary: #e6edf3;
       --text-secondary: #8b949e;
+      --text-muted: #6e7681;
       --accent-blue: #58a6ff;
       --accent-green: #3fb950;
       --accent-orange: #d29922;
       --accent-red: #f85149;
       --accent-purple: #a371f7;
+      --accent-cyan: #79c0ff;
       --border: #30363d;
+      --success: #238636;
+      --warning: #9e6a03;
+      --danger: #da3633;
     }
     
     * { box-sizing: border-box; margin: 0; padding: 0; }
     
     body {
-      font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
       background: var(--bg-primary);
       color: var(--text-primary);
       min-height: 100vh;
-      padding: 24px;
+      line-height: 1.5;
     }
     
+    .container { max-width: 1400px; margin: 0 auto; padding: 24px; }
+    
+    /* Header */
     .header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 32px;
+      margin-bottom: 24px;
       padding-bottom: 16px;
       border-bottom: 1px solid var(--border);
     }
     
     .header h1 {
-      font-size: 28px;
+      font-size: 24px;
       font-weight: 600;
-      background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      display: flex;
+      align-items: center;
+      gap: 12px;
     }
     
-    .header .status {
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    
+    .status-badge {
       display: flex;
       align-items: center;
       gap: 8px;
-      color: var(--accent-green);
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 500;
     }
     
-    .header .status::before {
+    .status-active { background: rgba(63, 185, 80, 0.15); color: var(--accent-green); }
+    .status-warning { background: rgba(210, 153, 34, 0.15); color: var(--accent-orange); }
+    .status-error { background: rgba(248, 81, 73, 0.15); color: var(--accent-red); }
+    
+    .status-badge::before {
       content: '';
       width: 8px;
       height: 8px;
-      background: var(--accent-green);
       border-radius: 50%;
+      background: currentColor;
       animation: pulse 2s infinite;
     }
     
     @keyframes pulse {
       0%, 100% { opacity: 1; }
-      50% { opacity: 0.5; }
+      50% { opacity: 0.4; }
     }
     
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 20px;
-      margin-bottom: 32px;
+    .last-updated { color: var(--text-muted); font-size: 12px; }
+    
+    /* Navigation Tabs */
+    .tabs {
+      display: flex;
+      gap: 4px;
+      margin-bottom: 24px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 0;
     }
     
+    .tab {
+      padding: 12px 20px;
+      cursor: pointer;
+      color: var(--text-secondary);
+      border-bottom: 2px solid transparent;
+      transition: all 0.2s;
+      font-size: 14px;
+    }
+    
+    .tab:hover { color: var(--text-primary); }
+    .tab.active { color: var(--accent-blue); border-bottom-color: var(--accent-blue); }
+    
+    /* Tab Content */
+    .tab-content { display: none; }
+    .tab-content.active { display: block; }
+    
+    /* Grid Layouts */
+    .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 24px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 24px; }
+    .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-bottom: 24px; }
+    
+    @media (max-width: 1200px) { .grid-4 { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 768px) { 
+      .grid-4, .grid-3, .grid-2 { grid-template-columns: 1fr; }
+    }
+    
+    /* Cards */
     .card {
       background: var(--bg-card);
       border: 1px solid var(--border);
-      border-radius: 12px;
+      border-radius: 8px;
       padding: 20px;
     }
     
-    .card h2 {
-      font-size: 14px;
-      color: var(--text-secondary);
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
       margin-bottom: 16px;
     }
     
-    .stat-value {
-      font-size: 36px;
-      font-weight: 700;
-      margin-bottom: 8px;
-    }
-    
-    .stat-label {
-      color: var(--text-secondary);
+    .card-title {
       font-size: 14px;
+      font-weight: 500;
+      color: var(--text-secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
     }
     
-    .stat-change {
+    .card-badge {
+      font-size: 11px;
+      padding: 2px 8px;
+      border-radius: 12px;
+      font-weight: 500;
+    }
+    
+    /* Stats Cards */
+    .stat-card .value {
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+    
+    .stat-card .label {
+      color: var(--text-secondary);
+      font-size: 13px;
+    }
+    
+    .stat-card .change {
       display: inline-flex;
       align-items: center;
       gap: 4px;
       font-size: 12px;
       padding: 2px 8px;
       border-radius: 4px;
-      margin-left: 8px;
+      margin-top: 8px;
     }
     
-    .stat-change.up { background: rgba(63, 185, 80, 0.2); color: var(--accent-green); }
-    .stat-change.down { background: rgba(248, 81, 73, 0.2); color: var(--accent-red); }
+    .change.up { background: rgba(63, 185, 80, 0.15); color: var(--accent-green); }
+    .change.down { background: rgba(248, 81, 73, 0.15); color: var(--accent-red); }
+    .change.neutral { background: rgba(139, 148, 158, 0.15); color: var(--text-secondary); }
     
-    .section-title {
-      font-size: 20px;
-      font-weight: 600;
+    /* KPI Progress */
+    .kpi-progress {
+      margin-top: 12px;
+    }
+    
+    .kpi-bar {
+      height: 6px;
+      background: var(--bg-hover);
+      border-radius: 3px;
+      overflow: hidden;
+    }
+    
+    .kpi-fill {
+      height: 100%;
+      border-radius: 3px;
+      transition: width 0.5s ease;
+    }
+    
+    .kpi-labels {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 6px;
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+    
+    /* Section Headers */
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
       margin: 32px 0 16px;
       padding-bottom: 8px;
       border-bottom: 1px solid var(--border);
     }
     
+    .section-title {
+      font-size: 18px;
+      font-weight: 600;
+    }
+    
+    /* Tables */
+    .table-container {
+      overflow-x: auto;
+    }
+    
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    
+    th, td {
+      padding: 12px;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+    }
+    
+    th {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--text-secondary);
+      text-transform: uppercase;
+    }
+    
+    tr:hover { background: var(--bg-hover); }
+    
+    /* Post Cards */
+    .post-card {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px;
+      margin-bottom: 12px;
+    }
+    
+    .post-meta {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 12px;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+    
+    .post-content {
+      font-size: 14px;
+      line-height: 1.6;
+      margin-bottom: 12px;
+      white-space: pre-wrap;
+    }
+    
+    .post-metrics {
+      display: flex;
+      gap: 20px;
+      font-size: 13px;
+      color: var(--text-secondary);
+    }
+    
+    .post-metrics span {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    
+    .post-type-badge {
+      font-size: 11px;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-weight: 500;
+    }
+    
+    .type-tips { background: rgba(88, 166, 255, 0.15); color: var(--accent-blue); }
+    .type-problem { background: rgba(248, 81, 73, 0.15); color: var(--accent-red); }
+    .type-story { background: rgba(163, 113, 247, 0.15); color: var(--accent-purple); }
+    .type-discovery { background: rgba(63, 185, 80, 0.15); color: var(--accent-green); }
+    .type-thread { background: rgba(210, 153, 34, 0.15); color: var(--accent-orange); }
+    
+    /* Influencer Cards */
     .influencer-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
       gap: 16px;
     }
     
     .influencer-card {
       background: var(--bg-secondary);
       border: 1px solid var(--border);
-      border-radius: 10px;
+      border-radius: 8px;
       padding: 16px;
       transition: transform 0.2s, border-color 0.2s;
     }
@@ -140,11 +318,13 @@
       border-color: var(--accent-blue);
     }
     
+    .influencer-card.priority { border-color: var(--accent-orange); }
+    
     .influencer-header {
       display: flex;
       justify-content: space-between;
       align-items: flex-start;
-      margin-bottom: 12px;
+      margin-bottom: 8px;
     }
     
     .influencer-handle {
@@ -152,95 +332,53 @@
       color: var(--accent-blue);
     }
     
-    .influencer-tier {
+    .tier-badge {
       font-size: 10px;
-      padding: 2px 6px;
+      padding: 2px 8px;
       border-radius: 4px;
-      background: var(--accent-purple);
-      color: white;
+      font-weight: 600;
     }
+    
+    .tier-1 { background: linear-gradient(135deg, #ffd700, #ffb347); color: #000; }
+    .tier-2 { background: linear-gradient(135deg, #c0c0c0, #a8a8a8); color: #000; }
+    .tier-3 { background: linear-gradient(135deg, #cd7f32, #a0522d); color: #fff; }
     
     .influencer-name {
       font-size: 13px;
       color: var(--text-secondary);
-      margin-bottom: 8px;
+      margin-bottom: 12px;
     }
     
     .influencer-stats {
       display: flex;
       gap: 16px;
       font-size: 12px;
-      color: var(--text-secondary);
+      color: var(--text-muted);
+      margin-bottom: 12px;
     }
     
-    .influencer-stats span {
-      display: flex;
-      align-items: center;
-      gap: 4px;
-    }
-    
-    .influencer-learn {
-      margin-top: 12px;
+    .learn-points {
       padding-top: 12px;
       border-top: 1px solid var(--border);
     }
     
-    .influencer-learn h4 {
+    .learn-points h4 {
       font-size: 11px;
-      color: var(--text-secondary);
-      margin-bottom: 6px;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+      text-transform: uppercase;
     }
     
     .tag {
       display: inline-block;
       font-size: 11px;
-      padding: 2px 8px;
+      padding: 3px 8px;
       background: var(--bg-card);
       border-radius: 4px;
       margin: 2px;
-      color: var(--text-primary);
     }
     
-    .post-list {
-      background: var(--bg-secondary);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      overflow: hidden;
-    }
-    
-    .post-item {
-      padding: 16px;
-      border-bottom: 1px solid var(--border);
-    }
-    
-    .post-item:last-child { border-bottom: none; }
-    
-    .post-meta {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 8px;
-      font-size: 12px;
-      color: var(--text-secondary);
-    }
-    
-    .post-content {
-      font-size: 14px;
-      line-height: 1.5;
-      margin-bottom: 12px;
-    }
-    
-    .post-metrics {
-      display: flex;
-      gap: 16px;
-      font-size: 13px;
-    }
-    
-    .post-metrics span {
-      display: flex;
-      align-items: center;
-      gap: 4px;
-    }
-    
+    /* Schedule */
     .schedule-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -250,13 +388,16 @@
     .schedule-slot {
       background: var(--bg-secondary);
       border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 16px;
+      border-radius: 8px;
+      padding: 20px;
       text-align: center;
     }
     
+    .schedule-slot.next { border-color: var(--accent-green); }
+    .schedule-slot.completed { opacity: 0.6; }
+    
     .schedule-time {
-      font-size: 24px;
+      font-size: 28px;
       font-weight: 700;
       color: var(--accent-blue);
     }
@@ -267,204 +408,1051 @@
       margin-top: 4px;
     }
     
-    .log-container {
+    .schedule-status {
+      font-size: 11px;
+      margin-top: 8px;
+      padding: 4px 12px;
+      border-radius: 12px;
+      display: inline-block;
+    }
+    
+    /* Analysis Charts */
+    .chart-placeholder {
+      height: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       background: var(--bg-secondary);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 16px;
-      font-family: 'SF Mono', monospace;
+      border-radius: 8px;
+      color: var(--text-muted);
+    }
+    
+    .bar-chart {
+      display: flex;
+      align-items: flex-end;
+      gap: 8px;
+      height: 150px;
+      padding: 16px 0;
+    }
+    
+    .bar-item {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .bar {
+      width: 100%;
+      max-width: 40px;
+      background: var(--accent-blue);
+      border-radius: 4px 4px 0 0;
+      min-height: 4px;
+      transition: height 0.5s ease;
+    }
+    
+    .bar-label {
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-top: 8px;
+      text-align: center;
+    }
+    
+    .bar-value {
       font-size: 12px;
-      max-height: 300px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+    
+    /* Activity Log */
+    .activity-log {
+      max-height: 400px;
       overflow-y: auto;
     }
     
     .log-entry {
-      padding: 4px 0;
+      display: flex;
+      gap: 12px;
+      padding: 12px;
       border-bottom: 1px solid var(--border);
+      font-size: 13px;
     }
     
-    .log-time { color: var(--text-secondary); }
-    .log-type-generate { color: var(--accent-purple); }
-    .log-type-post { color: var(--accent-green); }
-    .log-type-metrics { color: var(--accent-blue); }
-    .log-type-error { color: var(--accent-red); }
+    .log-time {
+      color: var(--text-muted);
+      min-width: 140px;
+    }
     
-    #loading {
+    .log-icon {
+      width: 20px;
       text-align: center;
-      padding: 40px;
-      color: var(--text-secondary);
+    }
+    
+    .log-message { flex: 1; }
+    
+    /* Alerts */
+    .alert {
+      padding: 16px;
+      border-radius: 8px;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+    
+    .alert-warning { background: rgba(210, 153, 34, 0.1); border: 1px solid var(--accent-orange); }
+    .alert-error { background: rgba(248, 81, 73, 0.1); border: 1px solid var(--accent-red); }
+    .alert-success { background: rgba(63, 185, 80, 0.1); border: 1px solid var(--accent-green); }
+    
+    .alert-icon { font-size: 18px; }
+    .alert-content h4 { font-size: 14px; margin-bottom: 4px; }
+    .alert-content p { font-size: 13px; color: var(--text-secondary); }
+    
+    /* Action Items */
+    .action-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 16px;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      margin-bottom: 8px;
+    }
+    
+    .action-priority {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+    }
+    
+    .priority-high { background: var(--accent-red); }
+    .priority-medium { background: var(--accent-orange); }
+    .priority-low { background: var(--accent-blue); }
+    
+    .action-content { flex: 1; }
+    .action-title { font-size: 14px; font-weight: 500; }
+    .action-desc { font-size: 12px; color: var(--text-secondary); }
+
+    /* Quick Stats Row */
+    .quick-stats {
+      display: flex;
+      gap: 24px;
+      padding: 16px 20px;
+      background: var(--bg-secondary);
+      border-radius: 8px;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+    }
+    
+    .quick-stat {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .quick-stat-value { font-weight: 600; }
+    .quick-stat-label { color: var(--text-muted); font-size: 13px; }
+
+    /* Loading */
+    #loading {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 50vh;
+      gap: 16px;
+    }
+    
+    .spinner {
+      width: 40px;
+      height: 40px;
+      border: 3px solid var(--border);
+      border-top-color: var(--accent-blue);
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+    
+    @keyframes spin {
+      to { transform: rotate(360deg); }
     }
   </style>
 </head>
 <body>
-  <header class="header">
-    <h1>🚀 X Marketing Engine</h1>
-    <div class="status">System Active</div>
-  </header>
-  
-  <div id="loading">Loading data...</div>
-  
-  <div id="content" style="display: none;">
-    <!-- Stats Overview -->
-    <div class="grid">
-      <div class="card">
-        <h2>📊 Total Posts</h2>
-        <div class="stat-value" id="stat-posts">-</div>
-        <div class="stat-label">過去7日間</div>
+  <div class="container">
+    <header class="header">
+      <h1>
+        <span style="font-size: 28px;">📊</span>
+        X Marketing Engine
+      </h1>
+      <div class="header-right">
+        <div class="status-badge status-warning" id="system-status">
+          確認中...
+        </div>
+        <div class="last-updated" id="last-updated">-</div>
       </div>
-      <div class="card">
-        <h2>👁️ Total Impressions</h2>
-        <div class="stat-value" id="stat-impressions">-</div>
-        <div class="stat-label">累計インプレッション</div>
-      </div>
-      <div class="card">
-        <h2>❤️ Total Likes</h2>
-        <div class="stat-value" id="stat-likes">-</div>
-        <div class="stat-label">累計いいね</div>
-      </div>
-      <div class="card">
-        <h2>📈 Engagement Rate</h2>
-        <div class="stat-value" id="stat-er">-</div>
-        <div class="stat-label">平均エンゲージメント率</div>
-      </div>
+    </header>
+
+    <div class="tabs">
+      <div class="tab active" data-tab="overview">概要</div>
+      <div class="tab" data-tab="posts">投稿一覧</div>
+      <div class="tab" data-tab="analysis">分析</div>
+      <div class="tab" data-tab="benchmark">ベンチマーク</div>
+      <div class="tab" data-tab="schedule">スケジュール</div>
+      <div class="tab" data-tab="logs">ログ</div>
     </div>
-    
-    <!-- Schedule -->
-    <h2 class="section-title">⏰ Daily Schedule</h2>
-    <div class="schedule-grid">
-      <div class="schedule-slot">
-        <div class="schedule-time">09:00</div>
-        <div class="schedule-type">朝投稿 - Tips型</div>
-      </div>
-      <div class="schedule-slot">
-        <div class="schedule-time">12:00</div>
-        <div class="schedule-type">昼投稿 - バズ狙い型</div>
-      </div>
-      <div class="schedule-slot">
-        <div class="schedule-time">20:00</div>
-        <div class="schedule-type">夜投稿 - 物語型</div>
-      </div>
+
+    <div id="loading">
+      <div class="spinner"></div>
+      <div style="color: var(--text-muted);">データを読み込み中...</div>
     </div>
-    
-    <!-- Benchmark Accounts -->
-    <h2 class="section-title">👤 Benchmark Accounts</h2>
-    <div class="influencer-grid" id="influencer-list">
-      <!-- Populated by JS -->
-    </div>
-    
-    <!-- Recent Posts -->
-    <h2 class="section-title">📝 Recent Posts</h2>
-    <div class="post-list" id="post-list">
-      <!-- Populated by JS -->
-    </div>
-    
-    <!-- Activity Log -->
-    <h2 class="section-title">📋 Activity Log</h2>
-    <div class="log-container" id="log-container">
-      <!-- Populated by JS -->
+
+    <div id="main-content" style="display: none;">
+      
+      <!-- ===== 概要タブ ===== -->
+      <div class="tab-content active" id="tab-overview">
+        <div id="alerts-container"></div>
+        
+        <div class="grid-4" id="main-stats"></div>
+        
+        <div class="section-header">
+          <h2 class="section-title">📈 KPI達成状況</h2>
+        </div>
+        <div class="grid-3" id="kpi-cards"></div>
+        
+        <div class="section-header">
+          <h2 class="section-title">🏆 トップパフォーマンス投稿</h2>
+        </div>
+        <div id="top-posts"></div>
+        
+        <div class="section-header">
+          <h2 class="section-title">📋 推奨アクション</h2>
+        </div>
+        <div id="action-items"></div>
+      </div>
+
+      <!-- ===== 投稿一覧タブ ===== -->
+      <div class="tab-content" id="tab-posts">
+        <div class="quick-stats" id="posts-quick-stats"></div>
+        
+        <div class="section-header">
+          <h2 class="section-title">投稿履歴</h2>
+          <select id="posts-filter" style="background: var(--bg-secondary); color: var(--text-primary); border: 1px solid var(--border); padding: 8px 12px; border-radius: 6px;">
+            <option value="all">すべて</option>
+            <option value="tips">Tips型</option>
+            <option value="problem_statement">問題提起型</option>
+            <option value="story">物語型</option>
+            <option value="discovery">発見型</option>
+            <option value="thread">スレッド</option>
+          </select>
+        </div>
+        <div id="posts-list"></div>
+      </div>
+
+      <!-- ===== 分析タブ ===== -->
+      <div class="tab-content" id="tab-analysis">
+        <div class="grid-2">
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">投稿タイプ別パフォーマンス</h3>
+            </div>
+            <div id="type-performance"></div>
+          </div>
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">時間帯別パフォーマンス</h3>
+            </div>
+            <div id="time-performance"></div>
+          </div>
+        </div>
+        
+        <div class="section-header">
+          <h2 class="section-title">📊 週次トレンド</h2>
+        </div>
+        <div class="card">
+          <div id="weekly-trend"></div>
+        </div>
+        
+        <div class="section-header">
+          <h2 class="section-title">🔍 コンテンツ分析</h2>
+        </div>
+        <div class="grid-2">
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">高パフォーマンス要素</h3>
+            </div>
+            <div id="winning-elements"></div>
+          </div>
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">改善ポイント</h3>
+            </div>
+            <div id="improvement-points"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== ベンチマークタブ ===== -->
+      <div class="tab-content" id="tab-benchmark">
+        <div class="quick-stats">
+          <div class="quick-stat">
+            <span class="quick-stat-value">8</span>
+            <span class="quick-stat-label">ベンチマークアカウント</span>
+          </div>
+          <div class="quick-stat">
+            <span class="quick-stat-value">Tier 1-3</span>
+            <span class="quick-stat-label">カテゴリ</span>
+          </div>
+          <div class="quick-stat">
+            <span class="quick-stat-value" id="total-benchmark-followers">-</span>
+            <span class="quick-stat-label">合計フォロワー</span>
+          </div>
+        </div>
+        
+        <div class="section-header">
+          <h2 class="section-title">👤 ベンチマークアカウント</h2>
+        </div>
+        <div class="influencer-grid" id="influencer-list"></div>
+      </div>
+
+      <!-- ===== スケジュールタブ ===== -->
+      <div class="tab-content" id="tab-schedule">
+        <div class="section-header">
+          <h2 class="section-title">⏰ 本日のスケジュール</h2>
+        </div>
+        <div class="schedule-grid" id="schedule-grid"></div>
+        
+        <div class="section-header">
+          <h2 class="section-title">📅 GitHub Actions ステータス</h2>
+        </div>
+        <div class="card">
+          <div id="github-actions-status">
+            <p style="color: var(--text-secondary);">
+              ワークフロー: <strong>X Marketing Automation</strong><br>
+              スケジュール: 毎日 06:00, 08:00, 09:00, 12:00, 20:00 (JST)<br><br>
+              <a href="https://github.com/watchout/x-marketing-engine/actions" target="_blank" style="color: var(--accent-blue);">
+                → GitHub Actions を確認
+              </a>
+            </p>
+          </div>
+        </div>
+        
+        <div class="section-header">
+          <h2 class="section-title">📝 投稿キュー</h2>
+        </div>
+        <div id="post-queue" class="card">
+          <p style="color: var(--text-muted);">次回投稿予定のコンテンツがここに表示されます</p>
+        </div>
+      </div>
+
+      <!-- ===== ログタブ ===== -->
+      <div class="tab-content" id="tab-logs">
+        <div class="section-header">
+          <h2 class="section-title">📋 アクティビティログ</h2>
+        </div>
+        <div class="card">
+          <div class="activity-log" id="activity-log"></div>
+        </div>
+        
+        <div class="section-header">
+          <h2 class="section-title">🔧 システム情報</h2>
+        </div>
+        <div class="grid-2">
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">設定</h3>
+            </div>
+            <div id="system-config"></div>
+          </div>
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">API状態</h3>
+            </div>
+            <div id="api-status"></div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
-  
+
   <script>
-    // Benchmark accounts data
-    const benchmarkAccounts = [
-      { handle: '@masahirochaen', name: 'チャエン | デジライズ CEO', followers: 150000, frequency: '毎日1-3投稿', tier: 'Tier1', learnFrom: ['速報性', '毎日の習慣化', '実務寄り'] },
-      { handle: '@shota7180', name: '木内翔大 | SHIFT AI代表', followers: 140000, frequency: '週5-7投稿', tier: 'Tier1', learnFrom: ['ビジョン語り', 'コミュニティ形成'] },
-      { handle: '@ai_jitan', name: 'えーたん | AI×時短', followers: 80000, frequency: '毎日1-2投稿', tier: 'Tier2', learnFrom: ['動画デモ必須', '再現可能な手順', 'コピペで完了'], priority: true },
-      { handle: '@taziku_co', name: '田中義弘 | AI×Creative', followers: 50000, frequency: '毎日', tier: 'Tier2', learnFrom: ['ビジュアル多用'] },
-      { handle: '@Fujin_Metaverse', name: 'Fujin | AI自動化', followers: 30000, frequency: '毎日', tier: 'Tier3', learnFrom: ['スレッド形式', '詳細な手順'] },
-      { handle: '@commte', name: 'コムテ | Agentic AI', followers: 25000, frequency: '週4-6', tier: 'Tier3', learnFrom: ['技術深掘り', '開発者向け'] },
-      { handle: '@akira_papa_IT', name: 'あきらパパ | エンジニア', followers: 20000, frequency: '週3-5', tier: 'Tier3', learnFrom: ['動画付き', 'わかりやすい'] },
-      { handle: '@ai_database', name: 'AIDB', followers: 30000, frequency: '週3-5', tier: 'Tier3', learnFrom: ['論文ベース', '図表多用'] },
-    ];
+    // ===== データ =====
+    let postHistory = [];
+    let systemStatus = 'unknown';
     
-    // Render influencers
+    const benchmarkAccounts = [
+      { handle: '@masahirochaen', name: 'チャエン | デジライズ CEO', followers: 150000, frequency: '毎日1-3投稿', postingTime: '朝7-8時', tier: 1, style: 'AIニュース最速発信', learnFrom: ['速報性', '毎日の習慣化', '実務寄りの内容'] },
+      { handle: '@shota7180', name: '木内翔大 | SHIFT AI代表', followers: 140000, frequency: '週5-7投稿', postingTime: '夕方-夜', tier: 1, style: 'モチベ系＋ツールTips', learnFrom: ['ビジョン語り', 'コミュニティ形成'] },
+      { handle: '@ai_jitan', name: 'えーたん | AI×時短', followers: 80000, frequency: '毎日1-2投稿', postingTime: '朝10時-夕方', tier: 2, style: 'ツール活用法を動画付き解説', learnFrom: ['動画デモ必須', '再現可能な手順', 'コピペで完了'], priority: true, buzzRate: '最高（万バズ複数）' },
+      { handle: '@taziku_co', name: '田中義弘 | AI×Creative', followers: 50000, frequency: '毎日', postingTime: '夜中心', tier: 2, style: '生成AI動画・アニメ制作', learnFrom: ['ビジュアル多用', 'クリエイティブ寄り'] },
+      { handle: '@Fujin_Metaverse', name: 'Fujin | AI自動化', followers: 30000, frequency: '毎日', postingTime: '朝-昼', tier: 3, style: 'AIエージェント・自動化ステップバイステップ', learnFrom: ['スレッド形式', '詳細な手順'] },
+      { handle: '@commte', name: 'コムテ | Agentic AI', followers: 25000, frequency: '週4-6', postingTime: '朝-夕方', tier: 3, style: 'Claude Code/Skill Marketplace実践', learnFrom: ['技術深掘り', '開発者向け'] },
+      { handle: '@akira_papa_IT', name: 'あきらパパ | エンジニア', followers: 20000, frequency: '週3-5', postingTime: '夕方-夜', tier: 3, style: 'AIエージェント組織構築', learnFrom: ['動画付き', 'わかりやすい'] },
+      { handle: '@ai_database', name: 'AIDB', followers: 30000, frequency: '週3-5', postingTime: '夕方', tier: 3, style: '論文ベースのAI科学解説', learnFrom: ['論文ベース', '図表多用'] },
+    ];
+
+    // ===== ユーティリティ =====
+    function formatNumber(n) {
+      if (n >= 1000000) return (n / 1000000).toFixed(1) + 'M';
+      if (n >= 1000) return (n / 1000).toFixed(1) + 'K';
+      return n.toString();
+    }
+    
+    function formatDate(dateStr) {
+      const d = new Date(dateStr);
+      return d.toLocaleString('ja-JP', { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' });
+    }
+    
+    function getTypeClass(type) {
+      const classes = {
+        'tips': 'type-tips',
+        'problem_statement': 'type-problem',
+        'story': 'type-story',
+        'discovery': 'type-discovery',
+        'thread': 'type-thread',
+        'before_after': 'type-discovery',
+        'comparison': 'type-tips',
+      };
+      return classes[type] || 'type-tips';
+    }
+    
+    function getTypeLabel(type) {
+      const labels = {
+        'tips': 'Tips',
+        'problem_statement': '問題提起',
+        'story': '物語',
+        'discovery': '発見',
+        'thread': 'スレッド',
+        'before_after': 'Before/After',
+        'comparison': '比較',
+        'unknown': '未分類'
+      };
+      return labels[type] || type;
+    }
+    
+    function calculateER(post) {
+      if (!post.metrics?.impressions || post.metrics.impressions === 0) return 0;
+      const engagements = (post.metrics.likes || 0) + (post.metrics.retweets || 0) + (post.metrics.replies || 0);
+      return (engagements / post.metrics.impressions * 100);
+    }
+
+    // ===== 統計計算 =====
+    function calculateStats(posts) {
+      const total = posts.length;
+      const impressions = posts.reduce((sum, p) => sum + (p.metrics?.impressions || 0), 0);
+      const likes = posts.reduce((sum, p) => sum + (p.metrics?.likes || 0), 0);
+      const retweets = posts.reduce((sum, p) => sum + (p.metrics?.retweets || 0), 0);
+      const replies = posts.reduce((sum, p) => sum + (p.metrics?.replies || 0), 0);
+      const engagements = likes + retweets + replies;
+      const avgER = impressions > 0 ? (engagements / impressions * 100) : 0;
+      
+      // 週間統計
+      const oneWeekAgo = new Date();
+      oneWeekAgo.setDate(oneWeekAgo.getDate() - 7);
+      const weekPosts = posts.filter(p => new Date(p.posted_at) > oneWeekAgo);
+      const weekImpressions = weekPosts.reduce((sum, p) => sum + (p.metrics?.impressions || 0), 0);
+      const weekLikes = weekPosts.reduce((sum, p) => sum + (p.metrics?.likes || 0), 0);
+      
+      // 前週比較
+      const twoWeeksAgo = new Date();
+      twoWeeksAgo.setDate(twoWeeksAgo.getDate() - 14);
+      const prevWeekPosts = posts.filter(p => {
+        const d = new Date(p.posted_at);
+        return d > twoWeeksAgo && d <= oneWeekAgo;
+      });
+      const prevWeekImpressions = prevWeekPosts.reduce((sum, p) => sum + (p.metrics?.impressions || 0), 0);
+      
+      return {
+        total,
+        impressions,
+        likes,
+        retweets,
+        replies,
+        engagements,
+        avgER,
+        weekPosts: weekPosts.length,
+        weekImpressions,
+        weekLikes,
+        prevWeekImpressions,
+        impressionChange: prevWeekImpressions > 0 ? ((weekImpressions - prevWeekImpressions) / prevWeekImpressions * 100) : 0
+      };
+    }
+
+    // ===== レンダリング =====
+    function renderMainStats(stats) {
+      const container = document.getElementById('main-stats');
+      container.innerHTML = `
+        <div class="card stat-card">
+          <div class="card-title">総投稿数</div>
+          <div class="value">${stats.total}</div>
+          <div class="label">全期間</div>
+          <div class="change neutral">今週 ${stats.weekPosts} 投稿</div>
+        </div>
+        <div class="card stat-card">
+          <div class="card-title">総インプレッション</div>
+          <div class="value">${formatNumber(stats.impressions)}</div>
+          <div class="label">累計</div>
+          <div class="change ${stats.impressionChange >= 0 ? 'up' : 'down'}">
+            ${stats.impressionChange >= 0 ? '↑' : '↓'} ${Math.abs(stats.impressionChange).toFixed(1)}% 前週比
+          </div>
+        </div>
+        <div class="card stat-card">
+          <div class="card-title">総いいね</div>
+          <div class="value">${stats.likes}</div>
+          <div class="label">累計</div>
+          <div class="change neutral">今週 ${stats.weekLikes}</div>
+        </div>
+        <div class="card stat-card">
+          <div class="card-title">平均ER</div>
+          <div class="value" style="color: ${stats.avgER >= 1 ? 'var(--accent-green)' : stats.avgER >= 0.5 ? 'var(--accent-orange)' : 'var(--accent-red)'}">${stats.avgER.toFixed(2)}%</div>
+          <div class="label">エンゲージメント率</div>
+          <div class="change ${stats.avgER >= 1 ? 'up' : 'neutral'}">
+            目標: 1.0%以上
+          </div>
+        </div>
+      `;
+    }
+    
+    function renderKPICards(stats) {
+      const container = document.getElementById('kpi-cards');
+      const kpis = [
+        { label: '週間インプレッション', current: stats.weekImpressions, target: 5000, unit: '' },
+        { label: '週間投稿数', current: stats.weekPosts, target: 21, unit: '投稿' },
+        { label: 'エンゲージメント率', current: stats.avgER, target: 1.0, unit: '%', isPercent: true },
+      ];
+      
+      container.innerHTML = kpis.map(kpi => {
+        const progress = Math.min((kpi.current / kpi.target) * 100, 100);
+        const color = progress >= 80 ? 'var(--accent-green)' : progress >= 50 ? 'var(--accent-orange)' : 'var(--accent-red)';
+        return `
+          <div class="card">
+            <div class="card-title">${kpi.label}</div>
+            <div style="font-size: 28px; font-weight: 700; margin: 8px 0;">
+              ${kpi.isPercent ? kpi.current.toFixed(2) : formatNumber(kpi.current)}${kpi.unit}
+            </div>
+            <div class="kpi-progress">
+              <div class="kpi-bar">
+                <div class="kpi-fill" style="width: ${progress}%; background: ${color};"></div>
+              </div>
+              <div class="kpi-labels">
+                <span>達成率: ${progress.toFixed(0)}%</span>
+                <span>目標: ${kpi.isPercent ? kpi.target.toFixed(1) : formatNumber(kpi.target)}${kpi.unit}</span>
+              </div>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+    
+    function renderTopPosts(posts) {
+      const container = document.getElementById('top-posts');
+      const sorted = [...posts]
+        .filter(p => p.metrics?.impressions > 0)
+        .sort((a, b) => (b.metrics?.impressions || 0) - (a.metrics?.impressions || 0))
+        .slice(0, 3);
+      
+      if (sorted.length === 0) {
+        container.innerHTML = '<p style="color: var(--text-muted);">まだメトリクスのある投稿がありません</p>';
+        return;
+      }
+      
+      container.innerHTML = sorted.map((post, i) => `
+        <div class="post-card" style="border-left: 3px solid ${i === 0 ? 'var(--accent-orange)' : 'var(--border)'};">
+          <div class="post-meta">
+            <span>${formatDate(post.posted_at)}</span>
+            <span class="post-type-badge ${getTypeClass(post.type)}">${getTypeLabel(post.type)}</span>
+          </div>
+          <div class="post-content">${post.content.substring(0, 200)}${post.content.length > 200 ? '...' : ''}</div>
+          <div class="post-metrics">
+            <span>👁️ ${formatNumber(post.metrics?.impressions || 0)}</span>
+            <span>❤️ ${post.metrics?.likes || 0}</span>
+            <span>🔁 ${post.metrics?.retweets || 0}</span>
+            <span>💬 ${post.metrics?.replies || 0}</span>
+            <span style="color: ${calculateER(post) >= 1 ? 'var(--accent-green)' : 'var(--text-muted)'};">ER: ${calculateER(post).toFixed(2)}%</span>
+          </div>
+        </div>
+      `).join('');
+    }
+    
+    function renderActionItems(stats) {
+      const container = document.getElementById('action-items');
+      const actions = [];
+      
+      if (stats.avgER < 0.5) {
+        actions.push({ priority: 'high', title: 'ER改善が必要', desc: 'フック強化・質問形式の投稿を増やす' });
+      }
+      if (stats.weekPosts < 14) {
+        actions.push({ priority: 'medium', title: '投稿頻度を上げる', desc: `現在週${stats.weekPosts}投稿 → 目標21投稿（1日3回）` });
+      }
+      if (stats.weekImpressions < 1000) {
+        actions.push({ priority: 'high', title: 'インプレッション向上', desc: 'ベンチマークアカウントの投稿パターンを参考にする' });
+      }
+      
+      actions.push({ priority: 'low', title: 'インフルエンサーへのリプライ', desc: '関連投稿に積極的にコメント（1日10件目標）' });
+      actions.push({ priority: 'low', title: 'スレッド投稿を試す', desc: 'ステップバイステップの詳細解説でエンゲージメント向上' });
+      
+      container.innerHTML = actions.map(a => `
+        <div class="action-item">
+          <div class="action-priority priority-${a.priority}"></div>
+          <div class="action-content">
+            <div class="action-title">${a.title}</div>
+            <div class="action-desc">${a.desc}</div>
+          </div>
+        </div>
+      `).join('');
+    }
+    
+    function renderAlerts(stats) {
+      const container = document.getElementById('alerts-container');
+      const alerts = [];
+      
+      // 最新投稿日を確認
+      if (postHistory.length > 0) {
+        const latestPost = new Date(postHistory[0].posted_at);
+        const hoursSinceLastPost = (Date.now() - latestPost) / (1000 * 60 * 60);
+        
+        if (hoursSinceLastPost > 24) {
+          alerts.push({
+            type: 'warning',
+            icon: '⚠️',
+            title: '投稿が停止しています',
+            message: `最終投稿から${Math.floor(hoursSinceLastPost)}時間経過。GitHub Actionsを確認してください。`
+          });
+        }
+      }
+      
+      if (stats.avgER < 0.3) {
+        alerts.push({
+          type: 'error',
+          icon: '🚨',
+          title: 'エンゲージメント率が低下',
+          message: `現在のER ${stats.avgER.toFixed(2)}%。コンテンツ戦略の見直しを推奨。`
+        });
+      }
+      
+      container.innerHTML = alerts.map(a => `
+        <div class="alert alert-${a.type}">
+          <div class="alert-icon">${a.icon}</div>
+          <div class="alert-content">
+            <h4>${a.title}</h4>
+            <p>${a.message}</p>
+          </div>
+        </div>
+      `).join('');
+    }
+    
+    function renderPostsList(posts, filter = 'all') {
+      const container = document.getElementById('posts-list');
+      const quickStats = document.getElementById('posts-quick-stats');
+      
+      let filtered = posts;
+      if (filter !== 'all') {
+        filtered = posts.filter(p => p.type === filter);
+      }
+      
+      // タイプ別カウント
+      const typeCounts = {};
+      posts.forEach(p => {
+        const t = p.type || 'unknown';
+        typeCounts[t] = (typeCounts[t] || 0) + 1;
+      });
+      
+      quickStats.innerHTML = Object.entries(typeCounts)
+        .sort((a, b) => b[1] - a[1])
+        .map(([type, count]) => `
+          <div class="quick-stat">
+            <span class="quick-stat-value">${count}</span>
+            <span class="quick-stat-label">${getTypeLabel(type)}</span>
+          </div>
+        `).join('');
+      
+      container.innerHTML = filtered.slice(0, 20).map(post => `
+        <div class="post-card">
+          <div class="post-meta">
+            <span>${formatDate(post.posted_at)}</span>
+            <div>
+              <span class="post-type-badge ${getTypeClass(post.type)}">${getTypeLabel(post.type)}</span>
+              <span style="margin-left: 8px; color: var(--text-muted);">${post.slot || '-'}</span>
+            </div>
+          </div>
+          <div class="post-content">${post.content}</div>
+          <div class="post-metrics">
+            <span>👁️ ${formatNumber(post.metrics?.impressions || 0)}</span>
+            <span>❤️ ${post.metrics?.likes || 0}</span>
+            <span>🔁 ${post.metrics?.retweets || 0}</span>
+            <span>💬 ${post.metrics?.replies || 0}</span>
+            <span style="color: ${calculateER(post) >= 1 ? 'var(--accent-green)' : 'var(--text-muted)'};">
+              ER: ${calculateER(post).toFixed(2)}%
+            </span>
+          </div>
+        </div>
+      `).join('');
+      
+      if (filtered.length > 20) {
+        container.innerHTML += `<p style="text-align: center; color: var(--text-muted); padding: 20px;">+ ${filtered.length - 20} 件の投稿</p>`;
+      }
+    }
+    
+    function renderTypePerformance(posts) {
+      const container = document.getElementById('type-performance');
+      const typeStats = {};
+      
+      posts.forEach(p => {
+        const type = p.type || 'unknown';
+        if (!typeStats[type]) {
+          typeStats[type] = { count: 0, impressions: 0, likes: 0 };
+        }
+        typeStats[type].count++;
+        typeStats[type].impressions += p.metrics?.impressions || 0;
+        typeStats[type].likes += p.metrics?.likes || 0;
+      });
+      
+      const sorted = Object.entries(typeStats)
+        .map(([type, stats]) => ({
+          type,
+          ...stats,
+          avgImp: stats.count > 0 ? stats.impressions / stats.count : 0,
+          avgER: stats.impressions > 0 ? (stats.likes / stats.impressions * 100) : 0
+        }))
+        .sort((a, b) => b.avgImp - a.avgImp);
+      
+      const maxImp = Math.max(...sorted.map(s => s.avgImp), 1);
+      
+      container.innerHTML = `
+        <div class="bar-chart">
+          ${sorted.map(s => `
+            <div class="bar-item">
+              <div class="bar-value">${s.avgImp.toFixed(0)}</div>
+              <div class="bar" style="height: ${(s.avgImp / maxImp) * 100}%; background: var(--accent-blue);"></div>
+              <div class="bar-label">${getTypeLabel(s.type)}<br><span style="color: var(--text-muted);">(${s.count}件)</span></div>
+            </div>
+          `).join('')}
+        </div>
+      `;
+    }
+    
+    function renderTimePerformance(posts) {
+      const container = document.getElementById('time-performance');
+      const slotStats = { morning: { count: 0, imp: 0 }, noon: { count: 0, imp: 0 }, night: { count: 0, imp: 0 } };
+      
+      posts.forEach(p => {
+        const slot = p.slot || 'noon';
+        if (slotStats[slot]) {
+          slotStats[slot].count++;
+          slotStats[slot].imp += p.metrics?.impressions || 0;
+        }
+      });
+      
+      const slots = [
+        { key: 'morning', label: '朝 (9:00)', ...slotStats.morning },
+        { key: 'noon', label: '昼 (12:00)', ...slotStats.noon },
+        { key: 'night', label: '夜 (20:00)', ...slotStats.night },
+      ].map(s => ({ ...s, avg: s.count > 0 ? s.imp / s.count : 0 }));
+      
+      const maxAvg = Math.max(...slots.map(s => s.avg), 1);
+      
+      container.innerHTML = `
+        <div class="bar-chart">
+          ${slots.map(s => `
+            <div class="bar-item">
+              <div class="bar-value">${s.avg.toFixed(0)}</div>
+              <div class="bar" style="height: ${(s.avg / maxAvg) * 100}%; background: var(--accent-purple);"></div>
+              <div class="bar-label">${s.label}<br><span style="color: var(--text-muted);">(${s.count}件)</span></div>
+            </div>
+          `).join('')}
+        </div>
+      `;
+    }
+    
+    function renderWeeklyTrend(posts) {
+      const container = document.getElementById('weekly-trend');
+      const weeks = {};
+      
+      posts.forEach(p => {
+        const d = new Date(p.posted_at);
+        const weekStart = new Date(d);
+        weekStart.setDate(d.getDate() - d.getDay());
+        const key = weekStart.toISOString().split('T')[0];
+        
+        if (!weeks[key]) weeks[key] = { posts: 0, imp: 0, likes: 0 };
+        weeks[key].posts++;
+        weeks[key].imp += p.metrics?.impressions || 0;
+        weeks[key].likes += p.metrics?.likes || 0;
+      });
+      
+      const sortedWeeks = Object.entries(weeks)
+        .sort((a, b) => b[0].localeCompare(a[0]))
+        .slice(0, 8)
+        .reverse();
+      
+      const maxImp = Math.max(...sortedWeeks.map(w => w[1].imp), 1);
+      
+      container.innerHTML = `
+        <div class="bar-chart" style="height: 180px;">
+          ${sortedWeeks.map(([week, data]) => {
+            const d = new Date(week);
+            const label = `${d.getMonth()+1}/${d.getDate()}週`;
+            return `
+              <div class="bar-item">
+                <div class="bar-value">${formatNumber(data.imp)}</div>
+                <div class="bar" style="height: ${(data.imp / maxImp) * 100}%; background: linear-gradient(to top, var(--accent-blue), var(--accent-cyan));"></div>
+                <div class="bar-label">${label}<br><span style="color: var(--text-muted);">${data.posts}投稿</span></div>
+              </div>
+            `;
+          }).join('')}
+        </div>
+      `;
+    }
+    
+    function renderWinningElements(posts) {
+      const container = document.getElementById('winning-elements');
+      const topPosts = [...posts]
+        .filter(p => p.metrics?.impressions >= 50)
+        .sort((a, b) => calculateER(b) - calculateER(a))
+        .slice(0, 5);
+      
+      if (topPosts.length === 0) {
+        container.innerHTML = '<p style="color: var(--text-muted);">分析に十分なデータがありません</p>';
+        return;
+      }
+      
+      // 共通要素を抽出
+      const elements = [];
+      topPosts.forEach(p => {
+        if (p.content.includes('💡') || p.content.includes('🔥')) elements.push('絵文字使用');
+        if (p.content.match(/\n\n/)) elements.push('段落分け');
+        if (p.content.match(/#\w+/)) elements.push('ハッシュタグ');
+        if (p.content.match(/[？?]/)) elements.push('質問形式');
+        if (p.content.length < 140) elements.push('簡潔さ');
+      });
+      
+      const counts = {};
+      elements.forEach(e => counts[e] = (counts[e] || 0) + 1);
+      
+      container.innerHTML = Object.entries(counts)
+        .sort((a, b) => b[1] - a[1])
+        .map(([elem, count]) => `
+          <div style="display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid var(--border);">
+            <span>${elem}</span>
+            <span style="color: var(--accent-green);">${count}件で使用</span>
+          </div>
+        `).join('');
+    }
+    
+    function renderImprovementPoints(posts) {
+      const container = document.getElementById('improvement-points');
+      const points = [
+        { issue: 'ビジュアル不足', solution: '動画・スクショの追加を検討' },
+        { issue: '投稿頻度', solution: '1日3投稿を維持' },
+        { issue: 'フック弱い', solution: '「正直」「断言します」など強い言葉を使う' },
+        { issue: 'リプライ不足', solution: 'インフルエンサーへの積極的なコメント' },
+      ];
+      
+      container.innerHTML = points.map(p => `
+        <div style="padding: 12px 0; border-bottom: 1px solid var(--border);">
+          <div style="font-weight: 500; margin-bottom: 4px;">⚠️ ${p.issue}</div>
+          <div style="font-size: 13px; color: var(--text-secondary);">→ ${p.solution}</div>
+        </div>
+      `).join('');
+    }
+    
     function renderInfluencers() {
       const container = document.getElementById('influencer-list');
+      const totalFollowers = benchmarkAccounts.reduce((sum, a) => sum + a.followers, 0);
+      document.getElementById('total-benchmark-followers').textContent = formatNumber(totalFollowers);
+      
       container.innerHTML = benchmarkAccounts.map(acc => `
-        <div class="influencer-card" ${acc.priority ? 'style="border-color: var(--accent-orange);"' : ''}>
+        <div class="influencer-card ${acc.priority ? 'priority' : ''}">
           <div class="influencer-header">
-            <span class="influencer-handle">${acc.handle}</span>
-            <span class="influencer-tier">${acc.tier}</span>
+            <a href="https://x.com/${acc.handle.replace('@', '')}" target="_blank" class="influencer-handle">${acc.handle}</a>
+            <span class="tier-badge tier-${acc.tier}">Tier ${acc.tier}</span>
           </div>
           <div class="influencer-name">${acc.name}</div>
           <div class="influencer-stats">
-            <span>👥 ${(acc.followers / 1000).toFixed(0)}K</span>
+            <span>👥 ${formatNumber(acc.followers)}</span>
             <span>📅 ${acc.frequency}</span>
+            <span>🕐 ${acc.postingTime}</span>
           </div>
-          <div class="influencer-learn">
-            <h4>学ぶべきポイント:</h4>
+          <div style="font-size: 12px; color: var(--text-muted); margin: 8px 0;">${acc.style}</div>
+          ${acc.buzzRate ? `<div style="font-size: 11px; color: var(--accent-orange);">🔥 ${acc.buzzRate}</div>` : ''}
+          <div class="learn-points">
+            <h4>学ぶべきポイント</h4>
             ${acc.learnFrom.map(l => `<span class="tag">${l}</span>`).join('')}
           </div>
         </div>
       `).join('');
     }
     
-    // Load data from files (for local use)
-    async function loadData() {
-      try {
-        // Try to load post history
-        const historyRes = await fetch('../content/post_history.json');
-        const history = await historyRes.json();
-        
-        // Calculate stats
-        const totalPosts = history.length;
-        const totalImpressions = history.reduce((sum, h) => sum + (h.metrics?.impressions || 0), 0);
-        const totalLikes = history.reduce((sum, h) => sum + (h.metrics?.likes || 0), 0);
-        const avgER = totalImpressions > 0 ? ((totalLikes / totalImpressions) * 100).toFixed(2) : '0.00';
-        
-        document.getElementById('stat-posts').textContent = totalPosts;
-        document.getElementById('stat-impressions').textContent = totalImpressions.toLocaleString();
-        document.getElementById('stat-likes').textContent = totalLikes;
-        document.getElementById('stat-er').textContent = avgER + '%';
-        
-        // Render recent posts
-        const postContainer = document.getElementById('post-list');
-        postContainer.innerHTML = history.slice(0, 5).map(post => `
-          <div class="post-item">
-            <div class="post-meta">
-              <span>${new Date(post.posted_at).toLocaleString('ja-JP')}</span>
-              <span>${post.variant || 'A'}</span>
+    function renderSchedule() {
+      const container = document.getElementById('schedule-grid');
+      const now = new Date();
+      const currentHour = now.getHours();
+      
+      const slots = [
+        { time: '09:00', type: 'Tips型', icon: '💡', hour: 9 },
+        { time: '12:00', type: 'バズ狙い型', icon: '🔥', hour: 12 },
+        { time: '20:00', type: '物語型', icon: '📖', hour: 20 },
+      ];
+      
+      container.innerHTML = slots.map(slot => {
+        const isCompleted = currentHour > slot.hour;
+        const isNext = !isCompleted && currentHour < slot.hour;
+        return `
+          <div class="schedule-slot ${isCompleted ? 'completed' : ''} ${isNext && slots.filter(s => !isCompleted && currentHour < s.hour)[0] === slot ? 'next' : ''}">
+            <div style="font-size: 24px; margin-bottom: 8px;">${slot.icon}</div>
+            <div class="schedule-time">${slot.time}</div>
+            <div class="schedule-type">${slot.type}</div>
+            <div class="schedule-status" style="background: ${isCompleted ? 'var(--success)' : isNext ? 'var(--accent-blue)' : 'var(--bg-card)'};">
+              ${isCompleted ? '✓ 完了' : isNext ? '→ 次回' : '予定'}
             </div>
-            <div class="post-content">${post.content.substring(0, 150)}...</div>
-            <div class="post-metrics">
-              <span>👁️ ${post.metrics?.impressions || '-'}</span>
-              <span>❤️ ${post.metrics?.likes || '-'}</span>
-              <span>🔁 ${post.metrics?.retweets || '-'}</span>
-            </div>
-          </div>
-        `).join('');
-        
-      } catch (e) {
-        console.log('Could not load live data, using placeholder');
-        document.getElementById('stat-posts').textContent = '50';
-        document.getElementById('stat-impressions').textContent = '3,247';
-        document.getElementById('stat-likes').textContent = '12';
-        document.getElementById('stat-er').textContent = '0.37%';
-        
-        document.getElementById('post-list').innerHTML = `
-          <div class="post-item">
-            <div class="post-meta"><span>データロード中...</span></div>
-            <div class="post-content">投稿履歴が読み込まれます</div>
           </div>
         `;
-      }
-      
-      // Render log entries
-      const logContainer = document.getElementById('log-container');
-      logContainer.innerHTML = `
-        <div class="log-entry"><span class="log-time">${new Date().toLocaleString('ja-JP')}</span> <span class="log-type-generate">[GENERATE]</span> マルチLLM推敲完了 - 84点</div>
-        <div class="log-entry"><span class="log-time">${new Date().toLocaleString('ja-JP')}</span> <span class="log-type-post">[POST]</span> 朝投稿完了</div>
-        <div class="log-entry"><span class="log-time">${new Date().toLocaleString('ja-JP')}</span> <span class="log-type-metrics">[METRICS]</span> 50件のメトリクス収集</div>
-      `;
+      }).join('');
     }
     
-    // Initialize
-    renderInfluencers();
-    loadData().then(() => {
-      document.getElementById('loading').style.display = 'none';
-      document.getElementById('content').style.display = 'block';
+    function renderActivityLog() {
+      const container = document.getElementById('activity-log');
+      
+      // 投稿履歴からログを生成
+      const logs = postHistory.slice(0, 15).map(p => ({
+        time: new Date(p.posted_at),
+        type: 'post',
+        message: `投稿完了: ${p.content.substring(0, 50)}...`
+      }));
+      
+      // メトリクス収集ログを追加
+      const hasMetrics = postHistory.some(p => p.metrics?.collected_at);
+      if (hasMetrics) {
+        const latest = postHistory.find(p => p.metrics?.collected_at);
+        if (latest) {
+          logs.push({
+            time: new Date(latest.metrics.collected_at),
+            type: 'metrics',
+            message: `メトリクス収集完了: ${postHistory.length}件`
+          });
+        }
+      }
+      
+      logs.sort((a, b) => b.time - a.time);
+      
+      if (logs.length === 0) {
+        container.innerHTML = '<div style="padding: 20px; color: var(--text-muted); text-align: center;">ログがありません</div>';
+        return;
+      }
+      
+      container.innerHTML = logs.slice(0, 20).map(log => `
+        <div class="log-entry">
+          <span class="log-time">${log.time.toLocaleString('ja-JP')}</span>
+          <span class="log-icon">${log.type === 'post' ? '📤' : log.type === 'metrics' ? '📊' : '🔧'}</span>
+          <span class="log-message">${log.message}</span>
+        </div>
+      `).join('');
+    }
+    
+    function renderSystemInfo() {
+      document.getElementById('system-config').innerHTML = `
+        <div style="font-size: 13px; line-height: 2;">
+          <div>アカウント: <strong>@ai_risukirin</strong></div>
+          <div>投稿頻度: <strong>1日3回</strong></div>
+          <div>LLM: <strong>GPT-4o + Gemini</strong></div>
+          <div>Grok: <span style="color: var(--text-muted);">オプション</span></div>
+        </div>
+      `;
+      
+      document.getElementById('api-status').innerHTML = `
+        <div style="font-size: 13px; line-height: 2;">
+          <div>X API: <span style="color: var(--accent-green);">✓ 設定済み</span></div>
+          <div>OpenAI: <span style="color: var(--accent-green);">✓ 設定済み</span></div>
+          <div>Google AI: <span style="color: var(--accent-green);">✓ 設定済み</span></div>
+          <div>Grok: <span style="color: var(--text-muted);">未設定</span></div>
+        </div>
+      `;
+    }
+
+    // ===== データ読み込み =====
+    async function loadData() {
+      try {
+        const res = await fetch('../content/post_history.json');
+        if (res.ok) {
+          postHistory = await res.json();
+          systemStatus = 'active';
+        }
+      } catch (e) {
+        console.error('Failed to load data:', e);
+        systemStatus = 'error';
+      }
+      
+      // ステータス更新
+      const statusEl = document.getElementById('system-status');
+      if (postHistory.length > 0) {
+        const latestPost = new Date(postHistory[0].posted_at);
+        const hoursSince = (Date.now() - latestPost) / (1000 * 60 * 60);
+        
+        if (hoursSince > 48) {
+          statusEl.className = 'status-badge status-error';
+          statusEl.textContent = '投稿停止中';
+        } else if (hoursSince > 24) {
+          statusEl.className = 'status-badge status-warning';
+          statusEl.textContent = '要確認';
+        } else {
+          statusEl.className = 'status-badge status-active';
+          statusEl.textContent = '稼働中';
+        }
+      } else {
+        statusEl.className = 'status-badge status-warning';
+        statusEl.textContent = 'データなし';
+      }
+      
+      document.getElementById('last-updated').textContent = `更新: ${new Date().toLocaleString('ja-JP')}`;
+    }
+    
+    function render() {
+      const stats = calculateStats(postHistory);
+      
+      renderMainStats(stats);
+      renderKPICards(stats);
+      renderTopPosts(postHistory);
+      renderActionItems(stats);
+      renderAlerts(stats);
+      renderPostsList(postHistory);
+      renderTypePerformance(postHistory);
+      renderTimePerformance(postHistory);
+      renderWeeklyTrend(postHistory);
+      renderWinningElements(postHistory);
+      renderImprovementPoints(postHistory);
+      renderInfluencers();
+      renderSchedule();
+      renderActivityLog();
+      renderSystemInfo();
+    }
+
+    // ===== イベント =====
+    document.querySelectorAll('.tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+        
+        tab.classList.add('active');
+        document.getElementById('tab-' + tab.dataset.tab).classList.add('active');
+      });
     });
+    
+    document.getElementById('posts-filter').addEventListener('change', (e) => {
+      renderPostsList(postHistory, e.target.value);
+    });
+
+    // ===== 初期化 =====
+    loadData().then(() => {
+      render();
+      document.getElementById('loading').style.display = 'none';
+      document.getElementById('main-content').style.display = 'block';
+    });
+    
+    // 自動更新 (5分ごと)
+    setInterval(() => {
+      loadData().then(render);
+    }, 300000);
   </script>
 </body>
 </html>
