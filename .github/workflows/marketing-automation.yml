@@ -13,6 +13,10 @@
 
 name: X Marketing Automation
 
+# リポジトリへの書き込み権限を付与
+permissions:
+  contents: write
+
 on:
   schedule:
     # 分析 (06:00 JST = 21:00 UTC前日)
