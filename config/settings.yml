@@ -159,6 +159,100 @@ benchmark_accounts:
       style: "論文ベースのAI科学解説"
       min_likes: 100
 
+# ===== 海外インフルエンサー（情報ソース） =====
+# 日本未発信のトピックをいち早くキャッチ
+overseas_influencers:
+  # Vibe Coding / AI開発手法
+  ai_development:
+    - handle: "swyx"
+      name: "swyx (Shawn Wang)"
+      focus: "AI Engineering, Latent Space"
+      followers: 100000
+      language: "en"
+      topics:
+        - "AI agents"
+        - "prompt engineering"
+        - "AI-first development"
+    
+    - handle: "karpathy"
+      name: "Andrej Karpathy"
+      focus: "AI research, vibe coding originator"
+      followers: 1000000
+      language: "en"
+      topics:
+        - "vibe coding"
+        - "LLM training"
+        - "AI education"
+    
+    - handle: "simonw"
+      name: "Simon Willison"
+      focus: "LLM tools, practical AI"
+      followers: 80000
+      language: "en"
+      topics:
+        - "LLM CLI tools"
+        - "sqlite-utils"
+        - "practical AI workflows"
+    
+    - handle: "mckaywrigley"
+      name: "Mckay Wrigley"
+      focus: "AI coding tools, Cursor power user"
+      followers: 50000
+      language: "en"
+      topics:
+        - "Cursor tips"
+        - "AI-assisted development"
+        - "productivity"
+  
+  # AI Agents / Automation
+  ai_agents:
+    - handle: "hwchase17"
+      name: "Harrison Chase (LangChain)"
+      focus: "LangChain, AI agents"
+      followers: 80000
+      language: "en"
+      topics:
+        - "LangGraph"
+        - "AI agents architecture"
+        - "RAG"
+    
+    - handle: "jxnlco"
+      name: "Jason Liu"
+      focus: "Instructor, structured outputs"
+      followers: 30000
+      language: "en"
+      topics:
+        - "structured LLM outputs"
+        - "Pydantic + AI"
+        - "reliability"
+  
+  # AI Product / Startup
+  ai_product:
+    - handle: "levelsio"
+      name: "Pieter Levels"
+      focus: "AI products, indie hacking"
+      followers: 500000
+      language: "en"
+      topics:
+        - "AI SaaS"
+        - "ship fast"
+        - "bootstrapping"
+
+# キーワード監視（日本未発信トピック）
+trend_keywords:
+  high_priority:
+    - "vibe coding"
+    - "spec-driven development"
+    - "agentic workflows"
+    - "MCP (Model Context Protocol)"
+    - "AI-first development"
+    - "LLM orchestration"
+  medium_priority:
+    - "prompt caching"
+    - "structured outputs"
+    - "tool use patterns"
+    - "agent memory"
+
 # ===== LLM設定 =====
 llm:
   providers:
