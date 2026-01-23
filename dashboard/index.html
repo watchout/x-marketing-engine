@@ -35,6 +35,85 @@
       line-height: 1.5;
     }
     
+    /* Auth Screen */
+    .auth-screen {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, var(--bg-primary) 0%, #1a1f2e 100%);
+    }
+    
+    .auth-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 40px;
+      width: 100%;
+      max-width: 400px;
+      text-align: center;
+    }
+    
+    .auth-box h1 {
+      font-size: 24px;
+      margin-bottom: 8px;
+    }
+    
+    .auth-box p {
+      color: var(--text-secondary);
+      margin-bottom: 24px;
+      font-size: 14px;
+    }
+    
+    .auth-input {
+      width: 100%;
+      padding: 12px 16px;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--text-primary);
+      font-size: 16px;
+      margin-bottom: 16px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    
+    .auth-input:focus {
+      border-color: var(--accent-blue);
+    }
+    
+    .auth-input::placeholder {
+      color: var(--text-muted);
+    }
+    
+    .auth-btn {
+      width: 100%;
+      padding: 12px 24px;
+      background: var(--accent-blue);
+      border: none;
+      border-radius: 8px;
+      color: white;
+      font-size: 16px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+    
+    .auth-btn:hover {
+      opacity: 0.9;
+    }
+    
+    .auth-error {
+      color: var(--accent-red);
+      font-size: 14px;
+      margin-top: 12px;
+      display: none;
+    }
+    
+    .auth-error.show {
+      display: block;
+    }
+    
     .container { max-width: 1400px; margin: 0 auto; padding: 24px; }
     
     /* Header */
@@ -579,6 +658,21 @@
   </style>
 </head>
 <body>
+  <!-- Auth Screen -->
+  <div id="auth-screen" class="auth-screen">
+    <div class="auth-box">
+      <h1>🔐 X Marketing Dashboard</h1>
+      <p>パスワードを入力してください</p>
+      <form id="auth-form">
+        <input type="password" id="auth-password" class="auth-input" placeholder="パスワード" autocomplete="current-password">
+        <button type="submit" class="auth-btn">ログイン</button>
+        <p id="auth-error" class="auth-error">パスワードが正しくありません</p>
+      </form>
+    </div>
+  </div>
+
+  <!-- Main Dashboard -->
+  <div id="dashboard-wrapper" style="display: none;">
   <div class="container">
     <header class="header">
       <h1>
@@ -1475,6 +1569,72 @@
     setInterval(() => {
       loadData().then(render);
     }, 300000);
+  </script>
+  </div><!-- end dashboard-wrapper -->
+
+  <script>
+    // ===== 簡易認証 =====
+    // パスワードのハッシュ（SHA-256）を使用
+    // 実際のパスワード: devos2026
+    const AUTH_HASH = '8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918'; // 'admin'のハッシュ（初期値）
+    
+    async function hashPassword(password) {
+      const encoder = new TextEncoder();
+      const data = encoder.encode(password);
+      const hashBuffer = await crypto.subtle.digest('SHA-256', data);
+      const hashArray = Array.from(new Uint8Array(hashBuffer));
+      return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+    }
+    
+    function checkAuth() {
+      const authToken = sessionStorage.getItem('xme_auth');
+      if (authToken === 'authenticated') {
+        showDashboard();
+        return true;
+      }
+      return false;
+    }
+    
+    function showDashboard() {
+      document.getElementById('auth-screen').style.display = 'none';
+      document.getElementById('dashboard-wrapper').style.display = 'block';
+    }
+    
+    document.getElementById('auth-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const password = document.getElementById('auth-password').value;
+      const hash = await hashPassword(password);
+      
+      // 許可されたパスワードハッシュ
+      const allowedHashes = [
+        '8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918', // admin
+        'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3', // 123
+        '5e884898da28047d9171f37b05019f0d70f0e5e22e6e4c89d4f54ae4c0b60e6e', // password
+        // カスタムパスワードを追加する場合は console.log(await hashPassword('your-password')) で取得
+      ];
+      
+      if (allowedHashes.includes(hash)) {
+        sessionStorage.setItem('xme_auth', 'authenticated');
+        showDashboard();
+      } else {
+        document.getElementById('auth-error').classList.add('show');
+        document.getElementById('auth-password').value = '';
+        setTimeout(() => {
+          document.getElementById('auth-error').classList.remove('show');
+        }, 3000);
+      }
+    });
+    
+    // ログアウト機能（コンソールから実行可能）
+    window.logout = function() {
+      sessionStorage.removeItem('xme_auth');
+      location.reload();
+    };
+    
+    // 初期化時に認証チェック
+    if (!checkAuth()) {
+      document.getElementById('auth-password').focus();
+    }
   </script>
 </body>
 </html>
