@@ -1468,29 +1468,39 @@
     }
 
     // ===== データ読み込み =====
-    // GitHub raw URL または ローカルパスからデータを取得
+    // 環境に応じてデータソースを選択
+    const isProduction = location.hostname !== 'localhost' && location.hostname !== '127.0.0.1';
+    
     const DATA_SOURCES = {
-      // Vercel/本番環境用: GitHub raw URL
+      // Vercel/本番環境用: GitHub raw URL（キャッシュ回避のためタイムスタンプ付加）
       github: 'https://raw.githubusercontent.com/watchout/x-marketing-engine/main/content/post_history.json',
       // ローカル開発用
       local: '../content/post_history.json'
     };
     
     async function loadData() {
-      // まずローカルを試し、失敗したらGitHubから取得
-      const sources = [DATA_SOURCES.local, DATA_SOURCES.github];
+      // 本番環境ではGitHubから、ローカルではローカルファイルから
+      const sources = isProduction 
+        ? [DATA_SOURCES.github + '?t=' + Date.now(), DATA_SOURCES.local]
+        : [DATA_SOURCES.local, DATA_SOURCES.github];
+      
+      console.log('Environment:', isProduction ? 'Production' : 'Local');
       
       for (const url of sources) {
         try {
+          console.log('Trying to load from:', url);
           const res = await fetch(url);
           if (res.ok) {
             postHistory = await res.json();
             systemStatus = 'active';
-            console.log('Data loaded from:', url);
+            console.log('✅ Data loaded successfully from:', url.split('?')[0]);
+            console.log('📊 Posts count:', postHistory.length);
             break;
+          } else {
+            console.log('❌ Failed with status:', res.status);
           }
         } catch (e) {
-          console.log('Failed to load from:', url);
+          console.log('❌ Error loading from:', url, e.message);
         }
       }
       
