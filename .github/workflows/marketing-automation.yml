@@ -86,11 +86,14 @@ jobs:
         run: npm run analyze
         continue-on-error: true
       
+      - name: Copy data to dashboard
+        run: cp content/post_history.json dashboard/data.json
+      
       - name: Commit updates
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git add content/
+          git add content/ dashboard/
           git diff --staged --quiet || git commit -m "📊 Daily analysis"
           git push
 
@@ -115,11 +118,14 @@ jobs:
           npm run generate
           npm run generate
       
+      - name: Copy data to dashboard
+        run: cp content/post_history.json dashboard/data.json
+      
       - name: Commit posts
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git add content/
+          git add content/ dashboard/
           git diff --staged --quiet || git commit -m "🧠 Generated 5 posts"
           git push
 
@@ -139,11 +145,14 @@ jobs:
       - name: Post morning content
         run: npm run post:morning
       
+      - name: Copy data to dashboard
+        run: cp content/post_history.json dashboard/data.json
+      
       - name: Commit history
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git add content/
+          git add content/ dashboard/
           git diff --staged --quiet || git commit -m "📤 08:00 post"
           git push
 
@@ -163,11 +172,14 @@ jobs:
       - name: Post mid-morning content
         run: npm run post:noon
       
+      - name: Copy data to dashboard
+        run: cp content/post_history.json dashboard/data.json
+      
       - name: Commit history
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git add content/
+          git add content/ dashboard/
           git diff --staged --quiet || git commit -m "📤 10:00 post"
           git push
 
@@ -187,11 +199,14 @@ jobs:
       - name: Post noon content
         run: npm run post:noon
       
+      - name: Copy data to dashboard
+        run: cp content/post_history.json dashboard/data.json
+      
       - name: Commit history
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git add content/
+          git add content/ dashboard/
           git diff --staged --quiet || git commit -m "📤 12:00 post"
           git push
 
@@ -211,11 +226,14 @@ jobs:
       - name: Post evening content
         run: npm run post:night
       
+      - name: Copy data to dashboard
+        run: cp content/post_history.json dashboard/data.json
+      
       - name: Commit history
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git add content/
+          git add content/ dashboard/
           git diff --staged --quiet || git commit -m "📤 18:00 post"
           git push
 
@@ -235,11 +253,14 @@ jobs:
       - name: Post night content
         run: npm run post:night
       
+      - name: Copy data to dashboard
+        run: cp content/post_history.json dashboard/data.json
+      
       - name: Commit history
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git add content/
+          git add content/ dashboard/
           git diff --staged --quiet || git commit -m "📤 21:00 post"
           git push
 
