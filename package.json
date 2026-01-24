@@ -6,6 +6,7 @@
   "scripts": {
     "generate": "npx ts-node scripts/generate_post_multi_llm.ts generate",
     "generate:dry": "npx ts-node scripts/generate_post_multi_llm.ts generate --dry-run",
+    "smart-post": "npx ts-node scripts/smart_post.ts",
     "post:morning": "npx ts-node scripts/auto_post.ts post morning",
     "post:mid_morning": "npx ts-node scripts/auto_post.ts post mid_morning",
     "post:noon": "npx ts-node scripts/auto_post.ts post noon",

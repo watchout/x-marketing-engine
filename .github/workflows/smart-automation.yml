@@ -1,0 +1,140 @@
+# X Marketing Engine - スマート自動化ワークフロー
+#
+# 特徴:
+# - 毎時実行して、スクリプトが適切なアクションを判断
+# - 未投稿スロットがあれば自動キャッチアップ
+# - 停止しにくい設計
+
+name: Smart X Marketing
+
+on:
+  schedule:
+    # 毎時0分に実行 (UTC)
+    # JST 07:00-22:00 = UTC 22:00-13:00
+    - cron: '0 22 * * *'  # JST 07:00
+    - cron: '0 23 * * *'  # JST 08:00
+    - cron: '0 0 * * *'   # JST 09:00
+    - cron: '0 1 * * *'   # JST 10:00
+    - cron: '0 2 * * *'   # JST 11:00
+    - cron: '0 3 * * *'   # JST 12:00
+    - cron: '0 9 * * *'   # JST 18:00
+    - cron: '0 10 * * *'  # JST 19:00
+    - cron: '0 11 * * *'  # JST 20:00
+    - cron: '0 12 * * *'  # JST 21:00
+    - cron: '0 13 * * *'  # JST 22:00
+  
+  workflow_dispatch:
+    inputs:
+      action:
+        description: 'アクション'
+        required: true
+        type: choice
+        options:
+          - smart_post
+          - generate
+          - full_cycle
+
+env:
+  X_API_KEY: ${{ secrets.X_API_KEY }}
+  X_API_SECRET: ${{ secrets.X_API_SECRET }}
+  X_ACCESS_TOKEN: ${{ secrets.X_ACCESS_TOKEN }}
+  X_ACCESS_SECRET: ${{ secrets.X_ACCESS_SECRET }}
+  OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+  GOOGLE_AI_API_KEY: ${{ secrets.GOOGLE_AI_API_KEY }}
+  GROK_API_KEY: ${{ secrets.GROK_API_KEY }}
+
+jobs:
+  smart_post:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Pull latest changes
+        run: git pull origin ${{ github.ref_name }} || true
+      
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+      
+      - run: npm ci
+      
+      - name: Generate posts if needed
+        run: |
+          # 投稿プールが空なら生成
+          POOL_COUNT=$(cat content/ab_test_pool.yml 2>/dev/null | grep -c "status: active" || echo "0")
+          if [ "$POOL_COUNT" -lt "3" ]; then
+            echo "📝 投稿プールが少ないため、新規生成..."
+            npm run generate || true
+            npm run generate || true
+            npm run generate || true
+          else
+            echo "✅ 投稿プール: $POOL_COUNT 件"
+          fi
+      
+      - name: Smart post execution
+        run: npm run smart-post
+        continue-on-error: true
+      
+      - name: Copy data to dashboard
+        run: |
+          cp content/post_history.json dashboard/data.json 2>/dev/null || true
+          cp content/account_stats.json dashboard/account.json 2>/dev/null || true
+          cp content/overseas_insights.json dashboard/overseas.json 2>/dev/null || true
+      
+      - name: Commit changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add content/ dashboard/
+          git diff --staged --quiet || git commit -m "🤖 Smart post $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+          git push || true
+
+  # 朝のリサーチ＆生成（1日1回）
+  daily_setup:
+    if: github.event.schedule == '0 22 * * *' || github.event.inputs.action == 'full_cycle'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: git pull origin ${{ github.ref_name }} || true
+      
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+      
+      - run: npm ci
+      
+      - name: Collect metrics
+        run: npm run metrics || true
+        continue-on-error: true
+      
+      - name: Get account stats
+        run: npm run account-stats || true
+        continue-on-error: true
+      
+      - name: Research overseas trends
+        run: npm run research-overseas || true
+        continue-on-error: true
+      
+      - name: Generate day's posts
+        run: |
+          npm run generate || true
+          npm run generate || true
+          npm run generate || true
+          npm run generate || true
+          npm run generate || true
+      
+      - name: Copy data to dashboard
+        run: |
+          cp content/post_history.json dashboard/data.json 2>/dev/null || true
+          cp content/account_stats.json dashboard/account.json 2>/dev/null || true
+          cp content/overseas_insights.json dashboard/overseas.json 2>/dev/null || true
+      
+      - name: Commit daily setup
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add content/ dashboard/
+          git diff --staged --quiet || git commit -m "🌅 Daily setup $(date -u +%Y-%m-%d)"
+          git push || true
