@@ -93,7 +93,10 @@ jobs:
         continue-on-error: true
       
       - name: Copy data to dashboard
-        run: cp content/post_history.json dashboard/data.json
+        run: |
+          cp content/post_history.json dashboard/data.json 2>/dev/null || true
+          cp content/overseas_insights.json dashboard/overseas.json 2>/dev/null || true
+          cp content/account_stats.json dashboard/account.json 2>/dev/null || true
       
       - name: Commit updates
         run: |
