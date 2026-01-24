@@ -680,6 +680,11 @@
         X Marketing Engine
       </h1>
       <div class="header-right">
+        <div id="follower-count" style="display: flex; align-items: center; gap: 8px; padding: 6px 12px; background: var(--bg-card); border-radius: 20px; font-size: 14px;">
+          <span style="color: var(--accent-blue);">👥</span>
+          <span id="follower-number" style="font-weight: 600;">-</span>
+          <span style="color: var(--text-secondary);">フォロワー</span>
+        </div>
         <div class="status-badge status-warning" id="system-status">
           確認中...
         </div>
@@ -1551,12 +1556,15 @@
       // Vercel/本番環境用: GitHub raw URL（キャッシュ回避のためタイムスタンプ付加）
       github: 'https://raw.githubusercontent.com/watchout/x-marketing-engine/main/content/post_history.json',
       github_overseas: 'https://raw.githubusercontent.com/watchout/x-marketing-engine/main/content/overseas_insights.json',
+      github_account: 'https://raw.githubusercontent.com/watchout/x-marketing-engine/main/content/account_stats.json',
       // ローカル開発用
       local: '../content/post_history.json',
-      local_overseas: '../content/overseas_insights.json'
+      local_overseas: '../content/overseas_insights.json',
+      local_account: '../content/account_stats.json'
     };
     
     let overseasInsights = null;
+    let accountStats = null;
     
     async function loadData() {
       // 本番環境ではGitHubから、ローカルではローカルファイルから
@@ -1607,6 +1615,24 @@
         }
       }
       
+      // アカウント統計を読み込み
+      const accountSources = isProduction 
+        ? [DATA_SOURCES.github_account + '?t=' + Date.now(), DATA_SOURCES.local_account]
+        : [DATA_SOURCES.local_account, DATA_SOURCES.github_account];
+      
+      for (const url of accountSources) {
+        try {
+          const res = await fetch(url);
+          if (res.ok) {
+            accountStats = await res.json();
+            console.log('✅ Account stats loaded:', accountStats?.followers_count, 'followers');
+            break;
+          }
+        } catch (e) {
+          // アカウント統計はオプショナル
+        }
+      }
+      
       // ステータス更新
       const statusEl = document.getElementById('system-status');
       if (postHistory.length > 0) {
@@ -1629,6 +1655,11 @@
       }
       
       document.getElementById('last-updated').textContent = `更新: ${new Date().toLocaleString('ja-JP')}`;
+      
+      // フォロワー数を表示
+      if (accountStats && accountStats.followers_count !== undefined) {
+        document.getElementById('follower-number').textContent = accountStats.followers_count.toLocaleString();
+      }
     }
     
     function render() {

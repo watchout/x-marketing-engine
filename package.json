@@ -19,7 +19,8 @@
     "sync": "npx ts-node scripts/sync_x_timeline.ts sync",
     "log:summary": "npx ts-node scripts/logger.ts summary 7",
     "log:daily": "npx ts-node scripts/logger.ts daily",
-    "test:connection": "npx ts-node scripts/test_x_connection.ts"
+    "test:connection": "npx ts-node scripts/test_x_connection.ts",
+    "account-stats": "npx ts-node scripts/get_account_stats.ts"
   },
   "dependencies": {
     "js-yaml": "^4.1.0",

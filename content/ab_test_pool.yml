@@ -1,6 +1,6 @@
 metadata:
-  version: "1.0"
-  created: 2026-01-17
+  version: '1.0'
+  created: 2026-01-17T00:00:00.000Z
   goal: テストマーケティングによる需要検証 → SaaS申し込み獲得
   weekly_story:
     week1: 問題提起 & 存在認知（ペイン共感）
@@ -9,18 +9,182 @@ metadata:
     week4: LP誘導 & 申し込み獲得
 time_slots:
   morning:
-    time: 09:30
+    time: '09:30'
     purpose: 有益情報を与える
     type: Type4_Tips
   noon:
-    time: 12:00
+    time: '12:00'
     purpose: 製品の価値を証明
     type: Type1_対比
   night:
-    time: 21:00
+    time: '21:00'
     purpose: 思想でファンにする
     type: Type3_思想
 posts:
+  - id: post_1769217038600
+    generated_at: '2026-01-24T01:10:38.600Z'
+    scheduled_date: '2026-01-24'
+    slot: night
+    topic: AI開発の品質問題解決！海外で話題の『Structured Outputs』でLLMの出力を構造化し、再現性を向上。レビュー時間も大幅削減。
+    theme: バイブコーディングの限界
+    type: problem_statement
+    quality_score: 80
+    refinement_rounds: 1
+    variants:
+      A:
+        content: |-
+          正直、AI開発の「いい感じにやって」はもう限界。結果がブレブレ、手戻り地獄…抜け出すには構造化された出力が鍵！海外で話題の『Structured Outputs』でLLMの出力品質爆上げ、レビューも爆速化🚀再現性向上で開発OSを刷新せよ！
+          #AI開発 #LLM #品質改善
+        hook_type: フック型A
+      B:
+        content: |-
+          AI開発、その場しのぎのプロンプトに頼ってませんか？ 構造化出力でLLMの真価を引き出せ！結果の安定、手戻り激減、レビュー効率爆上げ。海外で話題の『Structured Outputs』こそ、AI開発を成功に導く鍵。再現性こそ正義！
+          #AI開発 #LLM #構造化出力
+        hook_type: フック型B
+    scores:
+      hook_strength: 20
+      persona_fit: 21
+      x_culture_fit: 22
+      specificity: 10
+      credibility: 7
+      total: 80
+      feedback: |-
+        この投稿は、AI開発に関心がある読者を引きつける強力なフックを持っています。特に、現状の課題を直感的に表現している点が印象的です。ただし、具体的な『Structured Outputs』の方法やそれがどのようにLLMの出力品質を向上させるのかについて、もう少し詳しい説明があるとより効果的でしょう。また、信頼性を高めるために、海外で話題であることを示す具体的な例やデータを提示することを検討してみてください。 | 全体的に良い投稿ですが、具体性と信頼性をもう少し上げられると更に効果的です。以下、改善提案です。
+
+        *   **Specificity向上:** 『Structured Outputs』について、どのような仕組みなのか、具体的にどのような種類の構造化出力に対応しているのか（JSON, XML, etc.）、どのようなツールやライブラリと連携できるのか、といった情報を加えると、より具体的な価値が伝わります。例えば、「JSON形式でデータを出力し、特定のスキーマに準拠させることで、後続の処理を自動化！」のような表現を加える。
+        *   **Credibility向上:** 「海外で話題」という表現は、Xではよく見られますが、信頼性を高めるためには、具体的な情報源（例：論文、ブログ記事、OSSプロジェクト名）を引用するか、具体的な導入事例（企業名やプロジェクト名の一部を伏せ字で示すなど）を提示すると良いでしょう。または、具体的な数値データ（例：テスト結果、開発時間の短縮率、コスト削減率）を示すことも有効です。
+        *   **Persona Fit強化:** ペインに刺さるように、手戻りの具体的な例や、品質が安定しないことによる損失などを、短く具体的に示せると、さらに共感を呼ぶでしょう。例：「デバッグ地獄で徹夜続き…」
+        *   **全体:** ハッシュタグは適切ですが、類似の技術や課題に関心を持つユーザーにリーチできるように、もう少し種類を増やしても良いかもしれません（例：#LangChain #AIエンジニア #DevOps）。 | 投稿の冒頭は『正直、AI開発の「いい感じにやって」はもう限界』というフレーズでターゲットのフラストレーションを捉えており、比較的強いフックとなっている。ただし、感情的な共感をさらに引き出す表現（例：『イライラMAX』など）を加えるともっと止まりやすくなる可能性がある。ペインへの刺さりは良好で、ターゲットの課題（結果のブレ、手戻り、品質不安定）を的確に拾っている。Xの文化にも合致しており、カジュアルな語り口とハッシュタグの使用が自然。『Structured Outputs』という具体的なキーワードはあるが、それがどのように課題を解決するのか、どんな価値を提供するのかがやや抽象的で、具体性に欠ける。信頼性については、『海外で話題』という表現がやや曖昧で、根拠や事例が欲しいところ。改善提案としては、Structured Outputsの効果を1-2行で具体例（例：『指示のブレが50%減』）や信頼性裏付け（例：『○○社が採用』）を補足すると、より説得力が増すでしょう。
+    status: active
+  - id: post_1769217011542
+    generated_at: '2026-01-24T01:10:11.542Z'
+    scheduled_date: '2026-01-24'
+    slot: evening
+    topic: AI開発で品質が安定しない？仕様書を明確化するSpec-Driven Developmentを試してみた
+    theme: バイブコーディングの限界
+    type: problem_statement
+    quality_score: 82
+    refinement_rounds: 1
+    variants:
+      A:
+        content: '正直、AI開発「いい感じにやって」は危険信号🚨 結果がブレる、手戻り地獄…もうウンザリしませんか？仕様書を明確化するSpec-Driven Development(SDD)試したらマジで安定！何を指示すべきか明確になり、爆速開発🚀 バイブスコーディング卒業しません？ #AI開発 #SDD #品質向上'
+        hook_type: フック型A
+      B:
+        content: 'AI開発、仕様書なしは迷子確定🥺 「いい感じに」で指示してませんか？それ、まるで羅針盤なしの航海です🚢 Spec-Driven Development(SDD)なら、進むべき道が明確に！手戻り激減、爆速開発🚀しませんか？まずは仕様書から！ #AI開発 #SDD #効率化'
+        hook_type: フック型B
+    scores:
+      hook_strength: 20
+      persona_fit: 21
+      x_culture_fit: 22
+      specificity: 11
+      credibility: 8
+      total: 82
+      feedback: |-
+        この投稿はターゲットとなるオーディエンスの関心を引く要素が多く含まれており、特に『手戻り地獄』や『バイブスコーディング卒業』といったフレーズが強い印象を与えます。ターゲットのペインポイントにしっかりと刺さっており、特に『仕様書を明確化するSpec-Driven Development(SDD)』の提案が具体的で、信頼感を与えます。Xの文化に自然に溶け込んでおり、投稿全体が嘘っぽくなく、真実味があります。改善点として、さらに具体的な成功事例や数値を追加することで、より説得力を増すことができるでしょう。 | 全体的に見て、非常に良い投稿です。特に、ターゲット層のペインを的確に捉え、Xの文化にも合致しています。フックも強烈で、読者の注意を引きつけます。しかし、具体性と信頼性をさらに高めることで、より効果的な投稿にすることができます。
+
+        **改善点と提案:**
+
+        *   **Specificity（具体性）:** 「爆速開発🚀」という表現は魅力的ですが、具体性に欠けます。SDDを導入することで、具体的にどのような点で開発速度が向上するのか、定量的なデータや事例を提示すると、より説得力が増します。例えば、「SDD導入後、手戻りが30%減少し、開発期間が20%短縮されました」といった具体的な数値を盛り込むことを検討してください。
+        *   **Credibility（信頼性）:** SDDの導入事例や成功事例を具体的に記述することで、信頼性が向上します。例えば、「〇〇社では、SDDを導入した結果、AIモデルの精度が〇〇%向上し、顧客満足度が向上しました」といった具体的な情報を追加することを検討してください。また、投稿者の専門性や実績を簡潔に伝えることも有効です（例：〇〇年のAI開発経験を持つ専門家が語るSDDのメリット）。
+        *   **Call to Action（行動喚起）:** 最後に、読者に具体的な行動を促す一文を追加することを推奨します。例えば、「SDDに関する詳細な資料は、こちらからダウンロードできます！」や、「SDD導入に関する無料相談を受け付けています。お気軽にお問い合わせください！」といった形で、読者に行動を促すことで、より効果的なマーケティング活動に繋げることができます。
+
+        **その他:**
+
+        *   ハッシュタグは適切ですが、さらに細分化されたハッシュタグを追加することで、より多くの潜在顧客にリーチできる可能性があります（例： #SpecDrivenDevelopment #AI品質 #AI開発効率化）。
+        *   ビジュアル要素（画像や動画）を追加することで、投稿のエンゲージメントを高めることができます。SDDの概念を図解したインフォグラフィックや、開発現場の様子を撮影した短い動画などを活用することを検討してください。 | 投稿の冒頭は『正直、AI開発「いい感じにやって」は危険信号🚨』というフレーズで読者の注意を引く点は良いが、『危険信号』だけでは具体的な問題が伝わりにくく、興味を引きつける力がやや弱い。もう少し具体的な痛み（例：『手戻り地獄』）を冒頭に持ってくるか、感情を揺さぶる表現を加えるとフックが強まる。ターゲットのペインにはしっかり刺さっており、特に『結果がブレる、手戻り地獄』という表現は共感を呼ぶ。Xの文化にはカジュアルな口調や『バイブスコーディング』といったユニークな表現がマッチしており、自然な投稿に見える。具体性については『Spec-Driven Development(SDD)』という解決策を提示しているが、それがどのようにペインを解決するのかの詳細が不足している。たとえば、SDDの具体的なメリットや事例を軽く触れると説得力が増す。信頼性については、SDDの効果を『マジで安定』『爆速開発』と表現しているが、根拠や実績が示されていないため、やや主観的に感じられる。自身の経験や簡単なデータがあれば補強可能。
+    status: active
+  - id: post_1769216988292
+    generated_at: '2026-01-24T01:09:48.292Z'
+    scheduled_date: '2026-01-24'
+    slot: noon
+    topic: AIに「いい感じに」はもうやめよう。仕様書をガチれば品質安定
+    theme: バイブコーディングの限界
+    type: problem_statement
+    quality_score: 81
+    refinement_rounds: 1
+    variants:
+      A:
+        content: '正直、AIに「いい感じに」はもう限界。毎回結果が違うし、複雑な処理は手戻り地獄…😱仕様書をガチって、AIへの指示を明確化すれば品質は安定する！Dev-OSやSSOTで管理すれば鬼に金棒👹 今すぐ脱・雰囲気コーディング！ #AI開発 #仕様書 #品質向上'
+        hook_type: フック型A
+      B:
+        content: 'AI開発、こんな悩みありませんか？「なんか違う…」無限ループ😱 それ、指示があいまいなせいかも！ 仕様書をしっかり作り込み、指示を具体的にすればAIは期待に応えてくれる✨ Dev-OSやSSOTで管理すればさらに効率UP！脱・あいまい指示で、AI開発を成功させよう！ #AI開発 #仕様書重要 #AI活用'
+        hook_type: フック型B
+    scores:
+      hook_strength: 20
+      persona_fit: 20
+      x_culture_fit: 22
+      specificity: 11
+      credibility: 8
+      total: 81
+      feedback: |-
+        この投稿は非常に効果的です。最初の一行で、AIの限界についての直接的で共感を呼ぶ主張をすることで、読者の注意を引くことに成功しています。ターゲットとなるペインポイントをしっかりと押さえており、AI開発における共通の課題を明確にしています。投稿はXの文化に合った口調で、専門的な用語を含みつつもわかりやすく書かれており、信頼性が感じられます。具体的なソリューションとして、仕様書の重要性やDev-OS、SSOTの活用を提案している点も評価できます。唯一の改善点としては、具体事例や成功事例をもう少し詳しく挙げることで、さらに信頼感を高めることができるでしょう。 | 全体的に良い投稿です。ターゲットのペインを捉え、Xの文化にも合致しています。ただし、具体性と信頼性を高めることで、さらに効果的な投稿になります。
+
+        **改善点：**
+        *   **Specificity:** Dev-OSやSSOTといったキーワードは、ターゲットによっては抽象的に感じられる可能性があります。具体的なツール名や、導入によって得られる効果（例: 手戻り70%削減、開発スピード2倍）などを記述すると、より価値が伝わりやすくなります。
+        *   **Credibility:** 投稿者の実績や経験（例: 大規模AIプロジェクトでの成功例）をさりげなく匂わせることで、信頼性が向上します。または、参考になる記事や事例へのリンクを貼るのも有効です。
+        *   **フック:** 最初の1行は強いですが、「限界」というネガティブな表現よりも、「AI開発の落とし穴」や「AI開発でよくある失敗」といった表現の方が、より読者の興味を引きやすいかもしれません。
+
+        **提案：**
+        *   **ハッシュタグ:** #AI開発 #仕様書 #品質向上 に加えて、 #DevOps #データガバナンス #AIプロジェクト管理 など、より具体的なハッシュタグを追加することで、リーチを広げることができます。
+        *   **投稿形式:** スレッド形式で、それぞれの課題と解決策を深掘りすることで、より価値の高い情報を提供できます。 | 投稿の最初の1行はターゲットの共感を引く内容でフックとしては悪くないが、『正直、AIに「いい感じに」はもう限界』という表現は少し抽象的で、具体的な痛みや状況を想起させる力がやや弱い。より具体的な失敗例やフラストレーションを一言で表現するとさらに引きが強まる可能性がある。ペインにはしっかり刺さっており、ターゲットに共感を与える内容（結果のブレや手戻り地獄）は良い。Xの文化にも合い、口語的な表現や絵文字の使い方が自然で違和感はない。ただし、具体性については『仕様書をガチる』や『Dev-OSやSSOTで管理』といった提案があるものの、それがどのように問題を解決するのかが不明確で、読者にとっての価値が伝わりづらい。信頼性については、具体的な事例や経験がなく、少し主張だけが先行している印象。実体験や具体的なツールの効果を示すとより説得力が増すだろう。
+    status: active
+  - id: post_1769216956411
+    generated_at: '2026-01-24T01:09:16.411Z'
+    scheduled_date: '2026-01-24'
+    slot: mid_morning
+    topic: AIに「いい感じにやって」って言っても結果がブレる人へ。シンプルな仕様書テンプレをDMで配布
+    theme: バイブコーディングの限界
+    type: problem_statement
+    quality_score: 83
+    refinement_rounds: 1
+    variants:
+      A:
+        content: '正直、AIに「いい感じに」は通じません！指示がブレて手戻りばかり…そんなあなたに朗報📢 シンプル仕様書テンプレをDMで配布します🎁 これで指示が明確になり、AIも迷わず爆速コーディング🚀 無駄なやり取りを減らし、理想の成果物を手に入れよう！ #AI開発 #仕様書 #効率化'
+        hook_type: フック型A
+      B:
+        content: 'AIへの指示、まるで意思疎通できない…😭 「いい感じに作って」じゃAIも困るよね！仕様書の重要性、痛感しませんか？そこで！誰でも使えるシンプル仕様書テンプレをDMで無料配布🎁 これで指示が明確になり、AIも期待に応えてくれるはず✨ 手戻りを減らして、開発をスムーズに進めよう！ #AI開発 #仕様書 #効率化'
+        hook_type: フック型B
+    scores:
+      hook_strength: 20
+      persona_fit: 21
+      x_culture_fit: 22
+      specificity: 12
+      credibility: 8
+      total: 83
+      feedback: |-
+        投稿はターゲットのペインポイントをしっかりと捉えており、特にAIに対する指示の不明確さを解決する提案が明確に示されています。最初の一行は興味を引くのに十分であり、Xの文化にも自然にフィットしています。シンプル仕様書テンプレの具体的な価値も伝わっており、AI開発に関わる人々には信頼できる内容といえるでしょう。さらなる改善点として、テンプレートの具体的な特徴や導入事例について触れることで、さらに具体性と信頼性を高めることができるかもしれません。 | 全体的に見て、非常に効果的な投稿です。特にXのカルチャーに合致しており、共感を呼びやすいでしょう。ただ、信頼性を高めるために、テンプレートの具体的なメリットや、実績などを加えるとさらに効果的です。
+
+        * **Hook Strength:** 「正直、AIに「いい感じに」は通じません！」という冒頭は、多くの人が経験しているであろう課題をストレートに表現しており、読者の注意を引きつけます。共感性が高く、続きを読ませる力があります。
+        * **Persona Fit:** ターゲットのペイン（曖昧な指示による手戻り、品質の不安定さなど）を的確に捉えており、提供する解決策（シンプル仕様書テンプレート）がターゲットのニーズに合致しています。「バイブコーディング脱却希望者」というターゲット層にも響く内容です。
+        * **X Culture Fit:** X（旧Twitter）のカジュアルな雰囲気や、課題解決を求めるユーザーの多いプラットフォームの特性に合致しています。問題提起から解決策の提示、無料配布という流れも、Xでよく見られるコンテンツ形式であり、自然です。
+        * **Specificity:** 「シンプル仕様書テンプレをDMで配布」という具体的なオファーは、読者に行動を促す上で効果的です。AIが「爆速コーディング」という表現も、メリットを端的に伝えています。テンプレートの形式や、具体的なメリット（例：手戻り〇％削減など）を記載すると、さらに訴求力が高まります。
+        * **Credibility:** 無料配布という形式は、ハードルが低く試しやすいですが、同時に「本当に効果があるのか？」という疑問も生じさせやすいです。テンプレートの作成者の実績や、利用者の声などを加えることで、信頼性を高めることができます。例えば、「〇〇プロジェクトで利用し、〇〇％の効率化を達成したテンプレート」といった情報を加えると良いでしょう。 | 投稿の冒頭は『正直、AIに「いい感じに」は通じません！』という共感を呼ぶ一文で、ターゲットの関心を引きつける力は比較的強いものの、もう少し感情的なインパクトや意外性があればさらにフックとして効果的です。ターゲットのペイン（AI指示のブレや手戻り）にしっかり刺さっており、ペルソナとの一致度は高いです。Xの文化にも合い、絵文字の使用やカジュアルなトーンが自然で、プラットフォームに適したスタイルです。ただし、『シンプル仕様書テンプレ』の具体性がやや不足しており、どのようなテンプレか、どの程度効果があるのかが不明確です。信頼性については、提供者がテンプレの効果や実績を証明する要素がないため、受け手にとってやや信憑性に欠ける印象を与える可能性があります。改善提案として、テンプレの具体的な内容（例：『3ステップで指示を明確化』）や効果（例：『手戻りを50%削減』）を軽く触れると、信頼性と具体性が向上します。また、自己紹介や実績を一言添えるとクレディビリティが上がるでしょう。
+    status: active
+  - id: post_1769216916393
+    generated_at: '2026-01-24T01:08:36.393Z'
+    scheduled_date: '2026-01-24'
+    slot: morning
+    topic: 「AIに『いい感じに』はもう古い。仕様書をガチで書く『Spec-Driven Development』が品質安定の鍵かも📜」
+    theme: バイブコーディングの限界
+    type: problem_statement
+    quality_score: 83
+    refinement_rounds: 1
+    variants:
+      A:
+        content: '正直、AIに「いい感じに」頼むのもう限界じゃない？仕様書ガチ書きのSpec-Driven Developmentこそ品質安定の鍵かも📜 曖昧な指示は手戻りの元！仕様書で明確にすれば、AIもブレずに動くし、複雑な案件も怖くない。まずはテンプレート化から！ #AI開発 #仕様書 #品質向上'
+        hook_type: フック型A
+      B:
+        content: 'AI開発、指示出しで消耗してませんか？😥 「なんとなく」の指示じゃ、期待外れな結果になりがち。そこで、仕様書をガチッと作り込むSpec-Driven Development！手戻り激減＆品質爆上がり🚀 テンプレートから始めて、AIとの連携を最強にしませんか？✨ #AI開発 #仕様書作成 #効率化'
+        hook_type: フック型B
+    scores:
+      hook_strength: 20
+      persona_fit: 21
+      x_culture_fit: 22
+      specificity: 12
+      credibility: 8
+      total: 83
+      feedback: 'この投稿は、AI開発における仕様書の重要性を強調しており、バイブコーディングから脱却したいと考えているターゲットに非常に刺さる内容です。最初の一行で問題提起を行い、読者の興味を引くことに成功しています。また、Spec-Driven Developmentという具体的なソリューションを提示しており、テンプレート化の提案も実践的です。全体として自然で、Xマーケティングの投稿としても信頼性があります。ただし、さらに具体的な事例や使用例を挙げると、より一層の信頼性と具体性を持たせることができるでしょう。 | 全体的に良い投稿です。特に最初のフックは共感を呼びやすく、ターゲット層のペインを突いています。Xの文化にも合致しており、自然な印象を与えます。改善点としては、具体性をもっと高めることで、読者に行動を促すことができます。例えば、テンプレートの具体的な種類や、導入事例などを付け加えると、より説得力が増します。また、Credibilityを上げるために、実績や具体的な数値データを盛り込むことも有効です。ハッシュタグは適切ですが、さらにターゲット層が検索しそうなものを追加するのも良いでしょう。（例：#AI品質 #AI開発効率化） | 投稿の最初の1行は「正直、AIに『いい感じに』頼むのもう限界じゃない？」と問題提起しており、ターゲットのフラストレーションに共感を呼びますが、強い感情や意外性を引き出すほどのパンチラインにはやや欠けるため、hook_strengthは18としました。ターゲットのペイン（AIのブレや手戻り、品質不安定）にしっかり刺さる内容でpersona_fitは高めの20。Xの文化にも自然に馴染むカジュアルな口調とハッシュタグの使い方でx_culture_fitも21と良好です。ただし、具体的な解決策として『仕様書ガチ書き』や『テンプレート化』を挙げていますが、その詳細や効果が十分に伝わらず、specificityは10にとどまりました。credibilityも、専門性や実績を示す要素が少なく、説得力に欠けるため7としました。改善提案としては、hookをさらに感情的に訴える表現（例：『AIの「いい感じに」が地獄すぎる！』）にし、仕様書の具体例や成功事例を軽く触れることでspecificityとcredibilityを向上させるのが効果的です。'
+    status: active
   - id: post_1768894621481
     generated_at: 2026-01-20T07:37:01.481Z
     topic: 「AIに任せっきりは危険！バイブコーディングを卒業するための5つのステップ」
@@ -30,14 +194,10 @@ posts:
     refinement_rounds: 1
     variants:
       A:
-        content: "正直、AI任せの「バイブコーディング」はマジで危険！指示が曖昧だと手戻り地獄。脱却への5Step：①要件定義を明確に ②設計書作成 ③実装
-          ④テスト ⑤改善。dev-OSで開発環境を統一し、SSOTで情報の一元化も重要！今日から脱・雰囲気コーディング！ #AI開発 #開発効率化
-          #エンジニア"
+        content: '正直、AI任せの「バイブコーディング」はマジで危険！指示が曖昧だと手戻り地獄。脱却への5Step：①要件定義を明確に ②設計書作成 ③実装 ④テスト ⑤改善。dev-OSで開発環境を統一し、SSOTで情報の一元化も重要！今日から脱・雰囲気コーディング！ #AI開発 #開発効率化 #エンジニア'
         hook_type: フック型A
       B:
-        content: "🚨緊急警報🚨 AIコーディング、使い方間違えると手戻り無限ループに突入します！😱
-          要件定義→設計→実装→テスト→改善の5Stepで確実に脱出しましょう。さらにdev-OSで環境統一、SSOTで情報一元化すれば鬼に金棒👹
-          #AI開発 #開発効率化 #エンジニア"
+        content: '🚨緊急警報🚨 AIコーディング、使い方間違えると手戻り無限ループに突入します！😱 要件定義→設計→実装→テスト→改善の5Stepで確実に脱出しましょう。さらにdev-OSで環境統一、SSOTで情報一元化すれば鬼に金棒👹 #AI開発 #開発効率化 #エンジニア'
         hook_type: フック型B
     scores:
       hook_strength: 21
@@ -97,7 +257,7 @@ posts:
           #AI開発 #Cursor #バイブコーディング
         hook_type: 問いかけ
     status: active
-    scheduled_date: 2026-01-17
+    scheduled_date: 2026-01-17T00:00:00.000Z
   - id: w1d1_night_philosophy
     week: 1
     day: 1
@@ -138,7 +298,7 @@ posts:
           #AI開発 #BuildInPublic
         hook_type: 体験談
     status: active
-    scheduled_date: 2026-01-17
+    scheduled_date: 2026-01-17T00:00:00.000Z
   - id: w1d2_noon_fixing_hell
     week: 1
     day: 2
@@ -175,7 +335,7 @@ posts:
           #AI開発 #Cursor
         hook_type: 問いかけ
     status: active
-    scheduled_date: 2026-01-18
+    scheduled_date: 2026-01-18T00:00:00.000Z
   - id: w1d2_night_yaml_insight
     week: 1
     day: 2
@@ -208,7 +368,7 @@ posts:
           #SSOT #AI開発
         hook_type: 気づき
     status: active
-    scheduled_date: 2026-01-18
+    scheduled_date: 2026-01-18T00:00:00.000Z
   - id: w1d3_morning_mistake
     week: 1
     day: 3
@@ -240,7 +400,7 @@ posts:
           #Cursor #Tips
         hook_type: 具体例
     status: active
-    scheduled_date: 2026-01-19
+    scheduled_date: 2026-01-19T00:00:00.000Z
   - id: w1d3_noon_20percent
     week: 1
     day: 3
@@ -278,7 +438,7 @@ posts:
           #AI開発 #SaaS開発
         hook_type: 共感問いかけ
     status: active
-    scheduled_date: 2026-01-19
+    scheduled_date: 2026-01-19T00:00:00.000Z
   - id: w1d3_night_saas_checklist
     week: 1
     day: 3
@@ -315,7 +475,7 @@ posts:
           #SaaS開発 #チェックリスト
         hook_type: チェックリスト形式
     status: active
-    scheduled_date: 2026-01-19
+    scheduled_date: 2026-01-19T00:00:00.000Z
   - id: w1d4_noon_team_quality
     week: 1
     day: 4
@@ -351,7 +511,7 @@ posts:
           #AI開発 #チーム開発
         hook_type: 問題→解決
     status: active
-    scheduled_date: 2026-01-20
+    scheduled_date: 2026-01-20T00:00:00.000Z
   - id: w1d5_noon_handover
     week: 1
     day: 5
@@ -386,7 +546,7 @@ posts:
           #AI開発 #ドキュメント
         hook_type: あるある
     status: active
-    scheduled_date: 2026-01-21
+    scheduled_date: 2026-01-21T00:00:00.000Z
   - id: w1d6_noon_solution_hint
     week: 1
     day: 6
@@ -422,7 +582,7 @@ posts:
           #AI開発 #SSOT
         hook_type: 変化の提示
     status: active
-    scheduled_date: 2026-01-22
+    scheduled_date: 2026-01-22T00:00:00.000Z
   - id: w1d7_noon_week_summary
     week: 1
     day: 7
@@ -459,71 +619,64 @@ posts:
           #AI開発 #BuildInPublic
         hook_type: 振り返り
     status: active
-    scheduled_date: 2026-01-23
+    scheduled_date: 2026-01-23T00:00:00.000Z
   - id: overseas_1769213539304_diophh
-    content: “Vibe
-      Coding”は、仕様に縛られず直感を重視する開発手法。プロトタイピング段階での自由な発想が、新たなアイデアを生むかも。気軽に試してみよう！#クリエイティブ開発
+    content: “Vibe Coding”は、仕様に縛られず直感を重視する開発手法。プロトタイピング段階での自由な発想が、新たなアイデアを生むかも。気軽に試してみよう！#クリエイティブ開発
     type: overseas_insight
     topic: Vibe Coding
     source_accounts:
-      - "@swyx"
-      - "@jxnlco"
+      - '@swyx'
+      - '@jxnlco'
     novelty_score: 8
     priority: medium
     created_at: 2026-01-24T00:12:02.306Z
   - id: overseas_1769213539304_c6tmu4
-    content: "仕様（スペック）を基に開発するSpec-Driven
-      Developmentは、AIモデルの要件定義に特に効果的。具体的には、ステークホルダーとの早期合意形成や、テスト自動化との相性が良い。結果、開発\
-      の効率化と品質向上が期待できる！ #AI開発 #仕様主導"
+    content: '仕様（スペック）を基に開発するSpec-Driven Developmentは、AIモデルの要件定義に特に効果的。具体的には、ステークホルダーとの早期合意形成や、テスト自動化との相性が良い。結果、開発の効率化と品質向上が期待できる！ #AI開発 #仕様主導'
     type: overseas_insight
     topic: Spec-Driven Development
     source_accounts:
-      - "@hwchase17"
-      - "@simonw"
+      - '@hwchase17'
+      - '@simonw'
     novelty_score: 7
     priority: medium
     created_at: 2026-01-24T00:12:07.198Z
   - id: overseas_1769213539304_355r18
-    content: "AIエージェントが自律的にタスクを実行することで、業務効率が飛躍的に向上。特に定型業務の自動化に役立つ。例えば、リマインダーやデータ入力を\
-      AIに任せることで、クリエイティブな業務に集中できる！ #業務自動化 #AI活用"
+    content: 'AIエージェントが自律的にタスクを実行することで、業務効率が飛躍的に向上。特に定型業務の自動化に役立つ。例えば、リマインダーやデータ入力をAIに任せることで、クリエイティブな業務に集中できる！ #業務自動化 #AI活用'
     type: overseas_insight
     topic: Agentic Workflows
     source_accounts:
-      - "@mckaywrigley"
-      - "@karpathy"
+      - '@mckaywrigley'
+      - '@karpathy'
     novelty_score: 9
     priority: high
     created_at: 2026-01-24T00:12:11.773Z
   - id: overseas_1769213539304_o2hbcd
-    content: "プロンプトキャッシングで、過去のプロンプトを保存し再利用することで、応答速度を大幅に向上させられます。特に、コスト削減に直結するので、開発\
-      現場での即採用を検討したいですね。#AI活用 #コスト削減"
+    content: 'プロンプトキャッシングで、過去のプロンプトを保存し再利用することで、応答速度を大幅に向上させられます。特に、コスト削減に直結するので、開発現場での即採用を検討したいですね。#AI活用 #コスト削減'
     type: overseas_insight
     topic: Prompt Caching
     source_accounts:
-      - "@simonw"
-      - "@levelsio"
+      - '@simonw'
+      - '@levelsio'
     novelty_score: 8
     priority: medium
     created_at: 2026-01-24T00:12:15.286Z
   - id: overseas_1769213539304_flg08t
-    content: "AIの出力を構造化データで取得することで、アプリ開発の効率が大幅に向上！特にフォームデータやAPI連携での活用がカギ。開発者はデータ処理が\
-      スムーズに。#AI開発 #データ構造"
+    content: 'AIの出力を構造化データで取得することで、アプリ開発の効率が大幅に向上！特にフォームデータやAPI連携での活用がカギ。開発者はデータ処理がスムーズに。#AI開発 #データ構造'
     type: overseas_insight
     topic: Structured Outputs
     source_accounts:
-      - "@hwchase17"
-      - "@jxnlco"
+      - '@hwchase17'
+      - '@jxnlco'
     novelty_score: 7
     priority: medium
     created_at: 2026-01-24T00:12:18.769Z
   - id: overseas_1769215157698_cffz0r
-    content: "仕様書をAIに渡すことで、開発の再現性が飛躍的に向上する。文書化は曖昧さを排除し、チーム全体の理解も深まる。具体的には、短いステップで進捗\
-      を確認できる仕様書を作成することが鍵！ #AI開発 #仕様書"
+    content: '仕様書をAIに渡すことで、開発の再現性が飛躍的に向上する。文書化は曖昧さを排除し、チーム全体の理解も深まる。具体的には、短いステップで進捗を確認できる仕様書を作成することが鍵！ #AI開発 #仕様書'
     type: overseas_insight
     topic: Spec-Driven Development with LLMs
     source_accounts:
-      - "@swyx"
-      - "@jxnlco"
+      - '@swyx'
+      - '@jxnlco'
     novelty_score: 8
     persona_fit: 9
     priority: high
@@ -533,8 +686,8 @@ posts:
     type: overseas_insight
     topic: Agentic Workflows for AI Automation
     source_accounts:
-      - "@mckaywrigley"
-      - "@hwchase17"
+      - '@mckaywrigley'
+      - '@hwchase17'
     novelty_score: 7
     persona_fit: 8
     priority: medium
@@ -544,44 +697,41 @@ posts:
     type: overseas_insight
     topic: Structured Outputs in LLM Tooling
     source_accounts:
-      - "@simonw"
-      - "@karpathy"
+      - '@simonw'
+      - '@karpathy'
     novelty_score: 9
     persona_fit: 9
     priority: high
     created_at: 2026-01-24T00:39:11.080Z
   - id: overseas_1769215157698_crqdhj
-    content: "プロンプトをキャッシュすることで、同じタスクを何度も効率良く処理できます。リソースの無駄を省き、一貫性を保った開発が可能に！特に、デバッグ\
-      やテスト時の再利用は大きな時短に。 #AI開発 #効率化"
+    content: 'プロンプトをキャッシュすることで、同じタスクを何度も効率良く処理できます。リソースの無駄を省き、一貫性を保った開発が可能に！特に、デバッグやテスト時の再利用は大きな時短に。 #AI開発 #効率化'
     type: overseas_insight
     topic: Prompt Caching for Efficient AI Dev
     source_accounts:
-      - "@levelsio"
-      - "@jxnlco"
+      - '@levelsio'
+      - '@jxnlco'
     novelty_score: 7
     persona_fit: 7
     priority: medium
     created_at: 2026-01-24T00:39:14.036Z
   - id: overseas_1769215157698_i4252g
-    content: "AIツールの再現性を高めるためには、具体的な指示と明確な目標設定が不可欠。開発過程を可視化し、反復的なテストを行うことで、安定した成果が得\
-      られる。これにより、日本の精密さを活かせる。#AIDevelopment #再現性"
+    content: 'AIツールの再現性を高めるためには、具体的な指示と明確な目標設定が不可欠。開発過程を可視化し、反復的なテストを行うことで、安定した成果が得られる。これにより、日本の精密さを活かせる。#AIDevelopment #再現性'
     type: overseas_insight
     topic: Tool Use Patterns for Reproducible AI
     source_accounts:
-      - "@hwchase17"
-      - "@swyx"
+      - '@hwchase17'
+      - '@swyx'
     novelty_score: 8
     persona_fit: 8
     priority: high
     created_at: 2026-01-24T00:39:17.164Z
   - id: overseas_1769215927887_zoc8r8
-    content: "エージェント型ワークフローは、AIが自律的にタスクを分割・実行することで開発の効率化を実現します。特に複雑なプロジェクトでは手戻りが減り、\
-      スムーズな進行が可能に。チーム全体の生産性向上に繋がるかも！ #AI開発 #効率化"
+    content: 'エージェント型ワークフローは、AIが自律的にタスクを分割・実行することで開発の効率化を実現します。特に複雑なプロジェクトでは手戻りが減り、スムーズな進行が可能に。チーム全体の生産性向上に繋がるかも！ #AI開発 #効率化'
     type: overseas_insight
     topic: Agentic Workflows for AI Dev
     source_accounts:
-      - "@hwchase17"
-      - "@mckaywrigley"
+      - '@hwchase17'
+      - '@mckaywrigley'
     novelty_score: 9
     persona_fit: 8
     freshness: 10
@@ -591,13 +741,12 @@ posts:
     created_at: 2026-01-24T00:51:55.725Z
     expires_at: 2026-01-31T00:52:07.887Z
   - id: overseas_1769215927887_jqjy9u
-    content: "仕様書を明確にすることで、LLMを活用した開発が驚くほどスムーズに。具体的な要件を示すことで、一貫性のあるコード生成が可能に。チーム全体で\
-      仕様を共有し、反復的に改善を図ることで、再現性も向上！ #AI開発 #仕様駆動"
+    content: '仕様書を明確にすることで、LLMを活用した開発が驚くほどスムーズに。具体的な要件を示すことで、一貫性のあるコード生成が可能に。チーム全体で仕様を共有し、反復的に改善を図ることで、再現性も向上！ #AI開発 #仕様駆動'
     type: overseas_insight
     topic: Spec-Driven Development with LLMs
     source_accounts:
-      - "@swyx"
-      - "@jxnlco"
+      - '@swyx'
+      - '@jxnlco'
     novelty_score: 8
     persona_fit: 9
     freshness: 9
@@ -607,13 +756,12 @@ posts:
     created_at: 2026-01-24T00:51:53.027Z
     expires_at: 2026-01-31T00:52:07.887Z
   - id: overseas_1769215927887_kymffk
-    content: "構造化出力を取り入れることで、AIモデルの結果が予測可能になり、開発の再現性も向上します。仕様ベースの開発に特に効果的。具体的には、出力フ\
-      ォーマットを明確にすることで、意図した情報を常に得ることができます。#AI開発 #構造化出力"
+    content: '構造化出力を取り入れることで、AIモデルの結果が予測可能になり、開発の再現性も向上します。仕様ベースの開発に特に効果的。具体的には、出力フォーマットを明確にすることで、意図した情報を常に得ることができます。#AI開発 #構造化出力'
     type: overseas_insight
     topic: Structured Outputs in LLM Tooling
     source_accounts:
-      - "@karpathy"
-      - "@swyx"
+      - '@karpathy'
+      - '@swyx'
     novelty_score: 8
     persona_fit: 9
     freshness: 9
@@ -623,13 +771,12 @@ posts:
     created_at: 2026-01-24T00:52:04.519Z
     expires_at: 2026-01-31T00:52:07.887Z
   - id: overseas_1769215927887_3s5su0
-    content: "MCP導入でAI同士の連携が圧倒的にスムーズに！異なるモデル間のコンテキスト統一が、開発の一貫性を生む鍵。チューニングやデータ共有の効率が\
-      格段に向上します。#AI連携 #MCP"
+    content: 'MCP導入でAI同士の連携が圧倒的にスムーズに！異なるモデル間のコンテキスト統一が、開発の一貫性を生む鍵。チューニングやデータ共有の効率が格段に向上します。#AI連携 #MCP'
     type: overseas_insight
     topic: MCP (Model Context Protocol) for Orchestration
     source_accounts:
-      - "@hwchase17"
-      - "@levelsio"
+      - '@hwchase17'
+      - '@levelsio'
     novelty_score: 9
     persona_fit: 7
     freshness: 10
@@ -639,13 +786,12 @@ posts:
     created_at: 2026-01-24T00:52:07.349Z
     expires_at: 2026-01-31T00:52:07.887Z
   - id: overseas_1769215927887_7ggeye
-    content: "プロンプトキャッシングを活用して、過去の指示を再利用することでAI出力のばらつきを減少させることができます。特に品質の安定化が求められるプ\
-      ロジェクトに効果的です。具体的には、よく使うプロンプトを整理して再利用することで、効率化も図れます。#AI開発 #プロンプト"
+    content: 'プロンプトキャッシングを活用して、過去の指示を再利用することでAI出力のばらつきを減少させることができます。特に品質の安定化が求められるプロジェクトに効果的です。具体的には、よく使うプロンプトを整理して再利用することで、効率化も図れます。#AI開発 #プロンプト'
     type: overseas_insight
     topic: Prompt Caching for Consistent Outputs
     source_accounts:
-      - "@simonw"
-      - "@jxnlco"
+      - '@simonw'
+      - '@jxnlco'
     novelty_score: 7
     persona_fit: 8
     freshness: 8

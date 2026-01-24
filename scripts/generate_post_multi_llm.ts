@@ -631,10 +631,42 @@ async function generatePost(dryRun: boolean = false): Promise<void> {
     return;
   }
   
+  // 次のスロットを計算
+  const slots = ['morning', 'mid_morning', 'noon', 'evening', 'night'];
+  const now = new Date();
+  const jstOffset = 9 * 60 * 60 * 1000;
+  const jstNow = new Date(now.getTime() + jstOffset);
+  const todayJST = jstNow.toISOString().split('T')[0];
+  
+  // 既存の投稿からスケジュール済みスロットを取得
+  let pool: any = { posts: [] };
+  if (fs.existsSync(AB_TEST_POOL_FILE)) {
+    pool = yaml.load(fs.readFileSync(AB_TEST_POOL_FILE, 'utf-8')) as any || { posts: [] };
+  }
+  
+  const scheduledToday = new Set(
+    (pool.posts || [])
+      .filter((p: any) => p.scheduled_date === todayJST && p.status !== 'posted')
+      .map((p: any) => p.slot)
+  );
+  
+  // 未スケジュールのスロットを探す
+  let nextSlot = slots.find(s => !scheduledToday.has(s)) || 'morning';
+  let nextDate = todayJST;
+  
+  // 今日のスロットが全て埋まっていたら翌日
+  if (scheduledToday.size >= slots.length) {
+    const tomorrow = new Date(jstNow.getTime() + 24 * 60 * 60 * 1000);
+    nextDate = tomorrow.toISOString().split('T')[0];
+    nextSlot = 'morning';
+  }
+  
   // 投稿プールに追加
   const postEntry = {
     id: `post_${Date.now()}`,
     generated_at: new Date().toISOString(),
+    scheduled_date: nextDate,
+    slot: nextSlot,
     topic: topic,
     theme: 'バイブコーディングの限界',
     type: 'problem_statement',
@@ -651,15 +683,12 @@ async function generatePost(dryRun: boolean = false): Promise<void> {
       }
     },
     scores: scores,
-    status: 'pending'
+    status: 'active'
   };
   
-  // YAMLに追加
-  let pool: any = { posts: [] };
-  if (fs.existsSync(AB_TEST_POOL_FILE)) {
-    pool = yaml.load(fs.readFileSync(AB_TEST_POOL_FILE, 'utf-8')) as any || { posts: [] };
-  }
+  console.log(`\n📅 スケジュール: ${nextDate} ${nextSlot}`);
   
+  // YAMLに追加（poolは上で既に読み込み済み）
   pool.posts = pool.posts || [];
   pool.posts.unshift(postEntry);
   
