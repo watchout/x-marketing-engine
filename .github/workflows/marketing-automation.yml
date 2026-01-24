@@ -319,10 +319,15 @@ jobs:
         run: npm run suggest-replies
         continue-on-error: true
       
+      - name: Copy data to dashboard
+        run: |
+          cp content/reply_suggestions.json dashboard/replies.json 2>/dev/null || true
+          cp content/post_history.json dashboard/data.json 2>/dev/null || true
+      
       - name: Commit suggestions
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git add content/
+          git add content/ dashboard/
           git diff --staged --quiet || git commit -m "💬 Reply suggestions"
           git push
