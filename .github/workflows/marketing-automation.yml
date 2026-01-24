@@ -209,7 +209,7 @@ jobs:
       - run: npm ci
       
       - name: Post mid-morning content
-        run: npm run post:noon
+        run: npm run post:mid_morning
       
       - name: Copy data to dashboard
         run: cp content/post_history.json dashboard/data.json
@@ -263,7 +263,7 @@ jobs:
       - run: npm ci
       
       - name: Post evening content
-        run: npm run post:night
+        run: npm run post:evening
       
       - name: Copy data to dashboard
         run: cp content/post_history.json dashboard/data.json
