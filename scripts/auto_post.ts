@@ -339,7 +339,7 @@ async function autoPost(options: AutoPostOptions | string, dryRun: boolean = fal
       image_path: imagePath,
     };
     
-    history.push(record);
+    history.unshift(record);  // 新しい投稿を先頭に追加
     saveHistory(history);
     
     console.log(`📊 History saved: ${record.id}`);
