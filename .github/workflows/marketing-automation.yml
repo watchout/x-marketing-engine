@@ -1,11 +1,10 @@
-# X Marketing Engine - 自動化ワークフロー v2.0
+# X Marketing Engine - 自動化ワークフロー v2.1
 #
-# 日次サイクル（1日5投稿 + リプライ提案）:
+# 日次サイクル（1日5投稿 + 海外リサーチ）:
 #   05:45 JST - メトリクス収集
-#   06:00 JST - リプライ候補取得（1アカウント）
-#   06:15 JST - リプライ候補取得（1アカウント）
-#   07:00 JST - 投稿生成（5件分）
-#   08:00 JST - 朝投稿1
+#   06:00 JST - 海外AIトレンドリサーチ（Grok）
+#   07:00 JST - 投稿生成（5件分、海外インサイト含む）
+#   08:00 JST - 朝投稿
 #   10:00 JST - 午前投稿
 #   12:00 JST - 昼投稿
 #   18:00 JST - 夕方投稿
@@ -25,6 +24,8 @@ on:
   schedule:
     # メトリクス収集 (05:45 JST = 20:45 UTC前日)
     - cron: '45 20 * * *'
+    # 海外リサーチ (06:00 JST = 21:00 UTC前日)
+    - cron: '0 21 * * *'
     # 投稿生成 (07:00 JST = 22:00 UTC前日)
     - cron: '0 22 * * *'
     # 朝投稿 (08:00 JST = 23:00 UTC前日)
@@ -47,6 +48,7 @@ on:
         type: choice
         options:
           - generate
+          - research_overseas
           - post_morning
           - post_mid_morning
           - post_noon
@@ -95,6 +97,36 @@ jobs:
           git config --local user.name "GitHub Action"
           git add content/ dashboard/
           git diff --staged --quiet || git commit -m "📊 Daily analysis"
+          git push
+
+  # ===== 海外リサーチ (06:00 JST) =====
+  research_overseas:
+    if: github.event.schedule == '0 21 * * *' || github.event.inputs.action == 'research_overseas' || github.event.inputs.action == 'full_cycle'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: git pull origin ${{ github.ref_name }} || true
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+      - run: npm ci
+      
+      - name: Research overseas AI trends with Grok
+        run: npm run research-overseas
+        continue-on-error: true
+      
+      - name: Copy data to dashboard
+        run: |
+          cp content/post_history.json dashboard/data.json 2>/dev/null || true
+          cp content/overseas_insights.json dashboard/overseas.json 2>/dev/null || true
+      
+      - name: Commit overseas insights
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add content/ dashboard/
+          git diff --staged --quiet || git commit -m "🌐 Overseas AI trends research"
           git push
 
   # ===== 投稿生成 (07:00 JST) =====
