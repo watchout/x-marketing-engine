@@ -109,6 +109,10 @@ jobs:
         run: npm run metrics || true
         continue-on-error: true
       
+      - name: Update winning patterns (learning)
+        run: npx ts-node scripts/analyze_performance.ts update-winning || true
+        continue-on-error: true
+      
       - name: Get account stats
         run: npm run account-stats || true
         continue-on-error: true

@@ -99,7 +99,7 @@ const TARGET_PERSONA = {
 // ===== ファイルパス =====
 
 const PROJECT_ROOT = path.join(__dirname, '..');
-const WINNING_PATTERNS_FILE = path.join(PROJECT_ROOT, 'apps/platform/ssot/winning_patterns.yml');
+const WINNING_PATTERNS_FILE = path.join(PROJECT_ROOT, 'content/winning_patterns.yml');
 const AB_TEST_POOL_FILE = path.join(PROJECT_ROOT, 'content/ab_test_pool.yml');
 const CONTENT_STRATEGY_FILE = path.join(PROJECT_ROOT, 'apps/platform/ssot/x_content_strategy.yml');
 const OVERSEAS_INSIGHTS_FILE = path.join(PROJECT_ROOT, 'content/overseas_insights.json');

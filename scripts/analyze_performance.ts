@@ -79,7 +79,7 @@ interface KPITargets {
 
 // ファイルパス
 const HISTORY_FILE = path.join(__dirname, '../content/post_history.json');
-const WINNING_PATTERNS_FILE = path.join(__dirname, '../config/winning_patterns.yml');
+const WINNING_PATTERNS_FILE = path.join(__dirname, '../content/winning_patterns.yml');
 const KPI_FILE = path.join(__dirname, '../config/marketing_kpi.yml');
 const CONTENT_STRATEGY_FILE = path.join(__dirname, '../config/x_content_strategy.yml');
 

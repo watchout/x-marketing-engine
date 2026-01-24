@@ -1,0 +1,129 @@
+last_updated: "2026-01-24T23:06:48.457Z"
+overall_stats:
+  total_analyzed: 0
+  avg_impressions: 0
+  avg_engagement_rate: 0
+  best_performing_type: null
+  best_performing_slot: null
+type_performance:
+  problem_statement:
+    total_posts: 11
+    avg_impressions: 82
+    avg_engagement_rate: 0.0024
+    avg_likes: 0.1
+    avg_retweets: 0
+    best_post_id: hist_1768879106653_466387
+  before_after:
+    total_posts: 0
+    avg_impressions: 0
+    avg_engagement_rate: 0
+    avg_likes: 0
+    avg_retweets: 0
+    best_post_id: null
+  discovery:
+    total_posts: 1
+    avg_impressions: 300
+    avg_engagement_rate: 0.0033
+    avg_likes: 1
+    avg_retweets: 0
+    best_post_id: hist_1768879106654_372510
+  tips:
+    total_posts: 2
+    avg_impressions: 7
+    avg_engagement_rate: 0
+    avg_likes: 0
+    avg_retweets: 0
+    best_post_id: hist_1768879106652_884031
+  story:
+    total_posts: 0
+    avg_impressions: 0
+    avg_engagement_rate: 0
+    avg_likes: 0
+    avg_retweets: 0
+    best_post_id: null
+  comparison:
+    total_posts: 0
+    avg_impressions: 0
+    avg_engagement_rate: 0
+    avg_likes: 0
+    avg_retweets: 0
+    best_post_id: null
+  trend:
+    total_posts: 0
+    avg_impressions: 0
+    avg_engagement_rate: 0
+    avg_likes: 0
+    avg_retweets: 0
+    best_post_id: null
+  thread:
+    total_posts: 11
+    avg_impressions: 46
+    avg_engagement_rate: 0.0037
+    avg_likes: 0.3
+    avg_retweets: 0
+    best_post_id: hist_1768879106654_112799
+  unknown:
+    total_posts: 25
+    avg_impressions: 61
+    avg_engagement_rate: 0.0122
+    avg_likes: 0.3
+    avg_retweets: 0
+    best_post_id: hist_1768879106654_639680
+slot_performance: {}
+winning_posts: []
+losing_posts: []
+effective_elements:
+  hooks: []
+  call_to_actions: []
+  hashtags: []
+  themes: []
+insights:
+  - type: initial
+    content: まだ十分なデータがありません。投稿を続けてデータを蓄積してください。
+    discovered_at: "2026-01-25"
+version: "1.0"
+auto_updated: true
+winning_patterns:
+  - id: hist_1768879106653_732533
+    type: unknown
+    theme: Cursor活用
+    content: |-
+      Cursorを使い始めて3ヶ月。
+
+      最初は「魔法だ！」と思った。
+      でも複雑になるほど、AIが迷走し始めた。
+
+      原因は明確だった。
+      僕の指示が曖昧だったから。
+
+      AIは悪くない。
+      人間が「何を作りたいか」を整理してなかっただけ。
+
+      #AI開発 #BuildInPublic
+    metrics:
+      impressions: 5
+      likes: 1
+      retweets: 0
+      replies: 0
+      collected_at: "2026-01-20T03:18:26.653Z"
+    posted_at: "2026-01-19T13:00:00.000Z"
+    variant: B
+  - id: hist_1768879106654_639680
+    type: unknown
+    theme: 一般
+    content: |-
+      連日話題のo1 pro月額3万円。
+      同じ金額で24時間働き続けてパワハラやらモラハラの心配もない優秀な助っ人はどう考えても雇えないと考えたら難しことは考えずに今すぐ使いこなすべき🐿️
+      #ai
+    metrics:
+      impressions: 59
+      likes: 2
+      retweets: 0
+      replies: 0
+      collected_at: "2026-01-20T03:18:26.654Z"
+    posted_at: "2024-12-10T23:54:56.000Z"
+    variant: A
+update_log:
+  - timestamp: "2026-01-24T23:06:48.458Z"
+    action: auto_update
+    patterns_count: 2

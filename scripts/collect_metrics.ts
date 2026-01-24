@@ -159,6 +159,7 @@ async function collectMetrics(): Promise<void> {
   const pending = history.filter(h => {
     const postedAt = new Date(h.posted_at).getTime();
     const age = now - postedAt;
+    // 24時間以上経過していて、メトリクスがない場合
     return age >= DAY_MS && !h.metrics;
   });
   
