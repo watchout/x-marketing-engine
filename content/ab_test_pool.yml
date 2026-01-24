@@ -1,6 +1,6 @@
 metadata:
-  version: '1.0'
-  created: '2026-01-17'
+  version: "1.0"
+  created: 2026-01-17
   goal: テストマーケティングによる需要検証 → SaaS申し込み獲得
   weekly_story:
     week1: 問題提起 & 存在認知（ペイン共感）
@@ -9,20 +9,20 @@ metadata:
     week4: LP誘導 & 申し込み獲得
 time_slots:
   morning:
-    time: '09:30'
+    time: 09:30
     purpose: 有益情報を与える
     type: Type4_Tips
   noon:
-    time: '12:00'
+    time: 12:00
     purpose: 製品の価値を証明
     type: Type1_対比
   night:
-    time: '21:00'
+    time: 21:00
     purpose: 思想でファンにする
     type: Type3_思想
 posts:
   - id: post_1768894621481
-    generated_at: '2026-01-20T07:37:01.481Z'
+    generated_at: 2026-01-20T07:37:01.481Z
     topic: 「AIに任せっきりは危険！バイブコーディングを卒業するための5つのステップ」
     theme: バイブコーディングの限界
     type: problem_statement
@@ -30,10 +30,14 @@ posts:
     refinement_rounds: 1
     variants:
       A:
-        content: '正直、AI任せの「バイブコーディング」はマジで危険！指示が曖昧だと手戻り地獄。脱却への5Step：①要件定義を明確に ②設計書作成 ③実装 ④テスト ⑤改善。dev-OSで開発環境を統一し、SSOTで情報の一元化も重要！今日から脱・雰囲気コーディング！ #AI開発 #開発効率化 #エンジニア'
+        content: "正直、AI任せの「バイブコーディング」はマジで危険！指示が曖昧だと手戻り地獄。脱却への5Step：①要件定義を明確に ②設計書作成 ③実装
+          ④テスト ⑤改善。dev-OSで開発環境を統一し、SSOTで情報の一元化も重要！今日から脱・雰囲気コーディング！ #AI開発 #開発効率化
+          #エンジニア"
         hook_type: フック型A
       B:
-        content: '🚨緊急警報🚨 AIコーディング、使い方間違えると手戻り無限ループに突入します！😱 要件定義→設計→実装→テスト→改善の5Stepで確実に脱出しましょう。さらにdev-OSで環境統一、SSOTで情報一元化すれば鬼に金棒👹 #AI開発 #開発効率化 #エンジニア'
+        content: "🚨緊急警報🚨 AIコーディング、使い方間違えると手戻り無限ループに突入します！😱
+          要件定義→設計→実装→テスト→改善の5Stepで確実に脱出しましょう。さらにdev-OSで環境統一、SSOTで情報一元化すれば鬼に金棒👹
+          #AI開発 #開発効率化 #エンジニア"
         hook_type: フック型B
     scores:
       hook_strength: 21
@@ -93,7 +97,7 @@ posts:
           #AI開発 #Cursor #バイブコーディング
         hook_type: 問いかけ
     status: active
-    scheduled_date: '2026-01-17'
+    scheduled_date: 2026-01-17
   - id: w1d1_night_philosophy
     week: 1
     day: 1
@@ -134,7 +138,7 @@ posts:
           #AI開発 #BuildInPublic
         hook_type: 体験談
     status: active
-    scheduled_date: '2026-01-17'
+    scheduled_date: 2026-01-17
   - id: w1d2_noon_fixing_hell
     week: 1
     day: 2
@@ -171,7 +175,7 @@ posts:
           #AI開発 #Cursor
         hook_type: 問いかけ
     status: active
-    scheduled_date: '2026-01-18'
+    scheduled_date: 2026-01-18
   - id: w1d2_night_yaml_insight
     week: 1
     day: 2
@@ -204,7 +208,7 @@ posts:
           #SSOT #AI開発
         hook_type: 気づき
     status: active
-    scheduled_date: '2026-01-18'
+    scheduled_date: 2026-01-18
   - id: w1d3_morning_mistake
     week: 1
     day: 3
@@ -236,7 +240,7 @@ posts:
           #Cursor #Tips
         hook_type: 具体例
     status: active
-    scheduled_date: '2026-01-19'
+    scheduled_date: 2026-01-19
   - id: w1d3_noon_20percent
     week: 1
     day: 3
@@ -274,7 +278,7 @@ posts:
           #AI開発 #SaaS開発
         hook_type: 共感問いかけ
     status: active
-    scheduled_date: '2026-01-19'
+    scheduled_date: 2026-01-19
   - id: w1d3_night_saas_checklist
     week: 1
     day: 3
@@ -311,7 +315,7 @@ posts:
           #SaaS開発 #チェックリスト
         hook_type: チェックリスト形式
     status: active
-    scheduled_date: '2026-01-19'
+    scheduled_date: 2026-01-19
   - id: w1d4_noon_team_quality
     week: 1
     day: 4
@@ -347,7 +351,7 @@ posts:
           #AI開発 #チーム開発
         hook_type: 問題→解決
     status: active
-    scheduled_date: '2026-01-20'
+    scheduled_date: 2026-01-20
   - id: w1d5_noon_handover
     week: 1
     day: 5
@@ -382,7 +386,7 @@ posts:
           #AI開発 #ドキュメント
         hook_type: あるある
     status: active
-    scheduled_date: '2026-01-21'
+    scheduled_date: 2026-01-21
   - id: w1d6_noon_solution_hint
     week: 1
     day: 6
@@ -418,7 +422,7 @@ posts:
           #AI開発 #SSOT
         hook_type: 変化の提示
     status: active
-    scheduled_date: '2026-01-22'
+    scheduled_date: 2026-01-22
   - id: w1d7_noon_week_summary
     week: 1
     day: 7
@@ -455,7 +459,63 @@ posts:
           #AI開発 #BuildInPublic
         hook_type: 振り返り
     status: active
-    scheduled_date: '2026-01-23'
+    scheduled_date: 2026-01-23
+  - id: overseas_1769213539304_diophh
+    content: “Vibe
+      Coding”は、仕様に縛られず直感を重視する開発手法。プロトタイピング段階での自由な発想が、新たなアイデアを生むかも。気軽に試してみよう！#クリエイティブ開発
+    type: overseas_insight
+    topic: Vibe Coding
+    source_accounts:
+      - "@swyx"
+      - "@jxnlco"
+    novelty_score: 8
+    priority: medium
+    created_at: 2026-01-24T00:12:02.306Z
+  - id: overseas_1769213539304_c6tmu4
+    content: "仕様（スペック）を基に開発するSpec-Driven
+      Developmentは、AIモデルの要件定義に特に効果的。具体的には、ステークホルダーとの早期合意形成や、テスト自動化との相性が良い。結果、開発\
+      の効率化と品質向上が期待できる！ #AI開発 #仕様主導"
+    type: overseas_insight
+    topic: Spec-Driven Development
+    source_accounts:
+      - "@hwchase17"
+      - "@simonw"
+    novelty_score: 7
+    priority: medium
+    created_at: 2026-01-24T00:12:07.198Z
+  - id: overseas_1769213539304_355r18
+    content: "AIエージェントが自律的にタスクを実行することで、業務効率が飛躍的に向上。特に定型業務の自動化に役立つ。例えば、リマインダーやデータ入力を\
+      AIに任せることで、クリエイティブな業務に集中できる！ #業務自動化 #AI活用"
+    type: overseas_insight
+    topic: Agentic Workflows
+    source_accounts:
+      - "@mckaywrigley"
+      - "@karpathy"
+    novelty_score: 9
+    priority: high
+    created_at: 2026-01-24T00:12:11.773Z
+  - id: overseas_1769213539304_o2hbcd
+    content: "プロンプトキャッシングで、過去のプロンプトを保存し再利用することで、応答速度を大幅に向上させられます。特に、コスト削減に直結するので、開発\
+      現場での即採用を検討したいですね。#AI活用 #コスト削減"
+    type: overseas_insight
+    topic: Prompt Caching
+    source_accounts:
+      - "@simonw"
+      - "@levelsio"
+    novelty_score: 8
+    priority: medium
+    created_at: 2026-01-24T00:12:15.286Z
+  - id: overseas_1769213539304_flg08t
+    content: "AIの出力を構造化データで取得することで、アプリ開発の効率が大幅に向上！特にフォームデータやAPI連携での活用がカギ。開発者はデータ処理が\
+      スムーズに。#AI開発 #データ構造"
+    type: overseas_insight
+    topic: Structured Outputs
+    source_accounts:
+      - "@hwchase17"
+      - "@jxnlco"
+    novelty_score: 7
+    priority: medium
+    created_at: 2026-01-24T00:12:18.769Z
 stats:
   total_posts: 0
   total_impressions: 0
