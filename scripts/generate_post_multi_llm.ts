@@ -102,6 +102,30 @@ const PROJECT_ROOT = path.join(__dirname, '..');
 const WINNING_PATTERNS_FILE = path.join(PROJECT_ROOT, 'apps/platform/ssot/winning_patterns.yml');
 const AB_TEST_POOL_FILE = path.join(PROJECT_ROOT, 'content/ab_test_pool.yml');
 const CONTENT_STRATEGY_FILE = path.join(PROJECT_ROOT, 'apps/platform/ssot/x_content_strategy.yml');
+const OVERSEAS_INSIGHTS_FILE = path.join(PROJECT_ROOT, 'content/overseas_insights.json');
+
+// 海外インサイトを読み込み
+function loadOverseasInsights(): { topic: string; summary: string; persona_fit: number; japanese_adaptation: string }[] {
+  try {
+    if (!fs.existsSync(OVERSEAS_INSIGHTS_FILE)) return [];
+    const data = JSON.parse(fs.readFileSync(OVERSEAS_INSIGHTS_FILE, 'utf-8'));
+    if (!data.ideas || !Array.isArray(data.ideas)) return [];
+    
+    // ペルソナ適合度が高いものを優先
+    return data.ideas
+      .filter((idea: any) => idea.insight?.persona_fit >= 7)
+      .map((idea: any) => ({
+        topic: idea.insight?.topic || '',
+        summary: idea.insight?.summary || '',
+        persona_fit: idea.insight?.persona_fit || 0,
+        japanese_adaptation: idea.japanese_adaptation || ''
+      }))
+      .sort((a: any, b: any) => b.persona_fit - a.persona_fit);
+  } catch (e) {
+    console.log('⚠️ 海外インサイト読み込み失敗');
+    return [];
+  }
+}
 
 // ===== LLM呼び出し =====
 
@@ -120,7 +144,7 @@ async function callGrok(prompt: string): Promise<string> {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        model: 'grok-2-latest',
+        model: 'grok-3',
         messages: [{ role: 'user', content: prompt }],
         temperature: 0.8
       })
@@ -227,6 +251,14 @@ async function selectTopic(): Promise<{ topic: string; reason: string }> {
   ).join('\n');
   
   // Grok: トレンド・ネタ提案
+  // 海外インサイトを読み込み
+  const overseasInsights = loadOverseasInsights();
+  const overseasSection = overseasInsights.length > 0 
+    ? `\n【海外AIトレンド（日本未発信）】\n${overseasInsights.slice(0, 3).map((i, idx) => 
+        `${idx + 1}. ${i.topic}: ${i.summary} (ペルソナ適合: ${i.persona_fit}/10)`
+      ).join('\n')}\n※これらは日本で未発信の情報です。積極的に取り入れてください。`
+    : '';
+
   const grokPrompt = `
 あなたはXで日本のAI開発者向けにバズる投稿を分析する専門家です。
 
@@ -236,18 +268,24 @@ ${TARGET_PERSONA.name}
 
 【最近の勝ちパターン】
 ${patternSummary || '（データなし）'}
+${overseasSection}
 
 【依頼】
-今のXトレンドを踏まえ、上記ターゲットに刺さるネタを3つ提案してください。
+今のXトレンドと上記の海外トレンドを踏まえ、ターゲットに刺さるネタを3つ提案してください。
+※海外トレンドから1つは必ず含めてください（日本で先取り発信する価値があります）
+
 各ネタについて、なぜ刺さるかの理由も添えてください。
 
 出力形式:
 1. [ネタ1]
    理由: [理由]
+   海外参照: [あり/なし]
 2. [ネタ2]
    理由: [理由]
+   海外参照: [あり/なし]
 3. [ネタ3]
    理由: [理由]
+   海外参照: [あり/なし]
 `;
   
   const grokResponse = await callGrok(grokPrompt);
