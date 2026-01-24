@@ -104,23 +104,49 @@ const AB_TEST_POOL_FILE = path.join(PROJECT_ROOT, 'content/ab_test_pool.yml');
 const CONTENT_STRATEGY_FILE = path.join(PROJECT_ROOT, 'apps/platform/ssot/x_content_strategy.yml');
 const OVERSEAS_INSIGHTS_FILE = path.join(PROJECT_ROOT, 'content/overseas_insights.json');
 
-// 海外インサイトを読み込み
-function loadOverseasInsights(): { topic: string; summary: string; persona_fit: number; japanese_adaptation: string }[] {
+// 海外インサイトを読み込み（鮮度と日本普及度を考慮）
+function loadOverseasInsights(): { 
+  topic: string; 
+  summary: string; 
+  persona_fit: number; 
+  freshness: number;
+  japan_spread: number;
+  priority_score: number;
+  japanese_adaptation: string;
+  researched_at: string;
+}[] {
   try {
     if (!fs.existsSync(OVERSEAS_INSIGHTS_FILE)) return [];
     const data = JSON.parse(fs.readFileSync(OVERSEAS_INSIGHTS_FILE, 'utf-8'));
     if (!data.ideas || !Array.isArray(data.ideas)) return [];
     
-    // ペルソナ適合度が高いものを優先
+    const researchedAt = data.researched_at || new Date().toISOString();
+    const hoursAgo = (Date.now() - new Date(researchedAt).getTime()) / (1000 * 60 * 60);
+    
+    // リサーチから24時間以上経過していたら鮮度を下げる
+    const freshnessDecay = Math.max(0, Math.min(5, Math.floor(hoursAgo / 24)));
+    
     return data.ideas
       .filter((idea: any) => idea.insight?.persona_fit >= 7)
-      .map((idea: any) => ({
-        topic: idea.insight?.topic || '',
-        summary: idea.insight?.summary || '',
-        persona_fit: idea.insight?.persona_fit || 0,
-        japanese_adaptation: idea.japanese_adaptation || ''
-      }))
-      .sort((a: any, b: any) => b.persona_fit - a.persona_fit);
+      .map((idea: any) => {
+        const freshness = Math.max(1, (idea.insight?.freshness || 5) - freshnessDecay);
+        const japanSpread = idea.insight?.japan_spread || 5;
+        const personaFit = idea.insight?.persona_fit || 0;
+        const priorityScore = Math.round((freshness * (10 - japanSpread) * personaFit) / 10);
+        
+        return {
+          topic: idea.insight?.topic || '',
+          summary: idea.insight?.summary || '',
+          persona_fit: personaFit,
+          freshness,
+          japan_spread: japanSpread,
+          priority_score: priorityScore,
+          japanese_adaptation: idea.japanese_adaptation || '',
+          researched_at: researchedAt
+        };
+      })
+      .filter((i: any) => i.priority_score >= 20) // 優先度20以上のみ
+      .sort((a: any, b: any) => b.priority_score - a.priority_score);
   } catch (e) {
     console.log('⚠️ 海外インサイト読み込み失敗');
     return [];
@@ -251,13 +277,25 @@ async function selectTopic(): Promise<{ topic: string; reason: string }> {
   ).join('\n');
   
   // Grok: トレンド・ネタ提案
-  // 海外インサイトを読み込み
+  // 海外インサイトを読み込み（優先度順）
   const overseasInsights = loadOverseasInsights();
-  const overseasSection = overseasInsights.length > 0 
-    ? `\n【海外AIトレンド（日本未発信）】\n${overseasInsights.slice(0, 3).map((i, idx) => 
-        `${idx + 1}. ${i.topic}: ${i.summary} (ペルソナ適合: ${i.persona_fit}/10)`
-      ).join('\n')}\n※これらは日本で未発信の情報です。積極的に取り入れてください。`
-    : '';
+  let overseasSection = '';
+  
+  if (overseasInsights.length > 0) {
+    const hoursAgo = Math.round((Date.now() - new Date(overseasInsights[0].researched_at).getTime()) / (1000 * 60 * 60));
+    overseasSection = `
+【海外AIトレンド（${hoursAgo}時間前にリサーチ）】
+${overseasInsights.slice(0, 3).map((i, idx) => {
+  const urgency = i.freshness >= 8 ? '🔥今すぐ発信価値あり' : 
+                  i.freshness >= 5 ? '⏰早めに発信推奨' : '📅発信可能';
+  return `${idx + 1}. ${i.topic}: ${i.summary}
+   鮮度: ${i.freshness}/10 | 日本普及度: ${i.japan_spread}/10 | 優先度: ${i.priority_score}
+   ${urgency}`;
+}).join('\n')}
+
+※鮮度が高く日本で広まっていないものを優先してください。
+※海外トレンドから最低1つは必ずネタに含めてください。`;
+  }
 
   const grokPrompt = `
 あなたはXで日本のAI開発者向けにバズる投稿を分析する専門家です。

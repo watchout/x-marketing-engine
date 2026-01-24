@@ -574,6 +574,86 @@ posts:
     persona_fit: 8
     priority: high
     created_at: 2026-01-24T00:39:17.164Z
+  - id: overseas_1769215927887_zoc8r8
+    content: "エージェント型ワークフローは、AIが自律的にタスクを分割・実行することで開発の効率化を実現します。特に複雑なプロジェクトでは手戻りが減り、\
+      スムーズな進行が可能に。チーム全体の生産性向上に繋がるかも！ #AI開発 #効率化"
+    type: overseas_insight
+    topic: Agentic Workflows for AI Dev
+    source_accounts:
+      - "@hwchase17"
+      - "@mckaywrigley"
+    novelty_score: 9
+    persona_fit: 8
+    freshness: 10
+    japan_spread: 1
+    priority_score: 72
+    priority: high
+    created_at: 2026-01-24T00:51:55.725Z
+    expires_at: 2026-01-31T00:52:07.887Z
+  - id: overseas_1769215927887_jqjy9u
+    content: "仕様書を明確にすることで、LLMを活用した開発が驚くほどスムーズに。具体的な要件を示すことで、一貫性のあるコード生成が可能に。チーム全体で\
+      仕様を共有し、反復的に改善を図ることで、再現性も向上！ #AI開発 #仕様駆動"
+    type: overseas_insight
+    topic: Spec-Driven Development with LLMs
+    source_accounts:
+      - "@swyx"
+      - "@jxnlco"
+    novelty_score: 8
+    persona_fit: 9
+    freshness: 9
+    japan_spread: 2
+    priority_score: 65
+    priority: high
+    created_at: 2026-01-24T00:51:53.027Z
+    expires_at: 2026-01-31T00:52:07.887Z
+  - id: overseas_1769215927887_kymffk
+    content: "構造化出力を取り入れることで、AIモデルの結果が予測可能になり、開発の再現性も向上します。仕様ベースの開発に特に効果的。具体的には、出力フ\
+      ォーマットを明確にすることで、意図した情報を常に得ることができます。#AI開発 #構造化出力"
+    type: overseas_insight
+    topic: Structured Outputs in LLM Tooling
+    source_accounts:
+      - "@karpathy"
+      - "@swyx"
+    novelty_score: 8
+    persona_fit: 9
+    freshness: 9
+    japan_spread: 2
+    priority_score: 65
+    priority: high
+    created_at: 2026-01-24T00:52:04.519Z
+    expires_at: 2026-01-31T00:52:07.887Z
+  - id: overseas_1769215927887_3s5su0
+    content: "MCP導入でAI同士の連携が圧倒的にスムーズに！異なるモデル間のコンテキスト統一が、開発の一貫性を生む鍵。チューニングやデータ共有の効率が\
+      格段に向上します。#AI連携 #MCP"
+    type: overseas_insight
+    topic: MCP (Model Context Protocol) for Orchestration
+    source_accounts:
+      - "@hwchase17"
+      - "@levelsio"
+    novelty_score: 9
+    persona_fit: 7
+    freshness: 10
+    japan_spread: 1
+    priority_score: 63
+    priority: high
+    created_at: 2026-01-24T00:52:07.349Z
+    expires_at: 2026-01-31T00:52:07.887Z
+  - id: overseas_1769215927887_7ggeye
+    content: "プロンプトキャッシングを活用して、過去の指示を再利用することでAI出力のばらつきを減少させることができます。特に品質の安定化が求められるプ\
+      ロジェクトに効果的です。具体的には、よく使うプロンプトを整理して再利用することで、効率化も図れます。#AI開発 #プロンプト"
+    type: overseas_insight
+    topic: Prompt Caching for Consistent Outputs
+    source_accounts:
+      - "@simonw"
+      - "@jxnlco"
+    novelty_score: 7
+    persona_fit: 8
+    freshness: 8
+    japan_spread: 3
+    priority_score: 45
+    priority: medium
+    created_at: 2026-01-24T00:51:59.671Z
+    expires_at: 2026-01-31T00:52:07.887Z
 stats:
   total_posts: 0
   total_impressions: 0
