@@ -456,8 +456,8 @@ async function main() {
 
   switch (parsed.command) {
     case 'post':
-      if (!parsed.slot || !['morning', 'noon', 'night'].includes(parsed.slot)) {
-        console.error('Usage: auto_post.ts post <morning|noon|night> [--with-image] [--provider gemini|flux|dalle] [--style infographic|code|contrast|tech|minimal]');
+      if (!parsed.slot || !['morning', 'mid_morning', 'noon', 'evening', 'night'].includes(parsed.slot)) {
+        console.error('Usage: auto_post.ts post <morning|mid_morning|noon|evening|night> [--with-image] [--provider gemini|flux|dalle] [--style infographic|code|contrast|tech|minimal]');
         process.exit(1);
       }
       await autoPost({
