@@ -53,6 +53,7 @@ interface TrendInsight {
   example_posts: string[];
   japan_relevance: string;
   novelty_score: number;
+  persona_fit: number;  // ターゲットペルソナへの適合度
 }
 
 interface ContentIdea {
@@ -123,13 +124,31 @@ async function callGPT(prompt: string): Promise<string> {
   return data.choices[0].message.content.trim();
 }
 
-// Grokで海外トレンドをリサーチ
-async function researchWithGrok(keywords: string[], influencers: string[]): Promise<TrendInsight[]> {
+// ペルソナ情報を取得
+function getPersonaContext(settings: any): string {
+  const persona = settings.persona || {};
+  return `
+【ターゲットペルソナ】
+名前: ${persona.name || 'AI開発者'}
+ペインポイント:
+${(persona.pain_points || []).map((p: string) => `- ${p}`).join('\n')}
+求めているもの:
+${(persona.desires || []).map((d: string) => `- ${d}`).join('\n')}
+関心キーワード: ${(persona.keywords || []).join(', ')}
+`;
+}
+
+// Grokで海外トレンドをリサーチ（ペルソナフィルタリング付き）
+async function researchWithGrok(keywords: string[], influencers: string[], settings: any): Promise<TrendInsight[]> {
   console.log('🔍 Grokで海外AI情報をリサーチ中...\n');
+  
+  const personaContext = getPersonaContext(settings);
   
   const prompt = `あなたはX（Twitter）の情報に精通したAIリサーチャーです。
 
 以下の条件で、過去24-48時間にXで話題になっている海外AI開発関連のトピックを調査してください。
+
+${personaContext}
 
 【監視キーワード】
 ${keywords.join(', ')}
@@ -137,11 +156,12 @@ ${keywords.join(', ')}
 【注目インフルエンサー】
 ${influencers.join(', ')}
 
-【調査条件】
-1. 英語圏のAI開発者・エンジニアの間で話題のトピック
-2. 日本ではまだあまり知られていない概念や手法
-3. 実用的で、日本のAI開発者にも役立つ情報
-4. "vibe coding" や "spec-driven development" など開発手法に関するもの優先
+【重要な調査条件】
+1. 上記ペルソナの「ペインポイント」を解決する情報を優先
+2. 「バイブコーディングの限界」「仕様駆動開発」「AI開発の品質向上」に関連するもの
+3. 日本ではまだあまり知られていない概念や手法
+4. 実用的で、すぐに試せるTipsやアプローチ
+5. 曖昧な開発から脱却し、再現性のある開発を実現する情報
 
 【出力形式】JSON配列で5件
 [
@@ -151,11 +171,15 @@ ${influencers.join(', ')}
     "key_accounts": ["@account1", "@account2"],
     "example_posts": ["投稿の要約1", "投稿の要約2"],
     "japan_relevance": "日本での活用可能性（50文字）",
-    "novelty_score": 1-10（日本での新規性）
+    "novelty_score": 1-10（日本での新規性）,
+    "persona_fit": 1-10（ターゲットペルソナへの適合度）
   }
 ]
 
-重要: 実際にXで話題になっているリアルな情報を基に回答してください。`;
+重要: 
+- ペルソナの課題を解決する情報を最優先
+- 実際にXで話題になっているリアルな情報を基に回答
+- persona_fitが7未満のトピックは含めない`;
 
   try {
     const response = await callGrok(prompt);
@@ -217,30 +241,42 @@ JSON形式で回答:
   return null;
 }
 
-// 投稿プールに追加
-function addToPool(ideas: ContentIdea[]): void {
+// 投稿プールに追加（ペルソナ適合度でフィルタリング）
+function addToPool(ideas: ContentIdea[]): number {
   let pool: any = { posts: [] };
   
   if (fs.existsSync(POOL_FILE)) {
     pool = yaml.parse(fs.readFileSync(POOL_FILE, 'utf-8')) || { posts: [] };
   }
   
+  let addedCount = 0;
+  
   for (const idea of ideas) {
-    if (idea.insight.novelty_score >= 7) {
+    const novelty = idea.insight.novelty_score || 0;
+    const personaFit = idea.insight.persona_fit || 0;
+    
+    // 新規性7以上 かつ ペルソナ適合度7以上のみ追加
+    if (novelty >= 7 && personaFit >= 7) {
+      const priority = (novelty >= 9 || personaFit >= 9) ? 'high' : 
+                       (novelty >= 8 && personaFit >= 8) ? 'high' : 'medium';
+      
       pool.posts.push({
         id: `overseas_${Date.now()}_${Math.random().toString(36).substr(2, 6)}`,
         content: idea.japanese_adaptation,
         type: 'overseas_insight',
         topic: idea.insight.topic,
         source_accounts: idea.insight.key_accounts,
-        novelty_score: idea.insight.novelty_score,
-        priority: idea.insight.novelty_score >= 9 ? 'high' : 'medium',
+        novelty_score: novelty,
+        persona_fit: personaFit,
+        priority,
         created_at: idea.generated_at
       });
+      addedCount++;
     }
   }
   
   fs.writeFileSync(POOL_FILE, yaml.stringify(pool));
+  return addedCount;
 }
 
 // メイン処理
@@ -269,8 +305,8 @@ async function main() {
   console.log(`👥 注目アカウント: ${influencerHandles.slice(0, 5).join(', ')}...\n`);
   console.log('='.repeat(60));
   
-  // Grokでリサーチ
-  const insights = await researchWithGrok(trendKeywords, influencerHandles);
+  // Grokでリサーチ（ペルソナ情報を渡す）
+  const insights = await researchWithGrok(trendKeywords, influencerHandles, settings);
   
   console.log(`\n📊 発見したトピック: ${insights.length}件\n`);
   
@@ -278,9 +314,19 @@ async function main() {
   const ideas: ContentIdea[] = [];
   
   for (const insight of insights) {
-    console.log(`📝 [${insight.topic}] 新規性: ${insight.novelty_score}/10`);
+    const personaFit = insight.persona_fit || 5;
+    const fitEmoji = personaFit >= 8 ? '🎯' : personaFit >= 6 ? '✓' : '△';
+    
+    console.log(`📝 [${insight.topic}]`);
+    console.log(`   新規性: ${insight.novelty_score}/10 | ペルソナ適合: ${fitEmoji} ${personaFit}/10`);
     console.log(`   ${insight.summary}`);
     console.log(`   出典: ${insight.key_accounts.join(', ')}`);
+    
+    // ペルソナ適合度が低いものはスキップ
+    if (personaFit < 6) {
+      console.log(`   ⏭️ ペルソナ適合度が低いためスキップ\n`);
+      continue;
+    }
     
     const idea = await generateJapaneseContent(insight);
     
@@ -307,11 +353,12 @@ async function main() {
   
   fs.writeFileSync(OUTPUT_FILE, JSON.stringify(output, null, 2));
   
-  // 高新規性のアイデアを投稿プールに追加
-  const highNoveltyIdeas = ideas.filter(i => i.insight.novelty_score >= 7);
-  if (highNoveltyIdeas.length > 0) {
-    addToPool(highNoveltyIdeas);
-    console.log(`\n✅ ${highNoveltyIdeas.length}件を投稿プールに追加`);
+  // 高品質アイデアを投稿プールに追加（新規性 & ペルソナ適合度でフィルタ）
+  const addedCount = addToPool(ideas);
+  if (addedCount > 0) {
+    console.log(`\n✅ ${addedCount}件を投稿プールに追加（新規性7+ & ペルソナ適合7+）`);
+  } else {
+    console.log(`\n⚠️ 条件を満たすコンテンツがありませんでした`);
   }
   
   // サマリー
@@ -319,8 +366,12 @@ async function main() {
   console.log('📋 リサーチサマリー\n');
   
   for (const idea of ideas) {
-    const emoji = idea.insight.novelty_score >= 8 ? '🌟' : idea.insight.novelty_score >= 6 ? '✅' : '📝';
-    console.log(`${emoji} [${idea.insight.topic}] 新規性: ${idea.insight.novelty_score}/10`);
+    const novelty = idea.insight.novelty_score || 0;
+    const personaFit = idea.insight.persona_fit || 0;
+    const emoji = (novelty >= 8 && personaFit >= 8) ? '🎯' : 
+                  (novelty >= 7 && personaFit >= 7) ? '✅' : '📝';
+    console.log(`${emoji} [${idea.insight.topic}]`);
+    console.log(`   新規性: ${novelty}/10 | ペルソナ適合: ${personaFit}/10`);
     console.log(`   ${idea.japanese_adaptation.substring(0, 60)}...`);
     console.log(`   ソース: ${idea.insight.key_accounts.slice(0, 2).join(', ')}\n`);
   }
