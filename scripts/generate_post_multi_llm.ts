@@ -103,6 +103,34 @@ const WINNING_PATTERNS_FILE = path.join(PROJECT_ROOT, 'content/winning_patterns.
 const AB_TEST_POOL_FILE = path.join(PROJECT_ROOT, 'content/ab_test_pool.yml');
 const CONTENT_STRATEGY_FILE = path.join(PROJECT_ROOT, 'apps/platform/ssot/x_content_strategy.yml');
 const OVERSEAS_INSIGHTS_FILE = path.join(PROJECT_ROOT, 'content/overseas_insights.json');
+const LLM_ANALYSIS_FILE = path.join(PROJECT_ROOT, 'content/llm_analysis.json');
+
+// LLM分析インサイトを読み込み
+interface LLMInsights {
+  action_items: string[];
+  effective_hooks: string[];
+  trending_elements: string[];
+}
+
+function loadLLMInsights(): LLMInsights | null {
+  try {
+    if (!fs.existsSync(LLM_ANALYSIS_FILE)) return null;
+    const data = JSON.parse(fs.readFileSync(LLM_ANALYSIS_FILE, 'utf-8'));
+    
+    // 分析から24時間以内のデータのみ使用
+    const analyzedAt = new Date(data.analyzed_at).getTime();
+    const hoursAgo = (Date.now() - analyzedAt) / (1000 * 60 * 60);
+    if (hoursAgo > 72) return null; // 72時間以上古い場合はスキップ
+    
+    return {
+      action_items: data.combined_action_items || [],
+      effective_hooks: data.gemini_insights?.optimal_elements?.hooks || [],
+      trending_elements: data.grok_insights?.trending_elements || []
+    };
+  } catch (e) {
+    return null;
+  }
+}
 
 // 海外インサイトを読み込み（鮮度と日本普及度を考慮）
 function loadOverseasInsights(): { 
@@ -297,6 +325,24 @@ ${overseasInsights.slice(0, 3).map((i, idx) => {
 ※海外トレンドから最低1つは必ずネタに含めてください。`;
   }
 
+  // LLMインサイトを読み込み
+  const llmInsights = loadLLMInsights();
+  let llmInsightsSection = '';
+  
+  if (llmInsights) {
+    llmInsightsSection = `
+【LLM分析による改善ポイント】
+${llmInsights.action_items.slice(0, 3).map((a, i) => `${i+1}. ${a}`).join('\n')}
+
+【効果的だったフック】
+${llmInsights.effective_hooks.join('、') || 'なし'}
+
+【取り入れるべきトレンド要素】
+${llmInsights.trending_elements.join('、') || 'なし'}
+
+※上記の改善ポイントを必ず反映したネタを提案してください。`;
+  }
+
   const grokPrompt = `
 あなたはXで日本のAI開発者向けにバズる投稿を分析する専門家です。
 
@@ -307,10 +353,12 @@ ${TARGET_PERSONA.name}
 【最近の勝ちパターン】
 ${patternSummary || '（データなし）'}
 ${overseasSection}
+${llmInsightsSection}
 
 【依頼】
 今のXトレンドと上記の海外トレンドを踏まえ、ターゲットに刺さるネタを3つ提案してください。
 ※海外トレンドから1つは必ず含めてください（日本で先取り発信する価値があります）
+${llmInsights ? '※LLM分析の改善ポイントを必ず反映してください。' : ''}
 
 各ネタについて、なぜ刺さるかの理由も添えてください。
 

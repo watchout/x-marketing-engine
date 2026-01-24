@@ -22,6 +22,7 @@
     "reply:all": "npx ts-node scripts/execute_reply.ts all",
     "metrics": "npx ts-node scripts/collect_metrics.ts collect",
     "analyze": "npx ts-node scripts/analyze_performance.ts analyze",
+    "analyze-llm": "npx ts-node scripts/analyze_with_llm.ts",
     "sync": "npx ts-node scripts/sync_x_timeline.ts sync",
     "log:summary": "npx ts-node scripts/logger.ts summary 7",
     "log:daily": "npx ts-node scripts/logger.ts daily",
