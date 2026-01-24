@@ -853,6 +853,13 @@
         </div>
         
         <div class="section-header">
+          <h2 class="section-title">💬 リプライ提案</h2>
+        </div>
+        <div id="reply-suggestions" class="card">
+          <p style="color: var(--text-muted);">リプライ提案を読み込み中...</p>
+        </div>
+        
+        <div class="section-header">
           <h2 class="section-title">📝 投稿キュー</h2>
         </div>
         <div id="post-queue" class="card">
@@ -1432,6 +1439,79 @@
       `;
     }
     
+    function renderReplySuggestions() {
+      const container = document.getElementById('reply-suggestions');
+      
+      if (!replySuggestions || !replySuggestions.suggestions || replySuggestions.suggestions.length === 0) {
+        container.innerHTML = `
+          <p style="color: var(--text-muted);">
+            リプライ提案がありません。<br>
+            <code style="font-size: 12px;">npm run suggest-replies</code> を実行してください。
+          </p>
+        `;
+        return;
+      }
+      
+      const pending = replySuggestions.suggestions.filter(s => !s.executed);
+      const executed = replySuggestions.suggestions.filter(s => s.executed);
+      
+      container.innerHTML = `
+        <div style="margin-bottom: 12px; display: flex; justify-content: space-between; align-items: center;">
+          <span style="color: var(--text-secondary); font-size: 13px;">
+            📅 生成: ${new Date(replySuggestions.generated_at).toLocaleString('ja-JP')} |
+            未実行: ${pending.length}件 | 実行済み: ${executed.length}件
+          </span>
+        </div>
+        ${pending.length === 0 ? '<p style="color: var(--text-muted);">全て実行済みです ✅</p>' : ''}
+        ${pending.map((s, i) => {
+          const scoreEmoji = s.quality_score >= 8 ? '🌟' : s.quality_score >= 6 ? '✅' : '📝';
+          const relevanceColor = s.relevance === 'high' ? 'var(--accent-green)' : 
+                                 s.relevance === 'medium' ? 'var(--accent-orange)' : 'var(--text-muted)';
+          return `
+            <div style="padding: 12px; margin-bottom: 8px; background: var(--bg-secondary); border-radius: 8px; border-left: 3px solid ${relevanceColor};">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                <a href="${s.tweet.url}" target="_blank" style="color: var(--accent-blue); text-decoration: none; font-weight: 600;">
+                  @${s.tweet.author}
+                </a>
+                <span style="font-size: 12px; color: var(--text-muted);">
+                  ${scoreEmoji} スコア: ${s.quality_score}/10
+                </span>
+              </div>
+              <div style="color: var(--text-secondary); font-size: 13px; margin-bottom: 8px; padding: 8px; background: var(--bg-card); border-radius: 4px;">
+                "${s.tweet.text.substring(0, 80)}${s.tweet.text.length > 80 ? '...' : ''}"
+              </div>
+              <div style="background: var(--bg-card); padding: 10px; border-radius: 6px; margin-bottom: 8px;">
+                <span style="color: var(--accent-cyan); font-size: 12px;">💬 提案リプライ:</span>
+                <p style="color: var(--text-primary); margin-top: 4px; font-size: 14px;">${s.suggested_reply}</p>
+              </div>
+              <div style="display: flex; gap: 8px; justify-content: flex-end;">
+                <a href="${s.tweet.url}" target="_blank" 
+                   style="padding: 6px 12px; background: var(--accent-blue); color: white; border-radius: 6px; text-decoration: none; font-size: 12px;">
+                  🔗 元ツイート
+                </a>
+                <button onclick="copyReply('${encodeURIComponent(s.suggested_reply)}')"
+                   style="padding: 6px 12px; background: var(--accent-green); color: white; border-radius: 6px; border: none; cursor: pointer; font-size: 12px;">
+                  📋 コピー
+                </button>
+              </div>
+            </div>
+          `;
+        }).join('')}
+        <div style="margin-top: 12px; padding: 10px; background: var(--bg-secondary); border-radius: 6px;">
+          <span style="color: var(--text-muted); font-size: 12px;">
+            💡 ターミナルから実行: <code>npm run reply 0</code> (インデックス0を実行) または <code>npm run reply all</code> (全て実行)
+          </span>
+        </div>
+      `;
+    }
+    
+    function copyReply(encodedText) {
+      const text = decodeURIComponent(encodedText);
+      navigator.clipboard.writeText(text).then(() => {
+        alert('コピーしました！');
+      });
+    }
+    
     function renderInfluencers() {
       const container = document.getElementById('influencer-list');
       const totalFollowers = benchmarkAccounts.reduce((sum, a) => sum + a.followers, 0);
@@ -1557,6 +1637,7 @@
       github: 'https://raw.githubusercontent.com/watchout/x-marketing-engine/main/dashboard/data.json',
       github_overseas: 'https://raw.githubusercontent.com/watchout/x-marketing-engine/main/dashboard/overseas.json',
       github_account: 'https://raw.githubusercontent.com/watchout/x-marketing-engine/main/dashboard/account.json',
+      github_replies: 'https://raw.githubusercontent.com/watchout/x-marketing-engine/main/dashboard/replies.json',
       // ローカル開発用
       local: './data.json',
       local_overseas: './overseas.json',
@@ -1565,6 +1646,7 @@
     
     let overseasInsights = null;
     let accountStats = null;
+    let replySuggestions = null;
     
     async function loadData() {
       // 本番環境ではGitHubから、ローカルではローカルファイルから
@@ -1633,6 +1715,20 @@
         }
       }
       
+      // リプライ提案を読み込み
+      try {
+        const replyUrl = isProduction 
+          ? DATA_SOURCES.github_replies + '?t=' + Date.now()
+          : './replies.json';
+        const res = await fetch(replyUrl);
+        if (res.ok) {
+          replySuggestions = await res.json();
+          console.log('✅ Reply suggestions loaded:', replySuggestions?.suggestions?.length || 0);
+        }
+      } catch (e) {
+        // リプライ提案はオプショナル
+      }
+      
       // ステータス更新
       const statusEl = document.getElementById('system-status');
       if (postHistory.length > 0) {
@@ -1678,6 +1774,7 @@
       renderImprovementPoints(postHistory);
       renderInfluencers();
       renderOverseasInsights();
+      renderReplySuggestions();
       renderSchedule();
       renderActivityLog();
       renderSystemInfo();
