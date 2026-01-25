@@ -122,8 +122,13 @@ jobs:
         run: npx ts-node scripts/analyze_performance.ts update-winning || true
         continue-on-error: true
       
-      - name: Multi-LLM deep analysis
+      - name: Multi-LLM deep analysis (requires metrics)
+        if: contains('Mon Thu', steps.date.outputs.day)
         run: npm run analyze-llm || true
+        continue-on-error: true
+      
+      - name: Grok content analysis (daily, no API limit)
+        run: npm run analyze-grok || true
         continue-on-error: true
       
       - name: Get account stats
