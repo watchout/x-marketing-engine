@@ -108,7 +108,13 @@ jobs:
       
       - run: npm ci
       
-      - name: Collect metrics
+      - name: Get day of week
+        id: date
+        run: echo "day=$(date -u +%a)" >> $GITHUB_OUTPUT
+      
+      # メトリクス収集は月・木のみ実行（X API制限: 1回/15分）
+      - name: Collect metrics (Mon/Thu only)
+        if: contains('Mon Thu', steps.date.outputs.day)
         run: npm run metrics || true
         continue-on-error: true
       

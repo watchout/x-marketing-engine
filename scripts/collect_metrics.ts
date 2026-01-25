@@ -87,8 +87,23 @@ function saveHistory(history: PostHistory[]): void {
   fs.writeFileSync(HISTORY_FILE, JSON.stringify(history, null, 2));
 }
 
-// X API クライアント
+// X API クライアント（Bearer Token - App Context）
+// Bearer tokenはレート制限が緩いため、読み取り専用操作に使用
 async function getXClient() {
+  const bearerToken = process.env.X_BEARER_TOKEN;
+  
+  // Bearer tokenがあれば優先的に使用（レート制限が緩い）
+  if (bearerToken) {
+    try {
+      const { TwitterApi } = await import('twitter-api-v2');
+      console.log('📡 Using Bearer token (app context)');
+      return new TwitterApi(bearerToken);
+    } catch (e) {
+      throw new Error('twitter-api-v2 not installed');
+    }
+  }
+  
+  // フォールバック: OAuth 1.0a
   const apiKey = process.env.X_API_KEY;
   const apiSecret = process.env.X_API_SECRET;
   const accessToken = process.env.X_ACCESS_TOKEN;
@@ -100,6 +115,7 @@ async function getXClient() {
 
   try {
     const { TwitterApi } = await import('twitter-api-v2');
+    console.log('📡 Using OAuth 1.0a (user context)');
     return new TwitterApi({
       appKey: apiKey,
       appSecret: apiSecret,
@@ -111,81 +127,94 @@ async function getXClient() {
   }
 }
 
-// ツイートのメトリクスを取得
-async function getTweetMetrics(tweetId: string): Promise<PostMetrics | null> {
+// ツイートのメトリクスをバルク取得（最大100件を1回のAPIで取得）
+async function getTweetMetricsBulk(tweetIds: string[]): Promise<Map<string, PostMetrics>> {
+  const results = new Map<string, PostMetrics>();
+  
+  if (tweetIds.length === 0) return results;
+  
   try {
     const client = await getXClient();
     
-    // v2 API でツイート情報を取得
-    const tweet = await client.v2.singleTweet(tweetId, {
+    // v2 API でバルク取得（最大100件）
+    const tweets = await client.v2.tweets(tweetIds, {
       'tweet.fields': ['public_metrics', 'created_at'],
     });
     
-    if (!tweet.data || !tweet.data.public_metrics) {
-      console.log(`⚠️ No metrics for tweet ${tweetId}`);
-      return null;
+    if (!tweets.data) {
+      console.log('⚠️ No data returned from bulk API');
+      return results;
     }
     
-    const m = tweet.data.public_metrics;
+    for (const tweet of tweets.data) {
+      if (tweet.public_metrics) {
+        const m = tweet.public_metrics;
+        results.set(tweet.id, {
+          impressions: m.impression_count || 0,
+          likes: m.like_count || 0,
+          retweets: m.retweet_count || 0,
+          replies: m.reply_count || 0,
+          collected_at: new Date().toISOString(),
+        });
+      }
+    }
     
-    return {
-      impressions: m.impression_count || 0,
-      likes: m.like_count || 0,
-      retweets: m.retweet_count || 0,
-      replies: m.reply_count || 0,
-      collected_at: new Date().toISOString(),
-    };
+    console.log(`✅ Bulk API: ${results.size}/${tweetIds.length} tweets retrieved`);
+    return results;
     
   } catch (error: any) {
-    // API制限などのエラーをハンドル
-    if (error.code === 429) {
+    const code = error.code || error.status || error.statusCode;
+    if (code === 429) {
       console.log('⚠️ Rate limited. Try again later.');
+      console.log(`   Reset: ${error.rateLimit?.reset ? new Date(error.rateLimit.reset * 1000).toISOString() : 'unknown'}`);
     } else {
-      console.error(`❌ Error fetching metrics for ${tweetId}:`, error.message);
+      console.error(`❌ Bulk API error:`, error.message || JSON.stringify(error));
+      console.error(`   Code: ${code}, Details:`, error.data || error.errors || 'none');
     }
-    return null;
+    return results;
   }
 }
 
 // メトリクス収集（24時間以上経過した投稿）
+// バルクAPIで最大100件を1回のAPI呼び出しで取得（月100回制限対策）
 async function collectMetrics(): Promise<void> {
-  console.log('\n📊 Collecting metrics...\n');
+  console.log('\n📊 Collecting metrics (Bulk API)...\n');
   
   const history = loadHistory();
   const now = Date.now();
   const DAY_MS = 24 * 60 * 60 * 1000;
+  const WEEK_MS = 7 * DAY_MS;
   
-  // 24時間以上経過 & メトリクス未取得の投稿を抽出
+  // 24時間以上経過 & メトリクス未取得 & 直近7日以内の投稿を抽出
+  // （月100回制限があるため、古すぎる投稿は優先度を下げる）
   const pending = history.filter(h => {
     const postedAt = new Date(h.posted_at).getTime();
     const age = now - postedAt;
-    // 24時間以上経過していて、メトリクスがない場合
-    return age >= DAY_MS && !h.metrics;
+    return age >= DAY_MS && age <= WEEK_MS && !h.metrics;
   });
   
   if (pending.length === 0) {
-    console.log('✅ No pending metrics to collect');
+    console.log('✅ No pending metrics to collect (within 7 days)');
     return;
   }
   
-  console.log(`📝 Found ${pending.length} posts needing metrics\n`);
+  console.log(`📝 Found ${pending.length} posts needing metrics (within 7 days)\n`);
+  
+  // バルクAPI用にIDを抽出（最大100件）
+  const tweetIds = pending.slice(0, 100).map(p => p.tweet_id);
+  console.log(`📡 Fetching ${tweetIds.length} tweets in single API call...`);
+  
+  const metricsMap = await getTweetMetricsBulk(tweetIds);
   
   let collected = 0;
   
   for (const post of pending) {
-    console.log(`Fetching: ${post.tweet_id} (${post.theme})`);
-    
-    const metrics = await getTweetMetrics(post.tweet_id);
-    
+    const metrics = metricsMap.get(post.tweet_id);
     if (metrics) {
       post.metrics = metrics;
       collected++;
-      
-      console.log(`  ❤️ ${metrics.likes} | 🔁 ${metrics.retweets} | 👁️ ${metrics.impressions}`);
+      console.log(`  ✅ ${post.tweet_id}: ❤️ ${metrics.likes} | 🔁 ${metrics.retweets} | 👁️ ${metrics.impressions}`);
     }
-    
-    // API制限対策で少し待つ
-    await new Promise(resolve => setTimeout(resolve, 1000));
   }
   
   saveHistory(history);
