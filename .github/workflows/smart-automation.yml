@@ -7,6 +7,9 @@
 
 name: Smart X Marketing
 
+permissions:
+  contents: write
+
 on:
   schedule:
     # 毎時0分に実行 (UTC)
