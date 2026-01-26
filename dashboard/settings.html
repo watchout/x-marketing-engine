@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>設定 - X Marketing Engine</title>
+  <style>
+    :root {
+      --bg-primary: #0d1117;
+      --bg-secondary: #161b22;
+      --bg-card: #21262d;
+      --bg-hover: #30363d;
+      --text-primary: #e6edf3;
+      --text-secondary: #8b949e;
+      --text-muted: #6e7681;
+      --accent-blue: #58a6ff;
+      --accent-green: #3fb950;
+      --accent-orange: #d29922;
+      --accent-red: #f85149;
+      --border: #30363d;
+    }
+    
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      min-height: 100vh;
+      line-height: 1.5;
+    }
+    
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+    
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 32px;
+    }
+    
+    .header h1 {
+      font-size: 24px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    
+    .back-link {
+      color: var(--accent-blue);
+      text-decoration: none;
+      font-size: 14px;
+    }
+    
+    .back-link:hover {
+      text-decoration: underline;
+    }
+    
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 24px;
+    }
+    
+    .card-title {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .form-group {
+      margin-bottom: 16px;
+    }
+    
+    .form-label {
+      display: block;
+      font-size: 14px;
+      color: var(--text-secondary);
+      margin-bottom: 6px;
+    }
+    
+    .form-input {
+      width: 100%;
+      padding: 10px 14px;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--text-primary);
+      font-size: 14px;
+      font-family: 'Monaco', 'Menlo', monospace;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    
+    .form-input:focus {
+      border-color: var(--accent-blue);
+    }
+    
+    .form-input::placeholder {
+      color: var(--text-muted);
+    }
+    
+    .form-input.configured {
+      border-color: var(--accent-green);
+    }
+    
+    .form-hint {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+    
+    .status-badge {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 12px;
+      font-size: 12px;
+      font-weight: 500;
+    }
+    
+    .status-configured {
+      background: rgba(63, 185, 80, 0.2);
+      color: var(--accent-green);
+    }
+    
+    .status-missing {
+      background: rgba(248, 81, 73, 0.2);
+      color: var(--accent-red);
+    }
+    
+    .btn {
+      padding: 12px 24px;
+      border: none;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+    
+    .btn:hover {
+      opacity: 0.9;
+    }
+    
+    .btn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+    
+    .btn-primary {
+      background: var(--accent-blue);
+      color: white;
+    }
+    
+    .btn-secondary {
+      background: var(--bg-hover);
+      color: var(--text-primary);
+    }
+    
+    .actions {
+      display: flex;
+      gap: 12px;
+      margin-top: 24px;
+    }
+    
+    .alert {
+      padding: 12px 16px;
+      border-radius: 8px;
+      margin-bottom: 16px;
+      font-size: 14px;
+    }
+    
+    .alert-success {
+      background: rgba(63, 185, 80, 0.15);
+      border: 1px solid var(--accent-green);
+      color: var(--accent-green);
+    }
+    
+    .alert-error {
+      background: rgba(248, 81, 73, 0.15);
+      border: 1px solid var(--accent-red);
+      color: var(--accent-red);
+    }
+    
+    .alert-info {
+      background: rgba(88, 166, 255, 0.15);
+      border: 1px solid var(--accent-blue);
+      color: var(--accent-blue);
+    }
+    
+    .loading {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 40px;
+    }
+    
+    .loading.show {
+      display: flex;
+    }
+    
+    .spinner {
+      width: 32px;
+      height: 32px;
+      border: 3px solid var(--border);
+      border-top-color: var(--accent-blue);
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+    
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+    
+    .section-divider {
+      height: 1px;
+      background: var(--border);
+      margin: 16px 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>⚙️ 設定</h1>
+      <a href="index.html" class="back-link">← ダッシュボードに戻る</a>
+    </div>
+    
+    <div id="alert-container"></div>
+    
+    <div class="loading" id="loading">
+      <div class="spinner"></div>
+    </div>
+    
+    <form id="settings-form" style="display: none;">
+      <!-- X ログイン情報 -->
+      <div class="card">
+        <div class="card-title">🐦 X (Twitter) ログイン情報</div>
+        <p style="color: var(--text-secondary); font-size: 14px; margin-bottom: 16px;">
+          X Analyticsからメトリクスを自動取得するために必要です
+        </p>
+        
+        <div class="form-group">
+          <label class="form-label">
+            ユーザー名 / メールアドレス
+            <span id="status-X_USERNAME"></span>
+          </label>
+          <input type="text" class="form-input" id="X_USERNAME" placeholder="@username または email@example.com">
+        </div>
+        
+        <div class="form-group">
+          <label class="form-label">
+            パスワード
+            <span id="status-X_PASSWORD"></span>
+          </label>
+          <input type="password" class="form-input" id="X_PASSWORD" placeholder="••••••••">
+          <div class="form-hint">暗号化して保存されます</div>
+        </div>
+      </div>
+      
+      <!-- X API認証情報 -->
+      <div class="card">
+        <div class="card-title">🔑 X API 認証情報</div>
+        <p style="color: var(--text-secondary); font-size: 14px; margin-bottom: 16px;">
+          <a href="https://developer.twitter.com" target="_blank" style="color: var(--accent-blue);">X Developer Portal</a> から取得
+        </p>
+        
+        <div class="form-group">
+          <label class="form-label">
+            API Key
+            <span id="status-X_API_KEY"></span>
+          </label>
+          <input type="password" class="form-input" id="X_API_KEY" placeholder="••••••••">
+        </div>
+        
+        <div class="form-group">
+          <label class="form-label">
+            API Secret
+            <span id="status-X_API_SECRET"></span>
+          </label>
+          <input type="password" class="form-input" id="X_API_SECRET" placeholder="••••••••">
+        </div>
+        
+        <div class="form-group">
+          <label class="form-label">
+            Access Token
+            <span id="status-X_ACCESS_TOKEN"></span>
+          </label>
+          <input type="password" class="form-input" id="X_ACCESS_TOKEN" placeholder="••••••••">
+        </div>
+        
+        <div class="form-group">
+          <label class="form-label">
+            Access Token Secret
+            <span id="status-X_ACCESS_SECRET"></span>
+          </label>
+          <input type="password" class="form-input" id="X_ACCESS_SECRET" placeholder="••••••••">
+        </div>
+        
+        <div class="form-group">
+          <label class="form-label">
+            Bearer Token
+            <span id="status-X_BEARER_TOKEN"></span>
+          </label>
+          <input type="password" class="form-input" id="X_BEARER_TOKEN" placeholder="••••••••">
+        </div>
+      </div>
+      
+      <!-- AI API Keys -->
+      <div class="card">
+        <div class="card-title">🤖 AI API キー</div>
+        
+        <div class="form-group">
+          <label class="form-label">
+            OpenAI API Key
+            <span id="status-OPENAI_API_KEY"></span>
+          </label>
+          <input type="password" class="form-input" id="OPENAI_API_KEY" placeholder="sk-...">
+          <div class="form-hint">GPT-4oによる投稿生成・評価に使用</div>
+        </div>
+        
+        <div class="form-group">
+          <label class="form-label">
+            Grok API Key
+            <span id="status-GROK_API_KEY"></span>
+          </label>
+          <input type="password" class="form-input" id="GROK_API_KEY" placeholder="xai-...">
+          <div class="form-hint">X文化に最適化された投稿生成・海外トレンド分析に使用</div>
+        </div>
+        
+        <div class="form-group">
+          <label class="form-label">
+            Google AI API Key
+            <span id="status-GOOGLE_AI_API_KEY"></span>
+          </label>
+          <input type="password" class="form-input" id="GOOGLE_AI_API_KEY" placeholder="AIza...">
+          <div class="form-hint">Geminiによるロジック分析・評価に使用</div>
+        </div>
+      </div>
+      
+      <div class="actions">
+        <button type="submit" class="btn btn-primary" id="save-btn">
+          💾 保存してVercelに反映
+        </button>
+        <button type="button" class="btn btn-secondary" onclick="loadSettings()">
+          🔄 リセット
+        </button>
+      </div>
+    </form>
+  </div>
+  
+  <script>
+    const API_BASE = window.location.hostname === 'localhost' 
+      ? 'http://localhost:3001' 
+      : '';
+    
+    const SECRET_KEYS = [
+      'X_USERNAME', 'X_PASSWORD',
+      'X_API_KEY', 'X_API_SECRET', 'X_ACCESS_TOKEN', 'X_ACCESS_SECRET', 'X_BEARER_TOKEN',
+      'OPENAI_API_KEY', 'GROK_API_KEY', 'GOOGLE_AI_API_KEY'
+    ];
+    
+    // ダッシュボードと同じパスワード
+    const AUTH_PASSWORD = localStorage.getItem('dashboard_password') || 'xmarketing2024';
+    
+    function showAlert(type, message) {
+      const container = document.getElementById('alert-container');
+      container.innerHTML = `<div class="alert alert-${type}">${message}</div>`;
+      setTimeout(() => { container.innerHTML = ''; }, 5000);
+    }
+    
+    function setLoading(show) {
+      document.getElementById('loading').classList.toggle('show', show);
+      document.getElementById('settings-form').style.display = show ? 'none' : 'block';
+    }
+    
+    function updateStatusBadge(key, configured) {
+      const el = document.getElementById(`status-${key}`);
+      if (el) {
+        el.innerHTML = configured 
+          ? '<span class="status-badge status-configured">設定済み</span>'
+          : '<span class="status-badge status-missing">未設定</span>';
+      }
+      
+      const input = document.getElementById(key);
+      if (input) {
+        input.classList.toggle('configured', configured);
+      }
+    }
+    
+    async function loadSettings() {
+      setLoading(true);
+      
+      try {
+        const res = await fetch(`${API_BASE}/api/settings`, {
+          headers: { 'Authorization': `Bearer ${AUTH_PASSWORD}` }
+        });
+        
+        if (!res.ok) {
+          throw new Error('設定の読み込みに失敗しました');
+        }
+        
+        const data = await res.json();
+        
+        for (const key of SECRET_KEYS) {
+          const setting = data.settings?.[key];
+          if (setting) {
+            const input = document.getElementById(key);
+            if (input) {
+              input.value = setting.value || '';
+              input.placeholder = setting.configured ? '変更する場合のみ入力' : '未設定';
+            }
+            updateStatusBadge(key, setting.configured);
+          }
+        }
+        
+        setLoading(false);
+        
+      } catch (error) {
+        console.error('Load error:', error);
+        showAlert('error', error.message);
+        setLoading(false);
+        
+        // ローカルモードの場合の説明
+        if (window.location.hostname === 'localhost') {
+          showAlert('info', 'ローカルで設定サーバーを起動してください: npm run settings-server');
+        }
+      }
+    }
+    
+    async function saveSettings(event) {
+      event.preventDefault();
+      
+      const saveBtn = document.getElementById('save-btn');
+      saveBtn.disabled = true;
+      saveBtn.textContent = '保存中...';
+      
+      try {
+        const settings = {};
+        
+        for (const key of SECRET_KEYS) {
+          const input = document.getElementById(key);
+          if (input && input.value && !input.value.startsWith('*')) {
+            settings[key] = input.value;
+          }
+        }
+        
+        if (Object.keys(settings).length === 0) {
+          showAlert('info', '変更がありません');
+          return;
+        }
+        
+        const res = await fetch(`${API_BASE}/api/settings`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${AUTH_PASSWORD}`
+          },
+          body: JSON.stringify(settings)
+        });
+        
+        if (!res.ok) {
+          throw new Error('保存に失敗しました');
+        }
+        
+        const data = await res.json();
+        
+        showAlert('success', `${data.message} (${data.results?.success || 0}件成功)`);
+        
+        // 再読み込み
+        await loadSettings();
+        
+      } catch (error) {
+        console.error('Save error:', error);
+        showAlert('error', error.message);
+      } finally {
+        saveBtn.disabled = false;
+        saveBtn.textContent = '💾 保存してVercelに反映';
+      }
+    }
+    
+    // 初期化
+    document.getElementById('settings-form').addEventListener('submit', saveSettings);
+    loadSettings();
+  </script>
+</body>
+</html>

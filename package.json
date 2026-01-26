@@ -24,6 +24,7 @@
     "analyze": "npx ts-node scripts/analyze_performance.ts analyze",
     "analyze-llm": "npx ts-node scripts/analyze_with_llm.ts",
     "analyze-grok": "npx ts-node scripts/analyze_content_grok.ts",
+    "settings-server": "npx ts-node scripts/settings_server.ts",
     "sync": "npx ts-node scripts/sync_x_timeline.ts sync",
     "log:summary": "npx ts-node scripts/logger.ts summary 7",
     "log:daily": "npx ts-node scripts/logger.ts daily",
@@ -38,6 +39,7 @@
   "devDependencies": {
     "@types/js-yaml": "^4.0.5",
     "@types/node": "^20.0.0",
+    "@vercel/node": "^5.5.28",
     "ts-node": "^10.9.2",
     "typescript": "^5.0.0"
   },
