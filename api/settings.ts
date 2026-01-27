@@ -156,7 +156,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     
     if (req.method === 'POST') {
       // 設定を保存
-      const newSettings = req.body as Record<string, string>;
+      const { syncToGitHub, ...newSettings } = req.body as Record<string, string> & { syncToGitHub?: boolean };
       
       // 既存の環境変数を取得
       const envVars = await getEnvVars(vercelToken, projectId);
@@ -175,6 +175,23 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       const successCount = results.filter(r => r.success).length;
       const failedCount = results.filter(r => !r.success).length;
       
+      // オプション: GitHub Secretsにも同期
+      let githubSync = null;
+      if (syncToGitHub && process.env.GITHUB_TOKEN && process.env.GITHUB_REPO) {
+        try {
+          const syncRes = await fetch(`${req.headers.host?.startsWith('localhost') ? 'http' : 'https'}://${req.headers.host}/api/sync-github`, {
+            method: 'POST',
+            headers: {
+              'Authorization': req.headers.authorization || '',
+              'Content-Type': 'application/json'
+            }
+          });
+          githubSync = await syncRes.json();
+        } catch (e: any) {
+          githubSync = { error: e.message };
+        }
+      }
+      
       return res.status(200).json({
         message: '設定を保存しました',
         results: {
@@ -182,6 +199,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
           failed: failedCount,
           details: results
         },
+        githubSync,
         note: '変更を反映するには再デプロイが必要です'
       });
     }

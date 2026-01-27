@@ -355,6 +355,25 @@
           🔄 リセット
         </button>
       </div>
+      
+      <div class="section-divider" style="margin: 32px 0;"></div>
+      
+      <!-- GitHub Secrets同期 -->
+      <div class="card">
+        <div class="card-title">🔗 GitHub Secrets同期</div>
+        <p style="color: var(--text-secondary); font-size: 14px; margin-bottom: 16px;">
+          Vercelの環境変数をGitHub Secretsに同期します。<br>
+          これによりGitHub Actionsが最新の設定で動作します。
+        </p>
+        
+        <div id="github-status" style="margin-bottom: 16px;">
+          <span class="status-badge status-missing">未確認</span>
+        </div>
+        
+        <button type="button" class="btn btn-primary" id="sync-github-btn" onclick="syncToGitHub()">
+          🔄 GitHub Secretsに同期
+        </button>
+      </div>
     </form>
   </div>
   
@@ -485,6 +504,55 @@
       } finally {
         saveBtn.disabled = false;
         saveBtn.textContent = '💾 保存してVercelに反映';
+      }
+    }
+    
+    // GitHub Secrets同期
+    async function syncToGitHub() {
+      const syncBtn = document.getElementById('sync-github-btn');
+      const statusEl = document.getElementById('github-status');
+      
+      syncBtn.disabled = true;
+      syncBtn.textContent = '同期中...';
+      statusEl.innerHTML = '<span class="status-badge" style="background: rgba(88, 166, 255, 0.2); color: var(--accent-blue);">同期中...</span>';
+      
+      try {
+        const res = await fetch(`${API_BASE}/api/sync-github`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${AUTH_PASSWORD}`
+          }
+        });
+        
+        const data = await res.json();
+        
+        if (!res.ok) {
+          throw new Error(data.error || '同期に失敗しました');
+        }
+        
+        const { results } = data;
+        statusEl.innerHTML = `
+          <span class="status-badge status-configured">同期完了</span>
+          <span style="margin-left: 8px; color: var(--text-secondary); font-size: 14px;">
+            ${results.success}件成功 / ${results.skipped}件スキップ / ${results.failed}件失敗
+          </span>
+        `;
+        
+        showAlert('success', `${data.message} (${data.repository})`);
+        
+      } catch (error) {
+        console.error('GitHub sync error:', error);
+        statusEl.innerHTML = '<span class="status-badge status-missing">同期失敗</span>';
+        showAlert('error', error.message);
+        
+        // ヒント表示
+        if (error.message.includes('GitHub連携が設定されていません')) {
+          showAlert('info', 'Vercel環境変数に GITHUB_TOKEN と GITHUB_REPO を設定してください');
+        }
+      } finally {
+        syncBtn.disabled = false;
+        syncBtn.textContent = '🔄 GitHub Secretsに同期';
       }
     }
     

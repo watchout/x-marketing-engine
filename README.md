@@ -119,6 +119,58 @@ open dashboard/index.html
 - 📝 最新投稿一覧
 - 📋 アクティビティログ
 
+## 🌐 Vercel デプロイ
+
+### 1. Vercelにデプロイ
+
+```bash
+vercel --prod
+```
+
+### 2. 必要な環境変数（Vercel管理画面で設定）
+
+| 環境変数 | 説明 | 必須 |
+|----------|------|------|
+| `DASHBOARD_PASSWORD` | ダッシュボードのパスワード | ✅ |
+| `VERCEL_API_TOKEN` | Vercel APIトークン（環境変数管理用） | ✅ |
+| `VERCEL_PROJECT_ID` | VercelプロジェクトID | ✅ |
+| `GITHUB_TOKEN` | GitHub PAT（Secrets同期用） | ✅ |
+| `GITHUB_REPO` | リポジトリ名（例: `user/repo`） | ✅ |
+| `X_API_KEY` | X API Key | ✅ |
+| `X_API_SECRET` | X API Secret | ✅ |
+| `X_ACCESS_TOKEN` | X Access Token | ✅ |
+| `X_ACCESS_SECRET` | X Access Secret | ✅ |
+| `OPENAI_API_KEY` | OpenAI API Key | ✅ |
+| `GROK_API_KEY` | Grok API Key | 推奨 |
+| `GOOGLE_AI_API_KEY` | Google AI API Key | 推奨 |
+
+### 3. GitHub Personal Access Token の取得
+
+1. https://github.com/settings/tokens/new にアクセス
+2. 以下の権限を付与:
+   - `repo` (Full control of private repositories)
+   - `workflow` (Update GitHub Action workflows)
+3. 生成されたトークンをVercel環境変数 `GITHUB_TOKEN` に設定
+
+### 4. Vercel API Token の取得
+
+1. https://vercel.com/account/tokens にアクセス
+2. トークンを作成
+3. Vercel環境変数 `VERCEL_API_TOKEN` に設定
+
+### 5. Project ID の取得
+
+1. Vercel管理画面でプロジェクトを開く
+2. Settings → General → Project ID をコピー
+3. Vercel環境変数 `VERCEL_PROJECT_ID` に設定
+
+### ダッシュボード設定画面
+
+`https://your-app.vercel.app/settings.html` から:
+- X API認証情報の設定
+- AI API Keyの設定
+- GitHub Secretsへの同期
+
 ## 📁 Directory Structure
 
 ```
