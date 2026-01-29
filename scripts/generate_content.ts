@@ -198,14 +198,15 @@ ${strategyAlignment}`;
 
   const brandUserPrompt = `以下のプラットフォーム向けに原稿を作成してください：
 
-1. **X (Twitter)** - 280文字以内、ハッシュタグ2-3個
+1. **X (Twitter)** - 280文字以内、ハッシュタグは使わない（Xアルゴリズム的に不利なため）
 2. **note / Zenn リード文** - 200文字程度の導入文
 3. **note / Zenn 目次案** - 5項目程度
 
 【注意】
 - dev-OS の宣伝色は控えめに
 - 読者の「あるある」に共感を示す
-- 具体的なエピソードや数字を入れる`;
+- 具体的なエピソードや数字を入れる
+- ハッシュタグは絶対に使わない（イーロン・マスク推奨）`;
 
   const draftManuscript = await callLLM(
     brandSystemPrompt, 

@@ -1573,7 +1573,7 @@
       }).join('');
     }
     
-    function renderActivityLog() {
+    async function renderActivityLog() {
       const container = document.getElementById('activity-log');
       
       // 投稿履歴からログを生成
@@ -1596,6 +1596,39 @@
         }
       }
       
+      // GitHub Actions ログを読み込み
+      try {
+        const logsUrl = isProduction 
+          ? 'https://raw.githubusercontent.com/watchout/x-marketing-engine/main/dashboard/logs.json?t=' + Date.now()
+          : './logs.json';
+        const res = await fetch(logsUrl);
+        if (res.ok) {
+          const actionLogs = await res.json();
+          if (actionLogs.last_run) {
+            logs.push({
+              time: new Date(actionLogs.last_run),
+              type: 'action',
+              message: `GitHub Actions: ${actionLogs.job} - ${actionLogs.status}`
+            });
+            
+            // 各アクションのログも追加
+            if (actionLogs.actions) {
+              Object.entries(actionLogs.actions).forEach(([key, value]) => {
+                if (value === true) {
+                  logs.push({
+                    time: new Date(actionLogs.last_run),
+                    type: 'action_detail',
+                    message: `  └ ${key.replace(/_/g, ' ')}: ✓`
+                  });
+                }
+              });
+            }
+          }
+        }
+      } catch (e) {
+        console.log('Failed to load action logs:', e);
+      }
+      
       logs.sort((a, b) => b.time - a.time);
       
       if (logs.length === 0) {
@@ -1603,10 +1636,15 @@
         return;
       }
       
-      container.innerHTML = logs.slice(0, 20).map(log => `
+      container.innerHTML = logs.slice(0, 30).map(log => `
         <div class="log-entry">
           <span class="log-time">${log.time.toLocaleString('ja-JP')}</span>
-          <span class="log-icon">${log.type === 'post' ? '📤' : log.type === 'metrics' ? '📊' : '🔧'}</span>
+          <span class="log-icon">${
+            log.type === 'post' ? '📤' : 
+            log.type === 'metrics' ? '📊' : 
+            log.type === 'action' ? '⚙️' :
+            log.type === 'action_detail' ? '  ' : '🔧'
+          }</span>
           <span class="log-message">${log.message}</span>
         </div>
       `).join('');

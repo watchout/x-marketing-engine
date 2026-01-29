@@ -62,6 +62,54 @@ const API_URL = USE_OPENROUTER
 const OPENROUTER_MODEL = process.env.OPENROUTER_MODEL || 'x-ai/grok-3';  // コスパ重視でGrok 3を使用
 const MODEL = USE_OPENROUTER ? OPENROUTER_MODEL : 'grok-2-latest';
 
+import * as yaml from 'js-yaml';
+
+// winning_patternsを読み込んでプロンプトに追加する情報を生成
+function loadWinningPatterns(): string {
+  try {
+    const patternsPath = path.join(__dirname, '../content/winning_patterns.yml');
+    if (!fs.existsSync(patternsPath)) return '';
+    
+    const patterns = yaml.load(fs.readFileSync(patternsPath, 'utf-8')) as any;
+    
+    // 最もパフォーマンスの良い投稿タイプを特定
+    const typePerf = patterns.type_performance || {};
+    const sortedTypes = Object.entries(typePerf)
+      .filter(([_, v]: [string, any]) => v.avg_impressions > 0)
+      .sort((a: any, b: any) => b[1].avg_impressions - a[1].avg_impressions);
+    
+    if (sortedTypes.length === 0) return '';
+    
+    const bestType = sortedTypes[0];
+    const insights: string[] = [];
+    
+    insights.push(`【過去の分析結果から学んだこと】`);
+    insights.push(`- 最もインプレッションが高い投稿タイプ: ${bestType[0]} (平均${bestType[1].avg_impressions}インプ)`);
+    
+    // 時間帯パフォーマンス
+    const slotPerf = patterns.slot_performance || {};
+    const bestSlot = Object.entries(slotPerf)
+      .filter(([_, v]: [string, any]) => v.avg_impressions > 0)
+      .sort((a: any, b: any) => b[1].avg_impressions - a[1].avg_impressions)[0];
+    
+    if (bestSlot) {
+      insights.push(`- 最もエンゲージメントが高い時間帯: ${bestSlot[0]}`);
+    }
+    
+    // 推奨事項
+    if (patterns.recommendations?.length > 0) {
+      insights.push(`- 推奨: ${patterns.recommendations[0]}`);
+    }
+    
+    insights.push(`- 重要: ハッシュタグは使わない（Xアルゴリズム的に不利）`);
+    
+    return '\n' + insights.join('\n') + '\n';
+  } catch (e) {
+    console.log('Failed to load winning patterns:', e);
+    return '';
+  }
+}
+
 // プロンプトテンプレート
 const PROMPTS = {
   weekly: `あなたはAI開発ツール「dev-OS」のマーケティング担当です。
@@ -101,7 +149,7 @@ const PROMPTS = {
 
 【ルール】
 - 各投稿は280文字以内
-- ハッシュタグは2-3個
+- ハッシュタグは使わない（Xアルゴリズム的に不利なため）
 - 絵文字は控えめ（0-2個）
 - 宣伝色を出さない（価値提供が目的）
 - 具体的なエピソードや数字を入れる`,
@@ -131,7 +179,7 @@ JSON配列で出力:
 
 【ルール】
 - 280文字以内
-- ハッシュタグ2-3個
+- ハッシュタグは使わない（Xアルゴリズム的に不利なため）
 - dev-OSの宣伝は入れない`,
 
   tips: `あなたはAI開発ツール「dev-OS」のマーケティング担当です。
@@ -155,7 +203,7 @@ JSON配列で出力:
 【ルール】
 - 280文字以内
 - 具体的で再現可能
-- ハッシュタグ2-3個`
+- ハッシュタグは使わない（Xアルゴリズム的に不利なため）`
 };
 
 // LLM APIを呼び出し（OpenRouter または xAI直接）
@@ -182,6 +230,9 @@ async function callGrokAPI(prompt: string): Promise<string> {
     headers['X-Title'] = 'dev-OS Marketing';
   }
   
+  // 過去の分析結果を読み込み
+  const winningInsights = loadWinningPatterns();
+  
   const response = await fetch(API_URL, {
     method: 'POST',
     headers,
@@ -190,7 +241,8 @@ async function callGrokAPI(prompt: string): Promise<string> {
       messages: [
         {
           role: 'system',
-          content: 'あなたはSNSマーケティングの専門家です。日本語で回答してください。'
+          content: `あなたはSNSマーケティングの専門家です。日本語で回答してください。
+${winningInsights}`
         },
         {
           role: 'user',
