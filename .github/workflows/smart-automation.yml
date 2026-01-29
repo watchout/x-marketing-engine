@@ -1,8 +1,8 @@
 # X Marketing Engine - スマート自動化ワークフロー
 #
 # 特徴:
-# - 毎時実行して、スクリプトが適切なアクションを判断
-# - 未投稿スロットがあれば自動キャッチアップ
+# - 1日3回投稿（月90件 = 無料プラン100件/月に収まる）
+# - 朝・昼・夜の効果的な時間帯に投稿
 # - 停止しにくい設計
 
 name: Smart X Marketing
@@ -12,19 +12,11 @@ permissions:
 
 on:
   schedule:
-    # 毎時0分に実行 (UTC)
-    # JST 07:00-22:00 = UTC 22:00-13:00
-    - cron: '0 22 * * *'  # JST 07:00
-    - cron: '0 23 * * *'  # JST 08:00
-    - cron: '0 0 * * *'   # JST 09:00
-    - cron: '0 1 * * *'   # JST 10:00
-    - cron: '0 2 * * *'   # JST 11:00
-    - cron: '0 3 * * *'   # JST 12:00
-    - cron: '0 9 * * *'   # JST 18:00
-    - cron: '0 10 * * *'  # JST 19:00
-    - cron: '0 11 * * *'  # JST 20:00
-    - cron: '0 12 * * *'  # JST 21:00
-    - cron: '0 13 * * *'  # JST 22:00
+    # 1日3回投稿（月90件に制限）
+    # X API無料プラン: 100件/月
+    - cron: '0 23 * * *'  # JST 08:00 (朝の通勤時間)
+    - cron: '0 3 * * *'   # JST 12:00 (昼休み)
+    - cron: '0 11 * * *'  # JST 20:00 (夜のリラックス)
   
   workflow_dispatch:
     inputs:
@@ -93,9 +85,9 @@ jobs:
           git diff --staged --quiet || git commit -m "🤖 Smart post $(date -u +%Y-%m-%dT%H:%M:%SZ)"
           git push || true
 
-  # 朝のリサーチ＆生成（1日1回）
+  # 朝のリサーチ＆生成（1日1回、JST 08:00）
   daily_setup:
-    if: github.event.schedule == '0 22 * * *' || github.event.inputs.action == 'full_cycle'
+    if: github.event.schedule == '0 23 * * *' || github.event.inputs.action == 'full_cycle'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -145,10 +137,8 @@ jobs:
           npx ts-node scripts/watch_influencers.ts analyze || true
         continue-on-error: true
       
-      - name: Generate day's posts
+      - name: Generate day's posts (3 posts/day)
         run: |
-          npm run generate || true
-          npm run generate || true
           npm run generate || true
           npm run generate || true
           npm run generate || true
