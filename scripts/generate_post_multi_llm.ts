@@ -420,44 +420,72 @@ ${grokResponse}
   return { topic: claudeResponse.substring(0, 200), reason: '自動選定' };
 }
 
-// ===== Round 2: 初稿生成 =====
+// ===== Round 2: 初稿生成（感情駆動） =====
 
 async function generateDraft(topic: string): Promise<string> {
-  console.log('\n✏️ Round 2: 初稿生成...');
+  console.log('\n✏️ Round 2: 初稿生成（感情駆動）...');
   
-  const patterns = loadWinningPatterns();
-  const latestPattern = patterns[0];
+  // 感情の型をランダムに選択
+  const emotionTypes = ['pain', 'fear', 'discovery'];
+  const emotionType = emotionTypes[Math.floor(Math.random() * emotionTypes.length)];
+  
+  const emotionGuide = {
+    pain: `【痛み共感型】
+- 「わかる...」と思わせる失敗談・苦労話
+- 具体的なシーン（深夜2時、3時間溶けた、全部書き直した等）
+- 一人語りで感情を込める
+- 「俺のことだ...」と思わせる`,
+    fear: `【不安・焦り型】
+- 「やばい...」「このままでいいのか？」と不安にさせる
+- 周りとの差を意識させる（隣の会社は、来年には、等）
+- 知らないことへの危機感を煽る
+- 未来の自分を想像させる`,
+    discovery: `【発見・転換型】
+- 痛みからの解放を匂わせる
+- 「〜したら世界が変わった」
+- 解決策をチラ見せ（売り込みはNG）
+- 希望を感じさせる`
+  };
   
   const prompt = `
-あなたはXでバズる投稿を作成する専門家です。
+あなたは開発者の心を揺さぶるコピーライターです。
+読者のスクロールを止め、感情を動かす投稿を作成してください。
 
 【テーマ】
 ${topic}
 
-【ターゲット】
-${TARGET_PERSONA.name}
-ペイン: ${TARGET_PERSONA.pain_points.slice(0, 3).join('、')}
+【ターゲットの痛み（これを代弁する）】
+- AIに「いい感じにやって」と頼んだら全然違うものができた
+- 深夜2時までAIの手戻りで作業した
+- Cursorの出力が毎回違って発狂しかけた
+- チームメンバーのAIコードをレビューで全部書き直した
+- プロトは1日で完成、本番品質にするのに2週間かかった
 
-【成功パターン参考】
-${latestPattern ? `
-フック: ${latestPattern.hook_type}
-構造: ${latestPattern.structure}
-要素: ${latestPattern.key_elements?.join('、')}
-` : '「正直、」で始まり、問題提起→解決策→行動促進の構造'}
+${emotionGuide[emotionType as keyof typeof emotionGuide]}
 
-【要件】
+【絶対ルール】
 1. 280文字以内
-2. 冒頭で注意を引くフック（「正直、」「断言します」等）
-3. ターゲットのペインに刺さる内容
-4. dev-OSやSSOTの価値を間接的に伝える
-5. ハッシュタグは2-3個
+2. ハッシュタグは絶対に使わない（禁止）
+3. 製品名（dev-OS、SSOT等）は出さない
+4. 絵文字は1個まで
+5. 「情報提供」ではなく「感情」を動かす
+6. 開発者が「俺のことだ...」と思う内容に
+7. 具体的な数字や時間を入れてリアリティを出す
+
+【悪い例】
+❌ 「AI開発で品質を安定させるには仕様書が大事です」（情報提供型 = 刺さらない）
+❌ 「Spec-Driven Developmentで効率化しましょう」（売り込み型 = スルーされる）
+
+【良い例】
+✅ 「深夜2時、AIが生成したコードを見て絶句した。なんで全部書き直してるんだ、俺は...」
+✅ 「隣の席のやつ、AIで3倍速で開発してるらしい。俺だけ取り残されてる気がする」
 
 【出力】
 投稿文のみを出力してください（説明不要）
 `;
   
   const draft = await callClaude(prompt);
-  console.log('  初稿生成 ✓');
+  console.log(`  初稿生成（${emotionType}型） ✓`);
   
   return draft.trim();
 }
@@ -466,21 +494,26 @@ ${latestPattern ? `
 
 async function evaluateAndScore(content: string, evaluator: string): Promise<QualityScore> {
   const prompt = `
-あなたはXマーケティングの専門家として、以下の投稿を評価してください。
+あなたは開発者の感情を動かす投稿の専門家として、以下の投稿を評価してください。
 
 【投稿】
 ${content}
 
 【ターゲット】
-${TARGET_PERSONA.name}
-ペイン: ${TARGET_PERSONA.pain_points.join('、')}
+AI開発で苦労している開発者（AIに丸投げして手戻り地獄、深夜作業、レビューで全部書き直し等）
 
-【評価基準】
-1. hook_strength（0-25）: 最初の1行で読者が止まるか
-2. persona_fit（0-25）: ターゲットのペインに刺さるか
-3. x_culture_fit（0-25）: Xの投稿として自然か、嘘っぽくないか
-4. specificity（0-15）: 具体的な価値が伝わるか
-5. credibility（0-10）: 信頼できる内容か
+【評価基準（感情駆動）】
+1. hook_strength（0-25）: スクロールを止める力。「え？」「わかる...」と思わせるか
+2. persona_fit（0-25）: 「俺のことだ...」と思わせるか。痛みの代弁ができているか
+3. x_culture_fit（0-25）: 自然な一人語りか。売り込み臭がないか。ハッシュタグを使っていないか
+4. specificity（0-15）: 具体的なシーン（時間、数字、場面）があるか
+5. credibility（0-10）: リアルな体験として信じられるか
+
+【減点ポイント】
+- ハッシュタグがある → x_culture_fit -10
+- 製品名（dev-OS等）がある → x_culture_fit -5
+- 「〜しましょう」等の説教調 → persona_fit -5
+- 具体的な数字・時間がない → specificity -5
 
 【出力形式（JSON）】
 {
