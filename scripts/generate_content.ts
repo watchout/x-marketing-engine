@@ -127,8 +127,33 @@ function loadSSOT() {
   return { marketing, schedule, personas };
 }
 
+// 多様なテーマリスト（ローテーションで使用）
+const THEME_POOL = [
+  "AIコーディングの失敗談と学び",
+  "Cursorを使いこなすコツ",
+  "仕様書の書き方で開発効率が変わる話",
+  "チーム開発でAIを活用する方法",
+  "プロトタイプから本番品質への壁",
+  "AI開発で品質を保つ秘訣",
+  "指示の出し方で結果が変わる",
+  "開発者の日常と気づき",
+  "SaaS開発のリアルな話",
+  "コードレビューの時間を減らす方法",
+  "AIと人間の役割分担",
+  "開発ツールの選び方",
+];
+
+function getRandomTheme(): string {
+  // 日付ベースでテーマをローテーション（同じ日は同じテーマ群から選択）
+  const today = new Date();
+  const dayOfYear = Math.floor((today.getTime() - new Date(today.getFullYear(), 0, 0).getTime()) / 86400000);
+  const hourOfDay = today.getHours();
+  const index = (dayOfYear * 3 + hourOfDay) % THEME_POOL.length;
+  return THEME_POOL[index];
+}
+
 async function main() {
-  const theme = process.argv[2] || "バイブコーディングの限界と dev-OS の必要性";
+  const theme = process.argv[2] || getRandomTheme();
   
   console.log('='.repeat(60));
   console.log('🎯 マーケティングコンテンツ生成エンジン（3極統合版）');
