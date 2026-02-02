@@ -256,7 +256,7 @@ async function callClaude(prompt: string): Promise<string> {
   
   try {
     const response = await fetch(
-      `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-exp:generateContent?key=${apiKey}`,
+      `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`,
       {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -466,19 +466,24 @@ ${emotionGuide[emotionType as keyof typeof emotionGuide]}
 【絶対ルール】
 1. 280文字以内
 2. ハッシュタグは絶対に使わない（禁止）
-3. 製品名（dev-OS、SSOT等）は出さない
+3. 製品名・専門用語は禁止（dev-OS、SSOT、Spec-Driven、仕様書、仕様駆動等）
 4. 絵文字は1個まで
 5. 「情報提供」ではなく「感情」を動かす
 6. 開発者が「俺のことだ...」と思う内容に
 7. 具体的な数字や時間を入れてリアリティを出す
+8. 解決策は「匂わせる」だけ、具体的な方法論は書かない
+
+【禁止ワード】
+Spec-Driven、仕様書、仕様駆動、dev-OS、SSOT、Single Source of Truth、品質管理、効率化
 
 【悪い例】
 ❌ 「AI開発で品質を安定させるには仕様書が大事です」（情報提供型 = 刺さらない）
-❌ 「Spec-Driven Developmentで効率化しましょう」（売り込み型 = スルーされる）
+❌ 「Spec-Drivenにしたら世界が変わった」（専門用語 = 刺さらない）
 
 【良い例】
 ✅ 「深夜2時、AIが生成したコードを見て絶句した。なんで全部書き直してるんだ、俺は...」
 ✅ 「隣の席のやつ、AIで3倍速で開発してるらしい。俺だけ取り残されてる気がする」
+✅ 「ある日、指示の出し方を変えたら急にAIが言うこと聞くようになった。何が違ったんだろう」
 
 【出力】
 投稿文のみを出力してください（説明不要）
