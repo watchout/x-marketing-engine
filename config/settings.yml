@@ -1,33 +1,107 @@
 # X Marketing Engine 設定ファイル
 # 
-# このファイルでアカウントごとの設定を管理します
+# 戦略: 「生簀（いけす）」戦略
+# 製品を売る前に、AIに興味のある人を広く集めてファン層を構築する
+# 
+# 目標: フォロワー1,000人 → 見込み客プール形成
 
-version: "1.0"
+version: "2.0"
 
 # ===== アカウント情報 =====
 account:
   handle: "@ai_risukirin"
-  name: "dev-OS公式"
-  description: "AI開発の新常識。バイブコーディングからの脱却。"
+  name: "AIリスキリン"
+  description: "海外AIトレンド・開発Tips・AI業界ニュースを発信 | AI開発で使える情報をシェア"
 
-# ===== ターゲットペルソナ =====
+# ===== 戦略 =====
+strategy:
+  name: "生簀（いけす）戦略"
+  goal: "製品販売なしでも価値のあるアカウントを構築"
+  target_followers: 1000
+  monetization: "後回し（まずファン獲得）"
+
+# ===== ターゲットペルソナ（拡大版） =====
 persona:
-  name: "バイブコーディング脱却希望者"
-  pain_points:
-    - "AIに「いい感じにやって」と言っても結果がブレる"
-    - "複雑になると手戻りが多すぎる"
-    - "何を指示すればいいかわからない"
-    - "品質が安定しない"
-  desires:
-    - "再現性のあるAI開発がしたい"
-    - "仕様を決めれば自動で動く仕組みがほしい"
-    - "時間を無駄にしたくない"
+  name: "AIに興味のあるエンジニア・ビジネスパーソン"
+  description: "AIを仕事や副業に活用したいと考えている人全般"
+  
+  segments:
+    - name: "AI活用エンジニア"
+      description: "Cursor/Copilotを使ってAI開発している人"
+      pain_points:
+        - "AIの出力が安定しない"
+        - "最新のAIツールについていけない"
+        - "効率的な使い方がわからない"
+    
+    - name: "AI興味層"
+      description: "AIを仕事に活かしたいビジネスパーソン"
+      pain_points:
+        - "AIの動向を追いたいが情報が多すぎる"
+        - "海外の情報を知りたいが英語が苦手"
+        - "何から始めればいいかわからない"
+    
+    - name: "AI副業希望者"
+      description: "AIで副業・独立を考えている人"
+      pain_points:
+        - "AIで稼ぐ方法を知りたい"
+        - "具体的な事例が知りたい"
+  
   keywords:
-    - "バイブコーディング"
+    - "AI"
+    - "ChatGPT"
+    - "Claude"
     - "Cursor"
     - "AI開発"
-    - "SSOT"
-    - "dev-OS"
+    - "AI副業"
+    - "生成AI"
+    - "LLM"
+
+# ===== 発信テーマ（多様化） =====
+content_themes:
+  - id: overseas_trends
+    name: "海外AIトレンド"
+    weight: 30
+    description: "日本未発信の海外AI情報を先取り発信"
+    emotion: "驚き・発見"
+    examples:
+      - "海外で話題の〇〇、日本ではまだ知られてないけど..."
+      - "アメリカのエンジニアがこぞって使い始めた〇〇"
+  
+  - id: practical_tips
+    name: "AI活用Tips"
+    weight: 25
+    description: "すぐに使える具体的なテクニック"
+    emotion: "役立ち・実用"
+    examples:
+      - "Cursorでこう指示したら精度が上がった"
+      - "ChatGPTに〇〇を頼む時のコツ"
+  
+  - id: developer_pain
+    name: "開発者の痛み共感"
+    weight: 20
+    description: "AI開発の失敗談・苦労話で共感を呼ぶ"
+    emotion: "共感・あるある"
+    examples:
+      - "深夜2時、AIの出力を見て絶句した"
+      - "チームメンバーのAIコードを全部書き直した話"
+  
+  - id: ssot_insights
+    name: "SSOT/仕様駆動開発"
+    weight: 15
+    description: "将来の製品への布石（教育的コンテンツ）"
+    emotion: "発見・納得"
+    examples:
+      - "AIに任せる前にこれを整理したら世界が変わった"
+      - "仕様を書くのは面倒だけど、結局これが最速だった"
+  
+  - id: industry_news
+    name: "AI業界ニュース・考察"
+    weight: 10
+    description: "最新ニュースへの独自視点"
+    emotion: "情報・考察"
+    examples:
+      - "Claude 4が出たけど、開発者にとって何が変わるか"
+      - "OpenAIの動きが意味すること"
 
 # ===== 投稿設定 =====
 # 1日5投稿スケジュール（段階的に増加予定）

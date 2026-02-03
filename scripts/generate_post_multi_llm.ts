@@ -76,25 +76,44 @@ interface WinningPattern {
   key_elements: string[];
 }
 
-// ===== ペルソナ定義 =====
+// ===== ペルソナ定義（生簀戦略: 広いターゲット） =====
 
 const TARGET_PERSONA = {
-  name: "バイブコーディング脱却希望者",
+  name: "AIに興味のあるエンジニア・ビジネスパーソン",
   pain_points: [
-    "AIに「いい感じにやって」と言っても結果がブレる",
-    "複雑になると手戻りが多すぎる",
-    "何を指示すればいいかわからない",
-    "品質が安定しない",
-    "AIの出力をレビューするのに時間がかかりすぎる"
+    "AIの出力が安定しない、毎回違う結果が出る",
+    "最新のAIツール・トレンドについていけない",
+    "海外のAI情報を知りたいが英語が苦手",
+    "AIを仕事や副業に活かしたいが具体的な方法がわからない",
+    "AIで時間を節約したいのに、逆に時間がかかっている"
   ],
   desires: [
-    "再現性のあるAI開発がしたい",
-    "仕様を決めれば自動で動く仕組みがほしい",
-    "時間を無駄にしたくない",
-    "プロダクション品質のコードを素早く作りたい"
+    "AIを使いこなして効率よく仕事したい",
+    "最新のAIトレンドを知っておきたい",
+    "海外の先進事例を知りたい",
+    "AIで副業・独立したい"
   ],
-  keywords: ["バイブコーディング", "Cursor", "AI開発", "SSOT", "dev-OS"]
+  keywords: ["AI", "ChatGPT", "Claude", "Cursor", "AI開発", "生成AI", "LLM", "AI副業"]
 };
+
+// ===== 発信テーマ（多様化） =====
+const CONTENT_THEMES = [
+  { id: "overseas", name: "海外AIトレンド", weight: 30, emotion: "驚き・発見" },
+  { id: "tips", name: "AI活用Tips", weight: 25, emotion: "役立ち" },
+  { id: "pain", name: "開発者の痛み共感", weight: 20, emotion: "共感" },
+  { id: "ssot", name: "仕様駆動開発", weight: 15, emotion: "納得" },
+  { id: "news", name: "AI業界ニュース", weight: 10, emotion: "情報" },
+];
+
+function selectTheme(): { id: string; name: string; emotion: string } {
+  const totalWeight = CONTENT_THEMES.reduce((sum, t) => sum + t.weight, 0);
+  let random = Math.random() * totalWeight;
+  for (const theme of CONTENT_THEMES) {
+    random -= theme.weight;
+    if (random <= 0) return theme;
+  }
+  return CONTENT_THEMES[0];
+}
 
 // ===== ファイルパス =====
 
@@ -420,77 +439,83 @@ ${grokResponse}
   return { topic: claudeResponse.substring(0, 200), reason: '自動選定' };
 }
 
-// ===== Round 2: 初稿生成（感情駆動） =====
+// ===== Round 2: 初稿生成（テーマ別・感情駆動） =====
 
 async function generateDraft(topic: string): Promise<string> {
-  console.log('\n✏️ Round 2: 初稿生成（感情駆動）...');
+  console.log('\n✏️ Round 2: 初稿生成（テーマ別・感情駆動）...');
   
-  // 感情の型をランダムに選択
-  const emotionTypes = ['pain', 'fear', 'discovery'];
-  const emotionType = emotionTypes[Math.floor(Math.random() * emotionTypes.length)];
+  // テーマを選択
+  const theme = selectTheme();
+  console.log(`  テーマ: ${theme.name}（${theme.emotion}）`);
   
-  const emotionGuide = {
-    pain: `【痛み共感型】
+  const themeGuides: Record<string, string> = {
+    overseas: `【海外AIトレンド】
+- 「日本ではまだ知られていないけど...」で始める
+- 海外の具体的な事例・ツール名を入れる
+- 「これ、来月には日本でも話題になるはず」
+- 先取り感・優越感を与える`,
+    
+    tips: `【AI活用Tips】
+- すぐに使える具体的なテクニック
+- 「これやったら○○が△△になった」
+- 数字で効果を示す（3倍速くなった、等）
+- 再現可能な具体性`,
+    
+    pain: `【開発者の痛み共感】
 - 「わかる...」と思わせる失敗談・苦労話
-- 具体的なシーン（深夜2時、3時間溶けた、全部書き直した等）
+- 具体的なシーン（深夜2時、3時間溶けた等）
 - 一人語りで感情を込める
 - 「俺のことだ...」と思わせる`,
-    fear: `【不安・焦り型】
-- 「やばい...」「このままでいいのか？」と不安にさせる
-- 周りとの差を意識させる（隣の会社は、来年には、等）
-- 知らないことへの危機感を煽る
-- 未来の自分を想像させる`,
-    discovery: `【発見・転換型】
-- 痛みからの解放を匂わせる
-- 「〜したら世界が変わった」
-- 解決策をチラ見せ（売り込みはNG）
-- 希望を感じさせる`
+    
+    ssot: `【仕様駆動開発の気づき】
+- AIに指示する前に「これ」を整理したら変わった
+- 専門用語は使わず、体験として語る
+- 「最初は面倒だと思ったけど...」
+- 発見・納得の感情`,
+    
+    news: `【AI業界ニュース考察】
+- 最新のニュースに対する独自視点
+- 「これが意味することは...」
+- 開発者・ビジネスパーソンへの影響
+- 自分ごと化させる`
   };
   
   const prompt = `
-あなたは開発者の心を揺さぶるコピーライターです。
-読者のスクロールを止め、感情を動かす投稿を作成してください。
+あなたはAIトレンドに詳しいインフルエンサーです。
+読者のスクロールを止め、「フォローしたい」と思わせる投稿を作成してください。
 
-【テーマ】
+【ネタ】
 ${topic}
 
-【ターゲットの痛み（これを代弁する）】
-- AIに「いい感じにやって」と頼んだら全然違うものができた
-- 深夜2時までAIの手戻りで作業した
-- Cursorの出力が毎回違って発狂しかけた
-- チームメンバーのAIコードをレビューで全部書き直した
-- プロトは1日で完成、本番品質にするのに2週間かかった
+【ターゲット】
+AIに興味のあるエンジニア・ビジネスパーソン
+- 最新のAIトレンドを知りたい
+- 海外の先進事例を知りたい
+- AIを仕事に活かしたい
 
-${emotionGuide[emotionType as keyof typeof emotionGuide]}
+${themeGuides[theme.id] || themeGuides.tips}
 
 【絶対ルール】
 1. 280文字以内
 2. ハッシュタグは絶対に使わない（禁止）
-3. 製品名・専門用語は禁止（dev-OS、SSOT、Spec-Driven、仕様書、仕様駆動等）
+3. 製品の売り込みは禁止
 4. 絵文字は1個まで
-5. 「情報提供」ではなく「感情」を動かす
-6. 開発者が「俺のことだ...」と思う内容に
-7. 具体的な数字や時間を入れてリアリティを出す
-8. 解決策は「匂わせる」だけ、具体的な方法論は書かない
-
-【禁止ワード】
-Spec-Driven、仕様書、仕様駆動、dev-OS、SSOT、Single Source of Truth、品質管理、効率化
-
-【悪い例】
-❌ 「AI開発で品質を安定させるには仕様書が大事です」（情報提供型 = 刺さらない）
-❌ 「Spec-Drivenにしたら世界が変わった」（専門用語 = 刺さらない）
+5. 「役立つ」「面白い」「共感する」のどれかを感じさせる
+6. 具体的な数字・固有名詞を入れてリアリティを出す
+7. 「フォローしておくと得する」と思わせる
 
 【良い例】
+✅ 「アメリカの開発者が最近こぞって使い始めたツール、日本ではまだ話題になってないけど、これマジでやばい」
+✅ 「ChatGPTに〇〇を頼む時、最初に『あなたは○○です』と入れるだけで精度が全然違う。試してみて」
 ✅ 「深夜2時、AIが生成したコードを見て絶句した。なんで全部書き直してるんだ、俺は...」
-✅ 「隣の席のやつ、AIで3倍速で開発してるらしい。俺だけ取り残されてる気がする」
-✅ 「ある日、指示の出し方を変えたら急にAIが言うこと聞くようになった。何が違ったんだろう」
+✅ 「Claude 4の発表を見て思った。これ、来年には○○の仕事がなくなるかも」
 
 【出力】
 投稿文のみを出力してください（説明不要）
 `;
   
   const draft = await callClaude(prompt);
-  console.log(`  初稿生成（${emotionType}型） ✓`);
+  console.log(`  初稿生成 ✓`);
   
   return draft.trim();
 }
@@ -499,26 +524,31 @@ Spec-Driven、仕様書、仕様駆動、dev-OS、SSOT、Single Source of Truth�
 
 async function evaluateAndScore(content: string, evaluator: string): Promise<QualityScore> {
   const prompt = `
-あなたは開発者の感情を動かす投稿の専門家として、以下の投稿を評価してください。
+あなたはXでバズるAI系インフルエンサーの投稿を評価する専門家です。
 
 【投稿】
 ${content}
 
 【ターゲット】
-AI開発で苦労している開発者（AIに丸投げして手戻り地獄、深夜作業、レビューで全部書き直し等）
+AIに興味のあるエンジニア・ビジネスパーソン（最新トレンドを知りたい、AIを活用したい）
 
-【評価基準（感情駆動）】
-1. hook_strength（0-25）: スクロールを止める力。「え？」「わかる...」と思わせるか
-2. persona_fit（0-25）: 「俺のことだ...」と思わせるか。痛みの代弁ができているか
-3. x_culture_fit（0-25）: 自然な一人語りか。売り込み臭がないか。ハッシュタグを使っていないか
-4. specificity（0-15）: 具体的なシーン（時間、数字、場面）があるか
-5. credibility（0-10）: リアルな体験として信じられるか
+【評価基準（フォロワー獲得目線）】
+1. hook_strength（0-25）: スクロールを止める力。「お？」「何これ」と思わせるか
+2. persona_fit（0-25）: ターゲットが「役立つ」「面白い」「共感する」と感じるか
+3. x_culture_fit（0-25）: 自然なX投稿か。売り込み臭がないか。ハッシュタグを使っていないか
+4. specificity（0-15）: 具体的な情報（ツール名、数字、事例）があるか
+5. credibility（0-10）: 信じられる内容か。嘘っぽくないか
+
+【加点ポイント】
+- 海外トレンドの先取り情報 → hook_strength +3
+- 具体的なツール名・数字 → specificity +3
+- 「フォローしておきたい」と思わせる → persona_fit +3
 
 【減点ポイント】
 - ハッシュタグがある → x_culture_fit -10
-- 製品名（dev-OS等）がある → x_culture_fit -5
+- 製品の売り込み → x_culture_fit -10
+- 抽象的で具体性がない → specificity -5
 - 「〜しましょう」等の説教調 → persona_fit -5
-- 具体的な数字・時間がない → specificity -5
 
 【出力形式（JSON）】
 {
