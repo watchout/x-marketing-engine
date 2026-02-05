@@ -37,7 +37,14 @@
     "tweet_id": "2018904401931383244",
     "posted_at": "2026-02-04T04:28:13.604Z",
     "slot": "noon",
-    "theme": "バイブコーディングの限界"
+    "theme": "バイブコーディングの限界",
+    "metrics": {
+      "impressions": 8,
+      "likes": 0,
+      "retweets": 0,
+      "replies": 0,
+      "collected_at": "2026-02-05T23:16:29.468Z"
+    }
   },
   {
     "id": "hist_1770179261710",
@@ -47,7 +54,14 @@
     "tweet_id": "2018904268162343020",
     "posted_at": "2026-02-04T04:27:41.710Z",
     "slot": "mid_morning",
-    "theme": "バイブコーディングの限界"
+    "theme": "バイブコーディングの限界",
+    "metrics": {
+      "impressions": 12,
+      "likes": 2,
+      "retweets": 0,
+      "replies": 0,
+      "collected_at": "2026-02-05T23:16:29.468Z"
+    }
   },
   {
     "id": "hist_1770179229904",
@@ -57,7 +71,14 @@
     "tweet_id": "2018904134741610773",
     "posted_at": "2026-02-04T04:27:09.904Z",
     "slot": "morning",
-    "theme": "バイブコーディングの限界"
+    "theme": "バイブコーディングの限界",
+    "metrics": {
+      "impressions": 8,
+      "likes": 0,
+      "retweets": 0,
+      "replies": 0,
+      "collected_at": "2026-02-05T23:16:29.468Z"
+    }
   },
   {
     "id": "hist_1770093917133",
@@ -67,7 +88,14 @@
     "tweet_id": "2018546307099668964",
     "posted_at": "2026-02-03T04:45:17.133Z",
     "slot": "noon",
-    "theme": "バイブコーディングの限界"
+    "theme": "バイブコーディングの限界",
+    "metrics": {
+      "impressions": 2,
+      "likes": 0,
+      "retweets": 0,
+      "replies": 0,
+      "collected_at": "2026-02-05T23:16:29.468Z"
+    }
   },
   {
     "id": "hist_1770093885295",
@@ -77,7 +105,14 @@
     "tweet_id": "2018546173536276965",
     "posted_at": "2026-02-03T04:44:45.295Z",
     "slot": "mid_morning",
-    "theme": "バイブコーディングの限界"
+    "theme": "バイブコーディングの限界",
+    "metrics": {
+      "impressions": 3,
+      "likes": 0,
+      "retweets": 0,
+      "replies": 0,
+      "collected_at": "2026-02-05T23:16:29.468Z"
+    }
   },
   {
     "id": "hist_1770093853481",
@@ -87,7 +122,14 @@
     "tweet_id": "2018546040123908304",
     "posted_at": "2026-02-03T04:44:13.481Z",
     "slot": "morning",
-    "theme": "バイブコーディングの限界"
+    "theme": "バイブコーディングの限界",
+    "metrics": {
+      "impressions": 4,
+      "likes": 0,
+      "retweets": 0,
+      "replies": 0,
+      "collected_at": "2026-02-05T23:16:29.468Z"
+    }
   },
   {
     "id": "hist_1770008159414",
@@ -97,7 +139,14 @@
     "tweet_id": "2018186613025837406",
     "posted_at": "2026-02-02T04:55:59.414Z",
     "slot": "noon",
-    "theme": "バイブコーディングの限界"
+    "theme": "バイブコーディングの限界",
+    "metrics": {
+      "impressions": 11,
+      "likes": 1,
+      "retweets": 0,
+      "replies": 0,
+      "collected_at": "2026-02-05T23:16:29.468Z"
+    }
   },
   {
     "id": "hist_1770008127555",
@@ -107,7 +156,14 @@
     "tweet_id": "2018186479525331131",
     "posted_at": "2026-02-02T04:55:27.555Z",
     "slot": "mid_morning",
-    "theme": "バイブコーディングの限界"
+    "theme": "バイブコーディングの限界",
+    "metrics": {
+      "impressions": 3,
+      "likes": 0,
+      "retweets": 0,
+      "replies": 0,
+      "collected_at": "2026-02-05T23:16:29.468Z"
+    }
   },
   {
     "id": "hist_1770008095743",
@@ -117,7 +173,14 @@
     "tweet_id": "2018186346050044030",
     "posted_at": "2026-02-02T04:54:55.743Z",
     "slot": "morning",
-    "theme": "バイブコーディングの限界"
+    "theme": "バイブコーディングの限界",
+    "metrics": {
+      "impressions": 6,
+      "likes": 0,
+      "retweets": 0,
+      "replies": 0,
+      "collected_at": "2026-02-05T23:16:29.468Z"
+    }
   },
   {
     "id": "hist_1769921988869",
