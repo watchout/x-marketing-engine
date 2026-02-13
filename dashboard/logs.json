@@ -1,9 +1,9 @@
 {
-  "last_run": "2026-02-12T23:23:22Z",
+  "last_run": "2026-02-13T23:24:48Z",
   "job": "daily_setup",
   "status": "success",
   "actions": [
-    "metrics_collected": "true",
+    "metrics_collected": "false",
     "patterns_updated": true,
     "overseas_researched": true,
     "influencers_watched": true,
