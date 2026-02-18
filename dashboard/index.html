@@ -842,8 +842,7 @@
       <div class="tab active" data-tab="overview">概要</div>
       <div class="tab" data-tab="posts">投稿一覧</div>
       <div class="tab" data-tab="analysis">分析</div>
-      <div class="tab" data-tab="benchmark">ベンチマーク</div>
-      <div class="tab" data-tab="influencer-watch">📡 監視入力</div>
+      <div class="tab" data-tab="benchmark">📡 ベンチマーク</div>
       <div class="tab" data-tab="schedule">スケジュール</div>
       <div class="tab" data-tab="logs">ログ</div>
     </div>
@@ -938,59 +937,24 @@
         </div>
       </div>
 
-      <!-- ===== ベンチマークタブ ===== -->
+      <!-- ===== ベンチマークタブ（統合版） ===== -->
       <div class="tab-content" id="tab-benchmark">
         <div class="quick-stats">
-          <div class="quick-stat">
-            <span class="quick-stat-value">8</span>
-            <span class="quick-stat-label">国内ベンチマーク</span>
-          </div>
-          <div class="quick-stat">
-            <span class="quick-stat-value" id="overseas-count">8</span>
-            <span class="quick-stat-label">海外インフルエンサー</span>
-          </div>
-          <div class="quick-stat">
-            <span class="quick-stat-value" id="total-benchmark-followers">-</span>
-            <span class="quick-stat-label">合計フォロワー</span>
-          </div>
-          <div class="quick-stat">
-            <span class="quick-stat-value" id="overseas-insights-count">-</span>
-            <span class="quick-stat-label">最新インサイト</span>
-          </div>
-        </div>
-        
-        <!-- 海外リサーチ結果 -->
-        <div class="section-header">
-          <h2 class="section-title">🌐 海外AIトレンド（Grokリサーチ）</h2>
-          <span class="section-badge" id="overseas-last-updated">未取得</span>
-        </div>
-        <div id="overseas-insights-list" class="card" style="margin-bottom: 24px;">
-          <p style="color: var(--text-muted);">
-            海外リサーチを実行するとここに結果が表示されます<br>
-            <code style="background: var(--bg-secondary); padding: 2px 6px; border-radius: 4px;">npm run research-overseas</code>
-          </p>
-        </div>
-        
-        <div class="section-header">
-          <h2 class="section-title">👤 国内ベンチマークアカウント</h2>
-        </div>
-        <div class="influencer-grid" id="influencer-list"></div>
-      </div>
-
-      <!-- ===== インフルエンサー監視タブ ===== -->
-      <div class="tab-content" id="tab-influencer-watch">
-        <div class="quick-stats">
-          <div class="quick-stat">
-            <span class="quick-stat-value" id="watch-total-posts">0</span>
-            <span class="quick-stat-label">収集投稿数</span>
-          </div>
           <div class="quick-stat">
             <span class="quick-stat-value" id="watch-total-influencers">0</span>
             <span class="quick-stat-label">監視アカウント</span>
           </div>
           <div class="quick-stat">
+            <span class="quick-stat-value" id="watch-total-posts">0</span>
+            <span class="quick-stat-label">収集投稿数</span>
+          </div>
+          <div class="quick-stat">
             <span class="quick-stat-value" id="watch-analyzed">0</span>
             <span class="quick-stat-label">分析済み</span>
+          </div>
+          <div class="quick-stat">
+            <span class="quick-stat-value" id="overseas-insights-count">-</span>
+            <span class="quick-stat-label">海外インサイト</span>
           </div>
         </div>
 
@@ -1001,7 +965,7 @@
         <div class="card">
           <div style="margin-bottom: 12px;">
             <div class="watch-input-group">
-              <input type="text" class="watch-input" id="new-influencer-handle" placeholder="@handle（例: @satori_icon）" style="max-width: 250px;">
+              <input type="text" class="watch-input" id="new-influencer-handle" placeholder="@handle（例: @satori_sz9）" style="max-width: 250px;">
               <input type="text" class="watch-input" id="new-influencer-category" placeholder="カテゴリ（例: AI活用）" style="max-width: 200px;">
               <button class="watch-btn watch-btn-primary" onclick="addInfluencer()">+ 追加</button>
             </div>
@@ -1054,7 +1018,7 @@
           </div>
         </div>
 
-        <!-- 一括分析ボタン -->
+        <!-- 一括分析 + エクスポート -->
         <div style="margin: 16px 0; display: flex; gap: 12px; align-items: center;">
           <button class="watch-btn watch-btn-success" onclick="analyzeAllPosts()" id="analyze-all-btn">
             🤖 未分析の投稿をAI分析
@@ -1073,6 +1037,18 @@
           </select>
         </div>
         <div id="watch-posts-list"></div>
+
+        <!-- 海外リサーチ結果 -->
+        <div class="section-header" style="margin-top: 32px;">
+          <h2 class="section-title">🌐 海外AIトレンド（Grokリサーチ）</h2>
+          <span class="section-badge" id="overseas-last-updated">未取得</span>
+        </div>
+        <div id="overseas-insights-list" class="card" style="margin-bottom: 24px;">
+          <p style="color: var(--text-muted);">
+            海外リサーチを実行するとここに結果が表示されます<br>
+            <code style="background: var(--bg-secondary); padding: 2px 6px; border-radius: 4px;">npm run research-overseas</code>
+          </p>
+        </div>
       </div>
 
       <!-- ===== スケジュールタブ ===== -->
@@ -1148,16 +1124,7 @@
     let postHistory = [];
     let systemStatus = 'unknown';
     
-    const benchmarkAccounts = [
-      { handle: '@masahirochaen', name: 'チャエン | デジライズ CEO', followers: 150000, frequency: '毎日1-3投稿', postingTime: '朝7-8時', tier: 1, style: 'AIニュース最速発信', learnFrom: ['速報性', '毎日の習慣化', '実務寄りの内容'] },
-      { handle: '@shota7180', name: '木内翔大 | SHIFT AI代表', followers: 140000, frequency: '週5-7投稿', postingTime: '夕方-夜', tier: 1, style: 'モチベ系＋ツールTips', learnFrom: ['ビジョン語り', 'コミュニティ形成'] },
-      { handle: '@ai_jitan', name: 'えーたん | AI×時短', followers: 80000, frequency: '毎日1-2投稿', postingTime: '朝10時-夕方', tier: 2, style: 'ツール活用法を動画付き解説', learnFrom: ['動画デモ必須', '再現可能な手順', 'コピペで完了'], priority: true, buzzRate: '最高（万バズ複数）' },
-      { handle: '@taziku_co', name: '田中義弘 | AI×Creative', followers: 50000, frequency: '毎日', postingTime: '夜中心', tier: 2, style: '生成AI動画・アニメ制作', learnFrom: ['ビジュアル多用', 'クリエイティブ寄り'] },
-      { handle: '@Fujin_Metaverse', name: 'Fujin | AI自動化', followers: 30000, frequency: '毎日', postingTime: '朝-昼', tier: 3, style: 'AIエージェント・自動化ステップバイステップ', learnFrom: ['スレッド形式', '詳細な手順'] },
-      { handle: '@commte', name: 'コムテ | Agentic AI', followers: 25000, frequency: '週4-6', postingTime: '朝-夕方', tier: 3, style: 'Claude Code/Skill Marketplace実践', learnFrom: ['技術深掘り', '開発者向け'] },
-      { handle: '@akira_papa_IT', name: 'あきらパパ | エンジニア', followers: 20000, frequency: '週3-5', postingTime: '夕方-夜', tier: 3, style: 'AIエージェント組織構築', learnFrom: ['動画付き', 'わかりやすい'] },
-      { handle: '@ai_database', name: 'AIDB', followers: 30000, frequency: '週3-5', postingTime: '夕方', tier: 3, style: '論文ベースのAI科学解説', learnFrom: ['論文ベース', '図表多用'] },
-    ];
+    // benchmarkAccounts は influencer_watch.json + localStorage に統合済み
 
     // ===== ユーティリティ =====
     function formatNumber(n) {
@@ -1757,32 +1724,7 @@
       });
     }
     
-    function renderInfluencers() {
-      const container = document.getElementById('influencer-list');
-      const totalFollowers = benchmarkAccounts.reduce((sum, a) => sum + a.followers, 0);
-      document.getElementById('total-benchmark-followers').textContent = formatNumber(totalFollowers);
-      
-      container.innerHTML = benchmarkAccounts.map(acc => `
-        <div class="influencer-card ${acc.priority ? 'priority' : ''}">
-          <div class="influencer-header">
-            <a href="https://x.com/${acc.handle.replace('@', '')}" target="_blank" class="influencer-handle">${acc.handle}</a>
-            <span class="tier-badge tier-${acc.tier}">Tier ${acc.tier}</span>
-          </div>
-          <div class="influencer-name">${acc.name}</div>
-          <div class="influencer-stats">
-            <span>👥 ${formatNumber(acc.followers)}</span>
-            <span>📅 ${acc.frequency}</span>
-            <span>🕐 ${acc.postingTime}</span>
-          </div>
-          <div style="font-size: 12px; color: var(--text-muted); margin: 8px 0;">${acc.style}</div>
-          ${acc.buzzRate ? `<div style="font-size: 11px; color: var(--accent-orange);">🔥 ${acc.buzzRate}</div>` : ''}
-          <div class="learn-points">
-            <h4>学ぶべきポイント</h4>
-            ${acc.learnFrom.map(l => `<span class="tag">${l}</span>`).join('')}
-          </div>
-        </div>
-      `).join('');
-    }
+    // renderInfluencers は監視タブに統合済み（renderInfluencerTags で表示）
     
     function renderSchedule() {
       const container = document.getElementById('schedule-grid');
@@ -2055,7 +1997,6 @@
       renderWeeklyTrend(postHistory);
       renderWinningElements(postHistory);
       renderImprovementPoints(postHistory);
-      renderInfluencers();
       renderOverseasInsights();
       renderReplySuggestions();
       renderSchedule();
