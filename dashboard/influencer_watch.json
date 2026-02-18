@@ -1,15 +1,23 @@
 {
   "influencers": [
-    { "handle": "satori_sz9", "category": "AI初心者向け・さとり構文", "added_at": "2026-02-18T12:00:00.000Z" },
-    { "handle": "masahirochaen", "category": "AIニュース速報", "added_at": "2026-02-18T12:00:00.000Z" },
-    { "handle": "ai_jitan", "category": "AI×時短・ツール活用", "added_at": "2026-02-18T12:00:00.000Z" },
-    { "handle": "commte", "category": "Claude Code・Agentic AI", "added_at": "2026-02-18T12:00:00.000Z" },
-    { "handle": "Fujin_Metaverse", "category": "AIエージェント・自動化", "added_at": "2026-02-18T12:00:00.000Z" },
-    { "handle": "fladdict", "category": "AI UX・プロンプト設計", "added_at": "2026-02-18T12:00:00.000Z" },
-    { "handle": "ctgptlb", "category": "AI速報+技術解説", "added_at": "2026-02-18T12:00:00.000Z" },
-    { "handle": "karaage0703", "category": "ハンズオンAI開発", "added_at": "2026-02-18T12:00:00.000Z" }
+    { "handle": "satori_sz9", "category": "AI初心者・マーケ", "genre": "ai_marketing", "added_at": "2026-02-18T12:00:00.000Z" },
+    { "handle": "masahirochaen", "category": "AIニュース速報", "genre": "ai_news", "added_at": "2026-02-18T12:00:00.000Z" },
+    { "handle": "ai_jitan", "category": "AI×時短・ツール活用", "genre": "ai_tools", "added_at": "2026-02-18T12:00:00.000Z" },
+    { "handle": "commte", "category": "Claude Code・Agentic AI", "genre": "ai_dev", "added_at": "2026-02-18T12:00:00.000Z" },
+    { "handle": "Fujin_Metaverse", "category": "AIエージェント・自動化", "genre": "ai_dev", "added_at": "2026-02-18T12:00:00.000Z" },
+    { "handle": "fladdict", "category": "AI UX・プロンプト設計", "genre": "ai_tools", "added_at": "2026-02-18T12:00:00.000Z" },
+    { "handle": "ctgptlb", "category": "AI速報+技術解説", "genre": "ai_news", "added_at": "2026-02-18T12:00:00.000Z" },
+    { "handle": "karaage0703", "category": "ハンズオンAI開発", "genre": "ai_dev", "added_at": "2026-02-18T12:00:00.000Z" }
   ],
+  "genres": {
+    "ai_dev": { "label": "AI開発・エージェント", "icon": "🛠️" },
+    "ai_tools": { "label": "AIツール活用", "icon": "⚡" },
+    "ai_news": { "label": "AIニュース・速報", "icon": "📰" },
+    "ai_marketing": { "label": "AI×マーケ・発信術", "icon": "📣" },
+    "overseas": { "label": "海外AI動向", "icon": "🌐" },
+    "other": { "label": "その他", "icon": "📌" }
+  },
   "posts": [],
-  "updated_at": "2026-02-18T12:00:00.000Z",
+  "updated_at": "2026-02-19T00:00:00.000Z",
   "last_exported": null
 }
