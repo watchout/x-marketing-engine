@@ -93,12 +93,16 @@ interface PostHistory {
   posted_at: string;
   slot: string;
   theme: string;
+  type?: string;  // 'overseas_insight' | 'academic_insight' | 投稿型名 → source_type判定に使用
   image_path?: string;
   metrics?: {
     impressions: number;
     likes: number;
     retweets: number;
     replies: number;
+    bookmarks?: number;
+    profile_clicks?: number;
+    url_clicks?: number;
     collected_at: string;
   };
 }
@@ -499,8 +503,9 @@ async function autoPost(options: AutoPostOptions | string, dryRun: boolean = fal
     console.log(`\n✅ Posted! Tweet ID: ${tweetId}`);
     
     // 履歴に記録
+    // post.id と post.type を保存 → analyze_hypothesis.ts の source_type 判定に使用
     const record: PostHistory = {
-      id: `hist_${Date.now()}`,
+      id: post.id.startsWith('overseas_') ? post.id : `hist_${Date.now()}`,
       post_id: post.id,
       variant: variant,
       content: content,
@@ -508,6 +513,7 @@ async function autoPost(options: AutoPostOptions | string, dryRun: boolean = fal
       posted_at: new Date().toISOString(),
       slot: opts.slot,
       theme: post.theme,
+      type: post.type || undefined,
       image_path: imagePath,
     };
     
