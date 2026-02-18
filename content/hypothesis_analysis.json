@@ -552,7 +552,7 @@
         "sentiment": "mixed"
       },
       "slot": "morning",
-      "day_of_week": 5,
+      "day_of_week": 4,
       "variant": "A",
       "theme_freshness": 0.72,
       "days_since_same_theme": 0.5,
@@ -832,7 +832,7 @@
         "sentiment": "positive"
       },
       "slot": "morning",
-      "day_of_week": 3,
+      "day_of_week": 2,
       "variant": "B",
       "theme_freshness": 0.82,
       "days_since_same_theme": 2.8,
@@ -1072,7 +1072,7 @@
         "sentiment": "neutral"
       },
       "slot": "noon",
-      "day_of_week": 6,
+      "day_of_week": 5,
       "variant": "B",
       "theme_freshness": 1,
       "days_since_same_theme": 999,
@@ -1312,7 +1312,7 @@
         "sentiment": "neutral"
       },
       "slot": "morning",
-      "day_of_week": 1,
+      "day_of_week": 0,
       "variant": "B",
       "theme_freshness": 0.7,
       "days_since_same_theme": 0,
@@ -1352,7 +1352,7 @@
         "sentiment": "negative"
       },
       "slot": "morning",
-      "day_of_week": 1,
+      "day_of_week": 0,
       "variant": "A",
       "theme_freshness": 0.7,
       "days_since_same_theme": 0,
@@ -1392,7 +1392,7 @@
         "sentiment": "neutral"
       },
       "slot": "morning",
-      "day_of_week": 1,
+      "day_of_week": 0,
       "variant": "B",
       "theme_freshness": 1,
       "days_since_same_theme": 55,
@@ -1512,7 +1512,7 @@
         "sentiment": "neutral"
       },
       "slot": "morning",
-      "day_of_week": 2,
+      "day_of_week": 1,
       "variant": "B",
       "theme_freshness": 0.7,
       "days_since_same_theme": 0,
@@ -1552,7 +1552,7 @@
         "sentiment": "neutral"
       },
       "slot": "morning",
-      "day_of_week": 2,
+      "day_of_week": 1,
       "variant": "A",
       "theme_freshness": 1,
       "days_since_same_theme": 35.7,
@@ -1672,7 +1672,7 @@
         "sentiment": "neutral"
       },
       "slot": "morning",
-      "day_of_week": 5,
+      "day_of_week": 4,
       "variant": "A",
       "theme_freshness": 1,
       "days_since_same_theme": 21,
@@ -1712,7 +1712,7 @@
         "sentiment": "neutral"
       },
       "slot": "morning",
-      "day_of_week": 5,
+      "day_of_week": 4,
       "variant": "B",
       "theme_freshness": 1,
       "days_since_same_theme": 55.9,
@@ -2272,7 +2272,7 @@
         "sentiment": "neutral"
       },
       "slot": "morning",
-      "day_of_week": 3,
+      "day_of_week": 2,
       "variant": "A",
       "theme_freshness": 1,
       "days_since_same_theme": 193,
@@ -2312,7 +2312,7 @@
         "sentiment": "positive"
       },
       "slot": "morning",
-      "day_of_week": 6,
+      "day_of_week": 5,
       "variant": "B",
       "theme_freshness": 0.9,
       "days_since_same_theme": 4.6,
@@ -2472,7 +2472,7 @@
         "sentiment": "neutral"
       },
       "slot": "morning",
-      "day_of_week": 2,
+      "day_of_week": 1,
       "variant": "B",
       "theme_freshness": 0.7,
       "days_since_same_theme": 0,
@@ -2512,7 +2512,7 @@
         "sentiment": "neutral"
       },
       "slot": "morning",
-      "day_of_week": 2,
+      "day_of_week": 1,
       "variant": "A",
       "theme_freshness": 0.74,
       "days_since_same_theme": 0.9,
@@ -2712,7 +2712,7 @@
         "sentiment": "neutral"
       },
       "slot": "morning",
-      "day_of_week": 0,
+      "day_of_week": 6,
       "variant": "A",
       "theme_freshness": 0.83,
       "days_since_same_theme": 3,
@@ -2752,7 +2752,7 @@
         "sentiment": "neutral"
       },
       "slot": "morning",
-      "day_of_week": 4,
+      "day_of_week": 3,
       "variant": "A",
       "theme_freshness": 0.7,
       "days_since_same_theme": 0,
@@ -2792,7 +2792,7 @@
         "sentiment": "neutral"
       },
       "slot": "morning",
-      "day_of_week": 4,
+      "day_of_week": 3,
       "variant": "B",
       "theme_freshness": 0.7,
       "days_since_same_theme": 0,
@@ -2832,7 +2832,7 @@
         "sentiment": "neutral"
       },
       "slot": "morning",
-      "day_of_week": 4,
+      "day_of_week": 3,
       "variant": "B",
       "theme_freshness": 1,
       "days_since_same_theme": 999,
