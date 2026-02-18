@@ -1,6 +1,15 @@
 {
-  "influencers": [],
+  "influencers": [
+    { "handle": "satori_sz9", "category": "AI初心者向け・さとり構文", "added_at": "2026-02-18T12:00:00.000Z" },
+    { "handle": "masahirochaen", "category": "AIニュース速報", "added_at": "2026-02-18T12:00:00.000Z" },
+    { "handle": "ai_jitan", "category": "AI×時短・ツール活用", "added_at": "2026-02-18T12:00:00.000Z" },
+    { "handle": "commte", "category": "Claude Code・Agentic AI", "added_at": "2026-02-18T12:00:00.000Z" },
+    { "handle": "Fujin_Metaverse", "category": "AIエージェント・自動化", "added_at": "2026-02-18T12:00:00.000Z" },
+    { "handle": "fladdict", "category": "AI UX・プロンプト設計", "added_at": "2026-02-18T12:00:00.000Z" },
+    { "handle": "ctgptlb", "category": "AI速報+技術解説", "added_at": "2026-02-18T12:00:00.000Z" },
+    { "handle": "karaage0703", "category": "ハンズオンAI開発", "added_at": "2026-02-18T12:00:00.000Z" }
+  ],
   "posts": [],
-  "updated_at": null,
+  "updated_at": "2026-02-18T12:00:00.000Z",
   "last_exported": null
 }

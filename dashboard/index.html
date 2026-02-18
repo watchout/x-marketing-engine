@@ -2467,10 +2467,32 @@
       saveWatchData(data);
     }
 
-    // 初期化
-    renderInfluencerTags();
-    updateInfluencerSelects();
-    renderWatchPosts();
+    // 初期データロード（localStorageが空の場合、JSONファイルから読み込む）
+    async function initWatchData() {
+      const existing = localStorage.getItem(WATCH_STORAGE_KEY);
+      if (!existing || JSON.parse(existing).influencers.length === 0) {
+        try {
+          const res = await fetch('influencer_watch.json');
+          if (res.ok) {
+            const seedData = await res.json();
+            if (seedData.influencers && seedData.influencers.length > 0) {
+              // 既存のpostsがあればマージ
+              const current = existing ? JSON.parse(existing) : { posts: [] };
+              seedData.posts = [...(current.posts || []), ...(seedData.posts || [])];
+              saveWatchData(seedData);
+              console.log(`📡 初期データ: ${seedData.influencers.length}アカウントをロード`);
+            }
+          }
+        } catch (e) {
+          console.log('初期データの読み込みをスキップ:', e.message);
+        }
+      }
+      renderInfluencerTags();
+      updateInfluencerSelects();
+      renderWatchPosts();
+    }
+
+    initWatchData();
   </script>
   </div><!-- end dashboard-wrapper -->
 
