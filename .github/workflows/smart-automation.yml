@@ -1,9 +1,10 @@
 # X Marketing Engine - スマート自動化ワークフロー
 #
 # 特徴:
-# - 1日3回投稿（月90件 = 無料プラン100件/月に収まる）
-# - 朝・昼・夜の効果的な時間帯に投稿
-# - 停止しにくい設計
+# - 1日2回投稿（morning 08:00 / night 21:00 の2スロット）
+# - 投稿プールはC0-C7パイプラインで週次生成（ローカル）
+# - プール枯渇時はDiscordに通知して人間判断を仰ぐ
+# - 旧自動生成（同テーマ繰り返し）は廃止
 
 name: Smart X Marketing
 
@@ -12,11 +13,10 @@ permissions:
 
 on:
   schedule:
-    # 1日3回投稿（月90件に制限）
-    # X API無料プラン: 100件/月
+    # 1日2回投稿（morning + night）
+    # X API無料プラン: 100件/月 → 月60件でゆとり
     - cron: '0 23 * * *'  # JST 08:00 (朝の通勤時間)
-    - cron: '0 3 * * *'   # JST 12:00 (昼休み)
-    - cron: '0 11 * * *'  # JST 20:00 (夜のリラックス)
+    - cron: '0 12 * * *'  # JST 21:00 (夜のリラックス - ER最強スロット)
   
   workflow_dispatch:
     inputs:
@@ -37,6 +37,8 @@ env:
   OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
   GOOGLE_AI_API_KEY: ${{ secrets.GOOGLE_AI_API_KEY }}
   GROK_API_KEY: ${{ secrets.GROK_API_KEY }}
+  DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+  DASHBOARD_URL: ${{ secrets.DASHBOARD_URL }}
 
 jobs:
   smart_post:
@@ -54,21 +56,35 @@ jobs:
       
       - run: npm ci
       
-      - name: Generate posts if needed
+      - name: Check pool and notify if low
         run: |
-          # 投稿プールが空なら生成
+          # 投稿プール残数を確認
           POOL_COUNT=$(cat content/ab_test_pool.yml 2>/dev/null | grep -c "status: active" || echo "0")
+          echo "📦 投稿プール残数: $POOL_COUNT"
           if [ "$POOL_COUNT" -lt "3" ]; then
-            echo "📝 投稿プールが少ないため、新規生成..."
-            npm run generate || true
-            npm run generate || true
-            npm run generate || true
-          else
-            echo "✅ 投稿プール: $POOL_COUNT 件"
+            echo "⚠️ プール枯渇！Discordに緊急通知を送信..."
+            npx ts-node scripts/notify_discord.ts daily-report || true
           fi
-      
+
       - name: Smart post execution
         run: npm run smart-post
+        continue-on-error: true
+
+      # ===== 投稿後の学習ループ（毎回実行）=====
+      # メトリクス収集: 24h以上経過 & 7日以内 & 未取得の投稿のみ対象
+      # バルクAPI（1回で最大100件）なので月6-12回程度の消費で収まる
+      - name: Collect metrics (daily)
+        run: |
+          echo "📊 メトリクス収集（24h以上経過した投稿）..."
+          npm run metrics || true
+        continue-on-error: true
+
+      # XAS分析 → 仮説検証 → 推薦を毎回実行
+      # learning_state.json と next_recommendation.json を更新
+      - name: Analyze and learn
+        run: |
+          echo "🧠 分析→学習→推薦を実行..."
+          npx ts-node scripts/analyze_hypothesis.ts all || true
         continue-on-error: true
       
       - name: Copy data to dashboard
@@ -100,22 +116,21 @@ jobs:
       
       - run: npm ci
       
-      - name: Get day of week
-        id: date
-        run: echo "day=$(date -u +%a)" >> $GITHUB_OUTPUT
-      
-      # メトリクス収集は月・木のみ実行（X API制限: 1回/15分）
-      - name: Collect metrics (Mon/Thu only)
-        if: contains('Mon Thu', steps.date.outputs.day)
+      # メトリクス収集は毎朝実行（バルクAPIで月6-12回で収まる）
+      - name: Collect metrics (daily)
         run: npm run metrics || true
         continue-on-error: true
-      
+
+      # XAS分析 → 学習更新 → 推薦（毎朝実行で即座に反映）
+      - name: Analyze hypothesis and update learning
+        run: npx ts-node scripts/analyze_hypothesis.ts all || true
+        continue-on-error: true
+
       - name: Update winning patterns (numeric analysis)
         run: npx ts-node scripts/analyze_performance.ts update-winning || true
         continue-on-error: true
-      
-      - name: Multi-LLM deep analysis (requires metrics)
-        if: contains('Mon Thu', steps.date.outputs.day)
+
+      - name: Multi-LLM deep analysis
         run: npm run analyze-llm || true
         continue-on-error: true
       
@@ -137,11 +152,14 @@ jobs:
           npx ts-node scripts/watch_influencers.ts analyze || true
         continue-on-error: true
       
-      - name: Generate day's posts (3 posts/day)
+      - name: Check pool status and notify
         run: |
-          npm run generate || true
-          npm run generate || true
-          npm run generate || true
+          POOL_COUNT=$(cat content/ab_test_pool.yml 2>/dev/null | grep -c "status: active" || echo "0")
+          echo "📦 投稿プール残数: $POOL_COUNT"
+          if [ "$POOL_COUNT" -lt "6" ]; then
+            echo "⚠️ プール残数が少ないです。Discordに通知..."
+            npx ts-node scripts/notify_discord.ts theme-candidates || true
+          fi
       
       - name: Copy data to dashboard
         run: |
@@ -156,7 +174,7 @@ jobs:
           echo "  \"job\": \"daily_setup\"," >> dashboard/logs.json
           echo "  \"status\": \"success\"," >> dashboard/logs.json
           echo "  \"actions\": [" >> dashboard/logs.json
-          echo "    \"metrics_collected\": $(if [ \"$(date -u +%a)\" = \"Mon\" ] || [ \"$(date -u +%a)\" = \"Thu\" ]; then echo \"true\"; else echo \"false\"; fi)," >> dashboard/logs.json
+          echo "    \"metrics_collected\": true," >> dashboard/logs.json
           echo "    \"patterns_updated\": true," >> dashboard/logs.json
           echo "    \"overseas_researched\": true," >> dashboard/logs.json
           echo "    \"influencers_watched\": true," >> dashboard/logs.json

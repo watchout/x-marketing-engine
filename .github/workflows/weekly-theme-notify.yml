@@ -1,0 +1,147 @@
+# 週次テーマ決定 + Discord通知ワークフロー
+#
+# 毎週日曜 09:00 JST にプール残数を確認し、
+# Discord にテーマ決定リクエストを送信する。
+#
+# テーマ決定 → C1-C7 → convert_c7_to_pool.ts の流れは
+# ローカル（Claude Code）で実施し、結果をpushする。
+# このワークフローはリマインドと日次レポートを担当。
+
+name: Weekly Theme & Notifications
+
+permissions:
+  contents: write
+
+on:
+  schedule:
+    # 毎週日曜 00:00 UTC = JST 09:00（テーマ決定リマインド）
+    - cron: '0 0 * * 0'
+    # 毎日 12:00 UTC = JST 21:00（日次レポート）
+    - cron: '0 12 * * *'
+    # 毎週土曜 06:00 UTC = JST 15:00（週次振り返り）
+    - cron: '0 6 * * 6'
+
+  workflow_dispatch:
+    inputs:
+      action:
+        description: '通知タイプ'
+        required: true
+        type: choice
+        options:
+          - theme-candidates
+          - daily-report
+          - weekly-review
+
+env:
+  DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+  DASHBOARD_URL: ${{ secrets.DASHBOARD_URL }}
+
+jobs:
+  # ===== テーマ候補通知（毎週日曜）=====
+  theme_notify:
+    if: github.event.schedule == '0 0 * * 0' || github.event.inputs.action == 'theme-candidates'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: git pull origin ${{ github.ref_name }} || true
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - run: npm ci
+
+      - name: Check pool status
+        id: pool
+        run: |
+          POOL_COUNT=$(cat content/ab_test_pool.yml 2>/dev/null | grep -c "status: active" || echo "0")
+          echo "count=$POOL_COUNT" >> $GITHUB_OUTPUT
+          echo "📦 投稿プール残数: $POOL_COUNT"
+
+      - name: Research overseas trends & academic papers
+        run: |
+          echo "📚 海外論文 + トレンドリサーチを実行..."
+          npx ts-node scripts/research_overseas.ts || true
+        env:
+          GROK_API_KEY: ${{ secrets.GROK_API_KEY }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        continue-on-error: true
+
+      - name: Send theme candidates notification
+        run: npx ts-node scripts/notify_discord.ts theme-candidates
+
+      - name: Warn if pool is critically low
+        if: steps.pool.outputs.count < 3
+        run: |
+          echo "⚠️ 投稿プールが枯渇寸前です！"
+          # 緊急通知を追加で送信
+          npx ts-node scripts/notify_discord.ts daily-report
+
+  # ===== 日次レポート（毎日 21:00 JST）=====
+  daily_report:
+    if: github.event.schedule == '0 12 * * *' || github.event.inputs.action == 'daily-report'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: git pull origin ${{ github.ref_name }} || true
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - run: npm ci
+
+      - name: Send daily report
+        run: npx ts-node scripts/notify_discord.ts daily-report
+
+  # ===== 週次振り返り（毎週土曜 15:00 JST）=====
+  weekly_review:
+    if: github.event.schedule == '0 6 * * 6' || github.event.inputs.action == 'weekly-review'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: git pull origin ${{ github.ref_name }} || true
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - run: npm ci
+
+      - name: Collect weekly metrics
+        run: npm run metrics || true
+        env:
+          X_API_KEY: ${{ secrets.X_API_KEY }}
+          X_API_SECRET: ${{ secrets.X_API_SECRET }}
+          X_ACCESS_TOKEN: ${{ secrets.X_ACCESS_TOKEN }}
+          X_ACCESS_SECRET: ${{ secrets.X_ACCESS_SECRET }}
+        continue-on-error: true
+
+      - name: Run hypothesis analysis & verification
+        run: |
+          echo "📊 XAS + 7軸帰属分析を実行..."
+          npx ts-node scripts/analyze_hypothesis.ts analyze || true
+          echo "🔬 仮説検証を実行..."
+          npx ts-node scripts/analyze_hypothesis.ts verify || true
+          echo "🎯 次回投稿パラメータ推薦..."
+          npx ts-node scripts/analyze_hypothesis.ts recommend || true
+        continue-on-error: true
+
+      - name: Send weekly review
+        run: npx ts-node scripts/notify_discord.ts weekly-review
+
+      - name: Copy data to dashboard
+        run: |
+          cp content/post_history.json dashboard/data.json 2>/dev/null || true
+          cp content/account_stats.json dashboard/account.json 2>/dev/null || true
+
+      - name: Commit changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add content/ dashboard/
+          git diff --staged --quiet || git commit -m "📊 Weekly review $(date -u +%Y-%m-%d)"
+          git push || true

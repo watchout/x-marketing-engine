@@ -106,6 +106,66 @@ interface PostHistory {
 // ファイルパス（scriptsディレクトリからの相対パス）
 const POOL_FILE = path.join(__dirname, '../content/ab_test_pool.yml');
 const HISTORY_FILE = path.join(__dirname, '../content/post_history.json');
+const LEARNING_STATE_FILE = path.join(__dirname, '../content/learning_state.json');
+const RECOMMENDATION_FILE = path.join(__dirname, '../content/next_recommendation.json');
+
+// Thompson Sampling 用の型定義
+interface BetaParams {
+  alpha: number;
+  beta: number;
+  trials: number;
+  mean: number;
+}
+
+interface LearningState {
+  theme_scores: Record<string, BetaParams>;
+  [key: string]: any;
+}
+
+// Beta分布からサンプリング（Jöhnk's beta generator）
+function sampleBeta(alpha: number, beta: number): number {
+  // 特殊ケース
+  if (alpha <= 0 || beta <= 0) return 0.5;
+
+  // Gamma分布からサンプリングしてBeta分布を構成
+  const gammaA = sampleGamma(alpha);
+  const gammaB = sampleGamma(beta);
+
+  if (gammaA + gammaB === 0) return 0.5;
+  return gammaA / (gammaA + gammaB);
+}
+
+// Gamma分布からサンプリング（Marsaglia and Tsang's method）
+function sampleGamma(shape: number): number {
+  if (shape < 1) {
+    // shape < 1 の場合の補正
+    return sampleGamma(shape + 1) * Math.pow(Math.random(), 1.0 / shape);
+  }
+
+  const d = shape - 1.0 / 3.0;
+  const c = 1.0 / Math.sqrt(9.0 * d);
+
+  while (true) {
+    let x: number, v: number;
+    do {
+      x = normalRandom();
+      v = 1.0 + c * x;
+    } while (v <= 0);
+
+    v = v * v * v;
+    const u = Math.random();
+
+    if (u < 1.0 - 0.0331 * (x * x) * (x * x)) return d * v;
+    if (Math.log(u) < 0.5 * x * x + d * (1.0 - v + Math.log(v))) return d * v;
+  }
+}
+
+// 標準正規分布からサンプリング（Box-Muller変換）
+function normalRandom(): number {
+  const u1 = Math.random();
+  const u2 = Math.random();
+  return Math.sqrt(-2 * Math.log(u1)) * Math.cos(2 * Math.PI * u2);
+}
 
 // プールを読み込み
 function loadPool(): ABTestPool {
@@ -154,14 +214,126 @@ function getTodayPosts(pool: ABTestPool, slot: string): Post[] {
 function getPendingPosts(pool: ABTestPool, history: PostHistory[], slot: string): Post[] {
   const today = getTodayJST();
   const postedIds = new Set(history.map(h => `${h.post_id}_${h.posted_at.split('T')[0]}`));
-  
+
   return pool.posts.filter(p => {
     const key = `${p.id}_${p.scheduled_date}`;
-    return p.scheduled_date <= today && 
-           p.slot === slot && 
+    return p.scheduled_date <= today &&
+           p.slot === slot &&
            p.status === 'active' &&
            !postedIds.has(key);
   });
+}
+
+// learning_state.json 読み込み
+function loadLearningState(): LearningState | null {
+  try {
+    if (!fs.existsSync(LEARNING_STATE_FILE)) return null;
+    return JSON.parse(fs.readFileSync(LEARNING_STATE_FILE, 'utf-8'));
+  } catch {
+    return null;
+  }
+}
+
+// next_recommendation.json 読み込み（分析エンジンの推薦結果）
+interface Recommendation {
+  generated_at: string;
+  recommended: {
+    theme: string;
+    approach: string;
+    text_features: {
+      length: string;
+      emoji: string;
+      hook: string;
+      sentiment: string;
+    };
+  };
+  theme_ranking: Array<{ name: string; sample: number; mean: number; trials: number }>;
+  slot_ranking: Array<{ name: string; mean: number; trials: number }>;
+  accumulated_learnings: string[];
+}
+
+function loadRecommendation(): Recommendation | null {
+  try {
+    if (!fs.existsSync(RECOMMENDATION_FILE)) return null;
+    const rec = JSON.parse(fs.readFileSync(RECOMMENDATION_FILE, 'utf-8'));
+    // 7日以上前の推薦は古いので無視
+    const age = Date.now() - new Date(rec.generated_at).getTime();
+    if (age > 7 * 24 * 60 * 60 * 1000) {
+      console.log('   ⚠️ 推薦データが7日以上前のため無視');
+      return null;
+    }
+    return rec;
+  } catch {
+    return null;
+  }
+}
+
+// テーマレベル Thompson Sampling で投稿を選択
+// 推薦結果があればテーマランキングのブースト情報としてログ出力
+function selectPostByThompsonSampling(
+  pendingPosts: Post[],
+  learningState: LearningState | null
+): Post {
+  // 推薦ファイルがあればログ表示（テーマ選択自体はThompson Samplingが行う）
+  const recommendation = loadRecommendation();
+  if (recommendation) {
+    console.log(`\n📋 分析エンジン推薦 (${recommendation.generated_at.split('T')[0]}):`);
+    console.log(`   推薦テーマ: ${recommendation.recommended.theme}`);
+    console.log(`   推薦アプローチ: ${recommendation.recommended.approach}`);
+    console.log(`   推薦文体: ${recommendation.recommended.text_features.length}文字, ${recommendation.recommended.text_features.hook}フック`);
+    if (recommendation.accumulated_learnings.length > 0) {
+      console.log(`   蓄積された学び (${recommendation.accumulated_learnings.length}件):`);
+      for (const l of recommendation.accumulated_learnings.slice(-3)) {
+        console.log(`     • ${l}`);
+      }
+    }
+  }
+  // テーマごとにグループ化
+  const themeGroups = new Map<string, Post[]>();
+  for (const post of pendingPosts) {
+    const theme = post.theme || '一般';
+    if (!themeGroups.has(theme)) {
+      themeGroups.set(theme, []);
+    }
+    themeGroups.get(theme)!.push(post);
+  }
+
+  const themes = Array.from(themeGroups.keys());
+
+  // テーマが1つだけなら従来通り
+  if (themes.length <= 1) {
+    return pendingPosts[0];
+  }
+
+  // 各テーマの Beta パラメータを取得してサンプリング
+  const themeScores = learningState?.theme_scores || {};
+  const defaultPrior: BetaParams = { alpha: 0.3, beta: 0.7, trials: 0, mean: 0.3 };
+
+  let bestTheme = themes[0];
+  let bestSample = -1;
+
+  console.log(`\n🎰 Thompson Sampling テーマ選択:`);
+
+  for (const theme of themes) {
+    const params = themeScores[theme] || defaultPrior;
+    const sample = sampleBeta(params.alpha, params.beta);
+
+    console.log(`   ${theme}: α=${params.alpha.toFixed(2)}, β=${params.beta.toFixed(2)}, ` +
+      `mean=${params.mean.toFixed(3)}, sample=${sample.toFixed(4)}, ` +
+      `pending=${themeGroups.get(theme)!.length}件`);
+
+    if (sample > bestSample) {
+      bestSample = sample;
+      bestTheme = theme;
+    }
+  }
+
+  console.log(`   → 選択: 「${bestTheme}」(sample=${bestSample.toFixed(4)})`);
+
+  // 選択されたテーマの中から最も古い未投稿を選択
+  const themePosts = themeGroups.get(bestTheme)!;
+  themePosts.sort((a, b) => a.scheduled_date.localeCompare(b.scheduled_date));
+  return themePosts[0];
 }
 
 // A/Bをランダム選択（勝者がいる場合は70/30で勝者を優先）
@@ -267,15 +439,15 @@ async function autoPost(options: AutoPostOptions | string, dryRun: boolean = fal
   
   // 未投稿の投稿を取得
   const pendingPosts = getPendingPosts(pool, history, opts.slot);
-  
+
   if (pendingPosts.length === 0) {
     console.log(`✅ No pending posts for slot: ${opts.slot}`);
     return;
   }
-  
-  // 最も古い未投稿を選択
-  pendingPosts.sort((a, b) => a.scheduled_date.localeCompare(b.scheduled_date));
-  const post = pendingPosts[0];
+
+  // Thompson Sampling でテーマを選択し、そのテーマの投稿をピック
+  const learningState = loadLearningState();
+  const post = selectPostByThompsonSampling(pendingPosts, learningState);
   
   console.log(`📝 Selected post: ${post.id}`);
   console.log(`   Theme: ${post.theme}`);

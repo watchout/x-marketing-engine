@@ -1,0 +1,2842 @@
+[
+  {
+    "post_id": "hist_1770179293604",
+    "tweet_id": "2018904401931383244",
+    "posted_at": "2026-02-04T04:28:13.604Z",
+    "content": "「AIプロジェクトで結果が毎回ブレる？それ、Spec-Driven Development for AIで解決できるって知ってた？指示が曖昧だからこそブレるんだよね。具体的な仕様書を作成するだけで、再現性が3倍向上したケースを最近見た。未来のAI開発はここから始まるかも。」",
+    "xas": {
+      "raw_xas": 0,
+      "normalized_xas": 0,
+      "engagement_rate": 0,
+      "amplification_rate": 0,
+      "conversation_rate": 0,
+      "save_rate": 0,
+      "growth_score": 3.2
+    },
+    "attribution": {
+      "theme": "バイブコーディングの限界",
+      "approach": "unknown",
+      "text_features": {
+        "char_count": 137,
+        "line_count": 1,
+        "emoji_count": 0,
+        "has_numbers": true,
+        "has_question": true,
+        "has_exclamation": false,
+        "has_ellipsis": false,
+        "hashtag_count": 0,
+        "mention_count": 0,
+        "url_count": 0,
+        "first_line_length": 137,
+        "hook_pattern": "empathy",
+        "sentiment": "neutral"
+      },
+      "slot": "noon",
+      "day_of_week": 3,
+      "variant": "A",
+      "theme_freshness": 0.7,
+      "days_since_same_theme": 0,
+      "source_type": "domestic"
+    }
+  },
+  {
+    "post_id": "hist_1770179261710",
+    "tweet_id": "2018904268162343020",
+    "posted_at": "2026-02-04T04:27:41.710Z",
+    "content": "深夜2時、またAIの出力がブレブレで頭抱えてた。いや、これ本当に何度目だよ…😩そこで出会った「Spec-Driven Development for AI」。アメリカのエンジニアたちがこぞって使い始めたって聞いて試したら、マジで違う。深夜3時の俺に教えてあげたいほどの安定感。",
+    "xas": {
+      "raw_xas": 1,
+      "normalized_xas": 83.33,
+      "engagement_rate": 0.1667,
+      "amplification_rate": 0,
+      "conversation_rate": 0,
+      "save_rate": 0,
+      "growth_score": 30
+    },
+    "attribution": {
+      "theme": "バイブコーディングの限界",
+      "approach": "unknown",
+      "text_features": {
+        "char_count": 139,
+        "line_count": 1,
+        "emoji_count": 1,
+        "has_numbers": true,
+        "has_question": false,
+        "has_exclamation": false,
+        "has_ellipsis": true,
+        "hashtag_count": 0,
+        "mention_count": 0,
+        "url_count": 0,
+        "first_line_length": 139,
+        "hook_pattern": "confession",
+        "sentiment": "negative"
+      },
+      "slot": "mid_morning",
+      "day_of_week": 3,
+      "variant": "A",
+      "theme_freshness": 0.7,
+      "days_since_same_theme": 0,
+      "source_type": "domestic"
+    }
+  },
+  {
+    "post_id": "hist_1770179229904",
+    "tweet_id": "2018904134741610773",
+    "posted_at": "2026-02-04T04:27:09.904Z",
+    "content": "「AI開発で結果が安定しない…」と悩んでいませんか？今、海外のトップ企業が注目するSpec-Driven Developmentを試してみる価値があります。仕様をしっかり固めることで、開発プロセスがスムーズに！次の開発ステップを見据えるなら、これが新しいスタンダードです。",
+    "xas": {
+      "raw_xas": 0,
+      "normalized_xas": 0,
+      "engagement_rate": 0,
+      "amplification_rate": 0,
+      "conversation_rate": 0,
+      "save_rate": 0,
+      "growth_score": 3.2
+    },
+    "attribution": {
+      "theme": "バイブコーディングの限界",
+      "approach": "unknown",
+      "text_features": {
+        "char_count": 136,
+        "line_count": 1,
+        "emoji_count": 0,
+        "has_numbers": false,
+        "has_question": true,
+        "has_exclamation": true,
+        "has_ellipsis": true,
+        "hashtag_count": 0,
+        "mention_count": 0,
+        "url_count": 0,
+        "first_line_length": 136,
+        "hook_pattern": "empathy",
+        "sentiment": "negative"
+      },
+      "slot": "morning",
+      "day_of_week": 3,
+      "variant": "B",
+      "theme_freshness": 0.74,
+      "days_since_same_theme": 1,
+      "source_type": "domestic"
+    }
+  },
+  {
+    "post_id": "hist_1770093917133",
+    "tweet_id": "2018546307099668964",
+    "posted_at": "2026-02-03T04:45:17.133Z",
+    "content": "「深夜2時、AIに任せたはずのコードを前に、現実を見つめる。なぜ、また手直しが必要なんだ？隣のチームは、来年にはこの問題を解決するらしい。俺は、このまま遅れを取り続けるのか...⏳」",
+    "xas": {
+      "raw_xas": 0,
+      "normalized_xas": 0,
+      "engagement_rate": 0,
+      "amplification_rate": 0,
+      "conversation_rate": 0,
+      "save_rate": 0,
+      "growth_score": 0.8
+    },
+    "attribution": {
+      "theme": "バイブコーディングの限界",
+      "approach": "unknown",
+      "text_features": {
+        "char_count": 91,
+        "line_count": 1,
+        "emoji_count": 0,
+        "has_numbers": true,
+        "has_question": true,
+        "has_exclamation": false,
+        "has_ellipsis": true,
+        "hashtag_count": 0,
+        "mention_count": 0,
+        "url_count": 0,
+        "first_line_length": 91,
+        "hook_pattern": "empathy",
+        "sentiment": "negative"
+      },
+      "slot": "noon",
+      "day_of_week": 2,
+      "variant": "A",
+      "theme_freshness": 0.7,
+      "days_since_same_theme": 0,
+      "source_type": "domestic"
+    }
+  },
+  {
+    "post_id": "hist_1770093885295",
+    "tweet_id": "2018546173536276965",
+    "posted_at": "2026-02-03T04:44:45.295Z",
+    "content": "夜が更けるたびにAIと格闘する。コードを修正しても、AIはまるで予測不能な生き物のように振る舞う。出口の見えない迷路の中で、時々訪れるAIの不思議な変化に驚かされる。何がトリガーなんだろう？その答えを探す旅は、続く。どんなに長い夜でも、必ず朝は来ると信じて。",
+    "xas": {
+      "raw_xas": 0,
+      "normalized_xas": 0,
+      "engagement_rate": 0,
+      "amplification_rate": 0,
+      "conversation_rate": 0,
+      "save_rate": 0,
+      "growth_score": 1.2
+    },
+    "attribution": {
+      "theme": "バイブコーディングの限界",
+      "approach": "unknown",
+      "text_features": {
+        "char_count": 129,
+        "line_count": 1,
+        "emoji_count": 0,
+        "has_numbers": false,
+        "has_question": true,
+        "has_exclamation": false,
+        "has_ellipsis": false,
+        "hashtag_count": 0,
+        "mention_count": 0,
+        "url_count": 0,
+        "first_line_length": 129,
+        "hook_pattern": "discovery",
+        "sentiment": "neutral"
+      },
+      "slot": "mid_morning",
+      "day_of_week": 2,
+      "variant": "B",
+      "theme_freshness": 0.7,
+      "days_since_same_theme": 0,
+      "source_type": "domestic"
+    }
+  },
+  {
+    "post_id": "hist_1770093853481",
+    "tweet_id": "2018546040123908304",
+    "posted_at": "2026-02-03T04:44:13.481Z",
+    "content": "深夜2時、デスクに向かい合う自分。AIに「いい感じにやって」と頼んだ結果、現れたのは予想外のコード。3時間後、全てを書き直している俺がいる…隣の席のやつはいつも早く帰るのに、俺は何でこうなんだろう。ある日、ちょっとした変化でAIが急に賢くなった気がする。🧩",
+    "xas": {
+      "raw_xas": 0,
+      "normalized_xas": 0,
+      "engagement_rate": 0,
+      "amplification_rate": 0,
+      "conversation_rate": 0,
+      "save_rate": 0,
+      "growth_score": 1.6
+    },
+    "attribution": {
+      "theme": "バイブコーディングの限界",
+      "approach": "unknown",
+      "text_features": {
+        "char_count": 129,
+        "line_count": 1,
+        "emoji_count": 1,
+        "has_numbers": true,
+        "has_question": false,
+        "has_exclamation": false,
+        "has_ellipsis": true,
+        "hashtag_count": 0,
+        "mention_count": 0,
+        "url_count": 0,
+        "first_line_length": 129,
+        "hook_pattern": "neutral",
+        "sentiment": "neutral"
+      },
+      "slot": "morning",
+      "day_of_week": 2,
+      "variant": "A",
+      "theme_freshness": 0.74,
+      "days_since_same_theme": 1,
+      "source_type": "domestic"
+    }
+  },
+  {
+    "post_id": "hist_1770008159414",
+    "tweet_id": "2018186613025837406",
+    "posted_at": "2026-02-02T04:55:59.414Z",
+    "content": "AI開発でつまずいていませんか？「なんとなくやって」では限界が来ています。仕様駆動型AI開発を導入することで、ブレない結果と効率的な開発を実現！dev-OSとSSOTの活用で、品質と再現性が大幅に向上します。今日から新しい開発の一歩を踏み出しましょう！#AI開発 #効率化 #品質向上",
+    "xas": {
+      "raw_xas": 0.5,
+      "normalized_xas": 45.45,
+      "engagement_rate": 0.0909,
+      "amplification_rate": 0,
+      "conversation_rate": 0,
+      "save_rate": 0,
+      "growth_score": 18.14
+    },
+    "attribution": {
+      "theme": "バイブコーディングの限界",
+      "approach": "unknown",
+      "text_features": {
+        "char_count": 142,
+        "line_count": 1,
+        "emoji_count": 0,
+        "has_numbers": false,
+        "has_question": true,
+        "has_exclamation": true,
+        "has_ellipsis": false,
+        "hashtag_count": 3,
+        "mention_count": 0,
+        "url_count": 0,
+        "first_line_length": 142,
+        "hook_pattern": "neutral",
+        "sentiment": "positive"
+      },
+      "slot": "noon",
+      "day_of_week": 1,
+      "variant": "B",
+      "theme_freshness": 0.7,
+      "days_since_same_theme": 0,
+      "source_type": "domestic"
+    }
+  },
+  {
+    "post_id": "hist_1770008127555",
+    "tweet_id": "2018186479525331131",
+    "posted_at": "2026-02-02T04:55:27.555Z",
+    "content": "AI開発が上手くいかない原因、実は「仕様の曖昧さ」なんです！🤯 AIに「いい感じにやって」と言っても、結果が予想外になること多々ありますよね。そこで、最初から明確な仕様を決めるのがカギ。これで開発の質と一貫性が飛躍的に向上し、手戻りも激減！#AI開発 #仕様明確化 #効率的な開発",
+    "xas": {
+      "raw_xas": 0,
+      "normalized_xas": 0,
+      "engagement_rate": 0,
+      "amplification_rate": 0,
+      "conversation_rate": 0,
+      "save_rate": 0,
+      "growth_score": 1.2
+    },
+    "attribution": {
+      "theme": "バイブコーディングの限界",
+      "approach": "unknown",
+      "text_features": {
+        "char_count": 141,
+        "line_count": 1,
+        "emoji_count": 1,
+        "has_numbers": false,
+        "has_question": false,
+        "has_exclamation": true,
+        "has_ellipsis": false,
+        "hashtag_count": 3,
+        "mention_count": 0,
+        "url_count": 0,
+        "first_line_length": 141,
+        "hook_pattern": "discovery",
+        "sentiment": "positive"
+      },
+      "slot": "mid_morning",
+      "day_of_week": 1,
+      "variant": "B",
+      "theme_freshness": 0.7,
+      "days_since_same_theme": 0,
+      "source_type": "domestic"
+    }
+  },
+  {
+    "post_id": "hist_1770008095743",
+    "tweet_id": "2018186346050044030",
+    "posted_at": "2026-02-02T04:54:55.743Z",
+    "content": "海外で話題の仕様駆動型AI開発、試してみませんか？日本でもAI開発で「なんとなく」から脱却する方法として注目されています。明確な指示を出すだけで、品質は安定、手戻りも大幅に減少。これからの開発スタイルとして取り入れる価値、大いにありです！#AI開発 #仕様駆動型 #新しい時代",
+    "xas": {
+      "raw_xas": 0,
+      "normalized_xas": 0,
+      "engagement_rate": 0,
+      "amplification_rate": 0,
+      "conversation_rate": 0,
+      "save_rate": 0,
+      "growth_score": 2.4
+    },
+    "attribution": {
+      "theme": "バイブコーディングの限界",
+      "approach": "unknown",
+      "text_features": {
+        "char_count": 138,
+        "line_count": 1,
+        "emoji_count": 0,
+        "has_numbers": false,
+        "has_question": true,
+        "has_exclamation": true,
+        "has_ellipsis": false,
+        "hashtag_count": 3,
+        "mention_count": 0,
+        "url_count": 0,
+        "first_line_length": 138,
+        "hook_pattern": "neutral",
+        "sentiment": "neutral"
+      },
+      "slot": "morning",
+      "day_of_week": 1,
+      "variant": "B",
+      "theme_freshness": 0.74,
+      "days_since_same_theme": 1,
+      "source_type": "domestic"
+    }
+  },
+  {
+    "post_id": "hist_1769921988869",
+    "tweet_id": "2017825187543007356",
+    "posted_at": "2026-02-01T04:59:48.869Z",
+    "content": "正直、AIに「いい感じにやって」と頼んでも結果がブレる…そんな悩みはもう過去のもの！🔥新常識「Agentic Workflows」で手戻り激減、仕様を伝えるだけで自律型AIがタスクを完璧に処理。dev-OSやSSOTの力で開発の未来が変わる！日本の現場も今すぐ取り入れるべき！ #AI革命 #AgenticWorkflows",
+    "xas": {
+      "raw_xas": 0.5,
+      "normalized_xas": 55.56,
+      "engagement_rate": 0.1111,
+      "amplification_rate": 0,
+      "conversation_rate": 0,
+      "save_rate": 0,
+      "growth_score": 20.37
+    },
+    "attribution": {
+      "theme": "バイブコーディングの限界",
+      "approach": "unknown",
+      "text_features": {
+        "char_count": 163,
+        "line_count": 1,
+        "emoji_count": 1,
+        "has_numbers": false,
+        "has_question": false,
+        "has_exclamation": true,
+        "has_ellipsis": true,
+        "hashtag_count": 2,
+        "mention_count": 0,
+        "url_count": 0,
+        "first_line_length": 163,
+        "hook_pattern": "confession",
+        "sentiment": "negative"
+      },
+      "slot": "noon",
+      "day_of_week": 0,
+      "variant": "A",
+      "theme_freshness": 0.7,
+      "days_since_same_theme": 0,
+      "source_type": "domestic"
+    }
+  },
+  {
+    "post_id": "hist_1769921957023",
+    "tweet_id": "2017825053992185952",
+    "posted_at": "2026-02-01T04:59:17.023Z",
+    "content": "「断言します、AIに単に指示するだけでは成果は得られません。」複雑なタスクに悩むことはもう終わり。Agentic Workflowsを活用することで、自律型AIエージェントがあなたの作業を安定的に、そして高品質に進めます。dev-OSを使って、効率と正確さを飛躍的に向上させましょう！#AIの未来 #効率革命",
+    "xas": {
+      "raw_xas": 0,
+      "normalized_xas": 0,
+      "engagement_rate": 0,
+      "amplification_rate": 0,
+      "conversation_rate": 0,
+      "save_rate": 0,
+      "growth_score": 2.4
+    },
+    "attribution": {
+      "theme": "バイブコーディングの限界",
+      "approach": "unknown",
+      "text_features": {
+        "char_count": 154,
+        "line_count": 1,
+        "emoji_count": 0,
+        "has_numbers": false,
+        "has_question": false,
+        "has_exclamation": true,
+        "has_ellipsis": false,
+        "hashtag_count": 2,
+        "mention_count": 0,
+        "url_count": 0,
+        "first_line_length": 154,
+        "hook_pattern": "empathy",
+        "sentiment": "mixed"
+      },
+      "slot": "mid_morning",
+      "day_of_week": 0,
+      "variant": "B",
+      "theme_freshness": 0.7,
+      "days_since_same_theme": 0,
+      "source_type": "domestic"
+    }
+  },
+  {
+    "post_id": "hist_1769921925167",
+    "tweet_id": "2017824920290419010",
+    "posted_at": "2026-02-01T04:58:45.167Z",
+    "content": "正直、AIに「いい感じにやって」と頼んでも、結果がブレがちじゃありませんか？手戻りゼロの「Agentic Workflows」でその悩みを解決！dev-OSが提供するSSOTで、指示忘れや複雑なプロセスをシンプルに。あなたの開発が劇的に変わります。進化する未来、始めてみませんか？#AI革命 #開発効率化",
+    "xas": {
+      "raw_xas": 0,
+      "normalized_xas": 0,
+      "engagement_rate": 0,
+      "amplification_rate": 0,
+      "conversation_rate": 0,
+      "save_rate": 0,
+      "growth_score": 1.2
+    },
+    "attribution": {
+      "theme": "バイブコーディングの限界",
+      "approach": "unknown",
+      "text_features": {
+        "char_count": 152,
+        "line_count": 1,
+        "emoji_count": 0,
+        "has_numbers": false,
+        "has_question": true,
+        "has_exclamation": true,
+        "has_ellipsis": false,
+        "hashtag_count": 2,
+        "mention_count": 0,
+        "url_count": 0,
+        "first_line_length": 152,
+        "hook_pattern": "confession",
+        "sentiment": "mixed"
+      },
+      "slot": "morning",
+      "day_of_week": 0,
+      "variant": "A",
+      "theme_freshness": 0.74,
+      "days_since_same_theme": 1,
+      "source_type": "domestic"
+    }
+  },
+  {
+    "post_id": "hist_1769833421402",
+    "tweet_id": "2017453708661956652",
+    "posted_at": "2026-01-31T04:23:41.402Z",
+    "content": "AI開発で成果が安定しない、そんなあなたに朗報です！「Spec-Driven Development」を試してみませんか？具体的な仕様書をAIに提供するだけで、驚くほどの再現性が実現します。「なんとなく」からの脱却を目指し、開発の質を飛躍的に向上させましょう。#AI開発 #SpecDrivenDevelopment #開発革命",
+    "xas": {
+      "raw_xas": 0,
+      "normalized_xas": 0,
+      "engagement_rate": 0,
+      "amplification_rate": 0,
+      "conversation_rate": 0,
+      "save_rate": 0,
+      "growth_score": 1.6
+    },
+    "attribution": {
+      "theme": "バイブコーディングの限界",
+      "approach": "unknown",
+      "text_features": {
+        "char_count": 164,
+        "line_count": 1,
+        "emoji_count": 0,
+        "has_numbers": false,
+        "has_question": true,
+        "has_exclamation": true,
+        "has_ellipsis": false,
+        "hashtag_count": 3,
+        "mention_count": 0,
+        "url_count": 0,
+        "first_line_length": 164,
+        "hook_pattern": "discovery",
+        "sentiment": "neutral"
+      },
+      "slot": "morning",
+      "day_of_week": 6,
+      "variant": "B",
+      "theme_freshness": 0.75,
+      "days_since_same_theme": 1.2,
+      "source_type": "domestic"
+    }
+  },
+  {
+    "post_id": "hist_1769728688670",
+    "tweet_id": "2017014427761992097",
+    "posted_at": "2026-01-29T23:18:08.670Z",
+    "content": "正直、AI開発で「いい感じにやって」って頼むと結果がブレブレで困ってませんか？海外で話題の『Spec-Driven Development』が救世主！明確な仕様書をベースに指示を出せば、再現性が爆上がり！手戻りも激減。日本の開発者の皆さん、今すぐ試すべき！#AI開発 #SpecDrivenDevelopment #効率化",
+    "xas": {
+      "raw_xas": 0,
+      "normalized_xas": 0,
+      "engagement_rate": 0,
+      "amplification_rate": 0,
+      "conversation_rate": 0,
+      "save_rate": 0,
+      "growth_score": 2
+    },
+    "attribution": {
+      "theme": "バイブコーディングの限界",
+      "approach": "unknown",
+      "text_features": {
+        "char_count": 161,
+        "line_count": 1,
+        "emoji_count": 0,
+        "has_numbers": false,
+        "has_question": true,
+        "has_exclamation": true,
+        "has_ellipsis": false,
+        "hashtag_count": 3,
+        "mention_count": 0,
+        "url_count": 0,
+        "first_line_length": 161,
+        "hook_pattern": "confession",
+        "sentiment": "mixed"
+      },
+      "slot": "morning",
+      "day_of_week": 5,
+      "variant": "A",
+      "theme_freshness": 0.72,
+      "days_since_same_theme": 0.5,
+      "source_type": "domestic"
+    }
+  },
+  {
+    "post_id": "hist_1769685960728",
+    "tweet_id": "2016835213771374948",
+    "posted_at": "2026-01-29T11:26:00.728Z",
+    "content": "正直、AI開発で「いい感じにやって」と頼むと、結果がブレまくりませんか？Spec-Driven Developmentが手戻り地獄を解決します！要件を明確にすることで、AIも軌道に乗ります。まずはSpecから始めてみませんか？#SpecDrivenDevelopment #AI開発 #効率化",
+    "xas": {
+      "raw_xas": 0,
+      "normalized_xas": 0,
+      "engagement_rate": 0,
+      "amplification_rate": 0,
+      "conversation_rate": 0,
+      "save_rate": 0,
+      "growth_score": 0.4
+    },
+    "attribution": {
+      "theme": "バイブコーディングの限界",
+      "approach": "unknown",
+      "text_features": {
+        "char_count": 146,
+        "line_count": 1,
+        "emoji_count": 0,
+        "has_numbers": false,
+        "has_question": true,
+        "has_exclamation": true,
+        "has_ellipsis": false,
+        "hashtag_count": 3,
+        "mention_count": 0,
+        "url_count": 0,
+        "first_line_length": 146,
+        "hook_pattern": "confession",
+        "sentiment": "positive"
+      },
+      "slot": "evening",
+      "day_of_week": 4,
+      "variant": "A",
+      "theme_freshness": 0.71,
+      "days_since_same_theme": 0.3,
+      "source_type": "domestic"
+    }
+  },
+  {
+    "post_id": "hist_1769660771429",
+    "tweet_id": "2016729562202141071",
+    "posted_at": "2026-01-29T04:26:11.429Z",
+    "content": "「AI開発で結果が安定しない」と感じたことはありませんか？毎回のブレや手戻りを減らしたいあなたに、『Spec-Driven Development』が解決策です。具体的な指示が再現性のあるコード生成を可能にし、dev-OSやSSOTの真価を実感できます。#AI開発 #SpecDrivenDevelopment #効率化",
+    "xas": {
+      "raw_xas": 0,
+      "normalized_xas": 0,
+      "engagement_rate": 0,
+      "amplification_rate": 0,
+      "conversation_rate": 0,
+      "save_rate": 0,
+      "growth_score": 2.4
+    },
+    "attribution": {
+      "theme": "バイブコーディングの限界",
+      "approach": "unknown",
+      "text_features": {
+        "char_count": 160,
+        "line_count": 1,
+        "emoji_count": 0,
+        "has_numbers": false,
+        "has_question": true,
+        "has_exclamation": false,
+        "has_ellipsis": false,
+        "hashtag_count": 3,
+        "mention_count": 0,
+        "url_count": 0,
+        "first_line_length": 160,
+        "hook_pattern": "empathy",
+        "sentiment": "positive"
+      },
+      "slot": "mid_morning",
+      "day_of_week": 4,
+      "variant": "B",
+      "theme_freshness": 0.73,
+      "days_since_same_theme": 0.7,
+      "source_type": "domestic"
+    }
+  },
+  {
+    "post_id": "hist_1769604303659",
+    "tweet_id": "2016492719246561595",
+    "posted_at": "2026-01-28T12:45:03.659Z",
+    "content": "正直、AI開発で「いい感じに」は地雷！💣 複雑な処理ほど手戻り地獄…😇 そんなあなたに朗報！✨【Spec-Driven Development with LLMs】で仕様をガチガチに固めれば、ブレないAIが爆速開発🚀バイブスコーディング卒業して爆速開発へ！ #AI開発 #LLM #仕様駆動",
+    "xas": {
+      "raw_xas": 0.5,
+      "normalized_xas": 45.45,
+      "engagement_rate": 0.0909,
+      "amplification_rate": 0,
+      "conversation_rate": 0,
+      "save_rate": 0,
+      "growth_score": 18.14
+    },
+    "attribution": {
+      "theme": "バイブコーディングの限界",
+      "approach": "unknown",
+      "text_features": {
+        "char_count": 148,
+        "line_count": 1,
+        "emoji_count": 4,
+        "has_numbers": false,
+        "has_question": false,
+        "has_exclamation": true,
+        "has_ellipsis": true,
+        "hashtag_count": 3,
+        "mention_count": 0,
+        "url_count": 0,
+        "first_line_length": 148,
+        "hook_pattern": "confession",
+        "sentiment": "positive"
+      },
+      "slot": "night",
+      "day_of_week": 3,
+      "variant": "A",
+      "theme_freshness": 0.71,
+      "days_since_same_theme": 0.1,
+      "source_type": "domestic"
+    }
+  },
+  {
+    "post_id": "hist_1769592745763",
+    "tweet_id": "2016444241946304852",
+    "posted_at": "2026-01-28T09:32:25.763Z",
+    "content": "AI開発、いつまで手探り状態？🤔 「なんか違う…」の繰り返し、もう終わりにしませんか？ 仕様書でAIの挙動を明確に定義すれば、開発効率も品質も劇的UP✨ 仕様書こそ、AI開発成功への近道です！ #AI開発 #仕様書 #効率化",
+    "xas": {
+      "raw_xas": 0,
+      "normalized_xas": 0,
+      "engagement_rate": 0,
+      "amplification_rate": 0,
+      "conversation_rate": 0,
+      "save_rate": 0,
+      "growth_score": 1.6
+    },
+    "attribution": {
+      "theme": "バイブコーディングの限界",
+      "approach": "unknown",
+      "text_features": {
+        "char_count": 113,
+        "line_count": 1,
+        "emoji_count": 2,
+        "has_numbers": false,
+        "has_question": true,
+        "has_exclamation": true,
+        "has_ellipsis": true,
+        "hashtag_count": 3,
+        "mention_count": 0,
+        "url_count": 0,
+        "first_line_length": 113,
+        "hook_pattern": "neutral",
+        "sentiment": "positive"
+      },
+      "slot": "evening",
+      "day_of_week": 3,
+      "variant": "B",
+      "theme_freshness": 0.71,
+      "days_since_same_theme": 0.3,
+      "source_type": "domestic"
+    }
+  },
+  {
+    "post_id": "hist_1769569555808",
+    "tweet_id": "2016346976137167267",
+    "posted_at": "2026-01-28T03:05:55.808Z",
+    "content": "AI開発、手戻り多すぎ問題、共感者いませんか？😭 「なんとなく動く」から抜け出すために、仕様を鬼のように書き込むSpec-Driven Development試したら、マジで安定＆爆速開発に！最初は面倒だけど、後々の修正コスト考えたら全然アリ。詳細ブログで解説します！ #SpecDrivenDevelopment #AI開発効率化",
+    "xas": {
+      "raw_xas": 0,
+      "normalized_xas": 0,
+      "engagement_rate": 0,
+      "amplification_rate": 0,
+      "conversation_rate": 0,
+      "save_rate": 0,
+      "growth_score": 2.4
+    },
+    "attribution": {
+      "theme": "バイブコーディングの限界",
+      "approach": "unknown",
+      "text_features": {
+        "char_count": 167,
+        "line_count": 1,
+        "emoji_count": 1,
+        "has_numbers": false,
+        "has_question": true,
+        "has_exclamation": true,
+        "has_ellipsis": false,
+        "hashtag_count": 2,
+        "mention_count": 0,
+        "url_count": 0,
+        "first_line_length": 167,
+        "hook_pattern": "confession",
+        "sentiment": "mixed"
+      },
+      "slot": "noon",
+      "day_of_week": 3,
+      "variant": "B",
+      "theme_freshness": 0.7,
+      "days_since_same_theme": 0,
+      "source_type": "domestic"
+    }
+  },
+  {
+    "post_id": "hist_1769569523943",
+    "tweet_id": "2016346842502468039",
+    "posted_at": "2026-01-28T03:05:23.943Z",
+    "content": "AI開発、思ったように進まない…そんな経験ありませんか？「なんか良い感じに作って」と指示した結果、手戻りの山…私も経験あります！解決策は、LLMへの指示を具体的にすること。仕様をコードで記述し、AIの動きをコントロール！Spec-Driven Developmentで理想の開発へ！ #AI開発 #LLM #開発効率化",
+    "xas": {
+      "raw_xas": 0,
+      "normalized_xas": 0,
+      "engagement_rate": 0,
+      "amplification_rate": 0,
+      "conversation_rate": 0,
+      "save_rate": 0,
+      "growth_score": 3.2
+    },
+    "attribution": {
+      "theme": "バイブコーディングの限界",
+      "approach": "unknown",
+      "text_features": {
+        "char_count": 159,
+        "line_count": 1,
+        "emoji_count": 0,
+        "has_numbers": false,
+        "has_question": true,
+        "has_exclamation": true,
+        "has_ellipsis": true,
+        "hashtag_count": 3,
+        "mention_count": 0,
+        "url_count": 0,
+        "first_line_length": 159,
+        "hook_pattern": "neutral",
+        "sentiment": "positive"
+      },
+      "slot": "mid_morning",
+      "day_of_week": 3,
+      "variant": "B",
+      "theme_freshness": 0.71,
+      "days_since_same_theme": 0.2,
+      "source_type": "domestic"
+    }
+  },
+  {
+    "post_id": "hist_1769555636557",
+    "tweet_id": "2016288594638602357",
+    "posted_at": "2026-01-27T23:13:56.557Z",
+    "content": "AI開発、仕様書なしで進めてませんか？🚧 それ、まるで地図なしで迷路をさまようようなもの。手戻りの嵐で疲弊する前に、仕様駆動開発(SpecDD)を取り入れましょう！LLMとdev-OSで仕様を明確化し、SSOTで情報共有。今日からスマートなAI開発へ🚀 #AI開発 #SpecDD #LLM",
+    "xas": {
+      "raw_xas": 0,
+      "normalized_xas": 0,
+      "engagement_rate": 0,
+      "amplification_rate": 0,
+      "conversation_rate": 0,
+      "save_rate": 0,
+      "growth_score": 10.4
+    },
+    "attribution": {
+      "theme": "バイブコーディングの限界",
+      "approach": "unknown",
+      "text_features": {
+        "char_count": 147,
+        "line_count": 1,
+        "emoji_count": 2,
+        "has_numbers": false,
+        "has_question": true,
+        "has_exclamation": true,
+        "has_ellipsis": false,
+        "hashtag_count": 3,
+        "mention_count": 0,
+        "url_count": 0,
+        "first_line_length": 147,
+        "hook_pattern": "neutral",
+        "sentiment": "positive"
+      },
+      "slot": "morning",
+      "day_of_week": 3,
+      "variant": "B",
+      "theme_freshness": 0.82,
+      "days_since_same_theme": 2.8,
+      "source_type": "domestic"
+    }
+  },
+  {
+    "post_id": "hist_1768879106652_884031",
+    "tweet_id": "2013440220012884031",
+    "posted_at": "2026-01-20T02:35:31.000Z",
+    "content": "Cursorへの指示、これだけで変わる 💡\n\nNG: 「認証機能を作って」\nOK: 「JWT認証 + リフレッシュトークン + 失効管理を作って」\n\n具体的に言えば言うほど、\nAIは正確に理解する。\n\n#Cursor #Tips",
+    "xas": {
+      "raw_xas": 0,
+      "normalized_xas": 0,
+      "engagement_rate": 0,
+      "amplification_rate": 0,
+      "conversation_rate": 0,
+      "save_rate": 0,
+      "growth_score": 1.2
+    },
+    "attribution": {
+      "theme": "Cursor活用",
+      "approach": "tips",
+      "text_features": {
+        "char_count": 115,
+        "line_count": 6,
+        "emoji_count": 1,
+        "has_numbers": false,
+        "has_question": false,
+        "has_exclamation": false,
+        "has_ellipsis": false,
+        "hashtag_count": 2,
+        "mention_count": 0,
+        "url_count": 0,
+        "first_line_length": 22,
+        "hook_pattern": "neutral",
+        "sentiment": "positive"
+      },
+      "slot": "morning",
+      "day_of_week": 2,
+      "variant": "A",
+      "theme_freshness": 0.72,
+      "days_since_same_theme": 0.6,
+      "source_type": "domestic"
+    }
+  },
+  {
+    "post_id": "hist_1768879106653_732533",
+    "tweet_id": "2013234991589732533",
+    "posted_at": "2026-01-19T13:00:00.000Z",
+    "content": "Cursorを使い始めて3ヶ月。\n\n最初は「魔法だ！」と思った。\nでも複雑になるほど、AIが迷走し始めた。\n\n原因は明確だった。\n僕の指示が曖昧だったから。\n\nAIは悪くない。\n人間が「何を作りたいか」を整理してなかっただけ。\n\n#AI開発 #BuildInPublic",
+    "xas": {
+      "raw_xas": 0.5,
+      "normalized_xas": 100,
+      "engagement_rate": 0.2,
+      "amplification_rate": 0,
+      "conversation_rate": 0,
+      "save_rate": 0,
+      "growth_score": 32.1
+    },
+    "attribution": {
+      "theme": "Cursor活用",
+      "approach": "unknown",
+      "text_features": {
+        "char_count": 135,
+        "line_count": 8,
+        "emoji_count": 0,
+        "has_numbers": false,
+        "has_question": false,
+        "has_exclamation": true,
+        "has_ellipsis": false,
+        "hashtag_count": 2,
+        "mention_count": 0,
+        "url_count": 0,
+        "first_line_length": 16,
+        "hook_pattern": "neutral",
+        "sentiment": "neutral"
+      },
+      "slot": "night",
+      "day_of_week": 1,
+      "variant": "B",
+      "theme_freshness": 0.72,
+      "days_since_same_theme": 0.4,
+      "source_type": "domestic"
+    }
+  },
+  {
+    "post_id": "hist_1768879106653_154754",
+    "tweet_id": "2013079056066154754",
+    "posted_at": "2026-01-19T02:40:22.000Z",
+    "content": "Cursorへの指示、これだけで変わる 💡\n\nNG: 「認証機能を作って」\nOK: 「JWT認証 + リフレッシュトークン + 失効管理を作って」\n\n具体的に言えば言うほど、\nAIは正確に理解する。\n\n#Cursor #Tips",
+    "xas": {
+      "raw_xas": 0,
+      "normalized_xas": 0,
+      "engagement_rate": 0,
+      "amplification_rate": 0,
+      "conversation_rate": 0,
+      "save_rate": 0,
+      "growth_score": 4
+    },
+    "attribution": {
+      "theme": "Cursor活用",
+      "approach": "tips",
+      "text_features": {
+        "char_count": 115,
+        "line_count": 6,
+        "emoji_count": 1,
+        "has_numbers": false,
+        "has_question": false,
+        "has_exclamation": false,
+        "has_ellipsis": false,
+        "hashtag_count": 2,
+        "mention_count": 0,
+        "url_count": 0,
+        "first_line_length": 22,
+        "hook_pattern": "neutral",
+        "sentiment": "positive"
+      },
+      "slot": "morning",
+      "day_of_week": 1,
+      "variant": "B",
+      "theme_freshness": 0.74,
+      "days_since_same_theme": 0.9,
+      "source_type": "domestic"
+    }
+  },
+  {
+    "post_id": "hist_1768879106653_601389",
+    "tweet_id": "2012739498107601389",
+    "posted_at": "2026-01-18T04:11:05.000Z",
+    "content": "AIが書いたコードのレビューに\n1日の半分使ってませんか？\n\n生成は速い。\nでも「本番品質」にする作業が終わらない。\n\n問題はAIじゃなく、\n「何を作るか」が曖昧なこと。\n\n#AI開発 #Cursor",
+    "xas": {
+      "raw_xas": 0,
+      "normalized_xas": 0,
+      "engagement_rate": 0,
+      "amplification_rate": 0,
+      "conversation_rate": 0,
+      "save_rate": 0,
+      "growth_score": 6.4
+    },
+    "attribution": {
+      "theme": "Cursor活用",
+      "approach": "problem_statement",
+      "text_features": {
+        "char_count": 100,
+        "line_count": 7,
+        "emoji_count": 0,
+        "has_numbers": true,
+        "has_question": true,
+        "has_exclamation": false,
+        "has_ellipsis": false,
+        "hashtag_count": 2,
+        "mention_count": 0,
+        "url_count": 0,
+        "first_line_length": 15,
+        "hook_pattern": "neutral",
+        "sentiment": "negative"
+      },
+      "slot": "noon",
+      "day_of_week": 0,
+      "variant": "A",
+      "theme_freshness": 0.73,
+      "days_since_same_theme": 0.6,
+      "source_type": "domestic"
+    }
+  },
+  {
+    "post_id": "hist_1768879106653_390206",
+    "tweet_id": "2012507585279390206",
+    "posted_at": "2026-01-17T12:49:33.000Z",
+    "content": "Cursorを使い始めて3ヶ月。\n\n最初は「魔法だ！」と思った。\nでも複雑になるほど、AIが迷走し始めた。\n\n原因は明確だった。\n僕の指示が曖昧だったから。\n\nAIは悪くない。\n人間が「何を作りたいか」を整理してなかっただけ。\n\n#AI開発 #BuildInPublic",
+    "xas": {
+      "raw_xas": 0,
+      "normalized_xas": 0,
+      "engagement_rate": 0,
+      "amplification_rate": 0,
+      "conversation_rate": 0,
+      "save_rate": 0,
+      "growth_score": 3.6
+    },
+    "attribution": {
+      "theme": "Cursor活用",
+      "approach": "unknown",
+      "text_features": {
+        "char_count": 135,
+        "line_count": 8,
+        "emoji_count": 0,
+        "has_numbers": false,
+        "has_question": false,
+        "has_exclamation": true,
+        "has_ellipsis": false,
+        "hashtag_count": 2,
+        "mention_count": 0,
+        "url_count": 0,
+        "first_line_length": 16,
+        "hook_pattern": "neutral",
+        "sentiment": "neutral"
+      },
+      "slot": "night",
+      "day_of_week": 6,
+      "variant": "A",
+      "theme_freshness": 1,
+      "days_since_same_theme": 999,
+      "source_type": "domestic"
+    }
+  },
+  {
+    "post_id": "hist_1768605558588",
+    "tweet_id": "2012303677013508134",
+    "posted_at": "2026-01-16T23:19:18.588Z",
+    "content": "バイブコーディング、そろそろ限界じゃないですか？\n\n「なんとなく」で作ると「なんとなく」のものしかできない。\n\nCursorに「いい感じに作って」と言っても、\nAIは「いい感じ」が分からない。\n\n仕様を整えれば、AIはあなたの意図を理解する。\n\n#AI開発 #Cursor #バイブコーディング",
+    "xas": {
+      "raw_xas": 0,
+      "normalized_xas": 0,
+      "engagement_rate": 0,
+      "amplification_rate": 0,
+      "conversation_rate": 0,
+      "save_rate": 0,
+      "growth_score": 8.8
+    },
+    "attribution": {
+      "theme": "バイブコーディングの限界",
+      "approach": "unknown",
+      "text_features": {
+        "char_count": 147,
+        "line_count": 6,
+        "emoji_count": 0,
+        "has_numbers": false,
+        "has_question": true,
+        "has_exclamation": false,
+        "has_ellipsis": false,
+        "hashtag_count": 3,
+        "mention_count": 0,
+        "url_count": 0,
+        "first_line_length": 24,
+        "hook_pattern": "question",
+        "sentiment": "neutral"
+      },
+      "slot": "noon",
+      "day_of_week": 6,
+      "variant": "B",
+      "theme_freshness": 1,
+      "days_since_same_theme": 999,
+      "source_type": "domestic"
+    }
+  },
+  {
+    "post_id": "hist_1768879106653_778283",
+    "tweet_id": "2007303829675778283",
+    "posted_at": "2026-01-03T04:11:41.000Z",
+    "content": "dev-OS 始動します 🚀\n\n「AIで作ったコード、結局自分で直してませんか？」\n\nこの問題を解決するために、AI開発の品質管理OSを作っています。\n\n開発過程を Build in Public で共有していきます。\nフォローお願いします！\n\n#devOS #AI開発 #BuildInPublic",
+    "xas": {
+      "raw_xas": 0,
+      "normalized_xas": 0,
+      "engagement_rate": 0,
+      "amplification_rate": 0,
+      "conversation_rate": 0,
+      "save_rate": 0,
+      "growth_score": 3.2
+    },
+    "attribution": {
+      "theme": "AI開発の品質",
+      "approach": "problem_statement",
+      "text_features": {
+        "char_count": 151,
+        "line_count": 6,
+        "emoji_count": 1,
+        "has_numbers": false,
+        "has_question": true,
+        "has_exclamation": true,
+        "has_ellipsis": false,
+        "hashtag_count": 3,
+        "mention_count": 0,
+        "url_count": 0,
+        "first_line_length": 15,
+        "hook_pattern": "neutral",
+        "sentiment": "mixed"
+      },
+      "slot": "noon",
+      "day_of_week": 6,
+      "variant": "B",
+      "theme_freshness": 1,
+      "days_since_same_theme": 999,
+      "source_type": "domestic"
+    }
+  },
+  {
+    "post_id": "hist_1768879106653_026798",
+    "tweet_id": "1961315108967026798",
+    "posted_at": "2025-08-29T06:28:56.000Z",
+    "content": "ホテルの現場に10年いた職人が、\nもう我慢できず、自分でAIを作った話。\n\n・人がいない\n・でもサービスは下げたくない\n・多言語対応なんてムリ\n\nそんな現場の声を聞きすぎたから、\nAIコンシェルジュを作りました。\n\nこれは、\n“これからのホテル”のお話です👇\nhttps://t.co/PLGOQlcW7Y",
+    "xas": {
+      "raw_xas": 0,
+      "normalized_xas": 0,
+      "engagement_rate": 0,
+      "amplification_rate": 0,
+      "conversation_rate": 0,
+      "save_rate": 0,
+      "growth_score": 16
+    },
+    "attribution": {
+      "theme": "一般",
+      "approach": "thread",
+      "text_features": {
+        "char_count": 154,
+        "line_count": 10,
+        "emoji_count": 1,
+        "has_numbers": true,
+        "has_question": false,
+        "has_exclamation": false,
+        "has_ellipsis": false,
+        "hashtag_count": 0,
+        "mention_count": 0,
+        "url_count": 1,
+        "first_line_length": 16,
+        "hook_pattern": "neutral",
+        "sentiment": "neutral"
+      },
+      "slot": "noon",
+      "day_of_week": 5,
+      "variant": "B",
+      "theme_freshness": 1,
+      "days_since_same_theme": 43,
+      "source_type": "domestic"
+    }
+  },
+  {
+    "post_id": "hist_1768879106653_716336",
+    "tweet_id": "1945746053107716336",
+    "posted_at": "2025-07-17T07:23:03.000Z",
+    "content": "デモ依頼がキター♪───Ｏ（≧∇≦）Ｏ────♪\nhttps://t.co/NExcDq5ovY",
+    "xas": {
+      "raw_xas": 0,
+      "normalized_xas": 0,
+      "engagement_rate": 0,
+      "amplification_rate": 0,
+      "conversation_rate": 0,
+      "save_rate": 0,
+      "growth_score": 9.2
+    },
+    "attribution": {
+      "theme": "一般",
+      "approach": "thread",
+      "text_features": {
+        "char_count": 48,
+        "line_count": 2,
+        "emoji_count": 2,
+        "has_numbers": false,
+        "has_question": false,
+        "has_exclamation": false,
+        "has_ellipsis": false,
+        "hashtag_count": 0,
+        "mention_count": 0,
+        "url_count": 1,
+        "first_line_length": 24,
+        "hook_pattern": "neutral",
+        "sentiment": "neutral"
+      },
+      "slot": "noon",
+      "day_of_week": 4,
+      "variant": "A",
+      "theme_freshness": 0.74,
+      "days_since_same_theme": 0.9,
+      "source_type": "domestic"
+    }
+  },
+  {
+    "post_id": "hist_1768879106653_466387",
+    "tweet_id": "1945414543930466387",
+    "posted_at": "2025-07-16T09:25:45.000Z",
+    "content": "AIコンシェルジュとはなんぞや？？\n↓\nhttps://t.co/xwcBsgH9nr",
+    "xas": {
+      "raw_xas": 0.5,
+      "normalized_xas": 13.16,
+      "engagement_rate": 0.0263,
+      "amplification_rate": 0,
+      "conversation_rate": 0,
+      "save_rate": 0,
+      "growth_score": 19.25
+    },
+    "attribution": {
+      "theme": "一般",
+      "approach": "problem_statement",
+      "text_features": {
+        "char_count": 43,
+        "line_count": 3,
+        "emoji_count": 0,
+        "has_numbers": false,
+        "has_question": true,
+        "has_exclamation": false,
+        "has_ellipsis": false,
+        "hashtag_count": 0,
+        "mention_count": 0,
+        "url_count": 1,
+        "first_line_length": 17,
+        "hook_pattern": "question",
+        "sentiment": "neutral"
+      },
+      "slot": "night",
+      "day_of_week": 3,
+      "variant": "A",
+      "theme_freshness": 0.74,
+      "days_since_same_theme": 1,
+      "source_type": "domestic"
+    }
+  },
+  {
+    "post_id": "hist_1768879106653_525791",
+    "tweet_id": "1945041912005525791",
+    "posted_at": "2025-07-15T08:45:03.000Z",
+    "content": "ホテル向けAIコンシェルジュプレリリース!!\n8/10まで先着10店舗様。\n詳細は↓\nhttps://t.co/d3tbZkXk2u",
+    "xas": {
+      "raw_xas": 0,
+      "normalized_xas": 0,
+      "engagement_rate": 0,
+      "amplification_rate": 0,
+      "conversation_rate": 0,
+      "save_rate": 0,
+      "growth_score": 3.6
+    },
+    "attribution": {
+      "theme": "一般",
+      "approach": "thread",
+      "text_features": {
+        "char_count": 66,
+        "line_count": 4,
+        "emoji_count": 0,
+        "has_numbers": false,
+        "has_question": false,
+        "has_exclamation": true,
+        "has_ellipsis": false,
+        "hashtag_count": 0,
+        "mention_count": 0,
+        "url_count": 1,
+        "first_line_length": 22,
+        "hook_pattern": "neutral",
+        "sentiment": "neutral"
+      },
+      "slot": "noon",
+      "day_of_week": 2,
+      "variant": "B",
+      "theme_freshness": 0.76,
+      "days_since_same_theme": 1.4,
+      "source_type": "domestic"
+    }
+  },
+  {
+    "post_id": "hist_1768879106653_215131",
+    "tweet_id": "1944545052946215131",
+    "posted_at": "2025-07-13T23:50:43.000Z",
+    "content": "cursorはメモリ機能がついたけど、長期記憶は無理だしプロジェクトが大きくなるとブレブレになるから、とにかくドキュメントをこまめにまとめてアップデートしていくのが○\nことあるごとにドキュメントを確認させることでブレずに開発が続けられる",
+    "xas": {
+      "raw_xas": 0.5,
+      "normalized_xas": 8.2,
+      "engagement_rate": 0.0164,
+      "amplification_rate": 0,
+      "conversation_rate": 0,
+      "save_rate": 0,
+      "growth_score": 26.96
+    },
+    "attribution": {
+      "theme": "一般",
+      "approach": "unknown",
+      "text_features": {
+        "char_count": 118,
+        "line_count": 2,
+        "emoji_count": 0,
+        "has_numbers": false,
+        "has_question": false,
+        "has_exclamation": false,
+        "has_ellipsis": false,
+        "hashtag_count": 0,
+        "mention_count": 0,
+        "url_count": 0,
+        "first_line_length": 83,
+        "hook_pattern": "neutral",
+        "sentiment": "neutral"
+      },
+      "slot": "morning",
+      "day_of_week": 1,
+      "variant": "B",
+      "theme_freshness": 0.7,
+      "days_since_same_theme": 0,
+      "source_type": "domestic"
+    }
+  },
+  {
+    "post_id": "hist_1768879106653_159837",
+    "tweet_id": "1944542035094159837",
+    "posted_at": "2025-07-13T23:38:43.000Z",
+    "content": "サービスが売れてくるまでAiのコンサルをして欲しい企業さんなどはいないものか。。\nAi使った問題解決とかそのためのシステム作りは自身ありです！",
+    "xas": {
+      "raw_xas": 0,
+      "normalized_xas": 0,
+      "engagement_rate": 0,
+      "amplification_rate": 0,
+      "conversation_rate": 0,
+      "save_rate": 0,
+      "growth_score": 3.6
+    },
+    "attribution": {
+      "theme": "一般",
+      "approach": "unknown",
+      "text_features": {
+        "char_count": 71,
+        "line_count": 2,
+        "emoji_count": 0,
+        "has_numbers": false,
+        "has_question": false,
+        "has_exclamation": true,
+        "has_ellipsis": false,
+        "hashtag_count": 0,
+        "mention_count": 0,
+        "url_count": 0,
+        "first_line_length": 40,
+        "hook_pattern": "neutral",
+        "sentiment": "negative"
+      },
+      "slot": "morning",
+      "day_of_week": 1,
+      "variant": "A",
+      "theme_freshness": 0.7,
+      "days_since_same_theme": 0,
+      "source_type": "domestic"
+    }
+  },
+  {
+    "post_id": "hist_1768879106653_685220",
+    "tweet_id": "1944540611639685220",
+    "posted_at": "2025-07-13T23:33:04.000Z",
+    "content": "cursorでホテル向けのAiコンシェルジュサービスを作ってる。\nリリース一歩手前くらいまでは来たところで、タイミングよく導入希望が！\nでも普段の現場仕事を止めて開発してるので資金がw\nチキンレースみたいな感じになってくる",
+    "xas": {
+      "raw_xas": 0,
+      "normalized_xas": 0,
+      "engagement_rate": 0,
+      "amplification_rate": 0,
+      "conversation_rate": 0,
+      "save_rate": 0,
+      "growth_score": 8.8
+    },
+    "attribution": {
+      "theme": "一般",
+      "approach": "unknown",
+      "text_features": {
+        "char_count": 111,
+        "line_count": 4,
+        "emoji_count": 0,
+        "has_numbers": false,
+        "has_question": false,
+        "has_exclamation": true,
+        "has_ellipsis": false,
+        "hashtag_count": 0,
+        "mention_count": 0,
+        "url_count": 0,
+        "first_line_length": 32,
+        "hook_pattern": "neutral",
+        "sentiment": "neutral"
+      },
+      "slot": "morning",
+      "day_of_week": 1,
+      "variant": "B",
+      "theme_freshness": 1,
+      "days_since_same_theme": 55,
+      "source_type": "domestic"
+    }
+  },
+  {
+    "post_id": "hist_1768879106653_066837",
+    "tweet_id": "1924619759813066837",
+    "posted_at": "2025-05-20T00:14:43.000Z",
+    "content": "この問題を子供に出されたのだけど、\n物語として頭の中で映像にしたらすぐに解けない？？\n\nテキストベースの生成Aiとのやり取りでも役立つと思う https://t.co/yEws3RSxF2",
+    "xas": {
+      "raw_xas": 0,
+      "normalized_xas": 0,
+      "engagement_rate": 0,
+      "amplification_rate": 0,
+      "conversation_rate": 0,
+      "save_rate": 0,
+      "growth_score": 60.4
+    },
+    "attribution": {
+      "theme": "一般",
+      "approach": "problem_statement",
+      "text_features": {
+        "char_count": 94,
+        "line_count": 3,
+        "emoji_count": 0,
+        "has_numbers": false,
+        "has_question": true,
+        "has_exclamation": false,
+        "has_ellipsis": false,
+        "hashtag_count": 0,
+        "mention_count": 0,
+        "url_count": 1,
+        "first_line_length": 17,
+        "hook_pattern": "neutral",
+        "sentiment": "negative"
+      },
+      "slot": "morning",
+      "day_of_week": 2,
+      "variant": "B",
+      "theme_freshness": 0.7,
+      "days_since_same_theme": 0,
+      "source_type": "domestic"
+    }
+  },
+  {
+    "post_id": "hist_1768879106653_937092",
+    "tweet_id": "1924617396930937092",
+    "posted_at": "2025-05-20T00:05:19.000Z",
+    "content": "うまく言うことを聞いてくれないので、無意味だと思うけどAIに当たることがある。\n\nclaude-3.7-sonnet→申し訳ありません。\nって言ってくれる\n\nchatGPT-o3→スルーしてレスポンスだけ表示\n\n結局自分の指示能力不足なんだけど、sonnetの方がかわいく思える",
+    "xas": {
+      "raw_xas": 0,
+      "normalized_xas": 0,
+      "engagement_rate": 0,
+      "amplification_rate": 0,
+      "conversation_rate": 0,
+      "save_rate": 0,
+      "growth_score": 23.6
+    },
+    "attribution": {
+      "theme": "一般",
+      "approach": "unknown",
+      "text_features": {
+        "char_count": 139,
+        "line_count": 5,
+        "emoji_count": 0,
+        "has_numbers": false,
+        "has_question": false,
+        "has_exclamation": false,
+        "has_ellipsis": false,
+        "hashtag_count": 0,
+        "mention_count": 0,
+        "url_count": 0,
+        "first_line_length": 39,
+        "hook_pattern": "neutral",
+        "sentiment": "neutral"
+      },
+      "slot": "morning",
+      "day_of_week": 2,
+      "variant": "B",
+      "theme_freshness": 0.7,
+      "days_since_same_theme": 0,
+      "source_type": "domestic"
+    }
+  },
+  {
+    "post_id": "hist_1768879106653_654787",
+    "tweet_id": "1924615941100654787",
+    "posted_at": "2025-05-19T23:59:32.000Z",
+    "content": "cursorはAiのmodelを固定した方がいいかも\n\nautoで切り替わると、\n担当変わったので、ご挨拶にきました〜\n\nみたいな感じにならない？",
+    "xas": {
+      "raw_xas": 0,
+      "normalized_xas": 0,
+      "engagement_rate": 0,
+      "amplification_rate": 0,
+      "conversation_rate": 0,
+      "save_rate": 0,
+      "growth_score": 17.6
+    },
+    "attribution": {
+      "theme": "一般",
+      "approach": "problem_statement",
+      "text_features": {
+        "char_count": 73,
+        "line_count": 4,
+        "emoji_count": 0,
+        "has_numbers": false,
+        "has_question": true,
+        "has_exclamation": false,
+        "has_ellipsis": false,
+        "hashtag_count": 0,
+        "mention_count": 0,
+        "url_count": 0,
+        "first_line_length": 26,
+        "hook_pattern": "neutral",
+        "sentiment": "neutral"
+      },
+      "slot": "morning",
+      "day_of_week": 2,
+      "variant": "B",
+      "theme_freshness": 0.7,
+      "days_since_same_theme": 0,
+      "source_type": "domestic"
+    }
+  },
+  {
+    "post_id": "hist_1768879106653_609984",
+    "tweet_id": "1924615532709609984",
+    "posted_at": "2025-05-19T23:57:55.000Z",
+    "content": "Devinを使ってみた、、、\n\nめっちゃ動くけどどんどん課金されてく\n一気にできるけど、複雑になると私の能力ではうまく動かせない。。。\n\n結局cursor一本に戻しましたとさ",
+    "xas": {
+      "raw_xas": 0,
+      "normalized_xas": 0,
+      "engagement_rate": 0,
+      "amplification_rate": 0,
+      "conversation_rate": 0,
+      "save_rate": 0,
+      "growth_score": 18
+    },
+    "attribution": {
+      "theme": "一般",
+      "approach": "unknown",
+      "text_features": {
+        "char_count": 87,
+        "line_count": 4,
+        "emoji_count": 0,
+        "has_numbers": false,
+        "has_question": false,
+        "has_exclamation": false,
+        "has_ellipsis": false,
+        "hashtag_count": 0,
+        "mention_count": 0,
+        "url_count": 0,
+        "first_line_length": 14,
+        "hook_pattern": "neutral",
+        "sentiment": "neutral"
+      },
+      "slot": "morning",
+      "day_of_week": 2,
+      "variant": "A",
+      "theme_freshness": 1,
+      "days_since_same_theme": 35.7,
+      "source_type": "domestic"
+    }
+  },
+  {
+    "post_id": "hist_1768879106653_548998",
+    "tweet_id": "1911664157952548998",
+    "posted_at": "2025-04-14T06:13:46.000Z",
+    "content": "cursorでルール設定をできる.mdcファイルを活用するといいかも。\nここにAIで作った要件定義書やら仕様書やらをまとめておいて、エディタが迷子になりそうな度にそのファイルを確認する指示を出すと正気に戻ってくれる\nHP程度ならいいけど、アプリ開発もやっとまともにできそう。\nみんなはどうしてる？",
+    "xas": {
+      "raw_xas": 0,
+      "normalized_xas": 0,
+      "engagement_rate": 0,
+      "amplification_rate": 0,
+      "conversation_rate": 0,
+      "save_rate": 0,
+      "growth_score": 100.4
+    },
+    "attribution": {
+      "theme": "一般",
+      "approach": "problem_statement",
+      "text_features": {
+        "char_count": 148,
+        "line_count": 4,
+        "emoji_count": 0,
+        "has_numbers": false,
+        "has_question": true,
+        "has_exclamation": false,
+        "has_ellipsis": false,
+        "hashtag_count": 0,
+        "mention_count": 0,
+        "url_count": 0,
+        "first_line_length": 35,
+        "hook_pattern": "neutral",
+        "sentiment": "neutral"
+      },
+      "slot": "noon",
+      "day_of_week": 1,
+      "variant": "B",
+      "theme_freshness": 0.71,
+      "days_since_same_theme": 0.2,
+      "source_type": "domestic"
+    }
+  },
+  {
+    "post_id": "hist_1768879106654_548148",
+    "tweet_id": "1911587347344548148",
+    "posted_at": "2025-04-14T01:08:33.000Z",
+    "content": "cursorの能力がだいぶ上がって、前は無限ループに入って止まった開発が進むようになったなー\nさらにproject ruleを適用すると開発精度があがるらしい",
+    "xas": {
+      "raw_xas": 0,
+      "normalized_xas": 0,
+      "engagement_rate": 0,
+      "amplification_rate": 0,
+      "conversation_rate": 0,
+      "save_rate": 0,
+      "growth_score": 64.8
+    },
+    "attribution": {
+      "theme": "一般",
+      "approach": "unknown",
+      "text_features": {
+        "char_count": 79,
+        "line_count": 2,
+        "emoji_count": 0,
+        "has_numbers": false,
+        "has_question": false,
+        "has_exclamation": false,
+        "has_ellipsis": false,
+        "hashtag_count": 0,
+        "mention_count": 0,
+        "url_count": 0,
+        "first_line_length": 46,
+        "hook_pattern": "neutral",
+        "sentiment": "neutral"
+      },
+      "slot": "morning",
+      "day_of_week": 1,
+      "variant": "B",
+      "theme_freshness": 0.83,
+      "days_since_same_theme": 3.1,
+      "source_type": "domestic"
+    }
+  },
+  {
+    "post_id": "hist_1768879106654_688813",
+    "tweet_id": "1910451010310688813",
+    "posted_at": "2025-04-10T21:53:09.000Z",
+    "content": "誰か教えてほしい😖\n単純に理解できないんだけど、朝の静寂なマックで一番開発に集中できる時に、スマホで動画をイヤホンなしで堂々と見てる人って周りがうるさいとか思わないのだろうか。。\n速攻イヤホンして殻閉じこもったけど。。",
+    "xas": {
+      "raw_xas": 0.5,
+      "normalized_xas": 6.76,
+      "engagement_rate": 0.0135,
+      "amplification_rate": 0,
+      "conversation_rate": 0,
+      "save_rate": 0,
+      "growth_score": 31.73
+    },
+    "attribution": {
+      "theme": "一般",
+      "approach": "unknown",
+      "text_features": {
+        "char_count": 110,
+        "line_count": 3,
+        "emoji_count": 1,
+        "has_numbers": false,
+        "has_question": false,
+        "has_exclamation": false,
+        "has_ellipsis": false,
+        "hashtag_count": 0,
+        "mention_count": 0,
+        "url_count": 0,
+        "first_line_length": 10,
+        "hook_pattern": "neutral",
+        "sentiment": "neutral"
+      },
+      "slot": "morning",
+      "day_of_week": 5,
+      "variant": "A",
+      "theme_freshness": 1,
+      "days_since_same_theme": 21,
+      "source_type": "domestic"
+    }
+  },
+  {
+    "post_id": "hist_1768879106654_119854",
+    "tweet_id": "1902844542925119854",
+    "posted_at": "2025-03-20T22:07:46.000Z",
+    "content": "この前クラファンページを作る機会があってo1 proでサクッとと思ってたら、それっぽいのはできたけど、思いが乗り切ってない気がして結局3日試行錯誤。\n\nできたページや文章は褒めてもらえるので、構成はAI、思いは人間。\n\nどこまでどう分担するのかを掴んでいくのがこれから人間のすることなのかも",
+    "xas": {
+      "raw_xas": 0,
+      "normalized_xas": 0,
+      "engagement_rate": 0,
+      "amplification_rate": 0,
+      "conversation_rate": 0,
+      "save_rate": 0,
+      "growth_score": 28.8
+    },
+    "attribution": {
+      "theme": "一般",
+      "approach": "unknown",
+      "text_features": {
+        "char_count": 145,
+        "line_count": 3,
+        "emoji_count": 0,
+        "has_numbers": true,
+        "has_question": false,
+        "has_exclamation": false,
+        "has_ellipsis": false,
+        "hashtag_count": 0,
+        "mention_count": 0,
+        "url_count": 0,
+        "first_line_length": 74,
+        "hook_pattern": "neutral",
+        "sentiment": "neutral"
+      },
+      "slot": "morning",
+      "day_of_week": 5,
+      "variant": "B",
+      "theme_freshness": 1,
+      "days_since_same_theme": 55.9,
+      "source_type": "domestic"
+    }
+  },
+  {
+    "post_id": "hist_1768879106654_291379",
+    "tweet_id": "1882585877425291379",
+    "posted_at": "2025-01-24T00:27:04.000Z",
+    "content": "ただしmacだからかもしれないけど日本語入力して変換してEnterを押すとそのまま登録されちゃうので、英語で入力するか面倒だけどテキストエディタで文章を作ってコピペしたらOK👍",
+    "xas": {
+      "raw_xas": 0,
+      "normalized_xas": 0,
+      "engagement_rate": 0,
+      "amplification_rate": 0,
+      "conversation_rate": 0,
+      "save_rate": 0,
+      "growth_score": 22
+    },
+    "attribution": {
+      "theme": "一般",
+      "approach": "unknown",
+      "text_features": {
+        "char_count": 89,
+        "line_count": 1,
+        "emoji_count": 1,
+        "has_numbers": false,
+        "has_question": false,
+        "has_exclamation": false,
+        "has_ellipsis": false,
+        "hashtag_count": 0,
+        "mention_count": 0,
+        "url_count": 0,
+        "first_line_length": 89,
+        "hook_pattern": "neutral",
+        "sentiment": "neutral"
+      },
+      "slot": "morning",
+      "day_of_week": 5,
+      "variant": "B",
+      "theme_freshness": 0.7,
+      "days_since_same_theme": 0,
+      "source_type": "domestic"
+    }
+  },
+  {
+    "post_id": "hist_1768879106654_124162",
+    "tweet_id": "1882585177463124162",
+    "posted_at": "2025-01-24T00:24:17.000Z",
+    "content": "https://t.co/MxUwqAiTpk\nTODOを作るならMagic ToDoが最強。\nまず行動が苦手な人は、Notionに入れ込んで一つずつ潰していけば最短でゴールまで走り切れる🐿️",
+    "xas": {
+      "raw_xas": 13.5,
+      "normalized_xas": 270,
+      "engagement_rate": 0.02,
+      "amplification_rate": 0,
+      "conversation_rate": 0.02,
+      "save_rate": 0,
+      "growth_score": 101.1
+    },
+    "attribution": {
+      "theme": "一般",
+      "approach": "thread",
+      "text_features": {
+        "char_count": 97,
+        "line_count": 3,
+        "emoji_count": 1,
+        "has_numbers": false,
+        "has_question": false,
+        "has_exclamation": false,
+        "has_ellipsis": false,
+        "hashtag_count": 0,
+        "mention_count": 0,
+        "url_count": 1,
+        "first_line_length": 23,
+        "hook_pattern": "neutral",
+        "sentiment": "neutral"
+      },
+      "slot": "morning",
+      "day_of_week": 5,
+      "variant": "A",
+      "theme_freshness": 0.73,
+      "days_since_same_theme": 0.7,
+      "source_type": "domestic"
+    }
+  },
+  {
+    "post_id": "hist_1768879106654_082239",
+    "tweet_id": "1882338497799082239",
+    "posted_at": "2025-01-23T08:04:04.000Z",
+    "content": "cursorにroo codeを入れてclaudeのAPI Keyを設定したら今まで何してたんだろうと思うくらいの自動化に🤖sonnetで試してるので、すごい勢いで課金されていくけど、この作業量を時給換算したらそれでも安いのでは💦",
+    "xas": {
+      "raw_xas": 0,
+      "normalized_xas": 0,
+      "engagement_rate": 0,
+      "amplification_rate": 0,
+      "conversation_rate": 0,
+      "save_rate": 0,
+      "growth_score": 76
+    },
+    "attribution": {
+      "theme": "一般",
+      "approach": "unknown",
+      "text_features": {
+        "char_count": 117,
+        "line_count": 1,
+        "emoji_count": 2,
+        "has_numbers": false,
+        "has_question": false,
+        "has_exclamation": false,
+        "has_ellipsis": false,
+        "hashtag_count": 0,
+        "mention_count": 0,
+        "url_count": 0,
+        "first_line_length": 117,
+        "hook_pattern": "neutral",
+        "sentiment": "positive"
+      },
+      "slot": "noon",
+      "day_of_week": 4,
+      "variant": "A",
+      "theme_freshness": 0.74,
+      "days_since_same_theme": 1,
+      "source_type": "domestic"
+    }
+  },
+  {
+    "post_id": "hist_1768879106654_654804",
+    "tweet_id": "1881990474711654804",
+    "posted_at": "2025-01-22T09:01:09.000Z",
+    "content": "今までのプログラミングだと、\n書く→実装→エラー→エラーの内容から原因を探る→考える(or検索or誰かに相談)→色々試して解決\nだが、AIを使うと\nこうしたい→AIがコード生成→実装→エラー→エラーをコピペ→AIが解決策を提案→上から試して解決\n時間にすると1/10くらい？\n開発が止まる時間はなし🐿️",
+    "xas": {
+      "raw_xas": 0,
+      "normalized_xas": 0,
+      "engagement_rate": 0,
+      "amplification_rate": 0,
+      "conversation_rate": 0,
+      "save_rate": 0,
+      "growth_score": 34
+    },
+    "attribution": {
+      "theme": "一般",
+      "approach": "problem_statement",
+      "text_features": {
+        "char_count": 152,
+        "line_count": 6,
+        "emoji_count": 1,
+        "has_numbers": false,
+        "has_question": true,
+        "has_exclamation": false,
+        "has_ellipsis": false,
+        "hashtag_count": 0,
+        "mention_count": 0,
+        "url_count": 0,
+        "first_line_length": 14,
+        "hook_pattern": "neutral",
+        "sentiment": "neutral"
+      },
+      "slot": "night",
+      "day_of_week": 3,
+      "variant": "B",
+      "theme_freshness": 0.7,
+      "days_since_same_theme": 0,
+      "source_type": "domestic"
+    }
+  },
+  {
+    "post_id": "hist_1768879106654_204258",
+    "tweet_id": "1881979106839204258",
+    "posted_at": "2025-01-22T08:15:59.000Z",
+    "content": "cursorの拡張機能からリモートエクスプローラーを追加して接続情報を設定したらSSH接続ができる。\nreplitとも繋げられるので、いちいちローカルで開発しなくて済むので楽ちん🐿️",
+    "xas": {
+      "raw_xas": 0,
+      "normalized_xas": 0,
+      "engagement_rate": 0,
+      "amplification_rate": 0,
+      "conversation_rate": 0,
+      "save_rate": 0,
+      "growth_score": 26
+    },
+    "attribution": {
+      "theme": "一般",
+      "approach": "unknown",
+      "text_features": {
+        "char_count": 92,
+        "line_count": 2,
+        "emoji_count": 1,
+        "has_numbers": false,
+        "has_question": false,
+        "has_exclamation": false,
+        "has_ellipsis": false,
+        "hashtag_count": 0,
+        "mention_count": 0,
+        "url_count": 0,
+        "first_line_length": 50,
+        "hook_pattern": "neutral",
+        "sentiment": "neutral"
+      },
+      "slot": "noon",
+      "day_of_week": 3,
+      "variant": "B",
+      "theme_freshness": 0.7,
+      "days_since_same_theme": 0.1,
+      "source_type": "domestic"
+    }
+  },
+  {
+    "post_id": "hist_1768879106654_738552",
+    "tweet_id": "1881949644059738552",
+    "posted_at": "2025-01-22T06:18:54.000Z",
+    "content": "replitで一年契約しちゃった後に気づいたんだけど。\n簡単な開発は得意かもしれないけど、会員認証やバックエンド、フロントエンドみたいな感じになってくると、毎回エラーが出て開発とまっちゃう。\n複雑なシステム構築うまくいってる人いますか？？",
+    "xas": {
+      "raw_xas": 0,
+      "normalized_xas": 0,
+      "engagement_rate": 0,
+      "amplification_rate": 0,
+      "conversation_rate": 0,
+      "save_rate": 0,
+      "growth_score": 44.4
+    },
+    "attribution": {
+      "theme": "一般",
+      "approach": "problem_statement",
+      "text_features": {
+        "char_count": 119,
+        "line_count": 3,
+        "emoji_count": 0,
+        "has_numbers": false,
+        "has_question": true,
+        "has_exclamation": false,
+        "has_ellipsis": false,
+        "hashtag_count": 0,
+        "mention_count": 0,
+        "url_count": 0,
+        "first_line_length": 27,
+        "hook_pattern": "neutral",
+        "sentiment": "neutral"
+      },
+      "slot": "noon",
+      "day_of_week": 3,
+      "variant": "B",
+      "theme_freshness": 0.7,
+      "days_since_same_theme": 0,
+      "source_type": "domestic"
+    }
+  },
+  {
+    "post_id": "hist_1768879106654_278356",
+    "tweet_id": "1881946073914278356",
+    "posted_at": "2025-01-22T06:04:43.000Z",
+    "content": "ちなみに顔から落ちたので顔面骨折で救急搬送。。\n初めて運ばれて応急処置を受けましたが、日本の救急医療網はすごいと実感。そして医療従事者の方々に改めて感謝の気持ちでいっぱいでした🙏",
+    "xas": {
+      "raw_xas": 0,
+      "normalized_xas": 0,
+      "engagement_rate": 0,
+      "amplification_rate": 0,
+      "conversation_rate": 0,
+      "save_rate": 0,
+      "growth_score": 26.8
+    },
+    "attribution": {
+      "theme": "一般",
+      "approach": "unknown",
+      "text_features": {
+        "char_count": 90,
+        "line_count": 2,
+        "emoji_count": 1,
+        "has_numbers": false,
+        "has_question": false,
+        "has_exclamation": false,
+        "has_ellipsis": false,
+        "hashtag_count": 0,
+        "mention_count": 0,
+        "url_count": 0,
+        "first_line_length": 23,
+        "hook_pattern": "neutral",
+        "sentiment": "positive"
+      },
+      "slot": "noon",
+      "day_of_week": 3,
+      "variant": "B",
+      "theme_freshness": 0.7,
+      "days_since_same_theme": 0,
+      "source_type": "domestic"
+    }
+  },
+  {
+    "post_id": "hist_1768879106654_235850",
+    "tweet_id": "1881945400053235850",
+    "posted_at": "2025-01-22T06:02:02.000Z",
+    "content": "年初に顔の骨を元の位置に戻す手術を受けて長年付き合いのある取引先にしばらく動けない旨を伝えたら、社員の予定を管理してる手書きのホワイドボードをデジタル化したいとの相談。\nさっそくAIで開発して、そのソースをカスタマイズしていって横展開しよう♻️\n導入したい！売りたい！方募集🐿️",
+    "xas": {
+      "raw_xas": 0,
+      "normalized_xas": 0,
+      "engagement_rate": 0,
+      "amplification_rate": 0,
+      "conversation_rate": 0,
+      "save_rate": 0,
+      "growth_score": 22
+    },
+    "attribution": {
+      "theme": "一般",
+      "approach": "unknown",
+      "text_features": {
+        "char_count": 140,
+        "line_count": 3,
+        "emoji_count": 2,
+        "has_numbers": false,
+        "has_question": false,
+        "has_exclamation": true,
+        "has_ellipsis": false,
+        "hashtag_count": 0,
+        "mention_count": 0,
+        "url_count": 0,
+        "first_line_length": 84,
+        "hook_pattern": "neutral",
+        "sentiment": "neutral"
+      },
+      "slot": "noon",
+      "day_of_week": 3,
+      "variant": "A",
+      "theme_freshness": 0.7,
+      "days_since_same_theme": 0,
+      "source_type": "domestic"
+    }
+  },
+  {
+    "post_id": "hist_1768879106654_646593",
+    "tweet_id": "1881944518238646593",
+    "posted_at": "2025-01-22T05:58:32.000Z",
+    "content": "年末に10年以上ぶりにインフルになって階段を降りる途中で意識を失いそのまま落下。。\n本業は肉体系なのだがこれを機にAI開発にシフトします💪\nAI開発していく上で気づいたことなどを残していきます🐿️\n今年のインフルは強いので皆さんご注意を。\n寝込む時は是非1階で。",
+    "xas": {
+      "raw_xas": 13.5,
+      "normalized_xas": 207.69,
+      "engagement_rate": 0.0154,
+      "amplification_rate": 0,
+      "conversation_rate": 0.0154,
+      "save_rate": 0,
+      "growth_score": 88.41
+    },
+    "attribution": {
+      "theme": "一般",
+      "approach": "unknown",
+      "text_features": {
+        "char_count": 133,
+        "line_count": 5,
+        "emoji_count": 2,
+        "has_numbers": true,
+        "has_question": false,
+        "has_exclamation": false,
+        "has_ellipsis": false,
+        "hashtag_count": 0,
+        "mention_count": 0,
+        "url_count": 0,
+        "first_line_length": 41,
+        "hook_pattern": "neutral",
+        "sentiment": "neutral"
+      },
+      "slot": "noon",
+      "day_of_week": 3,
+      "variant": "B",
+      "theme_freshness": 0.7,
+      "days_since_same_theme": 0,
+      "source_type": "domestic"
+    }
+  },
+  {
+    "post_id": "hist_1768879106654_679509",
+    "tweet_id": "1881943761338679509",
+    "posted_at": "2025-01-22T05:55:32.000Z",
+    "content": "AI黎明期。連日新しいAIサービスが出るけど、新しいものを試しつつ自分の使いこなせるAIを増やしていくのが大事。今のところchatGPTとcursor、midjournyかな",
+    "xas": {
+      "raw_xas": 0.5,
+      "normalized_xas": 10.2,
+      "engagement_rate": 0.0204,
+      "amplification_rate": 0,
+      "conversation_rate": 0,
+      "save_rate": 0,
+      "growth_score": 22.76
+    },
+    "attribution": {
+      "theme": "一般",
+      "approach": "unknown",
+      "text_features": {
+        "char_count": 87,
+        "line_count": 1,
+        "emoji_count": 0,
+        "has_numbers": false,
+        "has_question": false,
+        "has_exclamation": false,
+        "has_ellipsis": false,
+        "hashtag_count": 0,
+        "mention_count": 0,
+        "url_count": 0,
+        "first_line_length": 87,
+        "hook_pattern": "neutral",
+        "sentiment": "neutral"
+      },
+      "slot": "noon",
+      "day_of_week": 3,
+      "variant": "A",
+      "theme_freshness": 1,
+      "days_since_same_theme": 32.9,
+      "source_type": "domestic"
+    }
+  },
+  {
+    "post_id": "hist_1768879106654_488847",
+    "tweet_id": "1870004370458488847",
+    "posted_at": "2024-12-20T07:12:39.000Z",
+    "content": "o1 proとエディタさえ使えれば、コードにアレルギーがない限り誰でも開発ができるようになりましたね💻\n\nLAMP環境での開発で止まってましたが、既存知識でpythonとJSでガリガリ開発できる🐿️",
+    "xas": {
+      "raw_xas": 0,
+      "normalized_xas": 0,
+      "engagement_rate": 0,
+      "amplification_rate": 0,
+      "conversation_rate": 0,
+      "save_rate": 0,
+      "growth_score": 46.8
+    },
+    "attribution": {
+      "theme": "一般",
+      "approach": "unknown",
+      "text_features": {
+        "char_count": 101,
+        "line_count": 2,
+        "emoji_count": 2,
+        "has_numbers": false,
+        "has_question": false,
+        "has_exclamation": false,
+        "has_ellipsis": false,
+        "hashtag_count": 0,
+        "mention_count": 0,
+        "url_count": 0,
+        "first_line_length": 52,
+        "hook_pattern": "neutral",
+        "sentiment": "neutral"
+      },
+      "slot": "noon",
+      "day_of_week": 5,
+      "variant": "B",
+      "theme_freshness": 0.71,
+      "days_since_same_theme": 0.2,
+      "source_type": "domestic"
+    }
+  },
+  {
+    "post_id": "hist_1768879106654_135059",
+    "tweet_id": "1869935491812135059",
+    "posted_at": "2024-12-20T02:38:57.000Z",
+    "content": "結構重たい開発をpro1でやり始めたけれど、o1では整合性が維持できなくて開発が崩壊した内容も今のところうまく進んでる。\nレスポンスの待ち時間がネックなので、ブラウザをタブだらけにしてフロントエンドとバックエンドを同時開発してみる。\n半年後にはこんなことしなくてよくなっちゃうんだろう🐿️",
+    "xas": {
+      "raw_xas": 0,
+      "normalized_xas": 0,
+      "engagement_rate": 0,
+      "amplification_rate": 0,
+      "conversation_rate": 0,
+      "save_rate": 0,
+      "growth_score": 31.6
+    },
+    "attribution": {
+      "theme": "一般",
+      "approach": "unknown",
+      "text_features": {
+        "char_count": 145,
+        "line_count": 3,
+        "emoji_count": 1,
+        "has_numbers": false,
+        "has_question": false,
+        "has_exclamation": false,
+        "has_ellipsis": false,
+        "hashtag_count": 0,
+        "mention_count": 0,
+        "url_count": 0,
+        "first_line_length": 60,
+        "hook_pattern": "neutral",
+        "sentiment": "neutral"
+      },
+      "slot": "morning",
+      "day_of_week": 5,
+      "variant": "B",
+      "theme_freshness": 1,
+      "days_since_same_theme": 8,
+      "source_type": "domestic"
+    }
+  },
+  {
+    "post_id": "hist_1768879106654_372510",
+    "tweet_id": "1867022945807372510",
+    "posted_at": "2024-12-12T01:45:32.000Z",
+    "content": "仕事しようとしたらChatGPTが落ちてて何もできない！\n困った。。。\nとなったけど、日本に困った人はどのくらいいるんだろう🐿️",
+    "xas": {
+      "raw_xas": 0.5,
+      "normalized_xas": 1.67,
+      "engagement_rate": 0.0033,
+      "amplification_rate": 0,
+      "conversation_rate": 0,
+      "save_rate": 0,
+      "growth_score": 120.6
+    },
+    "attribution": {
+      "theme": "一般",
+      "approach": "discovery",
+      "text_features": {
+        "char_count": 65,
+        "line_count": 3,
+        "emoji_count": 1,
+        "has_numbers": false,
+        "has_question": false,
+        "has_exclamation": true,
+        "has_ellipsis": false,
+        "hashtag_count": 0,
+        "mention_count": 0,
+        "url_count": 0,
+        "first_line_length": 28,
+        "hook_pattern": "neutral",
+        "sentiment": "negative"
+      },
+      "slot": "morning",
+      "day_of_week": 4,
+      "variant": "A",
+      "theme_freshness": 0.75,
+      "days_since_same_theme": 1.1,
+      "source_type": "domestic"
+    }
+  },
+  {
+    "post_id": "hist_1768879106654_639680",
+    "tweet_id": "1866632723206639680",
+    "posted_at": "2024-12-10T23:54:56.000Z",
+    "content": "連日話題のo1 pro月額3万円。\n同じ金額で24時間働き続けてパワハラやらモラハラの心配もない優秀な助っ人はどう考えても雇えないと考えたら難しことは考えずに今すぐ使いこなすべき🐿️\n#ai",
+    "xas": {
+      "raw_xas": 1,
+      "normalized_xas": 16.95,
+      "engagement_rate": 0.0339,
+      "amplification_rate": 0,
+      "conversation_rate": 0,
+      "save_rate": 0,
+      "growth_score": 28.88
+    },
+    "attribution": {
+      "theme": "一般",
+      "approach": "unknown",
+      "text_features": {
+        "char_count": 96,
+        "line_count": 3,
+        "emoji_count": 1,
+        "has_numbers": true,
+        "has_question": false,
+        "has_exclamation": false,
+        "has_ellipsis": false,
+        "hashtag_count": 1,
+        "mention_count": 0,
+        "url_count": 0,
+        "first_line_length": 17,
+        "hook_pattern": "data",
+        "sentiment": "neutral"
+      },
+      "slot": "morning",
+      "day_of_week": 3,
+      "variant": "A",
+      "theme_freshness": 1,
+      "days_since_same_theme": 193,
+      "source_type": "domestic"
+    }
+  },
+  {
+    "post_id": "hist_1768879106654_112799",
+    "tweet_id": "1796682208046112799",
+    "posted_at": "2024-05-31T23:16:33.000Z",
+    "content": "昨日の投稿でTikTokのフォロワー100人🎉\nでもフォロー率もいいね率も全然低い〜😞\n試行錯誤の繰り返しだね。\n#ai #副業 #美女 https://t.co/fJ0v7jtYec",
+    "xas": {
+      "raw_xas": 14.5,
+      "normalized_xas": 114.17,
+      "engagement_rate": 0.0236,
+      "amplification_rate": 0,
+      "conversation_rate": 0.0079,
+      "save_rate": 0,
+      "growth_score": 85.35
+    },
+    "attribution": {
+      "theme": "一般",
+      "approach": "thread",
+      "text_features": {
+        "char_count": 94,
+        "line_count": 4,
+        "emoji_count": 2,
+        "has_numbers": false,
+        "has_question": false,
+        "has_exclamation": false,
+        "has_ellipsis": false,
+        "hashtag_count": 3,
+        "mention_count": 0,
+        "url_count": 1,
+        "first_line_length": 24,
+        "hook_pattern": "neutral",
+        "sentiment": "positive"
+      },
+      "slot": "morning",
+      "day_of_week": 6,
+      "variant": "B",
+      "theme_freshness": 0.9,
+      "days_since_same_theme": 4.6,
+      "source_type": "domestic"
+    }
+  },
+  {
+    "post_id": "hist_1768879106654_050226",
+    "tweet_id": "1795021614356050226",
+    "posted_at": "2024-05-27T09:17:57.000Z",
+    "content": "TikTokでやっと1k回ったー✌️\nもうちょっとでフォロワー100人⤴️\n副業って大変🐿️\n#Ai #副業",
+    "xas": {
+      "raw_xas": 0.5,
+      "normalized_xas": 10,
+      "engagement_rate": 0.02,
+      "amplification_rate": 0,
+      "conversation_rate": 0,
+      "save_rate": 0,
+      "growth_score": 23.1
+    },
+    "attribution": {
+      "theme": "一般",
+      "approach": "unknown",
+      "text_features": {
+        "char_count": 55,
+        "line_count": 4,
+        "emoji_count": 2,
+        "has_numbers": false,
+        "has_question": false,
+        "has_exclamation": false,
+        "has_ellipsis": false,
+        "hashtag_count": 2,
+        "mention_count": 0,
+        "url_count": 0,
+        "first_line_length": 18,
+        "hook_pattern": "neutral",
+        "sentiment": "neutral"
+      },
+      "slot": "night",
+      "day_of_week": 1,
+      "variant": "B",
+      "theme_freshness": 0.8,
+      "days_since_same_theme": 2.3,
+      "source_type": "domestic"
+    }
+  },
+  {
+    "post_id": "hist_1768879106654_478536",
+    "tweet_id": "1794172648777478536",
+    "posted_at": "2024-05-25T01:04:28.000Z",
+    "content": "あともうちょっとで1000再生だけど、寸前でいつも止まる😖\n#ai #副業 https://t.co/EDHbDWIJJw",
+    "xas": {
+      "raw_xas": 0,
+      "normalized_xas": 0,
+      "engagement_rate": 0,
+      "amplification_rate": 0,
+      "conversation_rate": 0,
+      "save_rate": 0,
+      "growth_score": 23.6
+    },
+    "attribution": {
+      "theme": "一般",
+      "approach": "thread",
+      "text_features": {
+        "char_count": 62,
+        "line_count": 2,
+        "emoji_count": 1,
+        "has_numbers": false,
+        "has_question": false,
+        "has_exclamation": false,
+        "has_ellipsis": false,
+        "hashtag_count": 2,
+        "mention_count": 0,
+        "url_count": 1,
+        "first_line_length": 30,
+        "hook_pattern": "neutral",
+        "sentiment": "neutral"
+      },
+      "slot": "morning",
+      "day_of_week": 6,
+      "variant": "A",
+      "theme_freshness": 0.81,
+      "days_since_same_theme": 2.6,
+      "source_type": "domestic"
+    }
+  },
+  {
+    "post_id": "hist_1768879106654_581662",
+    "tweet_id": "1793212348217581662",
+    "posted_at": "2024-05-22T09:28:34.000Z",
+    "content": "忙しくて久しぶりに画像作れた💻\n早くマネタイズしたい。。\n#ai  #画像生成 #マネタイズ https://t.co/kg1kiQe3li",
+    "xas": {
+      "raw_xas": 0,
+      "normalized_xas": 0,
+      "engagement_rate": 0,
+      "amplification_rate": 0,
+      "conversation_rate": 0,
+      "save_rate": 0,
+      "growth_score": 16.8
+    },
+    "attribution": {
+      "theme": "一般",
+      "approach": "thread",
+      "text_features": {
+        "char_count": 71,
+        "line_count": 3,
+        "emoji_count": 1,
+        "has_numbers": false,
+        "has_question": false,
+        "has_exclamation": false,
+        "has_ellipsis": false,
+        "hashtag_count": 3,
+        "mention_count": 0,
+        "url_count": 1,
+        "first_line_length": 16,
+        "hook_pattern": "neutral",
+        "sentiment": "neutral"
+      },
+      "slot": "night",
+      "day_of_week": 3,
+      "variant": "B",
+      "theme_freshness": 0.76,
+      "days_since_same_theme": 1.4,
+      "source_type": "domestic"
+    }
+  },
+  {
+    "post_id": "hist_1768879106654_321533",
+    "tweet_id": "1792692459908321533",
+    "posted_at": "2024-05-20T23:02:43.000Z",
+    "content": "生成AIで作った画像をMacで変換するとき一個ずつやってる？\n\n画像を複数選択→2本指でクリックしてサブメニュー→クイックアクション→イメージを変換\n\nで一気にできるよ〜\n#ai #mac #画像変換 https://t.co/bQTWrky9Kh",
+    "xas": {
+      "raw_xas": 0,
+      "normalized_xas": 0,
+      "engagement_rate": 0,
+      "amplification_rate": 0,
+      "conversation_rate": 0,
+      "save_rate": 0,
+      "growth_score": 38.8
+    },
+    "attribution": {
+      "theme": "一般",
+      "approach": "problem_statement",
+      "text_features": {
+        "char_count": 124,
+        "line_count": 4,
+        "emoji_count": 0,
+        "has_numbers": false,
+        "has_question": true,
+        "has_exclamation": false,
+        "has_ellipsis": false,
+        "hashtag_count": 3,
+        "mention_count": 0,
+        "url_count": 1,
+        "first_line_length": 30,
+        "hook_pattern": "question",
+        "sentiment": "neutral"
+      },
+      "slot": "morning",
+      "day_of_week": 2,
+      "variant": "B",
+      "theme_freshness": 0.7,
+      "days_since_same_theme": 0,
+      "source_type": "domestic"
+    }
+  },
+  {
+    "post_id": "hist_1768879106654_027198",
+    "tweet_id": "1792687045649027198",
+    "posted_at": "2024-05-20T22:41:12.000Z",
+    "content": "昔作ったGPTs\n結構それっぽくできてたので、ちょっと公開\nhttps://t.co/HyGjTB5x8J\n\n今回のアップデートで無料の人でも使えるようになったから、使える幅が増えたね\n#ai #chatgpt #gpts",
+    "xas": {
+      "raw_xas": 0,
+      "normalized_xas": 0,
+      "engagement_rate": 0,
+      "amplification_rate": 0,
+      "conversation_rate": 0,
+      "save_rate": 0,
+      "growth_score": 23.6
+    },
+    "attribution": {
+      "theme": "一般",
+      "approach": "thread",
+      "text_features": {
+        "char_count": 111,
+        "line_count": 5,
+        "emoji_count": 0,
+        "has_numbers": true,
+        "has_question": false,
+        "has_exclamation": false,
+        "has_ellipsis": false,
+        "hashtag_count": 3,
+        "mention_count": 0,
+        "url_count": 1,
+        "first_line_length": 8,
+        "hook_pattern": "neutral",
+        "sentiment": "neutral"
+      },
+      "slot": "morning",
+      "day_of_week": 2,
+      "variant": "A",
+      "theme_freshness": 0.74,
+      "days_since_same_theme": 0.9,
+      "source_type": "domestic"
+    }
+  },
+  {
+    "post_id": "hist_1768879106654_189193",
+    "tweet_id": "1792358645923189193",
+    "posted_at": "2024-05-20T00:56:16.000Z",
+    "content": "macbookでSNSいじる時、絵文字入れたい場合は、「fn+E」で絵文字が入る🐈\n#macbook #絵文字",
+    "xas": {
+      "raw_xas": 0,
+      "normalized_xas": 0,
+      "engagement_rate": 0,
+      "amplification_rate": 0,
+      "conversation_rate": 0,
+      "save_rate": 0,
+      "growth_score": 22.8
+    },
+    "attribution": {
+      "theme": "一般",
+      "approach": "unknown",
+      "text_features": {
+        "char_count": 56,
+        "line_count": 2,
+        "emoji_count": 1,
+        "has_numbers": false,
+        "has_question": false,
+        "has_exclamation": false,
+        "has_ellipsis": false,
+        "hashtag_count": 2,
+        "mention_count": 0,
+        "url_count": 0,
+        "first_line_length": 42,
+        "hook_pattern": "neutral",
+        "sentiment": "neutral"
+      },
+      "slot": "morning",
+      "day_of_week": 1,
+      "variant": "B",
+      "theme_freshness": 0.7,
+      "days_since_same_theme": 0,
+      "source_type": "domestic"
+    }
+  },
+  {
+    "post_id": "hist_1768879106654_309757",
+    "tweet_id": "1792358254154309757",
+    "posted_at": "2024-05-20T00:54:42.000Z",
+    "content": "AI副業\n猫はそろそろ伸びなさそう。。\n歴史人物の裏歴史系がきてるっぽいので、ちょっとやってみよう\n美女はやりかた次第でどうにでもなりそうなので、まだまだ研究\n#AI #副業",
+    "xas": {
+      "raw_xas": 0,
+      "normalized_xas": 0,
+      "engagement_rate": 0,
+      "amplification_rate": 0,
+      "conversation_rate": 0,
+      "save_rate": 0,
+      "growth_score": 14
+    },
+    "attribution": {
+      "theme": "一般",
+      "approach": "unknown",
+      "text_features": {
+        "char_count": 87,
+        "line_count": 5,
+        "emoji_count": 0,
+        "has_numbers": false,
+        "has_question": false,
+        "has_exclamation": false,
+        "has_ellipsis": false,
+        "hashtag_count": 2,
+        "mention_count": 0,
+        "url_count": 0,
+        "first_line_length": 4,
+        "hook_pattern": "neutral",
+        "sentiment": "neutral"
+      },
+      "slot": "morning",
+      "day_of_week": 1,
+      "variant": "B",
+      "theme_freshness": 1,
+      "days_since_same_theme": 19,
+      "source_type": "domestic"
+    }
+  },
+  {
+    "post_id": "hist_1768879106654_326683",
+    "tweet_id": "1785479534118326683",
+    "posted_at": "2024-05-01T01:21:08.000Z",
+    "content": "ChatGPTの10倍以上早いと言われているGroqを触ってみたけど、確かに爆速🐆\nこのチップが標準になったら作業ももっと早くなるにな〜\n#ai #groq https://t.co/w0jyP4h8hg",
+    "xas": {
+      "raw_xas": 0,
+      "normalized_xas": 0,
+      "engagement_rate": 0,
+      "amplification_rate": 0,
+      "conversation_rate": 0,
+      "save_rate": 0,
+      "growth_score": 12.4
+    },
+    "attribution": {
+      "theme": "一般",
+      "approach": "thread",
+      "text_features": {
+        "char_count": 103,
+        "line_count": 3,
+        "emoji_count": 1,
+        "has_numbers": true,
+        "has_question": false,
+        "has_exclamation": false,
+        "has_ellipsis": false,
+        "hashtag_count": 2,
+        "mention_count": 0,
+        "url_count": 1,
+        "first_line_length": 42,
+        "hook_pattern": "data",
+        "sentiment": "neutral"
+      },
+      "slot": "morning",
+      "day_of_week": 3,
+      "variant": "A",
+      "theme_freshness": 0.74,
+      "days_since_same_theme": 0.9,
+      "source_type": "domestic"
+    }
+  },
+  {
+    "post_id": "hist_1768879106654_040477",
+    "tweet_id": "1785136581093040477",
+    "posted_at": "2024-04-30T02:38:21.000Z",
+    "content": "一時期GPTsがうまく動かなくなって消してたけど、久しぶりにsuperpower chatGPT戻したら超楽ちん。\nセキュリティ面が色々言われているのが気になるけど、他にいい拡張ありますか？\n\n#ai #ChatGPT https://t.co/ZPIJBEqSfH",
+    "xas": {
+      "raw_xas": 0,
+      "normalized_xas": 0,
+      "engagement_rate": 0,
+      "amplification_rate": 0,
+      "conversation_rate": 0,
+      "save_rate": 0,
+      "growth_score": 13.6
+    },
+    "attribution": {
+      "theme": "一般",
+      "approach": "problem_statement",
+      "text_features": {
+        "char_count": 133,
+        "line_count": 3,
+        "emoji_count": 0,
+        "has_numbers": false,
+        "has_question": true,
+        "has_exclamation": false,
+        "has_ellipsis": false,
+        "hashtag_count": 2,
+        "mention_count": 0,
+        "url_count": 1,
+        "first_line_length": 57,
+        "hook_pattern": "neutral",
+        "sentiment": "neutral"
+      },
+      "slot": "morning",
+      "day_of_week": 2,
+      "variant": "A",
+      "theme_freshness": 0.79,
+      "days_since_same_theme": 2.1,
+      "source_type": "domestic"
+    }
+  },
+  {
+    "post_id": "hist_1768879106654_029323",
+    "tweet_id": "1784365168191029323",
+    "posted_at": "2024-04-27T23:33:02.000Z",
+    "content": "河童が作りたいのにうまくできないよ\n#ai #ChatGPT #生成AI https://t.co/5Yy4u2MQYr",
+    "xas": {
+      "raw_xas": 0,
+      "normalized_xas": 0,
+      "engagement_rate": 0,
+      "amplification_rate": 0,
+      "conversation_rate": 0,
+      "save_rate": 0,
+      "growth_score": 12.4
+    },
+    "attribution": {
+      "theme": "一般",
+      "approach": "thread",
+      "text_features": {
+        "char_count": 60,
+        "line_count": 2,
+        "emoji_count": 0,
+        "has_numbers": false,
+        "has_question": false,
+        "has_exclamation": false,
+        "has_ellipsis": false,
+        "hashtag_count": 3,
+        "mention_count": 0,
+        "url_count": 1,
+        "first_line_length": 17,
+        "hook_pattern": "neutral",
+        "sentiment": "neutral"
+      },
+      "slot": "morning",
+      "day_of_week": 0,
+      "variant": "A",
+      "theme_freshness": 0.83,
+      "days_since_same_theme": 3,
+      "source_type": "domestic"
+    }
+  },
+  {
+    "post_id": "hist_1768879106654_990247",
+    "tweet_id": "1783266212966990247",
+    "posted_at": "2024-04-24T22:46:11.000Z",
+    "content": "#ai #副業 #sns #youtube #tiktok #インスタ",
+    "xas": {
+      "raw_xas": 0,
+      "normalized_xas": 0,
+      "engagement_rate": 0,
+      "amplification_rate": 0,
+      "conversation_rate": 0,
+      "save_rate": 0,
+      "growth_score": 13.6
+    },
+    "attribution": {
+      "theme": "一般",
+      "approach": "unknown",
+      "text_features": {
+        "char_count": 35,
+        "line_count": 1,
+        "emoji_count": 0,
+        "has_numbers": false,
+        "has_question": false,
+        "has_exclamation": false,
+        "has_ellipsis": false,
+        "hashtag_count": 6,
+        "mention_count": 0,
+        "url_count": 0,
+        "first_line_length": 35,
+        "hook_pattern": "neutral",
+        "sentiment": "neutral"
+      },
+      "slot": "morning",
+      "day_of_week": 4,
+      "variant": "A",
+      "theme_freshness": 0.7,
+      "days_since_same_theme": 0,
+      "source_type": "domestic"
+    }
+  },
+  {
+    "post_id": "hist_1768879106654_947631",
+    "tweet_id": "1783265855301947631",
+    "posted_at": "2024-04-24T22:44:46.000Z",
+    "content": "🐈猫\nyoutube→初回1万再生→500回へ。。100follow\ntiktok→平均500くらい。followが伸びない\nインスタ→100くらい。follow伸びない\n猫はフォローされない!?\n\n🎧Lofi\nyoutube→ほぼ0再生\ntiktok→やってない\n↑相性がどうなのかなー\nインスタ→100回くらい\n↑3投稿で30followくらいなので需要あり！？",
+    "xas": {
+      "raw_xas": 13.5,
+      "normalized_xas": 190.14,
+      "engagement_rate": 0.0141,
+      "amplification_rate": 0,
+      "conversation_rate": 0.0141,
+      "save_rate": 0,
+      "growth_score": 85.54
+    },
+    "attribution": {
+      "theme": "一般",
+      "approach": "problem_statement",
+      "text_features": {
+        "char_count": 185,
+        "line_count": 11,
+        "emoji_count": 2,
+        "has_numbers": true,
+        "has_question": true,
+        "has_exclamation": true,
+        "has_ellipsis": false,
+        "hashtag_count": 0,
+        "mention_count": 0,
+        "url_count": 0,
+        "first_line_length": 3,
+        "hook_pattern": "neutral",
+        "sentiment": "neutral"
+      },
+      "slot": "morning",
+      "day_of_week": 4,
+      "variant": "B",
+      "theme_freshness": 0.7,
+      "days_since_same_theme": 0,
+      "source_type": "domestic"
+    }
+  },
+  {
+    "post_id": "hist_1768879106654_389026",
+    "tweet_id": "1783265853519389026",
+    "posted_at": "2024-04-24T22:44:45.000Z",
+    "content": "おはようございます！AI副業を初めて1週間🐿️\nクオリティは置いといて現状を公開🏵️\n\n👶美女\nyoutube→全く回らない。0follow\ntiktok→100〜300くらい。 30follow\nインスタ→100くらい。20follow https://t.co/aZluxtqHyK",
+    "xas": {
+      "raw_xas": 14,
+      "normalized_xas": 350,
+      "engagement_rate": 0.05,
+      "amplification_rate": 0,
+      "conversation_rate": 0.025,
+      "save_rate": 0,
+      "growth_score": 121.2
+    },
+    "attribution": {
+      "theme": "一般",
+      "approach": "thread",
+      "text_features": {
+        "char_count": 146,
+        "line_count": 6,
+        "emoji_count": 3,
+        "has_numbers": false,
+        "has_question": false,
+        "has_exclamation": true,
+        "has_ellipsis": false,
+        "hashtag_count": 0,
+        "mention_count": 0,
+        "url_count": 1,
+        "first_line_length": 24,
+        "hook_pattern": "neutral",
+        "sentiment": "neutral"
+      },
+      "slot": "morning",
+      "day_of_week": 4,
+      "variant": "B",
+      "theme_freshness": 1,
+      "days_since_same_theme": 999,
+      "source_type": "domestic"
+    }
+  }
+]

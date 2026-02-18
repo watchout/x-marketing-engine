@@ -21,6 +21,9 @@ interface PostMetrics {
   likes: number;
   retweets: number;
   replies: number;
+  bookmarks?: number;
+  profile_clicks?: number;
+  url_clicks?: number;
   collected_at: string;
 }
 

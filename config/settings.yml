@@ -327,6 +327,26 @@ trend_keywords:
     - "tool use patterns"
     - "agent memory"
 
+# 学術論文リサーチキーワード
+academic_keywords:
+  high_priority:
+    - "LLM agent code generation"
+    - "AI-assisted software development"
+    - "autonomous coding agent"
+    - "code LLM evaluation"
+    - "multi-agent software engineering"
+  medium_priority:
+    - "prompt optimization techniques"
+    - "retrieval augmented generation code"
+    - "LLM structured output reliability"
+    - "AI developer productivity"
+    - "AI pair programming"
+  emerging:
+    - "LLM self-improvement"
+    - "code repair agent"
+    - "AI software architect"
+    - "LLM planning reasoning"
+
 # ===== LLM設定 =====
 llm:
   providers:

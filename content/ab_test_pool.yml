@@ -1252,6 +1252,460 @@ posts:
     priority: high
     created_at: 2026-02-10T23:31:26.898Z
     expires_at: 2026-02-17T23:31:27.452Z
+  - id: overseas_1770852263557_62g4mt
+    content: '仕様駆動開発はAIの品質向上に役立ちます。明確な仕様設定で、再現性ある出力を得ることが可能に。具体的には、仕様書を作成してからモデルのトレーニングに入るのが効果的です。 #AIDevelopment'
+    type: overseas_insight
+    topic: Spec-Driven Development for AI
+    source_accounts:
+      - '@swyx'
+      - '@jxnlco'
+    novelty_score: 8
+    persona_fit: 9
+    freshness: 9
+    japan_spread: 2
+    priority_score: 65
+    priority: high
+    created_at: 2026-02-11T23:24:09.590Z
+    expires_at: 2026-02-18T23:24:23.557Z
+  - id: post_1771362685401_1
+    generated_at: '2026-02-17T21:11:25.401Z'
+    scheduled_date: '2026-02-20'
+    slot: morning
+    topic: |-
+      Claude CodeとCursor、結局どっちがいいの？
+
+      3ヶ月両方使って気づいた。
+      「どっちが上か」じゃなくて「使い方が根本的に違う」んだった。
+
+      この気
+    theme: Claude Code vs Cursor
+    type: hook
+    quality_score: 0
+    refinement_rounds: 0
+    variants:
+      A:
+        content: |-
+          Claude CodeとCursor、結局どっちがいいの？
+
+          3ヶ月両方使って気づいた。
+          「どっちが上か」じゃなくて「使い方が根本的に違う」んだった。
+
+          この気づきでAI開発の生産性が2倍になった話。
+        hook_type: フック型A
+      B:
+        content: |-
+          Claude CodeとCursor、結局どっちがいいの？
+
+          3ヶ月両方使って気づいた。
+          「どっちが上か」じゃなくて「使い方が根本的に違う」んでした。
+
+          この気づきでAI開発の生産性が2倍になりました話。
+        hook_type: フック型B
+    scores:
+      hook_strength: 0
+      persona_fit: 0
+      x_culture_fit: 0
+      specificity: 0
+      credibility: 0
+      total: 0
+      feedback: C7出力から変換。投稿後にメトリクスを収集して評価。
+    status: active
+  - id: post_1771362685401_2
+    generated_at: '2026-02-17T21:11:25.401Z'
+    scheduled_date: '2026-02-20'
+    slot: night
+    topic: |-
+      Cursorは「自分で運転する車にAIナビがついてる」感覚。
+
+      コード書いてる最中にTabで補完が出てくる。
+      この補完精度が異常に高い。
+
+      書きたいことを察して
+    theme: Claude Code vs Cursor
+    type: content
+    quality_score: 0
+    refinement_rounds: 0
+    variants:
+      A:
+        content: |-
+          Cursorは「自分で運転する車にAIナビがついてる」感覚。
+
+          コード書いてる最中にTabで補完が出てくる。
+          この補完精度が異常に高い。
+
+          書きたいことを察してくれるから、タイピング量が半分になる。
+        hook_type: フック型A
+      B:
+        content: |-
+          Cursorは「自分で運転する車にAIナビがついてる」感覚。
+
+          コード書いてる最中にTabで補完が出てくる。
+          この補完精度が異常に高い。
+
+          書きたいことを察してくれるから、タイピング量が半分になる。
+        hook_type: フック型B
+    scores:
+      hook_strength: 0
+      persona_fit: 0
+      x_culture_fit: 0
+      specificity: 0
+      credibility: 0
+      total: 0
+      feedback: C7出力から変換。投稿後にメトリクスを収集して評価。
+    status: active
+  - id: post_1771362685402_3
+    generated_at: '2026-02-17T21:11:25.402Z'
+    scheduled_date: '2026-02-21'
+    slot: morning
+    topic: |-
+      Claude Codeは全く違う。
+
+      「行き先を伝えたら、自動運転で着く」感覚。
+
+      「このテスト全部書いて」「この型名プロジェクト全体でリネームして」
+
+      こうい
+    theme: Claude Code vs Cursor
+    type: content
+    quality_score: 0
+    refinement_rounds: 0
+    variants:
+      A:
+        content: |-
+          Claude Codeは全く違う。
+
+          「行き先を伝えたら、自動運転で着く」感覚。
+
+          「このテスト全部書いて」「この型名プロジェクト全体でリネームして」
+
+          こういう大きなタスクを丸投げできる。
+        hook_type: フック型A
+      B:
+        content: |-
+          Claude Codeは全く違う。
+
+          「行き先を伝えたら、自動運転で着く」感覚。
+
+          「このテスト全部書いて」「この型名プロジェクト全体でリネームして」
+
+          こういう大きなタスクを丸投げできる。
+        hook_type: フック型B
+    scores:
+      hook_strength: 0
+      persona_fit: 0
+      x_culture_fit: 0
+      specificity: 0
+      credibility: 0
+      total: 0
+      feedback: C7出力から変換。投稿後にメトリクスを収集して評価。
+    status: active
+  - id: post_1771362685402_4
+    generated_at: '2026-02-17T21:11:25.402Z'
+    scheduled_date: '2026-02-21'
+    slot: night
+    topic: |-
+      最大の発見は「思考の切り替え」だった。
+
+      Cursorを使う時は「自分がコードを書く」モード。
+      Claude Codeを使う時は「何を作りたいか設計する」モード
+    theme: Claude Code vs Cursor
+    type: content
+    quality_score: 0
+    refinement_rounds: 0
+    variants:
+      A:
+        content: |-
+          最大の発見は「思考の切り替え」だった。
+
+          Cursorを使う時は「自分がコードを書く」モード。
+          Claude Codeを使う時は「何を作りたいか設計する」モード。
+
+          この切り替えができるようになってから、開発スピードが激変した。
+        hook_type: フック型A
+      B:
+        content: |-
+          最大の発見は「思考の切り替え」でした。
+
+          Cursorを使う時は「自分がコードを書く」モード。
+          Claude Codeを使う時は「何を作りたいか設計する」モード。
+
+          この切り替えができるようになってから、開発スピードが激変した。
+        hook_type: フック型B
+    scores:
+      hook_strength: 0
+      persona_fit: 0
+      x_culture_fit: 0
+      specificity: 0
+      credibility: 0
+      total: 0
+      feedback: C7出力から変換。投稿後にメトリクスを収集して評価。
+    status: active
+  - id: post_1771362685402_5
+    generated_at: '2026-02-17T21:11:25.402Z'
+    scheduled_date: '2026-02-22'
+    slot: morning
+    topic: |-
+      正直、最初はClaude Codeが怖かった。
+
+      AIが勝手にファイルを変更していく。
+      20ファイルを一気にリファクタリングされた時は心臓止まりかけた。
+
+      でも
+    theme: Claude Code vs Cursor
+    type: content
+    quality_score: 0
+    refinement_rounds: 0
+    variants:
+      A:
+        content: |-
+          正直、最初はClaude Codeが怖かった。
+
+          AIが勝手にファイルを変更していく。
+          20ファイルを一気にリファクタリングされた時は心臓止まりかけた。
+
+          でもgit diffで確認したら、全部正しかった。
+        hook_type: フック型A
+      B:
+        content: |-
+          正直、最初はClaude Codeが怖かった。
+
+          AIが勝手にファイルを変更していく。
+          20ファイルを一気にリファクタリングされた時は心臓止まりかけた。
+
+          でもgit diffで確認したら、全部正しかった。
+        hook_type: フック型B
+    scores:
+      hook_strength: 0
+      persona_fit: 0
+      x_culture_fit: 0
+      specificity: 0
+      credibility: 0
+      total: 0
+      feedback: C7出力から変換。投稿後にメトリクスを収集して評価。
+    status: active
+  - id: post_1771362685402_6
+    generated_at: '2026-02-17T21:11:25.402Z'
+    scheduled_date: '2026-02-22'
+    slot: night
+    topic: |-
+      意外だったのが「仕様を書く力」が問われること。
+
+      Claude Codeに曖昧な指示を出すと、曖昧な結果が返ってくる。
+
+      「いい感じにして」は通用しない。
+      「何
+    theme: Claude Code vs Cursor
+    type: proof
+    quality_score: 0
+    refinement_rounds: 0
+    variants:
+      A:
+        content: |-
+          意外だったのが「仕様を書く力」が問われること。
+
+          Claude Codeに曖昧な指示を出すと、曖昧な結果が返ってくる。
+
+          「いい感じにして」は通用しない。
+          「何を」「なぜ」「どう」を明確にする人が勝つ。
+        hook_type: フック型A
+      B:
+        content: |-
+          意外でしたのが「仕様を書く力」が問われること。
+
+          Claude Codeに曖昧な指示を出すと、曖昧な結果が返ってくる。
+
+          「いい感じにして」は通用しない。
+          「何を」「なぜ」「どう」を明確にする人が勝つ。
+        hook_type: フック型B
+    scores:
+      hook_strength: 0
+      persona_fit: 0
+      x_culture_fit: 0
+      specificity: 0
+      credibility: 0
+      total: 0
+      feedback: C7出力から変換。投稿後にメトリクスを収集して評価。
+    status: active
+  - id: post_1771362685402_7
+    generated_at: '2026-02-17T21:11:25.402Z'
+    scheduled_date: '2026-02-23'
+    slot: morning
+    topic: |-
+      使い分けのコツ。
+
+      朝イチの設計フェーズ → Claude Code
+      （大きな構造変更、テスト生成、リファクタ）
+
+      実装中の微調整 → Cursor
+      （行単位の
+    theme: Claude Code vs Cursor
+    type: content
+    quality_score: 0
+    refinement_rounds: 0
+    variants:
+      A:
+        content: |-
+          使い分けのコツ。
+
+          朝イチの設計フェーズ → Claude Code
+          （大きな構造変更、テスト生成、リファクタ）
+
+          実装中の微調整 → Cursor
+          （行単位の編集、補完、コードリーディング）
+
+          これで無駄な切り替えが消えた。
+        hook_type: フック型A
+      B:
+        content: |-
+          使い分けのコツ。
+
+          朝イチの設計フェーズ → Claude Code
+          （大きな構造変更、テスト生成、リファクタ）
+
+          実装中の微調整 → Cursor
+          （行単位の編集、補完、コードリーディング）
+
+          これで無駄な切り替えが消えた。
+        hook_type: フック型B
+    scores:
+      hook_strength: 0
+      persona_fit: 0
+      x_culture_fit: 0
+      specificity: 0
+      credibility: 0
+      total: 0
+      feedback: C7出力から変換。投稿後にメトリクスを収集して評価。
+    status: active
+  - id: post_1771362685402_8
+    generated_at: '2026-02-17T21:11:25.402Z'
+    scheduled_date: '2026-02-23'
+    slot: night
+    topic: |-
+      コスト面も意外な発見があった。
+
+      両方月$20から使える。
+      ただし本格的に使うとClaude Codeは$100-200/月になる。
+
+      でも「AIが30時間自律
+    theme: Claude Code vs Cursor
+    type: content
+    quality_score: 0
+    refinement_rounds: 0
+    variants:
+      A:
+        content: |-
+          コスト面も意外な発見があった。
+
+          両方月$20から使える。
+          ただし本格的に使うとClaude Codeは$100-200/月になる。
+
+          でも「AIが30時間自律で作業してくれる」と考えると、
+          エンジニアの時給換算で圧倒的に安い。
+        hook_type: フック型A
+      B:
+        content: |-
+          コスト面も意外な発見があった。
+
+          両方月$20から使える。
+          ただし本格的に使うとClaude Codeは$100-200/月になる。
+
+          でも「AIが30時間自律で作業してくれる」と考えると、
+          エンジニアの時給換算で圧倒的に安い。
+        hook_type: フック型B
+    scores:
+      hook_strength: 0
+      persona_fit: 0
+      x_culture_fit: 0
+      specificity: 0
+      credibility: 0
+      total: 0
+      feedback: C7出力から変換。投稿後にメトリクスを収集して評価。
+    status: active
+  - id: post_1771362685402_9
+    generated_at: '2026-02-17T21:11:25.402Z'
+    scheduled_date: '2026-02-24'
+    slot: morning
+    topic: |-
+      2026年のAI開発、もう「ツール1つだけ」の時代じゃない。
+
+      エージェント型（Claude Code）× IDE補助型（Cursor）の併用が最適解。
+
+      どっ
+    theme: Claude Code vs Cursor
+    type: content
+    quality_score: 0
+    refinement_rounds: 0
+    variants:
+      A:
+        content: |-
+          2026年のAI開発、もう「ツール1つだけ」の時代じゃない。
+
+          エージェント型（Claude Code）× IDE補助型（Cursor）の併用が最適解。
+
+          どっちかを選ぶ議論自体がもう古い。
+        hook_type: フック型A
+      B:
+        content: |-
+          2026年のAI開発、もう「ツール1つだけ」の時代じゃない。
+
+          エージェント型（Claude Code）× IDE補助型（Cursor）の併用が最適解。
+
+          どっちかを選ぶ議論自体がもう古い。
+        hook_type: フック型B
+    scores:
+      hook_strength: 0
+      persona_fit: 0
+      x_culture_fit: 0
+      specificity: 0
+      credibility: 0
+      total: 0
+      feedback: C7出力から変換。投稿後にメトリクスを収集して評価。
+    status: active
+  - id: post_1771362685402_10
+    generated_at: '2026-02-17T21:11:25.402Z'
+    scheduled_date: '2026-02-24'
+    slot: night
+    topic: |-
+      結論: 迷ってる時間が一番もったいない。
+
+      まずは無料で両方触ってみて。
+      1時間ずつ使えば、自分に合うスタイルがわかる。
+
+      AI開発は「使う人の設計力」で差がつ
+    theme: Claude Code vs Cursor
+    type: cta
+    quality_score: 0
+    refinement_rounds: 0
+    variants:
+      A:
+        content: |-
+          結論: 迷ってる時間が一番もったいない。
+
+          まずは無料で両方触ってみて。
+          1時間ずつ使えば、自分に合うスタイルがわかる。
+
+          AI開発は「使う人の設計力」で差がつく時代。
+          ツール選びより、設計力を磨こう。
+        hook_type: フック型A
+      B:
+        content: |-
+          結論: 迷ってる時間が一番もったいない。
+
+          まずは無料で両方触ってみて。
+          1時間ずつ使えば、自分に合うスタイルがわかる。
+
+          AI開発は「使う人の設計力」で差がつく時代。
+          ツール選びより、設計力を磨こう。
+        hook_type: フック型B
+    scores:
+      hook_strength: 0
+      persona_fit: 0
+      x_culture_fit: 0
+      specificity: 0
+      credibility: 0
+      total: 0
+      feedback: C7出力から変換。投稿後にメトリクスを収集して評価。
+    status: active
 stats:
   total_posts: 0
   total_impressions: 0

@@ -1,0 +1,107 @@
+# ターゲットペルソナ 心理マップ
+# C0テーマ決定エージェントが毎回参照する
+# 投稿結果から学びを得たら更新する
+
+version: "1.0"
+last_updated: "2026-02-17"
+
+# ===== ターゲット定義 =====
+who: "AIに興味があり、実際に手を動かすと壁にぶつかるエンジニア・準エンジニア"
+
+segments:
+  - name: "AI活用エンジニア"
+    description: "Cursor/Copilot等でAIコーディングを試みているが安定しない"
+    size: "大"
+  - name: "AI興味層ビジネスパーソン"
+    description: "AIで業務改善したいが何から始めればいいかわからない"
+    size: "大"
+  - name: "AI副業・独立志望者"
+    description: "AIスキルで副収入やフリーランスを目指している"
+    size: "中"
+
+# ===== 心理の4層構造 =====
+psychology:
+  surface_pain:  # 表面の悩み（本人が自覚している）
+    - "AIの出力が毎回違う、安定しない"
+    - "どのAIツールを選べばいいかわからない"
+    - "チュートリアル通りにやっても実プロジェクトで動かない"
+    - "プロンプトの書き方がわからない"
+    - "AIが生成したコードのデバッグに時間がかかる"
+    - "新しいツールが出すぎてキャッチアップできない"
+    - "海外の最新情報を追いたいが英語が壁で追えない"
+    - "論文や研究の実務的な意味がわからない"
+
+  deeper_pain:  # 深層の悩み（言語化できていない）
+    - "自分だけ取り残されている不安"
+    - "AIを使いこなせない自分への焦り"
+    - "周囲が簡単にやっているように見える劣等感"
+    - "勉強しても実務に活かせないもどかしさ"
+    - "AIに仕事を奪われるかもしれない恐怖"
+    - "技術の変化が速すぎて、今の努力が無駄になる不安"
+    - "海外勢に比べて情報が遅れている焦り"
+    - "最新の研究動向を知らないことで機会を逃している不安"
+
+  desire:  # 本当に欲しいもの
+    - "自信を持って『AI使える』と言いたい"
+    - "周囲に『すごい』と言われたい"
+    - "少ない労力で大きな成果を出したい"
+    - "AIを使って収入を増やしたい"
+    - "最先端の技術を自分のものにしたい"
+    - "海外の最先端情報をいち早くキャッチして差をつけたい"
+
+  identity:  # なりたい自分像
+    - "AIを使いこなすスマートなエンジニア"
+    - "最先端を追えている自分"
+    - "副業や独立で自由を手にした自分"
+    - "チームで頼られるAI推進役"
+
+# ===== アプローチと期待される反応 =====
+approaches:
+  solution:
+    description: "こうやったら解決した"
+    expected_reaction: "保存・ブックマーク"
+    best_for: "surface_pain"
+    example: "Cursor Rules導入前→導入後。設定は5行だけ。"
+
+  empathy:
+    description: "みんな苦労してるよね"
+    expected_reaction: "いいね・共感"
+    best_for: "deeper_pain"
+    example: "AIの出力がブレるたびに自分のスキルを疑ってしまう。でもそれ、あなたのせいじゃない。"
+
+  discovery:
+    description: "触って気づいたこと"
+    expected_reaction: "RT・拡散"
+    best_for: "surface_pain, desire"
+    example: "MCPを触って気づいた。これ、プロンプトの書き方自体が変わる。"
+
+  warning:
+    description: "これ知らないとヤバい"
+    expected_reaction: "クリック・詳細を見る"
+    best_for: "deeper_pain, identity"
+    example: "来年、SSOTを知らないエンジニアは確実に出遅れる。"
+
+  proof:
+    description: "実際にこう変わった（数字付き）"
+    expected_reaction: "フォロー"
+    best_for: "desire, identity"
+    example: "SSOT導入後、手戻りが30%減った。具体的な設定を共有する。"
+
+# ===== 出口との接続 =====
+exit_mapping:
+  b2b:  # 法人AIシステム開発案件
+    target_segment: "AI興味層ビジネスパーソン"
+    pain_connection: "社内のAI導入が進まない → プロに任せたい"
+    approach_priority: ["proof", "warning", "solution"]
+
+  saas:  # dev-OS SaaS サブスク
+    target_segment: "AI活用エンジニア, AI副業志望者"
+    pain_connection: "毎回の設定が面倒 → 仕組み化されたツールが欲しい"
+    approach_priority: ["solution", "discovery", "proof"]
+
+# ===== 現フォロワー規模での戦略 =====
+current_phase:
+  followers: 24
+  strategy: "純粋な価値提供。売り込みゼロ。信頼の積み上げ。"
+  exit_mention_level: "なし"
+  priority_approaches: ["solution", "discovery", "empathy"]

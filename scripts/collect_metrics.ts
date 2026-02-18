@@ -1,14 +1,20 @@
 /**
  * メトリクス収集スクリプト
- * 
+ *
  * 機能:
  *   - 過去24-48時間の投稿のメトリクスを取得
- *   - いいね/RT/インプレッション/リプライを記録
+ *   - public_metrics: いいね/RT/インプレッション/リプライ/ブックマーク
+ *   - non_public_metrics: プロフィールクリック/URLクリック（OAuth 1.0a時のみ）
  *   - post_history.json を更新
- * 
+ *
+ * メトリクス取得戦略:
+ *   - Bearer Token: public_metrics のみ（bookmark_count含む）
+ *   - OAuth 1.0a: public_metrics + non_public_metrics（自分の投稿のみ、30日以内）
+ *   → XAS (X Algorithm-Aligned Score) の全6指標を取得するにはOAuth 1.0a推奨
+ *
  * 使い方:
- *   npx ts-node scripts/marketing/collect_metrics.ts collect
- *   npx ts-node scripts/marketing/collect_metrics.ts report
+ *   npx ts-node scripts/collect_metrics.ts collect
+ *   npx ts-node scripts/collect_metrics.ts report
  */
 
 import * as fs from 'fs';
@@ -55,8 +61,14 @@ interface PostMetrics {
   likes: number;
   retweets: number;
   replies: number;
+  bookmarks?: number;        // public_metrics.bookmark_count（Bearer/OAuth両方で取得可）
+  profile_clicks?: number;   // non_public_metrics.user_profile_clicks（OAuth 1.0aのみ）
+  url_clicks?: number;       // non_public_metrics.url_link_clicks（OAuth 1.0aのみ）
   collected_at: string;
 }
+
+// 認証方式（取得可能メトリクスが異なる）
+type AuthMode = 'bearer' | 'oauth1a';
 
 interface PostHistory {
   id: string;
@@ -87,90 +99,162 @@ function saveHistory(history: PostHistory[]): void {
   fs.writeFileSync(HISTORY_FILE, JSON.stringify(history, null, 2));
 }
 
-// X API クライアント（Bearer Token - App Context）
-// Bearer tokenはレート制限が緩いため、読み取り専用操作に使用
-async function getXClient() {
-  const bearerToken = process.env.X_BEARER_TOKEN;
-  
-  // Bearer tokenがあれば優先的に使用（レート制限が緩い）
-  if (bearerToken) {
-    try {
-      const { TwitterApi } = await import('twitter-api-v2');
-      console.log('📡 Using Bearer token (app context)');
-      return new TwitterApi(bearerToken);
-    } catch (e) {
-      throw new Error('twitter-api-v2 not installed');
-    }
-  }
-  
-  // フォールバック: OAuth 1.0a
+// X API クライアント
+// メトリクス収集では OAuth 1.0a を優先（non_public_metrics が取得可能）
+// OAuth 1.0a がなければ Bearer Token にフォールバック（public_metricsのみ）
+async function getXClient(): Promise<{ client: any; authMode: AuthMode }> {
+  const { TwitterApi } = await import('twitter-api-v2').catch(() => {
+    throw new Error('twitter-api-v2 not installed. Run: npm install twitter-api-v2');
+  });
+
+  // OAuth 1.0a を優先（non_public_metrics 取得のため）
   const apiKey = process.env.X_API_KEY;
   const apiSecret = process.env.X_API_SECRET;
   const accessToken = process.env.X_ACCESS_TOKEN;
   const accessSecret = process.env.X_ACCESS_SECRET;
 
-  if (!apiKey || !apiSecret || !accessToken || !accessSecret) {
-    throw new Error('X API credentials not found');
-  }
-
-  try {
-    const { TwitterApi } = await import('twitter-api-v2');
-    console.log('📡 Using OAuth 1.0a (user context)');
-    return new TwitterApi({
+  if (apiKey && apiSecret && accessToken && accessSecret) {
+    console.log('📡 Using OAuth 1.0a (user context) → public_metrics + non_public_metrics');
+    const client = new TwitterApi({
       appKey: apiKey,
       appSecret: apiSecret,
       accessToken: accessToken,
       accessSecret: accessSecret,
     });
-  } catch (e) {
-    throw new Error('twitter-api-v2 not installed');
+    return { client, authMode: 'oauth1a' };
   }
+
+  // フォールバック: Bearer Token（public_metricsのみ）
+  const bearerToken = process.env.X_BEARER_TOKEN;
+  if (bearerToken) {
+    console.log('📡 Using Bearer token (app context) → public_metrics only');
+    console.log('   ⚠️ non_public_metrics (profile_clicks, url_clicks) は OAuth 1.0a が必要です');
+    const client = new TwitterApi(bearerToken);
+    return { client, authMode: 'bearer' };
+  }
+
+  throw new Error('X API credentials not found. Set OAuth 1.0a keys or X_BEARER_TOKEN');
 }
 
 // ツイートのメトリクスをバルク取得（最大100件を1回のAPIで取得）
+//
+// 取得するメトリクス:
+//   public_metrics (Bearer/OAuth両方):
+//     impression_count, like_count, retweet_count, reply_count, quote_count, bookmark_count
+//   non_public_metrics (OAuth 1.0a + 自分の投稿 + 30日以内):
+//     url_link_clicks, user_profile_clicks
 async function getTweetMetricsBulk(tweetIds: string[]): Promise<Map<string, PostMetrics>> {
   const results = new Map<string, PostMetrics>();
-  
+
   if (tweetIds.length === 0) return results;
-  
+
   try {
-    const client = await getXClient();
-    
+    const { client, authMode } = await getXClient();
+
+    // リクエストするフィールドを認証方式で分岐
+    const tweetFields: string[] = ['public_metrics', 'created_at'];
+    if (authMode === 'oauth1a') {
+      // OAuth 1.0a なら non_public_metrics も取得可能（自分の投稿のみ）
+      tweetFields.push('non_public_metrics');
+      console.log('   📊 Requesting: public_metrics + non_public_metrics');
+    } else {
+      console.log('   📊 Requesting: public_metrics only (Bearer token)');
+    }
+
     // v2 API でバルク取得（最大100件）
     const tweets = await client.v2.tweets(tweetIds, {
-      'tweet.fields': ['public_metrics', 'created_at'],
+      'tweet.fields': tweetFields,
     });
-    
+
     if (!tweets.data) {
       console.log('⚠️ No data returned from bulk API');
       return results;
     }
-    
+
     for (const tweet of tweets.data) {
       if (tweet.public_metrics) {
-        const m = tweet.public_metrics;
-        results.set(tweet.id, {
-          impressions: m.impression_count || 0,
-          likes: m.like_count || 0,
-          retweets: m.retweet_count || 0,
-          replies: m.reply_count || 0,
+        const pub = tweet.public_metrics;
+        const nonPub = (tweet as any).non_public_metrics;
+
+        const metrics: PostMetrics = {
+          impressions: pub.impression_count || 0,
+          likes: pub.like_count || 0,
+          retweets: pub.retweet_count || 0,
+          replies: pub.reply_count || 0,
+          bookmarks: pub.bookmark_count || 0,
           collected_at: new Date().toISOString(),
-        });
+        };
+
+        // non_public_metrics が取れた場合（OAuth 1.0a + 自分の投稿）
+        if (nonPub) {
+          metrics.profile_clicks = nonPub.user_profile_clicks || 0;
+          metrics.url_clicks = nonPub.url_link_clicks || 0;
+        }
+
+        results.set(tweet.id, metrics);
       }
     }
-    
+
+    // 取得結果のサマリー
+    const hasNonPublic = Array.from(results.values()).some(m => m.profile_clicks !== undefined);
     console.log(`✅ Bulk API: ${results.size}/${tweetIds.length} tweets retrieved`);
+    if (hasNonPublic) {
+      console.log('   ✅ non_public_metrics (profile_clicks, url_clicks) acquired');
+    } else if (authMode === 'oauth1a') {
+      console.log('   ⚠️ non_public_metrics not returned (tweets may be >30 days old or not owned)');
+    }
     return results;
-    
+
   } catch (error: any) {
     const code = error.code || error.status || error.statusCode;
     if (code === 429) {
       console.log('⚠️ Rate limited. Try again later.');
       console.log(`   Reset: ${error.rateLimit?.reset ? new Date(error.rateLimit.reset * 1000).toISOString() : 'unknown'}`);
+    } else if (code === 403) {
+      // non_public_metricsが403の場合、public_metricsだけでリトライ
+      console.log('⚠️ 403 Forbidden for non_public_metrics. Retrying with public_metrics only...');
+      return await getTweetMetricsPublicOnly(tweetIds);
     } else {
       console.error(`❌ Bulk API error:`, error.message || JSON.stringify(error));
       console.error(`   Code: ${code}, Details:`, error.data || error.errors || 'none');
     }
+    return results;
+  }
+}
+
+// フォールバック: public_metrics のみ取得（non_public_metrics が403の場合）
+async function getTweetMetricsPublicOnly(tweetIds: string[]): Promise<Map<string, PostMetrics>> {
+  const results = new Map<string, PostMetrics>();
+
+  try {
+    const { client } = await getXClient();
+
+    const tweets = await client.v2.tweets(tweetIds, {
+      'tweet.fields': ['public_metrics', 'created_at'],
+    });
+
+    if (!tweets.data) return results;
+
+    for (const tweet of tweets.data) {
+      if (tweet.public_metrics) {
+        const pub = tweet.public_metrics;
+        results.set(tweet.id, {
+          impressions: pub.impression_count || 0,
+          likes: pub.like_count || 0,
+          retweets: pub.retweet_count || 0,
+          replies: pub.reply_count || 0,
+          bookmarks: pub.bookmark_count || 0,
+          collected_at: new Date().toISOString(),
+        });
+      }
+    }
+
+    console.log(`✅ Fallback (public_metrics only): ${results.size}/${tweetIds.length} tweets retrieved`);
+    console.log('   ⚠️ profile_clicks, url_clicks are unavailable in this mode');
+    return results;
+
+  } catch (error: any) {
+    console.error(`❌ Fallback API error:`, error.message || JSON.stringify(error));
     return results;
   }
 }
@@ -213,7 +297,17 @@ async function collectMetrics(): Promise<void> {
     if (metrics) {
       post.metrics = metrics;
       collected++;
-      console.log(`  ✅ ${post.tweet_id}: ❤️ ${metrics.likes} | 🔁 ${metrics.retweets} | 👁️ ${metrics.impressions}`);
+      const parts = [
+        `❤️ ${metrics.likes}`,
+        `🔁 ${metrics.retweets}`,
+        `🔖 ${metrics.bookmarks || 0}`,
+        `👁️ ${metrics.impressions}`,
+      ];
+      if (metrics.profile_clicks !== undefined) {
+        parts.push(`👤 ${metrics.profile_clicks}`);
+        parts.push(`🔗 ${metrics.url_clicks || 0}`);
+      }
+      console.log(`  ✅ ${post.tweet_id}: ${parts.join(' | ')}`);
     }
   }
   
@@ -246,14 +340,22 @@ function generateWeeklyReport(): void {
   const totalImpressions = weekPosts.reduce((sum, h) => sum + (h.metrics?.impressions || 0), 0);
   const totalLikes = weekPosts.reduce((sum, h) => sum + (h.metrics?.likes || 0), 0);
   const totalRetweets = weekPosts.reduce((sum, h) => sum + (h.metrics?.retweets || 0), 0);
-  
+  const totalBookmarks = weekPosts.reduce((sum, h) => sum + (h.metrics?.bookmarks || 0), 0);
+  const totalProfileClicks = weekPosts.reduce((sum, h) => sum + (h.metrics?.profile_clicks || 0), 0);
+  const totalUrlClicks = weekPosts.reduce((sum, h) => sum + (h.metrics?.url_clicks || 0), 0);
+
   console.log('📈 Overall Stats (Past 7 Days)');
   console.log('------------------------------');
   console.log(`Posts: ${weekPosts.length}`);
   console.log(`Total Impressions: ${totalImpressions.toLocaleString()}`);
   console.log(`Total Likes: ${totalLikes}`);
   console.log(`Total Retweets: ${totalRetweets}`);
-  console.log(`Avg Engagement Rate: ${((totalLikes + totalRetweets) / totalImpressions * 100).toFixed(2)}%`);
+  console.log(`Total Bookmarks: ${totalBookmarks}`);
+  if (totalProfileClicks > 0) {
+    console.log(`Total Profile Clicks: ${totalProfileClicks}`);
+    console.log(`Total URL Clicks: ${totalUrlClicks}`);
+  }
+  console.log(`Avg Engagement Rate: ${totalImpressions > 0 ? ((totalLikes + totalRetweets + totalBookmarks) / totalImpressions * 100).toFixed(2) : '0.00'}%`);
   console.log('');
   
   // スロット別統計
@@ -322,6 +424,9 @@ function generateWeeklyReport(): void {
       total_impressions: totalImpressions,
       total_likes: totalLikes,
       total_retweets: totalRetweets,
+      total_bookmarks: totalBookmarks,
+      total_profile_clicks: totalProfileClicks,
+      total_url_clicks: totalUrlClicks,
     },
     by_slot: {
       morning: weekPosts.filter(h => h.slot === 'morning').length,
@@ -342,7 +447,11 @@ function generateWeeklyReport(): void {
       theme: p.theme,
       variant: p.variant,
       likes: p.metrics?.likes,
+      retweets: p.metrics?.retweets,
+      bookmarks: p.metrics?.bookmarks,
       impressions: p.metrics?.impressions,
+      profile_clicks: p.metrics?.profile_clicks,
+      url_clicks: p.metrics?.url_clicks,
     })),
   };
   

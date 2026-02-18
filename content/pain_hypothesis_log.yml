@@ -1,0 +1,51 @@
+# ペイン仮説検証ログ
+# 毎週のテーマ決定→結果→学びを蓄積する
+# C0テーマ決定エージェントが過去の学びを参照する
+
+version: '1.0'
+last_updated: '2026-02-18'
+accumulated_learnings:
+  - 同じテーマの繰り返しはimpを激減させる（バイブコーディングの限界で実証済み）
+  - 短文（120字以内）+ 絵文字 + 具体数字が最もimpとlikesのバランスが良い
+  - 問いかけ型はフォロワー22人では機能しない
+  - 手動で書いた多様なテーマ（一般）の方がimp平均73.8 vs 自動化テーマ7.6
+  - nightスロット（21時）がER 4.82%で最強
+  - Variant A（感情型）がVariant B（丁寧型）よりlikes/ERで圧勝
+  - 存在しないツール名のハルシネーションは信頼性を破壊する
+  - 【仮説・検証中】海外の日本未到達情報（論文・研究・海外発信者）はAI関連層の関心が高い可能性がある（source_type軸でTS検証中）
+  - 【仮説・検証中】論文紹介は実務翻訳形式の方が刺さる可能性がある（表現テストで検証予定）
+  - 【仮説・検証中】海外情報の先取り発信が差別化要素になる可能性がある（国内テーマとのXAS比較で検証予定）
+weeks:
+  - week: 2026-W08
+    date: '2026-02-18'
+    theme: Claude Code vs Cursor
+    why_this_theme: 2月に比較記事が爆発。ターゲットの心理4層すべてに接点あり。過去の同一テーマ繰り返しからの完全脱却
+    pain:
+      what: AIコーディングツール多すぎて選べない → 学習コストが無駄になる不安
+      layer: surface_pain → deeper_pain
+    approach: discovery
+    why_this_approach: 両方触った実体験ベースの気づきはRT誘導に最適。24人規模では新規リーチ最優先
+    framework_link:
+      matched: true
+      what: SSOT仕様駆動 × Claude Code agent-first の相性を実体験から語れる
+    exit_connection:
+      target: both
+      angle: ツール選択の迷い → 仕組み化の必要性 → dev-OS / 導入支援
+    discord_input:
+      asked: false
+      responses: 0
+      useful_insights: ''
+    result:
+      posts_count: 10
+      avg_imp: null
+      avg_likes: null
+      avg_er: null
+      best_post: null
+      worst_post: null
+    verification:
+      pain_accurate: null
+      approach_effective: null
+      expression_worked: null
+      framework_link_value: null
+    learning: ''
+    next_action: ''

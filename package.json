@@ -16,6 +16,8 @@
     "dashboard:open": "node serve.js & sleep 1 && open http://localhost:3333",
     "watch": "npx ts-node scripts/watch_influencers.ts watch",
     "research-overseas": "npx ts-node scripts/research_overseas.ts",
+    "research-papers": "npx ts-node scripts/research_overseas.ts papers",
+    "research-trends": "npx ts-node scripts/research_overseas.ts trends",
     "suggest-replies": "npx ts-node scripts/suggest_replies.ts",
     "reply": "npx ts-node scripts/execute_reply.ts",
     "reply:list": "npx ts-node scripts/execute_reply.ts list",
@@ -29,7 +31,16 @@
     "log:summary": "npx ts-node scripts/logger.ts summary 7",
     "log:daily": "npx ts-node scripts/logger.ts daily",
     "test:connection": "npx ts-node scripts/test_x_connection.ts",
-    "account-stats": "npx ts-node scripts/get_account_stats.ts"
+    "account-stats": "npx ts-node scripts/get_account_stats.ts",
+    "convert-c7": "npx ts-node scripts/convert_c7_to_pool.ts",
+    "notify:theme": "npx ts-node scripts/notify_discord.ts theme-candidates",
+    "notify:daily": "npx ts-node scripts/notify_discord.ts daily-report",
+    "notify:weekly": "npx ts-node scripts/notify_discord.ts weekly-review",
+    "hypothesis": "npx ts-node scripts/analyze_hypothesis.ts all",
+    "hypothesis:analyze": "npx ts-node scripts/analyze_hypothesis.ts analyze",
+    "hypothesis:verify": "npx ts-node scripts/analyze_hypothesis.ts verify",
+    "hypothesis:recommend": "npx ts-node scripts/analyze_hypothesis.ts recommend",
+    "hypothesis:report": "npx ts-node scripts/analyze_hypothesis.ts report"
   },
   "dependencies": {
     "js-yaml": "^4.1.0",
