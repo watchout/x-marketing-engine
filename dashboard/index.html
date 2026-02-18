@@ -633,6 +633,148 @@
     .quick-stat-value { font-weight: 600; }
     .quick-stat-label { color: var(--text-muted); font-size: 13px; }
 
+    /* Influencer Watch Form */
+    .watch-form-container {
+      max-width: 800px;
+    }
+
+    .watch-input-group {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .watch-input {
+      flex: 1;
+      padding: 10px 14px;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--text-primary);
+      font-size: 14px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .watch-input:focus { border-color: var(--accent-blue); }
+    .watch-input::placeholder { color: var(--text-muted); }
+
+    .watch-select {
+      padding: 10px 14px;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--text-primary);
+      font-size: 14px;
+      outline: none;
+      min-width: 160px;
+    }
+
+    .watch-btn {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: opacity 0.2s;
+      white-space: nowrap;
+    }
+
+    .watch-btn:hover { opacity: 0.9; }
+    .watch-btn-primary { background: var(--accent-blue); color: white; }
+    .watch-btn-success { background: var(--accent-green); color: white; }
+    .watch-btn-danger { background: var(--accent-red); color: white; font-size: 12px; padding: 6px 10px; }
+    .watch-btn-small { background: var(--bg-hover); color: var(--text-primary); font-size: 12px; padding: 6px 12px; }
+
+    .watch-textarea {
+      width: 100%;
+      min-height: 120px;
+      padding: 12px 14px;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--text-primary);
+      font-size: 14px;
+      font-family: inherit;
+      outline: none;
+      resize: vertical;
+      transition: border-color 0.2s;
+    }
+
+    .watch-textarea:focus { border-color: var(--accent-blue); }
+    .watch-textarea::placeholder { color: var(--text-muted); }
+
+    .saved-post-card {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 14px;
+      margin-bottom: 10px;
+      transition: border-color 0.2s;
+    }
+
+    .saved-post-card:hover { border-color: var(--accent-blue); }
+
+    .saved-post-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+
+    .saved-post-handle {
+      font-weight: 600;
+      color: var(--accent-blue);
+      font-size: 14px;
+    }
+
+    .saved-post-date {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .saved-post-content {
+      font-size: 14px;
+      line-height: 1.6;
+      color: var(--text-secondary);
+      margin-bottom: 8px;
+      white-space: pre-wrap;
+    }
+
+    .saved-post-metrics {
+      display: flex;
+      gap: 16px;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .influencer-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 12px;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      font-size: 13px;
+      margin: 4px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .influencer-tag:hover { border-color: var(--accent-blue); }
+    .influencer-tag.active { background: rgba(88, 166, 255, 0.15); border-color: var(--accent-blue); color: var(--accent-blue); }
+
+    .influencer-tag .remove-tag {
+      cursor: pointer;
+      color: var(--text-muted);
+      font-size: 16px;
+      line-height: 1;
+    }
+
+    .influencer-tag .remove-tag:hover { color: var(--accent-red); }
+
     /* Loading */
     #loading {
       display: flex;
@@ -701,6 +843,7 @@
       <div class="tab" data-tab="posts">投稿一覧</div>
       <div class="tab" data-tab="analysis">分析</div>
       <div class="tab" data-tab="benchmark">ベンチマーク</div>
+      <div class="tab" data-tab="influencer-watch">📡 監視入力</div>
       <div class="tab" data-tab="schedule">スケジュール</div>
       <div class="tab" data-tab="logs">ログ</div>
     </div>
@@ -832,6 +975,104 @@
           <h2 class="section-title">👤 国内ベンチマークアカウント</h2>
         </div>
         <div class="influencer-grid" id="influencer-list"></div>
+      </div>
+
+      <!-- ===== インフルエンサー監視タブ ===== -->
+      <div class="tab-content" id="tab-influencer-watch">
+        <div class="quick-stats">
+          <div class="quick-stat">
+            <span class="quick-stat-value" id="watch-total-posts">0</span>
+            <span class="quick-stat-label">収集投稿数</span>
+          </div>
+          <div class="quick-stat">
+            <span class="quick-stat-value" id="watch-total-influencers">0</span>
+            <span class="quick-stat-label">監視アカウント</span>
+          </div>
+          <div class="quick-stat">
+            <span class="quick-stat-value" id="watch-analyzed">0</span>
+            <span class="quick-stat-label">分析済み</span>
+          </div>
+        </div>
+
+        <!-- 監視アカウント管理 -->
+        <div class="section-header">
+          <h2 class="section-title">👤 監視アカウント</h2>
+        </div>
+        <div class="card">
+          <div style="margin-bottom: 12px;">
+            <div class="watch-input-group">
+              <input type="text" class="watch-input" id="new-influencer-handle" placeholder="@handle（例: @satori_icon）" style="max-width: 250px;">
+              <input type="text" class="watch-input" id="new-influencer-category" placeholder="カテゴリ（例: AI活用）" style="max-width: 200px;">
+              <button class="watch-btn watch-btn-primary" onclick="addInfluencer()">+ 追加</button>
+            </div>
+          </div>
+          <div id="influencer-tags-list" style="display: flex; flex-wrap: wrap; gap: 4px;"></div>
+        </div>
+
+        <!-- 投稿入力フォーム -->
+        <div class="section-header">
+          <h2 class="section-title">📝 バズ投稿を入力</h2>
+          <div style="display: flex; gap: 8px;">
+            <button class="watch-btn watch-btn-small" onclick="setInputMode('url')" id="mode-url-btn" style="border: 1px solid var(--accent-blue); color: var(--accent-blue);">URL入力</button>
+            <button class="watch-btn watch-btn-small" onclick="setInputMode('text')" id="mode-text-btn">テキスト入力</button>
+          </div>
+        </div>
+        <div class="card watch-form-container">
+          <!-- URL入力モード -->
+          <div id="input-mode-url">
+            <p style="color: var(--text-secondary); font-size: 13px; margin-bottom: 12px;">
+              投稿URLを貼り付けてください（例: https://x.com/user/status/12345）
+            </p>
+            <div class="watch-input-group">
+              <input type="text" class="watch-input" id="watch-url-input" placeholder="https://x.com/user/status/...">
+              <select class="watch-select" id="watch-url-influencer">
+                <option value="">アカウント選択</option>
+              </select>
+              <button class="watch-btn watch-btn-primary" onclick="addPostByUrl()">追加</button>
+            </div>
+            <div id="url-preview" style="display: none; margin-top: 12px;"></div>
+          </div>
+
+          <!-- テキスト入力モード -->
+          <div id="input-mode-text" style="display: none;">
+            <p style="color: var(--text-secondary); font-size: 13px; margin-bottom: 12px;">
+              バズ投稿のテキストを直接貼り付けてください
+            </p>
+            <div class="watch-input-group" style="flex-wrap: wrap;">
+              <select class="watch-select" id="watch-text-influencer">
+                <option value="">アカウント選択</option>
+              </select>
+              <input type="number" class="watch-input" id="watch-text-likes" placeholder="いいね数" style="max-width: 120px;">
+              <input type="number" class="watch-input" id="watch-text-rts" placeholder="RT数" style="max-width: 120px;">
+              <input type="number" class="watch-input" id="watch-text-impressions" placeholder="インプレッション" style="max-width: 140px;">
+            </div>
+            <textarea class="watch-textarea" id="watch-text-content" placeholder="投稿テキストを貼り付け..."></textarea>
+            <div style="margin-top: 12px; display: flex; gap: 8px;">
+              <input type="text" class="watch-input" id="watch-text-url" placeholder="元ツイートURL（任意）" style="max-width: 400px;">
+              <button class="watch-btn watch-btn-primary" onclick="addPostByText()">追加</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 一括分析ボタン -->
+        <div style="margin: 16px 0; display: flex; gap: 12px; align-items: center;">
+          <button class="watch-btn watch-btn-success" onclick="analyzeAllPosts()" id="analyze-all-btn">
+            🤖 未分析の投稿をAI分析
+          </button>
+          <button class="watch-btn watch-btn-small" onclick="exportWatchData()">
+            📥 JSONエクスポート
+          </button>
+          <span id="analyze-status" style="font-size: 13px; color: var(--text-muted);"></span>
+        </div>
+
+        <!-- 保存済み投稿一覧 -->
+        <div class="section-header">
+          <h2 class="section-title">📋 収集済み投稿</h2>
+          <select class="watch-select" id="watch-filter-influencer" onchange="renderWatchPosts()" style="min-width: 140px;">
+            <option value="all">全アカウント</option>
+          </select>
+        </div>
+        <div id="watch-posts-list"></div>
       </div>
 
       <!-- ===== スケジュールタブ ===== -->
@@ -1848,6 +2089,388 @@
     setInterval(() => {
       loadData().then(render);
     }, 300000);
+
+    // ===== インフルエンサー監視機能 =====
+
+    const WATCH_STORAGE_KEY = 'xme_influencer_watch';
+
+    // データ構造
+    function getWatchData() {
+      try {
+        const raw = localStorage.getItem(WATCH_STORAGE_KEY);
+        if (raw) return JSON.parse(raw);
+      } catch(e) {}
+      return { influencers: [], posts: [], last_exported: null };
+    }
+
+    function saveWatchData(data) {
+      data.updated_at = new Date().toISOString();
+      localStorage.setItem(WATCH_STORAGE_KEY, JSON.stringify(data));
+    }
+
+    // インフルエンサー管理
+    function addInfluencer() {
+      const handleInput = document.getElementById('new-influencer-handle');
+      const categoryInput = document.getElementById('new-influencer-category');
+      let handle = handleInput.value.trim().replace(/^@/, '');
+      const category = categoryInput.value.trim() || 'その他';
+
+      if (!handle) { alert('ハンドル名を入力してください'); return; }
+
+      const data = getWatchData();
+      if (data.influencers.find(i => i.handle === handle)) {
+        alert(`@${handle} は既に登録済みです`);
+        return;
+      }
+
+      data.influencers.push({ handle, category, added_at: new Date().toISOString() });
+      saveWatchData(data);
+
+      handleInput.value = '';
+      categoryInput.value = '';
+      renderInfluencerTags();
+      updateInfluencerSelects();
+    }
+
+    function removeInfluencer(handle) {
+      if (!confirm(`@${handle} を監視リストから削除しますか？`)) return;
+      const data = getWatchData();
+      data.influencers = data.influencers.filter(i => i.handle !== handle);
+      saveWatchData(data);
+      renderInfluencerTags();
+      updateInfluencerSelects();
+    }
+
+    function renderInfluencerTags() {
+      const container = document.getElementById('influencer-tags-list');
+      const data = getWatchData();
+
+      if (data.influencers.length === 0) {
+        container.innerHTML = '<span style="color: var(--text-muted); font-size: 13px;">監視アカウントがありません。上のフォームから追加してください。</span>';
+        return;
+      }
+
+      const postCounts = {};
+      data.posts.forEach(p => {
+        postCounts[p.handle] = (postCounts[p.handle] || 0) + 1;
+      });
+
+      container.innerHTML = data.influencers.map(inf => `
+        <div class="influencer-tag">
+          <span style="color: var(--accent-blue);">@${inf.handle}</span>
+          <span style="color: var(--text-muted); font-size: 11px;">${inf.category}</span>
+          <span style="color: var(--text-muted); font-size: 11px;">(${postCounts[inf.handle] || 0}件)</span>
+          <span class="remove-tag" onclick="removeInfluencer('${inf.handle}')">&times;</span>
+        </div>
+      `).join('');
+
+      // 統計更新
+      document.getElementById('watch-total-influencers').textContent = data.influencers.length;
+      document.getElementById('watch-total-posts').textContent = data.posts.length;
+      document.getElementById('watch-analyzed').textContent = data.posts.filter(p => p.analysis).length;
+    }
+
+    function updateInfluencerSelects() {
+      const data = getWatchData();
+      const options = '<option value="">アカウント選択</option>' +
+        data.influencers.map(i => `<option value="${i.handle}">@${i.handle} (${i.category})</option>`).join('');
+
+      document.getElementById('watch-url-influencer').innerHTML = options;
+      document.getElementById('watch-text-influencer').innerHTML = options;
+
+      // フィルター更新
+      const filterOptions = '<option value="all">全アカウント</option>' +
+        data.influencers.map(i => `<option value="${i.handle}">@${i.handle}</option>`).join('');
+      document.getElementById('watch-filter-influencer').innerHTML = filterOptions;
+    }
+
+    // 入力モード切替
+    function setInputMode(mode) {
+      document.getElementById('input-mode-url').style.display = mode === 'url' ? 'block' : 'none';
+      document.getElementById('input-mode-text').style.display = mode === 'text' ? 'block' : 'none';
+      document.getElementById('mode-url-btn').style.borderColor = mode === 'url' ? 'var(--accent-blue)' : 'var(--border)';
+      document.getElementById('mode-url-btn').style.color = mode === 'url' ? 'var(--accent-blue)' : 'var(--text-primary)';
+      document.getElementById('mode-text-btn').style.borderColor = mode === 'text' ? 'var(--accent-blue)' : 'var(--border)';
+      document.getElementById('mode-text-btn').style.color = mode === 'text' ? 'var(--accent-blue)' : 'var(--text-primary)';
+    }
+
+    // URL入力で投稿追加
+    function addPostByUrl() {
+      const urlInput = document.getElementById('watch-url-input');
+      const influencerSelect = document.getElementById('watch-url-influencer');
+      const url = urlInput.value.trim();
+
+      // URLからツイートID・ハンドルを抽出
+      const match = url.match(/(?:twitter\.com|x\.com)\/(\w+)\/status\/(\d+)/);
+      if (!match) {
+        alert('有効なX投稿URLを入力してください\n例: https://x.com/user/status/12345');
+        return;
+      }
+
+      const [_, urlHandle, tweetId] = match;
+      let handle = influencerSelect.value || urlHandle;
+
+      // ハンドルが監視リストにない場合は自動追加
+      const data = getWatchData();
+      if (!data.influencers.find(i => i.handle === handle)) {
+        if (confirm(`@${handle} を監視リストに追加しますか？`)) {
+          data.influencers.push({ handle, category: '未分類', added_at: new Date().toISOString() });
+        }
+      }
+
+      // 重複チェック
+      if (data.posts.find(p => p.tweet_id === tweetId)) {
+        alert('この投稿は既に登録済みです');
+        return;
+      }
+
+      data.posts.unshift({
+        id: `watch_${Date.now()}`,
+        handle,
+        tweet_id: tweetId,
+        url,
+        content: '(URLから追加 - テキスト未取得)',
+        metrics: null,
+        analysis: null,
+        added_at: new Date().toISOString(),
+        source: 'url'
+      });
+
+      saveWatchData(data);
+      urlInput.value = '';
+      renderInfluencerTags();
+      updateInfluencerSelects();
+      renderWatchPosts();
+
+      alert(`@${handle} の投稿を追加しました (Tweet ID: ${tweetId})`);
+    }
+
+    // テキスト入力で投稿追加
+    function addPostByText() {
+      const influencer = document.getElementById('watch-text-influencer').value;
+      const content = document.getElementById('watch-text-content').value.trim();
+      const likes = parseInt(document.getElementById('watch-text-likes').value) || 0;
+      const rts = parseInt(document.getElementById('watch-text-rts').value) || 0;
+      const impressions = parseInt(document.getElementById('watch-text-impressions').value) || 0;
+      const url = document.getElementById('watch-text-url').value.trim();
+
+      if (!influencer) { alert('アカウントを選択してください'); return; }
+      if (!content) { alert('投稿テキストを入力してください'); return; }
+
+      const data = getWatchData();
+
+      // URLからtweet_idを抽出（あれば）
+      let tweetId = null;
+      if (url) {
+        const match = url.match(/status\/(\d+)/);
+        if (match) tweetId = match[1];
+      }
+
+      data.posts.unshift({
+        id: `watch_${Date.now()}`,
+        handle: influencer,
+        tweet_id: tweetId,
+        url: url || null,
+        content,
+        metrics: {
+          likes,
+          retweets: rts,
+          impressions,
+          collected_at: new Date().toISOString()
+        },
+        analysis: null,
+        added_at: new Date().toISOString(),
+        source: 'manual'
+      });
+
+      saveWatchData(data);
+
+      // フォームリセット
+      document.getElementById('watch-text-content').value = '';
+      document.getElementById('watch-text-likes').value = '';
+      document.getElementById('watch-text-rts').value = '';
+      document.getElementById('watch-text-impressions').value = '';
+      document.getElementById('watch-text-url').value = '';
+
+      renderInfluencerTags();
+      renderWatchPosts();
+    }
+
+    // 投稿削除
+    function removeWatchPost(postId) {
+      const data = getWatchData();
+      data.posts = data.posts.filter(p => p.id !== postId);
+      saveWatchData(data);
+      renderInfluencerTags();
+      renderWatchPosts();
+    }
+
+    // 保存済み投稿の表示
+    function renderWatchPosts() {
+      const container = document.getElementById('watch-posts-list');
+      const data = getWatchData();
+      const filter = document.getElementById('watch-filter-influencer').value;
+
+      let posts = data.posts;
+      if (filter !== 'all') {
+        posts = posts.filter(p => p.handle === filter);
+      }
+
+      if (posts.length === 0) {
+        container.innerHTML = '<div class="card" style="text-align: center; color: var(--text-muted); padding: 40px;">まだ投稿がありません。上のフォームから追加してください。</div>';
+        return;
+      }
+
+      container.innerHTML = posts.map(post => `
+        <div class="saved-post-card">
+          <div class="saved-post-header">
+            <div style="display: flex; align-items: center; gap: 12px;">
+              <span class="saved-post-handle">@${post.handle}</span>
+              ${post.source === 'url' ? '<span style="font-size:11px; padding:2px 6px; background:rgba(88,166,255,0.15); color:var(--accent-blue); border-radius:4px;">URL</span>' : ''}
+              ${post.analysis ? '<span style="font-size:11px; padding:2px 6px; background:rgba(63,185,80,0.15); color:var(--accent-green); border-radius:4px;">分析済み</span>' : '<span style="font-size:11px; padding:2px 6px; background:rgba(210,153,34,0.15); color:var(--accent-orange); border-radius:4px;">未分析</span>'}
+            </div>
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <span class="saved-post-date">${formatDate(post.added_at)}</span>
+              ${post.url ? `<a href="${post.url}" target="_blank" style="color: var(--accent-blue); font-size: 12px;">🔗</a>` : ''}
+              <button class="watch-btn watch-btn-danger" onclick="removeWatchPost('${post.id}')">✕</button>
+            </div>
+          </div>
+          <div class="saved-post-content">${post.content.substring(0, 300)}${post.content.length > 300 ? '...' : ''}</div>
+          ${post.metrics ? `
+            <div class="saved-post-metrics">
+              <span>👁️ ${formatNumber(post.metrics.impressions || 0)}</span>
+              <span>❤️ ${post.metrics.likes || 0}</span>
+              <span>🔁 ${post.metrics.retweets || 0}</span>
+            </div>
+          ` : '<div class="saved-post-metrics"><span style="color: var(--accent-orange);">⚠️ メトリクス未取得</span></div>'}
+          ${post.analysis ? `
+            <div style="margin-top: 10px; padding: 10px; background: var(--bg-card); border-radius: 6px; font-size: 13px;">
+              <div style="display: flex; gap: 16px; margin-bottom: 6px; flex-wrap: wrap;">
+                <span>🎣 <strong>${post.analysis.hook_type}</strong></span>
+                <span>📐 ${post.analysis.structure}</span>
+                <span>🎨 ${post.analysis.visual}</span>
+              </div>
+              <div style="color: var(--text-secondary);">${post.analysis.why_it_works}</div>
+              <div style="margin-top: 6px; display: flex; gap: 4px; flex-wrap: wrap;">
+                ${(post.analysis.key_elements || []).map(e => `<span class="tag">${e}</span>`).join('')}
+              </div>
+            </div>
+          ` : ''}
+        </div>
+      `).join('');
+    }
+
+    // AI分析（ローカルでは実行不可 → エクスポートして分析）
+    async function analyzeAllPosts() {
+      const data = getWatchData();
+      const unanalyzed = data.posts.filter(p => !p.analysis && p.content && p.content !== '(URLから追加 - テキスト未取得)');
+
+      if (unanalyzed.length === 0) {
+        alert('分析対象の投稿がありません。\n（テキスト付きで未分析の投稿が必要です）');
+        return;
+      }
+
+      document.getElementById('analyze-status').textContent = `${unanalyzed.length}件を分析中...`;
+      document.getElementById('analyze-all-btn').disabled = true;
+
+      // エクスポートしてローカルでwatch_influencers.ts analyze-manual を実行
+      // ここではダッシュボード上でシンプルなパターン抽出を実行
+      for (const post of unanalyzed) {
+        post.analysis = analyzePostLocally(post);
+      }
+
+      saveWatchData(data);
+      renderWatchPosts();
+      renderInfluencerTags();
+
+      document.getElementById('analyze-status').textContent = `✅ ${unanalyzed.length}件の分析完了`;
+      document.getElementById('analyze-all-btn').disabled = false;
+
+      setTimeout(() => {
+        document.getElementById('analyze-status').textContent = '';
+      }, 3000);
+    }
+
+    // ローカルパターン分析（簡易版 - LLMなし）
+    function analyzePostLocally(post) {
+      const text = post.content;
+
+      // フック検出
+      let hookType = '不明';
+      if (text.match(/^正直/)) hookType = '正直、系';
+      else if (text.match(/^断言/)) hookType = '断言系';
+      else if (text.match(/^【|^■|^▶/)) hookType = '見出し系';
+      else if (text.match(/^[？?]/)) hookType = '質問系';
+      else if (text.match(/^\d/)) hookType = '数字始まり';
+      else if (text.match(/^嘘|^マジ|^衝撃/)) hookType = '驚き系';
+      else if (text.match(/^深夜|^朝|^昨日/)) hookType = 'ストーリー系';
+      else if (text.match(/知ってた|知らない/)) hookType = '情報格差系';
+      else if (text.length > 0) {
+        const first10 = text.substring(0, 10);
+        if (first10.match(/[💡🔥🚀✨❤️]/)) hookType = '絵文字フック';
+      }
+
+      // 構造検出
+      let structure = '単文';
+      if (text.includes('\n\n')) structure = '段落分け';
+      if (text.match(/①|②|1\.|2\.|・/)) structure = 'リスト形式';
+      if (text.match(/→|⇒|から/) && text.match(/結果|結論|つまり/)) structure = '因果構造';
+      if (text.length > 200 && text.includes('\n')) structure = 'スレッド風';
+
+      // ビジュアル
+      let visual = 'テキストのみ';
+      if (text.match(/pic\.twitter|画像|スクショ/i)) visual = '画像付き';
+      if (text.match(/video|動画|デモ/i)) visual = '動画付き';
+
+      // 要素抽出
+      const elements = [];
+      if (text.match(/[0-9]+[%％倍万件]/)) elements.push('数字で証明');
+      if (text.match(/[💡🔥🚀✨❤️😩😇💣]/)) elements.push('絵文字活用');
+      if (text.match(/#\w+/)) elements.push('ハッシュタグ');
+      if (text.match(/[？?]$/m)) elements.push('質問で締め');
+      if (text.match(/試して|やって|使って|チェック/)) elements.push('CTA');
+      if (text.match(/海外|アメリカ|シリコンバレー/)) elements.push('海外情報');
+      if (text.match(/深夜|朝|泣き|頭抱え/)) elements.push('共感ストーリー');
+      if (text.length < 140) elements.push('簡潔');
+      if (text.length > 280) elements.push('詳細解説');
+
+      // なぜバズったか推測
+      const likes = post.metrics?.likes || 0;
+      let whyItWorks = 'パターン分析中（LLM分析で精度向上可能）';
+      if (likes >= 500) whyItWorks = 'マスバズ - 幅広い層に刺さるテーマ設定';
+      else if (likes >= 100) whyItWorks = 'ミドルバズ - ターゲット層に的確にリーチ';
+      else if (likes >= 50) whyItWorks = 'スモールバズ - ニッチだが深い共感';
+
+      return {
+        hook_type: hookType,
+        structure,
+        visual,
+        key_elements: elements,
+        why_it_works: whyItWorks,
+        analyzed_at: new Date().toISOString(),
+        method: 'local_pattern'
+      };
+    }
+
+    // JSONエクスポート
+    function exportWatchData() {
+      const data = getWatchData();
+      const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `influencer_watch_${new Date().toISOString().split('T')[0]}.json`;
+      a.click();
+      URL.revokeObjectURL(url);
+
+      data.last_exported = new Date().toISOString();
+      saveWatchData(data);
+    }
+
+    // 初期化
+    renderInfluencerTags();
+    updateInfluencerSelects();
+    renderWatchPosts();
   </script>
   </div><!-- end dashboard-wrapper -->
 

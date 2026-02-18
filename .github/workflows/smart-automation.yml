@@ -149,7 +149,7 @@ jobs:
       - name: Watch influencers and analyze patterns
         run: |
           npx ts-node scripts/watch_influencers.ts watch || true
-          npx ts-node scripts/watch_influencers.ts analyze || true
+          npx ts-node scripts/watch_influencers.ts analyze-manual || true
         continue-on-error: true
       
       - name: Check pool status and notify

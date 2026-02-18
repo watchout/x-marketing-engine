@@ -442,37 +442,213 @@ function showPatterns(): void {
   }
 }
 
+// ===== 手動入力分析（ダッシュボードからのエクスポート対応） =====
+
+interface ManualWatchData {
+  influencers: Array<{ handle: string; category: string; added_at: string }>;
+  posts: Array<{
+    id: string;
+    handle: string;
+    tweet_id: string | null;
+    url: string | null;
+    content: string;
+    metrics: { likes: number; retweets: number; impressions: number } | null;
+    analysis: any;
+    added_at: string;
+    source: string;
+  }>;
+  updated_at: string;
+}
+
+const MANUAL_WATCH_FILE = path.join(PROJECT_ROOT, 'content/influencer_watch.json');
+const DASHBOARD_WATCH_FILE = path.join(PROJECT_ROOT, 'dashboard/influencer_watch.json');
+
+function loadManualWatchData(): ManualWatchData | null {
+  // ダッシュボードエクスポートファイル → content/ のどちらかを探す
+  for (const filePath of [MANUAL_WATCH_FILE, DASHBOARD_WATCH_FILE]) {
+    if (fs.existsSync(filePath)) {
+      try {
+        return JSON.parse(fs.readFileSync(filePath, 'utf-8'));
+      } catch (e) {
+        console.error(`⚠️ Failed to parse ${filePath}:`, e);
+      }
+    }
+  }
+  return null;
+}
+
+function saveManualWatchData(data: ManualWatchData): void {
+  // 両方に保存
+  for (const filePath of [MANUAL_WATCH_FILE, DASHBOARD_WATCH_FILE]) {
+    const dir = path.dirname(filePath);
+    if (!fs.existsSync(dir)) {
+      fs.mkdirSync(dir, { recursive: true });
+    }
+    fs.writeFileSync(filePath, JSON.stringify(data, null, 2));
+  }
+}
+
+async function analyzeManualPosts(): Promise<void> {
+  console.log('\n🔍 手動収集投稿の分析\n');
+  console.log('='.repeat(50));
+
+  const data = loadManualWatchData();
+  if (!data) {
+    console.log('⚠️ 監視データが見つかりません');
+    console.log('  ダッシュボードからJSONをエクスポートして以下に配置してください:');
+    console.log(`  ${MANUAL_WATCH_FILE}`);
+    console.log(`  または ${DASHBOARD_WATCH_FILE}`);
+    return;
+  }
+
+  console.log(`📊 データ: ${data.posts.length}件の投稿, ${data.influencers.length}アカウント`);
+
+  // テキスト付き・未分析（or ローカル分析のみ）の投稿を抽出
+  const needsAnalysis = data.posts.filter(p =>
+    p.content &&
+    p.content !== '(URLから追加 - テキスト未取得)' &&
+    (!p.analysis || p.analysis.method === 'local_pattern')
+  );
+
+  console.log(`🎯 AI分析対象: ${needsAnalysis.length}件\n`);
+
+  if (needsAnalysis.length === 0) {
+    console.log('✅ 全投稿が分析済みです');
+    return;
+  }
+
+  const existingPatterns = loadWinningPatterns();
+  const newPatterns: WinningPattern[] = [];
+
+  for (const post of needsAnalysis) {
+    console.log(`\n  👤 @${post.handle}: ${post.content.substring(0, 50)}...`);
+    if (post.metrics) {
+      console.log(`    ❤️ ${post.metrics.likes} | 🔁 ${post.metrics.retweets} | 👁️ ${post.metrics.impressions}`);
+    }
+
+    // Grok/GPTで分析
+    const tweet: Tweet = {
+      id: post.tweet_id || post.id,
+      text: post.content,
+      author_id: '',
+      author_handle: post.handle,
+      created_at: post.added_at,
+      public_metrics: {
+        impression_count: post.metrics?.impressions || 0,
+        like_count: post.metrics?.likes || 0,
+        retweet_count: post.metrics?.retweets || 0,
+        reply_count: 0
+      }
+    };
+
+    const analysis = await analyzeWithGrok(tweet);
+
+    // 投稿データに分析結果を付与
+    post.analysis = {
+      ...analysis,
+      analyzed_at: new Date().toISOString(),
+      method: 'llm_analysis'
+    };
+
+    console.log(`    ✅ ${analysis.hook_type} / ${analysis.structure}`);
+    console.log(`    📝 ${analysis.why_it_works}`);
+
+    // バズ基準（いいね50以上）を満たせばwinning_patternsに追加
+    if (post.metrics && post.metrics.likes >= 50) {
+      newPatterns.push({
+        id: `manual_${post.id}`,
+        source: `@${post.handle}`,
+        original_tweet_id: post.tweet_id || post.id,
+        original_text: post.content.substring(0, 200),
+        metrics: {
+          impressions: post.metrics.impressions,
+          likes: post.metrics.likes,
+          retweets: post.metrics.retweets
+        },
+        analysis,
+        extracted_at: new Date().toISOString()
+      });
+    }
+
+    // レート制限対策
+    await new Promise(resolve => setTimeout(resolve, 1000));
+  }
+
+  // 保存
+  saveManualWatchData(data);
+  console.log(`\n✅ ${needsAnalysis.length}件のAI分析完了`);
+
+  if (newPatterns.length > 0) {
+    const allPatterns = [...newPatterns, ...existingPatterns].slice(0, 100);
+    saveWinningPatterns(allPatterns);
+    console.log(`🏆 ${newPatterns.length}件を勝ちパターンに追加`);
+  }
+
+  // サマリー出力
+  console.log('\n' + '='.repeat(50));
+  console.log('📊 分析サマリー:');
+
+  const hookCounts: Record<string, number> = {};
+  const structureCounts: Record<string, number> = {};
+
+  data.posts.forEach(p => {
+    if (p.analysis) {
+      hookCounts[p.analysis.hook_type] = (hookCounts[p.analysis.hook_type] || 0) + 1;
+      structureCounts[p.analysis.structure] = (structureCounts[p.analysis.structure] || 0) + 1;
+    }
+  });
+
+  console.log('\n  🎣 フックタイプ:');
+  Object.entries(hookCounts).sort((a, b) => b[1] - a[1]).forEach(([hook, count]) => {
+    console.log(`    ${hook}: ${count}件`);
+  });
+
+  console.log('\n  📐 構造パターン:');
+  Object.entries(structureCounts).sort((a, b) => b[1] - a[1]).forEach(([struct, count]) => {
+    console.log(`    ${struct}: ${count}件`);
+  });
+
+  console.log('\n🎉 分析完了！');
+}
+
 // ===== CLI =====
 
 async function main() {
   const args = process.argv.slice(2);
   const command = args[0];
-  
+
   switch (command) {
     case 'watch':
       await watchInfluencers();
       break;
-      
+
+    case 'analyze-manual':
+    case 'manual':
+      await analyzeManualPosts();
+      break;
+
     case 'show':
     case 'patterns':
       showPatterns();
       break;
-      
+
     case 'help':
     default:
       console.log(`
 インフルエンサー監視スクリプト
 
 使い方:
-  npx ts-node scripts/marketing/watch_influencers.ts <command>
+  npx ts-node scripts/watch_influencers.ts <command>
 
 コマンド:
-  watch     インフルエンサーの投稿を監視し、バズパターンを抽出
-  show      保存されている勝ちパターンを表示
+  watch           インフルエンサーの投稿を監視し、バズパターンを抽出（要 Basic API）
+  analyze-manual  ダッシュボードから手動収集した投稿をAI分析
+  show            保存されている勝ちパターンを表示
 
 例:
-  npx ts-node scripts/marketing/watch_influencers.ts watch
-  npx ts-node scripts/marketing/watch_influencers.ts show
+  npx ts-node scripts/watch_influencers.ts watch
+  npx ts-node scripts/watch_influencers.ts analyze-manual
+  npx ts-node scripts/watch_influencers.ts show
       `);
   }
 }
