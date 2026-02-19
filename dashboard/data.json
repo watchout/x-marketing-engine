@@ -1,5 +1,16 @@
 [
   {
+    "id": "hist_1771543309941",
+    "post_id": "post_1771362685401_1",
+    "variant": "B",
+    "content": "Claude CodeとCursor、結局どっちがいいの？\n\n3ヶ月両方使って気づいた。\n「どっちが上か」じゃなくて「使い方が根本的に違う」んでした。\n\nこの気づきでAI開発の生産性が2倍になりました話。",
+    "tweet_id": "2024625500786655459",
+    "posted_at": "2026-02-19T23:21:49.941Z",
+    "slot": "morning",
+    "theme": "Claude Code vs Cursor",
+    "type": "hook"
+  },
+  {
     "id": "hist_1771390324388",
     "post_id": "post_1771370547790",
     "variant": "B",
