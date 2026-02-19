@@ -49,3 +49,168 @@ weeks:
       framework_link_value: null
     learning: ''
     next_action: ''
+  - week: 2026-W08
+    date: '2026-02-18'
+    theme: Xcode 26.3 エージェントコーディング
+    why_this_theme: (C0テーマ決定時に記入)
+    pain:
+      what: (C0で分析)
+      layer: surface_pain
+    approach: discovery
+    why_this_approach: (C0で記入)
+    framework_link:
+      matched: false
+      what: ''
+    exit_connection:
+      target: ''
+      angle: ''
+    discord_input:
+      asked: false
+      responses: 0
+      useful_insights: ''
+    result:
+      posts_count: 2
+      avg_imp: null
+      avg_likes: null
+      avg_er: null
+      best_post: null
+      worst_post: null
+    verification:
+      pain_accurate: null
+      approach_effective: null
+      expression_worked: null
+      framework_link_value: null
+    learning: ''
+    next_action: ''
+  - week: 2026-W08
+    date: '2026-02-18'
+    theme: NVIDIA 3万人Cursor導入の衝撃
+    why_this_theme: (C0テーマ決定時に記入)
+    pain:
+      what: (C0で分析)
+      layer: surface_pain
+    approach: warning
+    why_this_approach: (C0で記入)
+    framework_link:
+      matched: false
+      what: ''
+    exit_connection:
+      target: ''
+      angle: ''
+    discord_input:
+      asked: false
+      responses: 0
+      useful_insights: ''
+    result:
+      posts_count: 2
+      avg_imp: null
+      avg_likes: null
+      avg_er: null
+      best_post: null
+      worst_post: null
+    verification:
+      pain_accurate: null
+      approach_effective: null
+      expression_worked: null
+      framework_link_value: null
+    learning: ''
+    next_action: ''
+  - week: 2026-W08
+    date: '2026-02-18'
+    theme: Claude Code vs Cursor 実戦使い分け
+    why_this_theme: (C0テーマ決定時に記入)
+    pain:
+      what: (C0で分析)
+      layer: surface_pain
+    approach: solution
+    why_this_approach: (C0で記入)
+    framework_link:
+      matched: false
+      what: ''
+    exit_connection:
+      target: ''
+      angle: ''
+    discord_input:
+      asked: false
+      responses: 0
+      useful_insights: ''
+    result:
+      posts_count: 3
+      avg_imp: null
+      avg_likes: null
+      avg_er: null
+      best_post: null
+      worst_post: null
+    verification:
+      pain_accurate: null
+      approach_effective: null
+      expression_worked: null
+      framework_link_value: null
+    learning: ''
+    next_action: ''
+  - week: 2026-W08
+    date: '2026-02-18'
+    theme: エンジニアの新役割：AIオーケストレーター
+    why_this_theme: (C0テーマ決定時に記入)
+    pain:
+      what: (C0で分析)
+      layer: surface_pain
+    approach: empathy
+    why_this_approach: (C0で記入)
+    framework_link:
+      matched: false
+      what: ''
+    exit_connection:
+      target: ''
+      angle: ''
+    discord_input:
+      asked: false
+      responses: 0
+      useful_insights: ''
+    result:
+      posts_count: 2
+      avg_imp: null
+      avg_likes: null
+      avg_er: null
+      best_post: null
+      worst_post: null
+    verification:
+      pain_accurate: null
+      approach_effective: null
+      expression_worked: null
+      framework_link_value: null
+    learning: ''
+    next_action: ''
+  - week: 2026-W08
+    date: '2026-02-18'
+    theme: MCP実践：コンテキスト95%削減
+    why_this_theme: (C0テーマ決定時に記入)
+    pain:
+      what: (C0で分析)
+      layer: surface_pain
+    approach: discovery
+    why_this_approach: (C0で記入)
+    framework_link:
+      matched: false
+      what: ''
+    exit_connection:
+      target: ''
+      angle: ''
+    discord_input:
+      asked: false
+      responses: 0
+      useful_insights: ''
+    result:
+      posts_count: 2
+      avg_imp: null
+      avg_likes: null
+      avg_er: null
+      best_post: null
+      worst_post: null
+    verification:
+      pain_accurate: null
+      approach_effective: null
+      expression_worked: null
+      framework_link_value: null
+    learning: ''
+    next_action: ''

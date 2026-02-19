@@ -1706,6 +1706,481 @@ posts:
       total: 0
       feedback: C7出力から変換。投稿後にメトリクスを収集して評価。
     status: active
+  - id: post_1771455607807_mt_0
+    generated_at: '2026-02-18T23:00:07.807Z'
+    scheduled_date: '2026-02-19'
+    slot: morning
+    topic: |-
+      AppleがついにAIエージェントコーディングに本気出した🍎
+
+      Xcode 26.3でClaude AgentとCodexが統合。コードを書くんじゃなくて「目
+    theme: Xcode 26.3 エージェントコーディング
+    type: hook
+    quality_score: 0
+    refinement_rounds: 0
+    variants:
+      A:
+        content: |-
+          AppleがついにAIエージェントコーディングに本気出した🍎
+
+          Xcode 26.3でClaude AgentとCodexが統合。コードを書くんじゃなくて「目標を伝えたらAIが自律的にアプリを作る」時代が来た。
+
+          しかもMCP対応で、好きなAIツールを自由に接続できる。
+
+          iOSエンジニア、これ知らないとマジでヤバい🔥
+        hook_type: フック型A
+      B:
+        content: |-
+          AppleがついにAIエージェントコーディングに本気出した🍎
+
+          Xcode 26.3でClaude AgentとCodexが統合。コードを書くんじゃなくて「目標を伝えたらAIが自律的にアプリを作る」時代が来た。
+
+          しかもMCP対応で、好きなAIツールを自由に接続できる。
+
+          iOSエンジニア、これ知らないと本当に驚くべき🔥
+        hook_type: フック型B
+    scores:
+      hook_strength: 0
+      persona_fit: 0
+      x_culture_fit: 0
+      specificity: 0
+      credibility: 0
+      total: 0
+      feedback: 'C7マルチテーマ出力から変換。テーマ: Xcode 26.3 エージェントコーディング'
+    status: active
+  - id: post_1771455607807_mt_1
+    generated_at: '2026-02-18T23:00:07.807Z'
+    scheduled_date: '2026-02-19'
+    slot: night
+    topic: |-
+      NVIDIAの開発者3万人が毎日Cursor使ってて、コミット量が3倍になったって。
+
+      しかもコードレビュー、テスト生成、デバッグまで全部AIに任せてる。
+
+      バ
+    theme: NVIDIA 3万人Cursor導入の衝撃
+    type: hook
+    quality_score: 0
+    refinement_rounds: 0
+    variants:
+      A:
+        content: |-
+          NVIDIAの開発者3万人が毎日Cursor使ってて、コミット量が3倍になったって。
+
+          しかもコードレビュー、テスト生成、デバッグまで全部AIに任せてる。
+
+          バグ率は変わらず。つまり「3倍のスピードで同じ品質」を実現してる。
+
+          あなたの会社、まだAIツール導入してないの？🤔
+        hook_type: フック型A
+      B:
+        content: |-
+          NVIDIAの開発者3万人が毎日Cursor使ってて、コミット量が3倍になりましたって。
+
+          しかもコードレビュー、テスト生成、デバッグまで全部AIに任せてる。
+
+          バグ率は変わらず。つまり「3倍のスピードで同じ品質」を実現してる。
+
+          あなたの会社、まだAIツール導入してないの？🤔
+        hook_type: フック型B
+    scores:
+      hook_strength: 0
+      persona_fit: 0
+      x_culture_fit: 0
+      specificity: 0
+      credibility: 0
+      total: 0
+      feedback: 'C7マルチテーマ出力から変換。テーマ: NVIDIA 3万人Cursor導入の衝撃'
+    status: active
+  - id: post_1771455607807_mt_2
+    generated_at: '2026-02-18T23:00:07.807Z'
+    scheduled_date: '2026-02-20'
+    slot: morning
+    topic: |-
+      Claude CodeとCursorで3ヶ月迷った結論。
+
+      Cursor → 「自分で運転する車にAIナビ」
+      Claude Code → 「行き先を伝えたら自動
+    theme: Claude Code vs Cursor 実戦使い分け
+    type: hook
+    quality_score: 0
+    refinement_rounds: 0
+    variants:
+      A:
+        content: |-
+          Claude CodeとCursorで3ヶ月迷った結論。
+
+          Cursor → 「自分で運転する車にAIナビ」
+          Claude Code → 「行き先を伝えたら自動運転で着く」
+
+          プロトタイプはCursorのTab補完が爆速。リファクタはClaude Codeの自律作業が最強。
+
+          「どっちが上か」は古い。使い分けが正解💡
+        hook_type: フック型A
+      B:
+        content: |-
+          Claude CodeとCursorで3ヶ月迷った結論。
+
+          Cursor → 「自分で運転する車にAIナビ」
+          Claude Code → 「行き先を伝えたら自動運転で着く」
+
+          プロトタイプはCursorのTab補完が爆速。リファクタはClaude Codeの自律作業が最強。
+
+          「どっちが上か」は古い。使い分けが正解。
+        hook_type: フック型B
+    scores:
+      hook_strength: 0
+      persona_fit: 0
+      x_culture_fit: 0
+      specificity: 0
+      credibility: 0
+      total: 0
+      feedback: 'C7マルチテーマ出力から変換。テーマ: Claude Code vs Cursor 実戦使い分け'
+    status: active
+  - id: post_1771455607807_mt_3
+    generated_at: '2026-02-18T23:00:07.807Z'
+    scheduled_date: '2026-02-20'
+    slot: night
+    topic: |-
+      「AIに仕事を奪われる」と不安な人に伝えたい。
+
+      Anthropicの最新レポートによると、エンジニアの60%がAIを使ってるけど、完全に任せられるのはたった0
+    theme: エンジニアの新役割：AIオーケストレーター
+    type: hook
+    quality_score: 0
+    refinement_rounds: 0
+    variants:
+      A:
+        content: |-
+          「AIに仕事を奪われる」と不安な人に伝えたい。
+
+          Anthropicの最新レポートによると、エンジニアの60%がAIを使ってるけど、完全に任せられるのはたった0-20%。
+
+          つまりAIは「上司に任せる部下」みたいなもの。指示する人間がいないと何もできない。
+
+          奪われるんじゃなくて「指揮者」に進化するんだよ🎵
+        hook_type: フック型A
+      B:
+        content: |-
+          「AIに仕事を奪われる」と不安な人に伝えたい。
+
+          Anthropicの最新レポートによると、エンジニアの60%がAIを使ってるけど、完全に任せられるのはたった0-20%。
+
+          つまりAIは「上司に任せる部下」みたいなもの。指示する人間がいないと何もできない。
+
+          奪われるんじゃなくて「指揮者」に進化するんだよ🎵。
+        hook_type: フック型B
+    scores:
+      hook_strength: 0
+      persona_fit: 0
+      x_culture_fit: 0
+      specificity: 0
+      credibility: 0
+      total: 0
+      feedback: 'C7マルチテーマ出力から変換。テーマ: エンジニアの新役割：AIオーケストレーター'
+    status: active
+  - id: post_1771455607807_mt_4
+    generated_at: '2026-02-18T23:00:07.807Z'
+    scheduled_date: '2026-02-21'
+    slot: morning
+    topic: |-
+      MCPのTool Search機能、知ってる？
+
+      Claude Codeのコンテキスト消費が51,000トークン→8,500トークンに。95%削減。
+
+      これ何が
+    theme: MCP実践：コンテキスト95%削減
+    type: hook
+    quality_score: 0
+    refinement_rounds: 0
+    variants:
+      A:
+        content: |-
+          MCPのTool Search機能、知ってる？
+
+          Claude Codeのコンテキスト消費が51,000トークン→8,500トークンに。95%削減。
+
+          これ何がすごいって、MCP使うとAIが「必要なツールだけ呼び出す」ようになる。
+
+          無駄なコンテキスト消費がなくなるから、回答精度も爆上がり🚀
+        hook_type: フック型A
+      B:
+        content: |-
+          MCPのTool Search機能、知ってる？
+
+          Claude Codeのコンテキスト消費が51,000トークン→8,500トークンに。95%削減。
+
+          これ何がすごいって、MCP使うとAIが「必要なツールだけ呼び出す」ようになる。
+
+          無駄なコンテキスト消費がなくなるから、回答精度も爆上がり🚀。
+        hook_type: フック型B
+    scores:
+      hook_strength: 0
+      persona_fit: 0
+      x_culture_fit: 0
+      specificity: 0
+      credibility: 0
+      total: 0
+      feedback: 'C7マルチテーマ出力から変換。テーマ: MCP実践：コンテキスト95%削減'
+    status: active
+  - id: post_1771455607807_mt_5
+    generated_at: '2026-02-18T23:00:07.807Z'
+    scheduled_date: '2026-02-21'
+    slot: night
+    topic: |-
+      Xcode 26.3のエージェントコーディング、試して震えた。
+
+      「ログイン画面作って」と伝えたら、AIがドキュメント検索→ファイル構成理解→実装→Previe
+    theme: Xcode 26.3 エージェントコーディング
+    type: cta
+    quality_score: 0
+    refinement_rounds: 0
+    variants:
+      A:
+        content: |-
+          Xcode 26.3のエージェントコーディング、試して震えた。
+
+          「ログイン画面作って」と伝えたら、AIがドキュメント検索→ファイル構成理解→実装→Previewで確認まで全部やる。
+
+          開発者は設計を考える人になった。
+
+          2026年、コードを「書く」から「指揮する」へ。この変化、3ヶ月後には当たり前になってるはず✨
+        hook_type: フック型A
+      B:
+        content: |-
+          Xcode 26.3のエージェントコーディング、試して震えた。
+
+          「ログイン画面作って」と伝えたら、AIがドキュメント検索→ファイル構成理解→実装→Previewで確認まで全部やる。
+
+          開発者は設計を考える人になりました。
+
+          2026年、コードを「書く」から「指揮する」へ。この変化、3ヶ月後には当たり前になってるはず✨
+        hook_type: フック型B
+    scores:
+      hook_strength: 0
+      persona_fit: 0
+      x_culture_fit: 0
+      specificity: 0
+      credibility: 0
+      total: 0
+      feedback: 'C7マルチテーマ出力から変換。テーマ: Xcode 26.3 エージェントコーディング'
+    status: active
+  - id: post_1771455607807_mt_6
+    generated_at: '2026-02-18T23:00:07.807Z'
+    scheduled_date: '2026-02-22'
+    slot: morning
+    topic: |-
+      世界最大のAI企業NVIDIAが全社でAIコーディングツール導入→コミット3倍。
+
+      これ、個人開発者にとっても他人事じゃない。
+
+      大企業がAI前提で動き始めた以
+    theme: NVIDIA 3万人Cursor導入の衝撃
+    type: cta
+    quality_score: 0
+    refinement_rounds: 0
+    variants:
+      A:
+        content: |-
+          世界最大のAI企業NVIDIAが全社でAIコーディングツール導入→コミット3倍。
+
+          これ、個人開発者にとっても他人事じゃない。
+
+          大企業がAI前提で動き始めた以上、「AIなしで書いたコード」の価値は確実に下がっていく。
+
+          2026年、AI使えないエンジニアは3年前のスマホ持ってない人と同じになる😇
+        hook_type: フック型A
+      B:
+        content: |-
+          世界最大のAI企業NVIDIAが全社でAIコーディングツール導入→コミット3倍。
+
+          これ、個人開発者にとっても他人事じゃない。
+
+          大企業がAI前提で動き始めた以上、「AIなしで書いたコード」の価値は確実に下がっていく。
+
+          2026年、AI使えないエンジニアは3年前のスマホ持ってない人と同じになる😇。
+        hook_type: フック型B
+    scores:
+      hook_strength: 0
+      persona_fit: 0
+      x_culture_fit: 0
+      specificity: 0
+      credibility: 0
+      total: 0
+      feedback: 'C7マルチテーマ出力から変換。テーマ: NVIDIA 3万人Cursor導入の衝撃'
+    status: active
+  - id: post_1771455607807_mt_7
+    generated_at: '2026-02-18T23:00:07.807Z'
+    scheduled_date: '2026-02-22'
+    slot: night
+    topic: |-
+      意外な事実。Claude CodeはCursorの5.5倍トークン効率がいい。
+
+      同じタスクをやらせた場合、Claude Codeの方がAPIコストが圧倒的に安
+    theme: Claude Code vs Cursor 実戦使い分け
+    type: data_proof
+    quality_score: 0
+    refinement_rounds: 0
+    variants:
+      A:
+        content: |-
+          意外な事実。Claude CodeはCursorの5.5倍トークン効率がいい。
+
+          同じタスクをやらせた場合、Claude Codeの方がAPIコストが圧倒的に安い。
+
+          でもCursorのTab補完は0.1秒。この速度感はClaude Codeにはない。
+
+          結局、朝の設計フェーズ→Claude Code、実装中の微調整→Cursorが最適解だった✨
+        hook_type: フック型A
+      B:
+        content: |-
+          意外な事実。Claude CodeはCursorの5.5倍トークン効率がいい。
+
+          同じタスクをやらせた場合、Claude Codeの方がAPIコストが圧倒的に安い。
+
+          でもCursorのTab補完は0.1秒。この速度感はClaude Codeにはない。
+
+          結局、朝の設計フェーズ→Claude Code、実装中の微調整→Cursorが最適解でした✨
+        hook_type: フック型B
+    scores:
+      hook_strength: 0
+      persona_fit: 0
+      x_culture_fit: 0
+      specificity: 0
+      credibility: 0
+      total: 0
+      feedback: 'C7マルチテーマ出力から変換。テーマ: Claude Code vs Cursor 実戦使い分け'
+    status: active
+  - id: post_1771455607807_mt_8
+    generated_at: '2026-02-18T23:00:07.807Z'
+    scheduled_date: '2026-02-23'
+    slot: morning
+    topic: |-
+      Rakutenのエンジニアが1250万行のコードベースにClaude Codeを投入→7時間自律作業→精度99.9%。
+
+      でもこれ「AIがすごい」じゃなくて「A
+    theme: エンジニアの新役割：AIオーケストレーター
+    type: cta
+    quality_score: 0
+    refinement_rounds: 0
+    variants:
+      A:
+        content: |-
+          Rakutenのエンジニアが1250万行のコードベースにClaude Codeを投入→7時間自律作業→精度99.9%。
+
+          でもこれ「AIがすごい」じゃなくて「AIに正しく指示できるエンジニアがすごい」って話。
+
+          2026年に求められるスキルは「コードが書ける」じゃなくて「AIに何をどう任せるか設計できる」こと📐
+        hook_type: フック型A
+      B:
+        content: |-
+          Rakutenのエンジニアが1250万行のコードベースにClaude Codeを投入→7時間自律作業→精度99.9%。
+
+          でもこれ「AIがすごい」じゃなくて「AIに正しく指示できるエンジニアがすごい」って話。
+
+          2026年に求められるスキルは「コードが書ける」じゃなくて「AIに何をどう任せるか設計できる」こと📐。
+        hook_type: フック型B
+    scores:
+      hook_strength: 0
+      persona_fit: 0
+      x_culture_fit: 0
+      specificity: 0
+      credibility: 0
+      total: 0
+      feedback: 'C7マルチテーマ出力から変換。テーマ: エンジニアの新役割：AIオーケストレーター'
+    status: active
+  - id: post_1771455607807_mt_9
+    generated_at: '2026-02-18T23:00:07.807Z'
+    scheduled_date: '2026-02-23'
+    slot: night
+    topic: |-
+      AppleのXcode 26.3がMCP対応した意味、わかる？
+
+      MCPって「AIツールの共通規格」みたいなもの。
+
+      これが普及すると、Claude Code・
+    theme: MCP実践：コンテキスト95%削減
+    type: cta
+    quality_score: 0
+    refinement_rounds: 0
+    variants:
+      A:
+        content: |-
+          AppleのXcode 26.3がMCP対応した意味、わかる？
+
+          MCPって「AIツールの共通規格」みたいなもの。
+
+          これが普及すると、Claude Code・Cursor・Xcode全部が同じツール群に接続できるようになる。
+
+          つまり「AIツールの乗り換えコスト」が劇的に下がる。
+
+          2026年のAI開発、MCPがインフラになる🔌
+        hook_type: フック型A
+      B:
+        content: |-
+          AppleのXcode 26.3がMCP対応した意味、わかる？
+
+          MCPって「AIツールの共通規格」みたいなもの。
+
+          これが普及すると、Claude Code・Cursor・Xcode全部が同じツール群に接続できるようになる。
+
+          つまり「AIツールの乗り換えコスト」が劇的に下がる。
+
+          2026年のAI開発、MCPがインフラになる🔌。
+        hook_type: フック型B
+    scores:
+      hook_strength: 0
+      persona_fit: 0
+      x_culture_fit: 0
+      specificity: 0
+      credibility: 0
+      total: 0
+      feedback: 'C7マルチテーマ出力から変換。テーマ: MCP実践：コンテキスト95%削減'
+    status: active
+  - id: post_1771455607807_mt_10
+    generated_at: '2026-02-18T23:00:07.807Z'
+    scheduled_date: '2026-02-24'
+    slot: morning
+    topic: |-
+      Claude Codeに「20ファイル一括リファクタリング」を任せた時、正直怖かった。
+
+      でもgit diffで全部確認したら、全ファイル正確だった。
+
+      この「
+    theme: Claude Code vs Cursor 実戦使い分け
+    type: cta
+    quality_score: 0
+    refinement_rounds: 0
+    variants:
+      A:
+        content: |-
+          Claude Codeに「20ファイル一括リファクタリング」を任せた時、正直怖かった。
+
+          でもgit diffで全部確認したら、全ファイル正確だった。
+
+          この「怖いけど任せてみる→想像以上の結果」がAI開発の新しい成功パターン。
+
+          Cursorでは絶対やらない作業。ツールには得意分野がある🔧
+        hook_type: フック型A
+      B:
+        content: |-
+          Claude Codeに「20ファイル一括リファクタリング」を任せた時、正直怖かった。
+
+          でもgit diffで全部確認したら、全ファイル正確でした。
+
+          この「怖いけど任せてみる→想像以上の結果」がAI開発の新しい成功パターン。
+
+          Cursorでは絶対やらない作業。ツールには得意分野がある🔧
+        hook_type: フック型B
+    scores:
+      hook_strength: 0
+      persona_fit: 0
+      x_culture_fit: 0
+      specificity: 0
+      credibility: 0
+      total: 0
+      feedback: 'C7マルチテーマ出力から変換。テーマ: Claude Code vs Cursor 実戦使い分け'
+    status: active
 stats:
   total_posts: 0
   total_impressions: 0

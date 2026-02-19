@@ -86,13 +86,14 @@ jobs:
           echo "🧠 分析→学習→推薦を実行..."
           npx ts-node scripts/analyze_hypothesis.ts all || true
         continue-on-error: true
-      
+
       - name: Copy data to dashboard
         run: |
           cp content/post_history.json dashboard/data.json 2>/dev/null || true
           cp content/account_stats.json dashboard/account.json 2>/dev/null || true
           cp content/overseas_insights.json dashboard/overseas.json 2>/dev/null || true
-      
+          npx ts-node -e "const y=require('js-yaml'),f=require('fs');const p=y.load(f.readFileSync('content/ab_test_pool.yml','utf-8'));const s=p.posts.filter(x=>x.status==='active').map(x=>({id:x.id,scheduled_date:x.scheduled_date,slot:x.slot,theme:x.theme,type:x.type,variant_a:x.variants?.A?.content||'',variant_b:x.variants?.B?.content||''}));f.writeFileSync('dashboard/pool.json',JSON.stringify(s,null,2))" 2>/dev/null || true
+
       - name: Commit changes
         run: |
           git config --local user.email "action@github.com"
@@ -167,7 +168,8 @@ jobs:
           cp content/account_stats.json dashboard/account.json 2>/dev/null || true
           cp content/overseas_insights.json dashboard/overseas.json 2>/dev/null || true
           cp content/winning_patterns.yml dashboard/patterns.yml 2>/dev/null || true
-          
+          npx ts-node -e "const y=require('js-yaml'),f=require('fs');const p=y.load(f.readFileSync('content/ab_test_pool.yml','utf-8'));const s=p.posts.filter(x=>x.status==='active').map(x=>({id:x.id,scheduled_date:x.scheduled_date,slot:x.slot,theme:x.theme,type:x.type,variant_a:x.variants?.A?.content||'',variant_b:x.variants?.B?.content||''}));f.writeFileSync('dashboard/pool.json',JSON.stringify(s,null,2))" 2>/dev/null || true
+
           # ログファイルを生成
           echo "{" > dashboard/logs.json
           echo "  \"last_run\": \"$(date -u +%Y-%m-%dT%H:%M:%SZ)\"," >> dashboard/logs.json

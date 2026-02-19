@@ -922,7 +922,20 @@
       <!-- ===== 投稿一覧タブ ===== -->
       <div class="tab-content" id="tab-posts">
         <div class="quick-stats" id="posts-quick-stats"></div>
-        
+
+        <!-- 投稿予定セクション -->
+        <div class="section-header">
+          <h2 class="section-title">📅 投稿予定</h2>
+          <select id="schedule-range" style="background: var(--bg-secondary); color: var(--text-primary); border: 1px solid var(--border); padding: 8px 12px; border-radius: 6px;">
+            <option value="7">今後7日間</option>
+            <option value="3">今後3日間</option>
+            <option value="14">今後14日間</option>
+          </select>
+        </div>
+        <div id="scheduled-posts-list"></div>
+
+        <div style="margin-top: 24px;"></div>
+
         <div class="section-header">
           <h2 class="section-title">投稿履歴</h2>
           <select id="posts-filter" style="background: var(--bg-secondary); color: var(--text-primary); border: 1px solid var(--border); padding: 8px 12px; border-radius: 6px;">
@@ -1162,6 +1175,7 @@
   <script>
     // ===== データ =====
     let postHistory = [];
+    let scheduledPosts = [];
     let systemStatus = 'unknown';
     
     // benchmarkAccounts は influencer_watch.json + localStorage に統合済み
@@ -1467,7 +1481,71 @@
         container.innerHTML += `<p style="text-align: center; color: var(--text-muted); padding: 20px;">+ ${filtered.length - 20} 件の投稿</p>`;
       }
     }
-    
+
+    function renderScheduledPosts(days = 7) {
+      const container = document.getElementById('scheduled-posts-list');
+      if (!container) return;
+
+      if (!scheduledPosts || scheduledPosts.length === 0) {
+        container.innerHTML = '<div class="card" style="text-align: center; color: var(--text-muted); padding: 30px;">投稿予定がありません</div>';
+        return;
+      }
+
+      // 今日から指定日数後までのスケジュール済み投稿を取得
+      const today = new Date().toISOString().split('T')[0];
+      const endDate = new Date(Date.now() + days * 24 * 60 * 60 * 1000).toISOString().split('T')[0];
+
+      // 投稿済みIDを取得
+      const postedIds = new Set(postHistory.map(h => h.post_id));
+
+      const upcoming = scheduledPosts
+        .filter(p => p.scheduled_date >= today && p.scheduled_date <= endDate && !postedIds.has(p.id))
+        .sort((a, b) => a.scheduled_date.localeCompare(b.scheduled_date) || (a.slot === 'morning' ? -1 : 1));
+
+      if (upcoming.length === 0) {
+        container.innerHTML = '<div class="card" style="text-align: center; color: var(--text-muted); padding: 30px;">この期間の投稿予定はありません</div>';
+        return;
+      }
+
+      // 日付ごとにグループ化
+      const byDate = {};
+      upcoming.forEach(p => {
+        if (!byDate[p.scheduled_date]) byDate[p.scheduled_date] = [];
+        byDate[p.scheduled_date].push(p);
+      });
+
+      const slotLabel = { morning: '🌅 08:00', mid_morning: '☀️ 10:00', noon: '🌞 12:00', evening: '🌆 17:00', night: '🌙 21:00' };
+      const themeColors = {};
+      const colorPalette = ['#58a6ff', '#3fb950', '#d29922', '#f778ba', '#bc8cff', '#79c0ff', '#56d364'];
+      let colorIdx = 0;
+      function getThemeColor(theme) {
+        if (!themeColors[theme]) { themeColors[theme] = colorPalette[colorIdx % colorPalette.length]; colorIdx++; }
+        return themeColors[theme];
+      }
+
+      const isToday = (d) => d === today;
+
+      container.innerHTML = Object.entries(byDate).map(([date, posts]) => {
+        const dayLabel = isToday(date) ? '今日' : new Date(date + 'T00:00:00').toLocaleDateString('ja-JP', { month: 'short', day: 'numeric', weekday: 'short' });
+        return `
+          <div style="margin-bottom: 16px;">
+            <div style="font-size: 13px; font-weight: 600; color: ${isToday(date) ? 'var(--accent-orange)' : 'var(--text-secondary)'}; margin-bottom: 8px; padding-left: 4px;">
+              ${isToday(date) ? '🔴 ' : ''}${dayLabel} (${date})
+            </div>
+            ${posts.map(p => `
+              <div class="post-card" style="border-left: 3px solid ${getThemeColor(p.theme)}; margin-bottom: 8px;">
+                <div class="post-meta">
+                  <span>${slotLabel[p.slot] || p.slot}</span>
+                  <span style="font-size: 12px; padding: 2px 8px; background: ${getThemeColor(p.theme)}22; color: ${getThemeColor(p.theme)}; border-radius: 4px;">${p.theme}</span>
+                </div>
+                <div class="post-content" style="font-size: 13px; color: var(--text-secondary);">${(p.variant_a || '').substring(0, 120)}${(p.variant_a || '').length > 120 ? '...' : ''}</div>
+              </div>
+            `).join('')}
+          </div>
+        `;
+      }).join('');
+    }
+
     function renderTypePerformance(posts) {
       const container = document.getElementById('type-performance');
       const typeStats = {};
@@ -1903,10 +1981,12 @@
       github_overseas: 'https://raw.githubusercontent.com/watchout/x-marketing-engine/main/dashboard/overseas.json',
       github_account: 'https://raw.githubusercontent.com/watchout/x-marketing-engine/main/dashboard/account.json',
       github_replies: 'https://raw.githubusercontent.com/watchout/x-marketing-engine/main/dashboard/replies.json',
+      github_pool: 'https://raw.githubusercontent.com/watchout/x-marketing-engine/main/dashboard/pool.json',
       // ローカル開発用
       local: './data.json',
       local_overseas: './overseas.json',
-      local_account: './account.json'
+      local_account: './account.json',
+      local_pool: './pool.json'
     };
     
     let overseasInsights = null;
@@ -1962,6 +2042,24 @@
         }
       }
       
+      // 投稿プール（スケジュール済み投稿）を読み込み
+      const poolSources = isProduction
+        ? [DATA_SOURCES.github_pool + '?t=' + Date.now(), DATA_SOURCES.local_pool]
+        : [DATA_SOURCES.local_pool, DATA_SOURCES.github_pool];
+
+      for (const url of poolSources) {
+        try {
+          const res = await fetch(url);
+          if (res.ok) {
+            scheduledPosts = await res.json();
+            console.log('✅ Pool loaded:', scheduledPosts.length, 'scheduled posts');
+            break;
+          }
+        } catch (e) {
+          // プールはオプショナル
+        }
+      }
+
       // アカウント統計を読み込み
       const accountSources = isProduction 
         ? [DATA_SOURCES.github_account + '?t=' + Date.now(), DATA_SOURCES.local_account]
@@ -2031,6 +2129,7 @@
       renderTopPosts(postHistory);
       renderActionItems(stats);
       renderAlerts(stats);
+      renderScheduledPosts();
       renderPostsList(postHistory);
       renderTypePerformance(postHistory);
       renderTimePerformance(postHistory);
@@ -2057,6 +2156,10 @@
     
     document.getElementById('posts-filter').addEventListener('change', (e) => {
       renderPostsList(postHistory, e.target.value);
+    });
+
+    document.getElementById('schedule-range').addEventListener('change', (e) => {
+      renderScheduledPosts(parseInt(e.target.value));
     });
 
     // ===== 初期化 =====
