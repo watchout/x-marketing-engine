@@ -40,7 +40,9 @@
     "hypothesis:analyze": "npx ts-node scripts/analyze_hypothesis.ts analyze",
     "hypothesis:verify": "npx ts-node scripts/analyze_hypothesis.ts verify",
     "hypothesis:recommend": "npx ts-node scripts/analyze_hypothesis.ts recommend",
-    "hypothesis:report": "npx ts-node scripts/analyze_hypothesis.ts report"
+    "hypothesis:report": "npx ts-node scripts/analyze_hypothesis.ts report",
+    "daily-generate": "npx ts-node scripts/daily_generate.ts",
+    "daily-generate:dry": "npx ts-node scripts/daily_generate.ts --dry-run"
   },
   "dependencies": {
     "js-yaml": "^4.1.0",

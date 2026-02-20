@@ -1,10 +1,11 @@
 # X Marketing Engine - スマート自動化ワークフロー
 #
 # 特徴:
-# - 1日2回投稿（morning 08:00 / night 21:00 の2スロット）
-# - 投稿プールはC0-C7パイプラインで週次生成（ローカル）
-# - プール枯渇時はDiscordに通知して人間判断を仰ぐ
-# - 旧自動生成（同テーマ繰り返し）は廃止
+# - 毎朝JST 06:00にリサーチ→テーマ選定→投稿自動生成
+# - 1日3回投稿（morning 08:00 / noon 12:00 / night 21:00）
+# - X Premium対応（文字数上限25,000字、スレッド投稿対応）
+# - Thompson Samplingによるテーマ最適化
+# - プール枯渇時はDiscordに通知
 
 name: Smart X Marketing
 
@@ -13,11 +14,13 @@ permissions:
 
 on:
   schedule:
-    # 1日2回投稿（morning + night）
-    # X API無料プラン: 100件/月 → 月60件でゆとり
+    # 毎朝リサーチ＆投稿生成（daily_setup）
+    - cron: '0 21 * * *'  # JST 06:00 (リサーチ→生成→プール投入)
+    # 1日3回投稿（smart_post）
     - cron: '0 23 * * *'  # JST 08:00 (朝の通勤時間)
+    - cron: '0 3 * * *'   # JST 12:00 (昼休み)
     - cron: '0 12 * * *'  # JST 21:00 (夜のリラックス - ER最強スロット)
-  
+
   workflow_dispatch:
     inputs:
       action:
@@ -42,20 +45,21 @@ env:
 
 jobs:
   smart_post:
+    if: github.event.schedule != '0 21 * * *' || github.event.inputs.action == 'smart_post'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      
+
       - name: Pull latest changes
         run: git pull origin ${{ github.ref_name }} || true
-      
+
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
           cache: 'npm'
-      
+
       - run: npm ci
-      
+
       - name: Check pool and notify if low
         run: |
           # 投稿プール残数を確認
@@ -102,21 +106,21 @@ jobs:
           git diff --staged --quiet || git commit -m "🤖 Smart post $(date -u +%Y-%m-%dT%H:%M:%SZ)"
           git push || true
 
-  # 朝のリサーチ＆生成（1日1回、JST 08:00）
+  # 朝のリサーチ＆自動生成（1日1回、JST 06:00）
   daily_setup:
-    if: github.event.schedule == '0 23 * * *' || github.event.inputs.action == 'full_cycle'
+    if: github.event.schedule == '0 21 * * *' || github.event.inputs.action == 'full_cycle' || github.event.inputs.action == 'generate'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - run: git pull origin ${{ github.ref_name }} || true
-      
+
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
           cache: 'npm'
-      
+
       - run: npm ci
-      
+
       # メトリクス収集は毎朝実行（バルクAPIで月6-12回で収まる）
       - name: Collect metrics (daily)
         run: npm run metrics || true
@@ -134,25 +138,32 @@ jobs:
       - name: Multi-LLM deep analysis
         run: npm run analyze-llm || true
         continue-on-error: true
-      
+
       - name: Grok content analysis (daily, no API limit)
         run: npm run analyze-grok || true
         continue-on-error: true
-      
+
       - name: Get account stats
         run: npm run account-stats || true
         continue-on-error: true
-      
+
       - name: Research overseas trends
         run: npm run research-overseas || true
         continue-on-error: true
-      
+
       - name: Watch influencers and analyze patterns
         run: |
           npx ts-node scripts/watch_influencers.ts watch || true
           npx ts-node scripts/watch_influencers.ts analyze-manual || true
         continue-on-error: true
-      
+
+      # ===== 日次自動投稿生成（リサーチ後に実行）=====
+      - name: Daily auto-generate posts
+        run: |
+          echo "🤖 日次自動投稿生成..."
+          npx ts-node scripts/daily_generate.ts || true
+        continue-on-error: true
+
       - name: Check pool status and notify
         run: |
           POOL_COUNT=$(cat content/ab_test_pool.yml 2>/dev/null | grep -c "status: active" || echo "0")
@@ -161,7 +172,7 @@ jobs:
             echo "⚠️ プール残数が少ないです。Discordに通知..."
             npx ts-node scripts/notify_discord.ts theme-candidates || true
           fi
-      
+
       - name: Copy data to dashboard
         run: |
           cp content/post_history.json dashboard/data.json 2>/dev/null || true
@@ -183,7 +194,7 @@ jobs:
           echo "    \"posts_generated\": true" >> dashboard/logs.json
           echo "  ]" >> dashboard/logs.json
           echo "}" >> dashboard/logs.json
-      
+
       - name: Commit daily setup
         run: |
           git config --local user.email "action@github.com"

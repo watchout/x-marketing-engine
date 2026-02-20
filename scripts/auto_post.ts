@@ -75,6 +75,8 @@ interface Post {
   };
   status: string;
   scheduled_date: string;
+  thread_parts?: string[];  // スレッド投稿用（複数ツイートのチェーン）
+  source?: string;  // 'daily_auto' | 'manual' | 'c7_convert'
 }
 
 interface ABTestPool {
@@ -95,6 +97,7 @@ interface PostHistory {
   theme: string;
   type?: string;  // 'overseas_insight' | 'academic_insight' | 投稿型名 → source_type判定に使用
   image_path?: string;
+  thread_tweet_ids?: string[];  // スレッド投稿時の全ツイートID
   metrics?: {
     impressions: number;
     likes: number;
@@ -417,6 +420,28 @@ async function postTweet(content: string, imagePath?: string): Promise<string> {
   return result.data.id;
 }
 
+// スレッド投稿（リプライチェーン）
+async function postThread(parts: string[]): Promise<string[]> {
+  const client = await getXClient();
+  const tweetIds: string[] = [];
+
+  // 1件目を投稿
+  const firstResult = await client.v2.tweet({ text: parts[0] });
+  tweetIds.push(firstResult.data.id);
+
+  // 2件目以降をリプライチェーンで投稿
+  for (let i = 1; i < parts.length; i++) {
+    await new Promise(r => setTimeout(r, 2000)); // レート制限対策
+    const replyResult = await client.v2.tweet({
+      text: parts[i],
+      reply: { in_reply_to_tweet_id: tweetIds[tweetIds.length - 1] }
+    });
+    tweetIds.push(replyResult.data.id);
+  }
+
+  return tweetIds;
+}
+
 // 画像生成オプション
 interface AutoPostOptions {
   slot: string;
@@ -499,9 +524,20 @@ async function autoPost(options: AutoPostOptions | string, dryRun: boolean = fal
   
   // 投稿実行
   try {
-    const tweetId = await postTweet(content, imagePath);
-    console.log(`\n✅ Posted! Tweet ID: ${tweetId}`);
-    
+    let tweetId: string;
+    let threadTweetIds: string[] | undefined;
+
+    // スレッド投稿かどうか判定
+    if (post.thread_parts && post.thread_parts.length > 1) {
+      console.log(`\n🧵 スレッド投稿 (${post.thread_parts.length}件)...`);
+      threadTweetIds = await postThread(post.thread_parts);
+      tweetId = threadTweetIds[0];
+      console.log(`✅ Thread posted! IDs: ${threadTweetIds.join(', ')}`);
+    } else {
+      tweetId = await postTweet(content, imagePath);
+      console.log(`\n✅ Posted! Tweet ID: ${tweetId}`);
+    }
+
     // 履歴に記録
     // post.id と post.type を保存 → analyze_hypothesis.ts の source_type 判定に使用
     const record: PostHistory = {
@@ -515,8 +551,9 @@ async function autoPost(options: AutoPostOptions | string, dryRun: boolean = fal
       theme: post.theme,
       type: post.type || undefined,
       image_path: imagePath,
+      thread_tweet_ids: threadTweetIds,
     };
-    
+
     history.unshift(record);  // 新しい投稿を先頭に追加
     saveHistory(history);
     
