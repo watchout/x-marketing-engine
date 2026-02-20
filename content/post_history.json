@@ -1,5 +1,16 @@
 [
   {
+    "id": "hist_1771629635406",
+    "post_id": "daily_20260221_morning",
+    "variant": "A",
+    "content": "AIの出力が安定しない…って悩んでた頃の自分に教えてあげたい。報酬モデリングの新手法「MARS」を触ってみたら、整合性設計の重要性が身に染みた。Margin-Awareなアプローチで、成果が3倍になった感覚があるんだよね。自己改善機能も効いてて、調整の手間が激減。こんな技術がもっと早く知りたかったな。AIを扱う壁にぶつかってる人には、こういう研究のエッセンスが効くかも。🧠",
+    "tweet_id": "2024987576231174392",
+    "posted_at": "2026-02-20T23:20:35.406Z",
+    "slot": "morning",
+    "theme": "MARS: Margin-Aware Reward-Modeling with Self-Refinement",
+    "type": "empathy"
+  },
+  {
     "id": "hist_1771591867358",
     "post_id": "daily_20260220_night",
     "variant": "B",
