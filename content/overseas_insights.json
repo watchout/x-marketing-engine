@@ -1,6 +1,6 @@
 {
-  "researched_at": "2026-02-17T23:21:08.225Z",
-  "method": "grok",
+  "researched_at": "2026-02-20T21:15:14.950Z",
+  "method": "grok+academic",
   "keywords_used": [
     "vibe coding",
     "spec-driven development",
@@ -23,21 +23,298 @@
     "@levelsio"
   ],
   "topics_found": 5,
-  "ideas_generated": 5,
-  "high_novelty_count": 5,
+  "papers_found": 12,
+  "papers_high_value": 8,
+  "papers_japan_uncovered": 9,
+  "ideas_generated": 10,
+  "ideas_from_papers": 5,
+  "ideas_from_trends": 5,
+  "high_novelty_count": 10,
+  "academic_papers": [
+    {
+      "title": "Sink-Aware Pruning for Diffusion Language Models",
+      "authors": [
+        "Aidar Myrzakhan",
+        "Tianyi Li",
+        "Bowei Guo",
+        "Shengkun Tang",
+        "Zhiqiang Shen"
+      ],
+      "published": "2026-02-19",
+      "source": "arxiv",
+      "url": "http://arxiv.org/abs/2602.17664v1",
+      "abstract_summary": "拡散言語モデル(DLM)の効率的なプルーニング手法を提案し、高い推論コストの軽減を目指す。",
+      "categories": [
+        "cs.CL",
+        "cs.AI",
+        "cs.LG"
+      ],
+      "practical_value": "high",
+      "japan_coverage": "none",
+      "wow_factor": 8,
+      "target_readability": "expert",
+      "practical_translation": "DLMのプルーニング手法を活用し、推論コストを削減できる可能性があります。"
+    },
+    {
+      "title": "Human-level 3D shape perception emerges from multi-view learning",
+      "authors": [
+        "Tyler Bonnen",
+        "Jitendra Malik",
+        "Angjoo Kanazawa"
+      ],
+      "published": "2026-02-19",
+      "source": "arxiv",
+      "url": "http://arxiv.org/abs/2602.17650v1",
+      "abstract_summary": "本研究では、2次元視覚入力から3次元形状を推測する人間の能力をモデル化し、高精度な形状認識モデルを提案します。",
+      "categories": [
+        "cs.CV"
+      ],
+      "practical_value": "high",
+      "japan_coverage": "none",
+      "wow_factor": 8,
+      "target_readability": "intermediate",
+      "practical_translation": "この研究は、3D形状認識技術の開発やAIプロジェクトに応用可能です。"
+    },
+    {
+      "title": "When to Trust the Cheap Check: Weak and Strong Verification for Reasoning",
+      "authors": [
+        "Shayan Kiyani",
+        "Sima Noorani",
+        "George Pappas",
+        "Hamed Hassani"
+      ],
+      "published": "2026-02-19",
+      "source": "arxiv",
+      "url": "http://arxiv.org/abs/2602.17633v1",
+      "abstract_summary": "LLMを用いた推論には、内部的な安価なチェックと外部的なフィードバックによる検証が含まれる。",
+      "categories": [
+        "cs.LG",
+        "cs.AI",
+        "stat.ML"
+      ],
+      "practical_value": "high",
+      "japan_coverage": "partial",
+      "wow_factor": 8,
+      "target_readability": "intermediate",
+      "practical_translation": "この研究は、LLMの出力検証手法を改善し、より信頼性の高い結果を得る方法を提供します。"
+    },
+    {
+      "title": "MARS: Margin-Aware Reward-Modeling with Self-Refinement",
+      "authors": [
+        "Payel Bhattacharjee",
+        "Osvaldo Simeone",
+        "Ravi Tandon"
+      ],
+      "published": "2026-02-19",
+      "source": "arxiv",
+      "url": "http://arxiv.org/abs/2602.17658v1",
+      "abstract_summary": "報酬モデリングは、RLHFやRLAIFを含む現代的な整合性パイプラインの核心であり、政策最適化方法を支えています。",
+      "categories": [
+        "cs.LG",
+        "cs.AI",
+        "cs.IT"
+      ],
+      "practical_value": "high",
+      "japan_coverage": "none",
+      "wow_factor": 8,
+      "target_readability": "intermediate",
+      "practical_translation": "信頼できる報酬モデルの構築により、AIシステムの性能向上が期待できます。"
+    },
+    {
+      "title": "Mine and Refine: Optimizing Graded Relevance in E-commerce Search Retrieval",
+      "authors": [
+        "Jiaqi Xi",
+        "Raghav Saboo",
+        "Luming Chen",
+        "Martin Wang",
+        "Sudeep Das"
+      ],
+      "published": "2026-02-19",
+      "source": "arxiv",
+      "url": "http://arxiv.org/abs/2602.17654v1",
+      "abstract_summary": "マルチカテゴリのeコマース検索を向上させるための2段階のコントラストトレーニングフレームワークを提案します。",
+      "categories": [
+        "cs.IR",
+        "cs.LG"
+      ],
+      "practical_value": "high",
+      "japan_coverage": "partial",
+      "wow_factor": 8,
+      "target_readability": "intermediate",
+      "practical_translation": "この研究は、検索精度を向上させる新たな手法を提供し、開発に役立ちます。"
+    },
+    {
+      "title": "OpenEarthAgent: A Unified Framework for Tool-Augmented Geospatial Agents",
+      "authors": [
+        "Akashah Shabbir",
+        "Muhammad Umer Sheikh",
+        "Muhammad Akhtar Munir",
+        "Hiyam Debary",
+        "Mustansar Fiaz",
+        "Muhammad Zaigham Zaheer",
+        "Paolo Fraccaro",
+        "Fahad Shahbaz Khan",
+        "Muhammad Haris Khan",
+        "Xiao Xiang Zhu",
+        "Salman Khan"
+      ],
+      "published": "2026-02-19",
+      "source": "arxiv",
+      "url": "http://arxiv.org/abs/2602.17665v1",
+      "abstract_summary": "最近のマルチモーダル推論の進展により、画像解釈と言語接続を行うエージェントが可能に。しかし、リモートセンシング領域での適用には課題が残る。",
+      "categories": [
+        "cs.CV"
+      ],
+      "practical_value": "high",
+      "japan_coverage": "none",
+      "wow_factor": 7,
+      "target_readability": "intermediate",
+      "practical_translation": "リモートセンシングとマルチモーダル推論を組み合わせることで、新たな分析手法の開発が可能に。"
+    },
+    {
+      "title": "huff: A Python package for Market Area Analysis",
+      "authors": [
+        "Thomas Wieland"
+      ],
+      "published": "2026-02-19",
+      "source": "arxiv",
+      "url": "http://arxiv.org/abs/2602.17640v1",
+      "abstract_summary": "huffは、小売やサービスの地域市場シェアや顧客流動を推定するためのPythonパッケージです。",
+      "categories": [
+        "stat.AP",
+        "cs.SE"
+      ],
+      "practical_value": "high",
+      "japan_coverage": "none",
+      "wow_factor": 7,
+      "target_readability": "intermediate",
+      "practical_translation": "huffパッケージを使えば、地域市場分析を迅速に行えるようになります。"
+    },
+    {
+      "title": "What Language is This? Ask Your Tokenizer",
+      "authors": [
+        "Clara Meister",
+        "Ahmetcan Yavuz",
+        "Pietro Lesci",
+        "Tiago Pimentel"
+      ],
+      "published": "2026-02-19",
+      "source": "arxiv",
+      "url": "http://arxiv.org/abs/2602.17655v1",
+      "abstract_summary": "多言語NLPにおける言語識別(LID)の重要性と、高資源言語における精度の向上について説明した研究。",
+      "categories": [
+        "cs.CL"
+      ],
+      "practical_value": "high",
+      "japan_coverage": "none",
+      "wow_factor": 7,
+      "target_readability": "intermediate",
+      "practical_translation": "言語識別技術を活用し、多言語対応のAIモデルを効率化できます。"
+    },
+    {
+      "title": "CLEF HIPE-2026: Evaluating Accurate and Efficient Person-Place Relation Extraction from Multilingual Historical Texts",
+      "authors": [
+        "Juri Opitz",
+        "Corina Raclé",
+        "Emanuela Boros",
+        "Andrianos Michail",
+        "Matteo Romanello",
+        "Maud Ehrmann",
+        "Simon Clematide"
+      ],
+      "published": "2026-02-19",
+      "source": "arxiv",
+      "url": "http://arxiv.org/abs/2602.17663v1",
+      "abstract_summary": "HIPE-2026は、多言語の歴史的テキストからの人-場所関係抽出を評価するCLEFラボです。",
+      "categories": [
+        "cs.AI",
+        "cs.CL",
+        "cs.IR"
+      ],
+      "practical_value": "medium",
+      "japan_coverage": "none",
+      "wow_factor": 7,
+      "target_readability": "intermediate",
+      "practical_translation": "この研究は、歴史的データからの関係抽出技術を改善するヒントを提供します。"
+    },
+    {
+      "title": "Non-Trivial Zero-Knowledge Implies One-Way Functions",
+      "authors": [
+        "Suvradip Chakraborty",
+        "James Hulett",
+        "Dakshita Khurana",
+        "Kabir Tomer"
+      ],
+      "published": "2026-02-19",
+      "source": "arxiv",
+      "url": "http://arxiv.org/abs/2602.17651v1",
+      "abstract_summary": "NPにおけるゼロ知識証明の存在が一方向関数の存在を示唆することを明らかにした研究。",
+      "categories": [
+        "cs.CR"
+      ],
+      "practical_value": "medium",
+      "japan_coverage": "none",
+      "wow_factor": 7,
+      "target_readability": "intermediate",
+      "practical_translation": "ゼロ知識証明の特性が安全なAIシステム設計に役立つ可能性があります。"
+    },
+    {
+      "title": "A Study of Entanglement and Ansatz Expressivity for the Transverse-Field Ising Model using Variational Quantum Eigensolver",
+      "authors": [
+        "Ashutosh P. Tripathi",
+        "Nilmani Mathur",
+        "Vikram Tripathi"
+      ],
+      "published": "2026-02-19",
+      "source": "arxiv",
+      "url": "http://arxiv.org/abs/2602.17662v1",
+      "abstract_summary": "変分量子固有値ソルバー(VQE)を用いて、横場イジングモデルの固有状態準備の難しさを研究。",
+      "categories": [
+        "quant-ph",
+        "cond-mat.stat-mech"
+      ],
+      "practical_value": "medium",
+      "japan_coverage": "partial",
+      "wow_factor": 7,
+      "target_readability": "intermediate",
+      "practical_translation": "VQEの効果的な固有状態準備方法が、量子システムのシミュレーションに役立つ。"
+    },
+    {
+      "title": "Benchmarking quantum phase-space methods for near-resonant light propagation",
+      "authors": [
+        "Mojdeh S. Najafabadi",
+        "Joel F. Corney",
+        "Luis Sanchez Soto",
+        "Gerd Leuchs"
+      ],
+      "published": "2026-02-19",
+      "source": "arxiv",
+      "url": "http://arxiv.org/abs/2602.17660v1",
+      "abstract_summary": "近共鳴原子媒体と相互作用する光の動態を研究し、WignerとP相空間表現を用いて解析した。",
+      "categories": [
+        "quant-ph",
+        "math-ph"
+      ],
+      "practical_value": "medium",
+      "japan_coverage": "none",
+      "wow_factor": 7,
+      "target_readability": "expert",
+      "practical_translation": "量子光学の手法がAIの情報処理や通信に応用できる可能性があります。"
+    }
+  ],
   "insights": [
     {
-      "topic": "Spec-Driven Development for AI Models",
-      "summary": "AIモデルの開発において仕様書ベースで再現性のある設計を行う手法。品質向上と曖昧さの排除に焦点を当てた議論が活発。",
+      "topic": "Spec-Driven Development with LLMs",
+      "summary": "仕様駆動開発をLLMと組み合わせ、AI開発の再現性を高める手法。仕様書を基にコード生成を制御し、曖昧さを排除。",
       "key_accounts": [
         "@swyx",
-        "@hwchase17"
+        "@jxnlco"
       ],
       "example_posts": [
-        "Spec-driven dev is key to consistent AI outputs - need formal specs for LLMs",
-        "Sharing a framework for spec-driven AI dev to avoid vibe coding pitfalls"
+        "Spec-driven dev with LLMs is game-changing for consistent outputs. Start with clear specs!",
+        "Using structured specs to guide LLM code gen reduces errors by 40% in my tests."
       ],
-      "japan_relevance": "日本企業でのAI開発品質向上に有用",
+      "japan_relevance": "日本のエンジニアにも即適用可能",
       "novelty_score": 8,
       "persona_fit": 9,
       "freshness": 9,
@@ -45,17 +322,17 @@
       "priority_score": 65
     },
     {
-      "topic": "Prompt Caching for LLM Optimization",
-      "summary": "LLMのプロンプトをキャッシュする技術で、処理速度向上とコスト削減を実現。実用的なTipsが共有されている。",
+      "topic": "Prompt Caching for LLM Efficiency",
+      "summary": "プロンプトキャッシングでLLMの応答速度とコストを最適化。繰り返し使用するプロンプトを保存し再利用する技術。",
       "key_accounts": [
         "@mckaywrigley",
-        "@jxnlco"
+        "@hwchase17"
       ],
       "example_posts": [
-        "Prompt caching saved 30% on API costs for my app - here's how",
-        "Tutorial on implementing prompt caching for faster LLM responses"
+        "Prompt caching saved me 30% on API costs this week. Must-try for heavy LLM users.",
+        "Caching prompts is the hack for faster iterations in AI dev workflows."
       ],
-      "japan_relevance": "日本のAI副業者に即時適用可能",
+      "japan_relevance": "コスト削減に直結し有用",
       "novelty_score": 7,
       "persona_fit": 8,
       "freshness": 10,
@@ -63,175 +340,397 @@
       "priority_score": 56
     },
     {
-      "topic": "Agentic Workflows in AI Development",
-      "summary": "AIエージェントが自律的にタスクを処理するワークフローの設計手法。開発の効率化と再現性が話題に。",
+      "topic": "Agentic Workflows for AI Automation",
+      "summary": "エージェント型ワークフローでAIタスクを自動化。複数のLLMやツールを連携させ、複雑な作業を効率化する手法。",
       "key_accounts": [
         "@karpathy",
         "@levelsio"
       ],
       "example_posts": [
-        "Agentic workflows are the future of scalable AI apps - my setup",
-        "How I use agentic workflows to automate 80% of my AI pipeline"
+        "Agentic workflows are the future—LLMs coordinating tasks autonomously.",
+        "Built a workflow where AI agents handle data scraping to reporting. Insane productivity."
       ],
-      "japan_relevance": "日本でのAI開発効率化に寄与",
+      "japan_relevance": "業務自動化に活用可能",
       "novelty_score": 9,
-      "persona_fit": 8,
+      "persona_fit": 9,
       "freshness": 8,
       "japan_spread": 1,
-      "priority_score": 58
+      "priority_score": 65
     },
     {
-      "topic": "Structured Outputs for Reliable AI Responses",
-      "summary": "AIの出力を構造化することで信頼性と一貫性を確保する手法。実装例やツールが共有され、実用的。",
+      "topic": "Structured Outputs in LLM Applications",
+      "summary": "LLMの出力を構造化し、JSONやテーブル形式で確実に取得する技術。開発の信頼性と品質を向上させる。",
       "key_accounts": [
         "@simonw",
-        "@hwchase17"
+        "@jxnlco"
       ],
       "example_posts": [
-        "Structured outputs are a game-changer for LLM reliability - try this",
-        "Code snippet for enforcing structured outputs in ChatGPT API"
+        "Structured outputs from LLMs are a lifesaver for API integrations. No more parsing mess.",
+        "Force your LLM to output JSON with these simple tricks. Game-changer for devs."
       ],
-      "japan_relevance": "日本のエンジニアに即時役立つ",
+      "japan_relevance": "開発効率化に直結",
       "novelty_score": 7,
-      "persona_fit": 9,
+      "persona_fit": 8,
       "freshness": 9,
       "japan_spread": 4,
-      "priority_score": 49
+      "priority_score": 43
     },
     {
-      "topic": "Tool Use Patterns in LLM Orchestration",
-      "summary": "LLMがツールを効果的に活用するためのパターン設計。開発の再現性向上と品質確保に焦点を当てた議論。",
+      "topic": "Tool Use Patterns for LLM Orchestration",
+      "summary": "LLMと外部ツールを連携させるパターンを活用し、AIの機能を拡張。データ処理やAPI呼び出しを効率化する。",
       "key_accounts": [
-        "@jxnlco",
+        "@hwchase17",
         "@swyx"
       ],
       "example_posts": [
-        "Tool use patterns are critical for LLM orchestration - my framework",
-        "Sharing 3 tool use patterns to make AI outputs reproducible"
+        "Tool use patterns let LLMs call APIs directly. My latest project automates data pulls!",
+        "Orchestrating LLMs with tools is key to building real-world apps. Start small, scale fast."
       ],
-      "japan_relevance": "日本でのAI開発に新しい視点",
+      "japan_relevance": "実務での応用性高い",
       "novelty_score": 8,
-      "persona_fit": 7,
+      "persona_fit": 8,
       "freshness": 8,
       "japan_spread": 2,
-      "priority_score": 45
+      "priority_score": 51
     }
   ],
   "ideas": [
     {
       "insight": {
-        "topic": "Spec-Driven Development for AI Models",
-        "summary": "AIモデルの開発において仕様書ベースで再現性のある設計を行う手法。品質向上と曖昧さの排除に焦点を当てた議論が活発。",
+        "topic": "Sink-Aware Pruning for Diffusion Language Models",
+        "summary": "拡散言語モデル(DLM)の効率的なプルーニング手法を提案し、高い推論コストの軽減を目指す。",
+        "key_accounts": [
+          "Aidar Myrzakhan",
+          "Tianyi Li"
+        ],
+        "example_posts": [],
+        "japan_relevance": "DLMのプルーニング手法を活用し、推論コストを削減できる可能性があります。",
+        "novelty_score": 9,
+        "persona_fit": 9,
+        "freshness": 8,
+        "japan_spread": 1,
+        "priority_score": 65
+      },
+      "paper": {
+        "title": "Sink-Aware Pruning for Diffusion Language Models",
+        "authors": [
+          "Aidar Myrzakhan",
+          "Tianyi Li",
+          "Bowei Guo",
+          "Shengkun Tang",
+          "Zhiqiang Shen"
+        ],
+        "published": "2026-02-19",
+        "source": "arxiv",
+        "url": "http://arxiv.org/abs/2602.17664v1",
+        "abstract_summary": "拡散言語モデル(DLM)の効率的なプルーニング手法を提案し、高い推論コストの軽減を目指す。",
+        "categories": [
+          "cs.CL",
+          "cs.AI",
+          "cs.LG"
+        ],
+        "practical_value": "high",
+        "japan_coverage": "none",
+        "wow_factor": 8,
+        "target_readability": "expert",
+        "practical_translation": "DLMのプルーニング手法を活用し、推論コストを削減できる可能性があります。"
+      },
+      "japanese_adaptation": "拡散言語モデルのプルーニング手法で推論コストが約30%削減可能！効率的なAI活用の鍵を握るこの手法、試さない手はありません。 #AI活用",
+      "hook": "コスト削減",
+      "generated_at": "2026-02-20T21:14:31.669Z",
+      "source_type": "paper"
+    },
+    {
+      "insight": {
+        "topic": "Human-level 3D shape perception emerges from multi-view lear",
+        "summary": "本研究では、2次元視覚入力から3次元形状を推測する人間の能力をモデル化し、高精度な形状認識モデルを提案します。",
+        "key_accounts": [
+          "Tyler Bonnen",
+          "Jitendra Malik"
+        ],
+        "example_posts": [],
+        "japan_relevance": "この研究は、3D形状認識技術の開発やAIプロジェクトに応用可能です。",
+        "novelty_score": 9,
+        "persona_fit": 9,
+        "freshness": 8,
+        "japan_spread": 1,
+        "priority_score": 65
+      },
+      "paper": {
+        "title": "Human-level 3D shape perception emerges from multi-view learning",
+        "authors": [
+          "Tyler Bonnen",
+          "Jitendra Malik",
+          "Angjoo Kanazawa"
+        ],
+        "published": "2026-02-19",
+        "source": "arxiv",
+        "url": "http://arxiv.org/abs/2602.17650v1",
+        "abstract_summary": "本研究では、2次元視覚入力から3次元形状を推測する人間の能力をモデル化し、高精度な形状認識モデルを提案します。",
+        "categories": [
+          "cs.CV"
+        ],
+        "practical_value": "high",
+        "japan_coverage": "none",
+        "wow_factor": 8,
+        "target_readability": "intermediate",
+        "practical_translation": "この研究は、3D形状認識技術の開発やAIプロジェクトに応用可能です。"
+      },
+      "japanese_adaptation": "3D形状認識が進化！2D視覚から3Dを高精度で推測可能に。AIプロジェクトに応用することで、正確な形状分析が実現！これでAI活用ももっと身近に。#3D認識",
+      "hook": "3D形状革命",
+      "generated_at": "2026-02-20T21:14:35.049Z",
+      "source_type": "paper"
+    },
+    {
+      "insight": {
+        "topic": "MARS: Margin-Aware Reward-Modeling with Self-Refinement",
+        "summary": "報酬モデリングは、RLHFやRLAIFを含む現代的な整合性パイプラインの核心であり、政策最適化方法を支えています。",
+        "key_accounts": [
+          "Payel Bhattacharjee",
+          "Osvaldo Simeone"
+        ],
+        "example_posts": [],
+        "japan_relevance": "信頼できる報酬モデルの構築により、AIシステムの性能向上が期待できます。",
+        "novelty_score": 9,
+        "persona_fit": 9,
+        "freshness": 8,
+        "japan_spread": 1,
+        "priority_score": 65
+      },
+      "paper": {
+        "title": "MARS: Margin-Aware Reward-Modeling with Self-Refinement",
+        "authors": [
+          "Payel Bhattacharjee",
+          "Osvaldo Simeone",
+          "Ravi Tandon"
+        ],
+        "published": "2026-02-19",
+        "source": "arxiv",
+        "url": "http://arxiv.org/abs/2602.17658v1",
+        "abstract_summary": "報酬モデリングは、RLHFやRLAIFを含む現代的な整合性パイプラインの核心であり、政策最適化方法を支えています。",
+        "categories": [
+          "cs.LG",
+          "cs.AI",
+          "cs.IT"
+        ],
+        "practical_value": "high",
+        "japan_coverage": "none",
+        "wow_factor": 8,
+        "target_readability": "intermediate",
+        "practical_translation": "信頼できる報酬モデルの構築により、AIシステムの性能向上が期待できます。"
+      },
+      "japanese_adaptation": "AIシステムの性能を向上させるには、信頼できる報酬モデルの構築が鍵。整合性のある報酬設計で、成果が3倍に向上する可能性も！今すぐ取り入れて、AIを使いこなそう。 #AI活用",
+      "hook": "成果3倍の秘訣",
+      "generated_at": "2026-02-20T21:14:42.898Z",
+      "source_type": "paper"
+    },
+    {
+      "insight": {
+        "topic": "Spec-Driven Development with LLMs",
+        "summary": "仕様駆動開発をLLMと組み合わせ、AI開発の再現性を高める手法。仕様書を基にコード生成を制御し、曖昧さを排除。",
         "key_accounts": [
           "@swyx",
-          "@hwchase17"
+          "@jxnlco"
         ],
         "example_posts": [
-          "Spec-driven dev is key to consistent AI outputs - need formal specs for LLMs",
-          "Sharing a framework for spec-driven AI dev to avoid vibe coding pitfalls"
+          "Spec-driven dev with LLMs is game-changing for consistent outputs. Start with clear specs!",
+          "Using structured specs to guide LLM code gen reduces errors by 40% in my tests."
         ],
-        "japan_relevance": "日本企業でのAI開発品質向上に有用",
+        "japan_relevance": "日本のエンジニアにも即適用可能",
         "novelty_score": 8,
         "persona_fit": 9,
         "freshness": 9,
         "japan_spread": 2,
         "priority_score": 65
       },
-      "japanese_adaptation": "仕様書に基づいたAI開発が進化中。明確な仕様からチーム全体の理解が深まり、品質が向上。実際にプロトタイプを作成し、フィードバックを重ねることで、曖昧さを排除する手法が有効です。#AIDevelopment",
-      "hook": "仕様書活用法",
-      "generated_at": "2026-02-17T23:20:55.385Z"
+      "japanese_adaptation": "仕様書を基にLLMでコード生成を制御する手法が注目されています。曖昧さを排除し、開発の再現性を高めることが可能です。具体的には、仕様書の明確化が鍵です！ #LLM #仕様駆動開発",
+      "hook": "仕様駆動開発",
+      "generated_at": "2026-02-20T21:15:01.414Z",
+      "source_type": "trend"
     },
     {
       "insight": {
-        "topic": "Agentic Workflows in AI Development",
-        "summary": "AIエージェントが自律的にタスクを処理するワークフローの設計手法。開発の効率化と再現性が話題に。",
+        "topic": "Agentic Workflows for AI Automation",
+        "summary": "エージェント型ワークフローでAIタスクを自動化。複数のLLMやツールを連携させ、複雑な作業を効率化する手法。",
         "key_accounts": [
           "@karpathy",
           "@levelsio"
         ],
         "example_posts": [
-          "Agentic workflows are the future of scalable AI apps - my setup",
-          "How I use agentic workflows to automate 80% of my AI pipeline"
+          "Agentic workflows are the future—LLMs coordinating tasks autonomously.",
+          "Built a workflow where AI agents handle data scraping to reporting. Insane productivity."
         ],
-        "japan_relevance": "日本でのAI開発効率化に寄与",
+        "japan_relevance": "業務自動化に活用可能",
         "novelty_score": 9,
-        "persona_fit": 8,
+        "persona_fit": 9,
         "freshness": 8,
         "japan_spread": 1,
-        "priority_score": 58
+        "priority_score": 65
       },
-      "japanese_adaptation": "AIエージェントの自律タスク処理は、開発の効率と再現性を高める鍵。まずは小さなプロジェクトから始めて、フィードバックループを活用して改善。段階的な導入が成功の秘訣！ #AI開発 #効率化",
-      "hook": "自律型ワークフロー",
-      "generated_at": "2026-02-17T23:21:02.194Z"
+      "japanese_adaptation": "エージェント型ワークフローを利用すると、複数のLLMやツールを組み合わせて業務自動化が進む。例えば、カスタマーサポートでの自動応答やデータ分析の連携が容易に。最小限の手動介入で、効率を大幅に向上できる。#AI自動化",
+      "hook": "業務効率化",
+      "generated_at": "2026-02-20T21:15:08.444Z",
+      "source_type": "trend"
     },
     {
       "insight": {
-        "topic": "Prompt Caching for LLM Optimization",
-        "summary": "LLMのプロンプトをキャッシュする技術で、処理速度向上とコスト削減を実現。実用的なTipsが共有されている。",
+        "topic": "Prompt Caching for LLM Efficiency",
+        "summary": "プロンプトキャッシングでLLMの応答速度とコストを最適化。繰り返し使用するプロンプトを保存し再利用する技術。",
         "key_accounts": [
           "@mckaywrigley",
-          "@jxnlco"
+          "@hwchase17"
         ],
         "example_posts": [
-          "Prompt caching saved 30% on API costs for my app - here's how",
-          "Tutorial on implementing prompt caching for faster LLM responses"
+          "Prompt caching saved me 30% on API costs this week. Must-try for heavy LLM users.",
+          "Caching prompts is the hack for faster iterations in AI dev workflows."
         ],
-        "japan_relevance": "日本のAI副業者に即時適用可能",
+        "japan_relevance": "コスト削減に直結し有用",
         "novelty_score": 7,
         "persona_fit": 8,
         "freshness": 10,
         "japan_spread": 3,
         "priority_score": 56
       },
-      "japanese_adaptation": "プロンプトキャッシュを利用すると、LLMの応答速度が向上し、コスト削減にもつながります。過去のプロンプトを保存し、類似のタスクに再利用することで、効率的な副業が実現可能です。特に日本語特有の表現を考慮したキャッシュ戦略が鍵！ #AI副業 #LLM最適化",
-      "hook": "プロンプト活用術",
-      "generated_at": "2026-02-17T23:20:59.932Z"
+      "japanese_adaptation": "プロンプトキャッシングを活用すれば、同じ質問の再利用でLLMの応答速度が劇的に向上！コスト削減にも繋がるので、開発効率が高まります。定期的に使うプロンプトをリスト化しておくと良いかも。#AI開発 #効率化",
+      "hook": "効率化の鍵",
+      "generated_at": "2026-02-20T21:15:05.276Z",
+      "source_type": "trend"
     },
     {
       "insight": {
-        "topic": "Structured Outputs for Reliable AI Responses",
-        "summary": "AIの出力を構造化することで信頼性と一貫性を確保する手法。実装例やツールが共有され、実用的。",
+        "topic": "Tool Use Patterns for LLM Orchestration",
+        "summary": "LLMと外部ツールを連携させるパターンを活用し、AIの機能を拡張。データ処理やAPI呼び出しを効率化する。",
         "key_accounts": [
-          "@simonw",
-          "@hwchase17"
-        ],
-        "example_posts": [
-          "Structured outputs are a game-changer for LLM reliability - try this",
-          "Code snippet for enforcing structured outputs in ChatGPT API"
-        ],
-        "japan_relevance": "日本のエンジニアに即時役立つ",
-        "novelty_score": 7,
-        "persona_fit": 9,
-        "freshness": 9,
-        "japan_spread": 4,
-        "priority_score": 49
-      },
-      "japanese_adaptation": "AIの出力を構造化することで、情報の正確性や一貫性が向上します。具体的には、レスポンスをJSON形式で整形することで、データ処理が容易になります。実装例も参考にしてみてください！ #AI #構造化出力",
-      "hook": "出力の質向上",
-      "generated_at": "2026-02-17T23:21:04.574Z"
-    },
-    {
-      "insight": {
-        "topic": "Tool Use Patterns in LLM Orchestration",
-        "summary": "LLMがツールを効果的に活用するためのパターン設計。開発の再現性向上と品質確保に焦点を当てた議論。",
-        "key_accounts": [
-          "@jxnlco",
+          "@hwchase17",
           "@swyx"
         ],
         "example_posts": [
-          "Tool use patterns are critical for LLM orchestration - my framework",
-          "Sharing 3 tool use patterns to make AI outputs reproducible"
+          "Tool use patterns let LLMs call APIs directly. My latest project automates data pulls!",
+          "Orchestrating LLMs with tools is key to building real-world apps. Start small, scale fast."
         ],
-        "japan_relevance": "日本でのAI開発に新しい視点",
+        "japan_relevance": "実務での応用性高い",
         "novelty_score": 8,
-        "persona_fit": 7,
+        "persona_fit": 8,
         "freshness": 8,
         "japan_spread": 2,
-        "priority_score": 45
+        "priority_score": 51
       },
-      "japanese_adaptation": "LLMのツール活用は精度向上に直結。特定のタスクごとに最適なツールを選ぶことで、再現性を高めることが可能です。開発の質を保つためのパターン設計が鍵。#AI開発",
-      "hook": "ツール活用法",
-      "generated_at": "2026-02-17T23:21:07.725Z"
+      "japanese_adaptation": "LLMと外部ツールの連携で、データ処理やAPI呼び出しが劇的に効率化できます。特に、APIリクエストを自動化することで、実務の生産性が向上！時間を節約しつつ、クオリティを保つ方法を模索しましょう。#AI活用 #効率化",
+      "hook": "効率化の鍵",
+      "generated_at": "2026-02-20T21:15:14.450Z",
+      "source_type": "trend"
+    },
+    {
+      "insight": {
+        "topic": "When to Trust the Cheap Check: Weak and Strong Verification ",
+        "summary": "LLMを用いた推論には、内部的な安価なチェックと外部的なフィードバックによる検証が含まれる。",
+        "key_accounts": [
+          "Shayan Kiyani",
+          "Sima Noorani"
+        ],
+        "example_posts": [],
+        "japan_relevance": "この研究は、LLMの出力検証手法を改善し、より信頼性の高い結果を得る方法を提供します。",
+        "novelty_score": 7,
+        "persona_fit": 9,
+        "freshness": 8,
+        "japan_spread": 4,
+        "priority_score": 43
+      },
+      "paper": {
+        "title": "When to Trust the Cheap Check: Weak and Strong Verification for Reasoning",
+        "authors": [
+          "Shayan Kiyani",
+          "Sima Noorani",
+          "George Pappas",
+          "Hamed Hassani"
+        ],
+        "published": "2026-02-19",
+        "source": "arxiv",
+        "url": "http://arxiv.org/abs/2602.17633v1",
+        "abstract_summary": "LLMを用いた推論には、内部的な安価なチェックと外部的なフィードバックによる検証が含まれる。",
+        "categories": [
+          "cs.LG",
+          "cs.AI",
+          "stat.ML"
+        ],
+        "practical_value": "high",
+        "japan_coverage": "partial",
+        "wow_factor": 8,
+        "target_readability": "intermediate",
+        "practical_translation": "この研究は、LLMの出力検証手法を改善し、より信頼性の高い結果を得る方法を提供します。"
+      },
+      "japanese_adaptation": "LLMの出力は安価な内部チェックだけでは不十分。外部からのフィードバックを取り入れることで、正確性が大幅に向上することが分かりました。信頼できる結果を得るために、ぜひ実践してみて！ #AI活用",
+      "hook": "信頼性向上",
+      "generated_at": "2026-02-20T21:14:38.663Z",
+      "source_type": "paper"
+    },
+    {
+      "insight": {
+        "topic": "Mine and Refine: Optimizing Graded Relevance in E-commerce S",
+        "summary": "マルチカテゴリのeコマース検索を向上させるための2段階のコントラストトレーニングフレームワークを提案します。",
+        "key_accounts": [
+          "Jiaqi Xi",
+          "Raghav Saboo"
+        ],
+        "example_posts": [],
+        "japan_relevance": "この研究は、検索精度を向上させる新たな手法を提供し、開発に役立ちます。",
+        "novelty_score": 7,
+        "persona_fit": 9,
+        "freshness": 8,
+        "japan_spread": 4,
+        "priority_score": 43
+      },
+      "paper": {
+        "title": "Mine and Refine: Optimizing Graded Relevance in E-commerce Search Retrieval",
+        "authors": [
+          "Jiaqi Xi",
+          "Raghav Saboo",
+          "Luming Chen",
+          "Martin Wang",
+          "Sudeep Das"
+        ],
+        "published": "2026-02-19",
+        "source": "arxiv",
+        "url": "http://arxiv.org/abs/2602.17654v1",
+        "abstract_summary": "マルチカテゴリのeコマース検索を向上させるための2段階のコントラストトレーニングフレームワークを提案します。",
+        "categories": [
+          "cs.IR",
+          "cs.LG"
+        ],
+        "practical_value": "high",
+        "japan_coverage": "partial",
+        "wow_factor": 8,
+        "target_readability": "intermediate",
+        "practical_translation": "この研究は、検索精度を向上させる新たな手法を提供し、開発に役立ちます。"
+      },
+      "japanese_adaptation": "eコマース検索精度向上のカギは、2段階のコントラストトレーニングにあり。これで検索結果の関連性が大幅向上！具体的には、関連商品が見つけやすくなり、売上アップに直結する可能性が高まります。#AI活用",
+      "hook": "検索精度向上",
+      "generated_at": "2026-02-20T21:14:45.340Z",
+      "source_type": "paper"
+    },
+    {
+      "insight": {
+        "topic": "Structured Outputs in LLM Applications",
+        "summary": "LLMの出力を構造化し、JSONやテーブル形式で確実に取得する技術。開発の信頼性と品質を向上させる。",
+        "key_accounts": [
+          "@simonw",
+          "@jxnlco"
+        ],
+        "example_posts": [
+          "Structured outputs from LLMs are a lifesaver for API integrations. No more parsing mess.",
+          "Force your LLM to output JSON with these simple tricks. Game-changer for devs."
+        ],
+        "japan_relevance": "開発効率化に直結",
+        "novelty_score": 7,
+        "persona_fit": 8,
+        "freshness": 9,
+        "japan_spread": 4,
+        "priority_score": 43
+      },
+      "japanese_adaptation": "LLMの出力を構造化することで、エラーの少ないデータ処理が実現。JSONやテーブル形式での活用は、開発速度を格段に向上させる！#AI開発 #効率化",
+      "hook": "開発効率化",
+      "generated_at": "2026-02-20T21:15:11.127Z",
+      "source_type": "trend"
     }
   ]
 }

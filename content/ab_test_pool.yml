@@ -23,8 +23,8 @@ time_slots:
     type: Type3_思想
 posts:
   - id: post_1771370547790
-    generated_at: '2026-02-17T23:22:27.790Z'
-    scheduled_date: '2026-02-18'
+    generated_at: 2026-02-17T23:22:27.790Z
+    scheduled_date: 2026-02-18T00:00:00.000Z
     slot: noon
     topic: 深夜のAI出力ブレブレ悩みからSpec-Driven Developmentで救われた話
     theme: バイブコーディングの限界
@@ -48,8 +48,8 @@ posts:
       feedback: この投稿は非常に効果的です。深夜1時という具体的な時間設定が興味を引き、Spec-Driven Developmentという具体的な手法が紹介されているため、信頼性も高いです。ターゲットであるエンジニアやビジネスパーソンにとって役立つ情報が含まれており、共感を呼ぶ内容になっています。改善点を挙げるとすれば、具体的なツール名やもう少し具体的な事例を加えることで、更加点の可能性があります。しかしながら、現在のままでも非常に素晴らしい投稿です。 | この投稿は非常に良いバランスで構成されています。深夜1時という具体的なシチュエーションやSpec-Driven Developmentへの切り替えによる成果の向上という具体的な事例が興味を引きます。ターゲット層であるエンジニアやビジネスパーソンにとって役立つ情報を提供し、共感を誘う要素も強いです。売り込み臭やハッシュタグもなく、自然なX投稿としての文化にも適しています。改善点としては、さらに具体的なツール名や成功事例を追加することで、信憑性を高めることができるでしょう。それにより、さらにフォローしたくなる魅力を増すことが可能です。 | 投稿全体としてターゲットであるAIに興味のあるエンジニア・ビジネスパーソンにとって共感と役立つ情報を提供できている点が良い。特に深夜1時に試行錯誤している情景は共感を呼び、Spec-Driven Developmentという具体的な手法に言及することで興味を引く内容になっている。ただし、フックとしてはやや弱めで、冒頭でもう少し意外性やインパクトのある表現（例：『深夜1時、AIに裏切られた』など）を加えるとスクロールを止める力が強まる可能性がある。また、Spec-Driven Developmentの簡単な説明や具体的なツール・事例があれば、さらに信頼性と具体性が向上する。
     status: expired_legacy
   - id: post_1771370521973
-    generated_at: '2026-02-17T23:22:01.973Z'
-    scheduled_date: '2026-02-18'
+    generated_at: 2026-02-17T23:22:01.973Z
+    scheduled_date: 2026-02-18T00:00:00.000Z
     slot: mid_morning
     topic: 深夜2時、AIの出力がブレブレで頭抱えてた…でも「Spec-Driven Development」を試したら再現性が劇的に改善！
     theme: バイブコーディングの限界
@@ -73,8 +73,8 @@ posts:
       feedback: この投稿は、AIに興味のあるエンジニアやビジネスパーソンにとって非常に魅力的です。深夜2時という具体的な時間設定が、問題に直面している緊迫感を伝え、読者の共感を呼びます。また、『Spec-Driven Development』という具体的な手法を紹介し、海外の事例を参考にしたという点で信頼性も高まっています。具体的なツール名や数字がないため、specificityのスコアは最高ではありませんが、それでも十分に具体性があります。ハッシュタグや製品の売り込みがなく、Xの文化にも適しています。改善点としては、具体的なツール名や事例を少し追加するとさらに具体性が増すでしょう。 | この投稿は、深夜にAIの問題に直面したという個人的な体験から始まり、読者の興味を引きつける力が強いです（hook_strengthが高い）。Spec-Driven Developmentという手法に具体的に言及し、再現性の向上という結果を共有しているため、ターゲットであるエンジニアやビジネスパーソンにとって非常に役立つ情報となっています。海外の事例を参考にした点も、トレンドを先取りする情報として評価されます。全体的に自然なX投稿で、売り込み臭もなく、ハッシュタグも使用されていないため、x_culture_fitも高いです。ただし、具体的なツール名や数字が含まれていないため、もう少し具体性があるとさらに良いでしょう。 | 投稿は全体的にターゲットに響く内容で、特に深夜2時のリアルな情景描写と『Spec-Driven Development』という具体的な手法の言及がフックとして効果的です。海外事例の言及は先取り感を出し、ターゲットの興味を引きつける要素としてプラスに働いています（hook_strength +3）。また、AI活用の課題に対する共感と解決策の提示がターゲットに『役立つ』と感じさせるため、persona_fitも高評価です（+3）。Xの文化にも自然に馴染むカジュアルな語り口で、売り込み臭やハッシュタグもなく良好です。ただし、具体性がやや不足しています。『Spec-Driven Development』の詳細や、どのような海外事例を参考にしたのかを軽く触れると、specificityが向上し、より信頼性も高まるでしょう。また、結果の『劇的な改善』を数字や具体例で補足できれば、さらに説得力が増します。
     status: expired_legacy
   - id: post_1771370497700
-    generated_at: '2026-02-17T23:21:37.700Z'
-    scheduled_date: '2026-02-18'
+    generated_at: 2026-02-17T23:21:37.700Z
+    scheduled_date: 2026-02-18T00:00:00.000Z
     slot: morning
     topic: AIの出力が安定しないというペインを解決するために、Spec-Driven Developmentを試した結果、再現性が劇的に改善したというストーリー。
     theme: バイブコーディングの限界
@@ -96,81 +96,6 @@ posts:
       credibility: 9
       total: 85
       feedback: 投稿はAIに興味があるエンジニアやビジネスパーソンの興味を引くには十分です。Spec-Driven Developmentという具体的な手法を紹介しており、その効果についての体験談も信頼性があります。ただし、さらに具体性を高めるために、使用したツール名や数字を追加するとより良いでしょう。また、フォロワーが『フォローしておきたい』と思うような、定期的な情報提供を示唆する一文があるとさらに良いです。 | この投稿は非常に効果的です。深夜の苦労話から始まり、Spec-Driven Developmentという具体的な解決策を提示することで、AIに興味を持つターゲットに対して強い共感を呼び起こしています。さらに、海外のトレンド情報を含めることで、フォロワーにとって新しい視点を提供しています。ただし、具体的なツール名や数字があるとさらに具体性が増し、説得力が増すでしょう。今後の投稿では、具体例を挙げることでより強力なメッセージを届けられるよう工夫すると良いでしょう。 | 投稿は全体的にターゲットに響く内容で、深夜の苦労話から始まる共感を呼ぶフックが効果的です。海外トレンドである『Spec-Driven Development』の言及は先取り感があり、ターゲットの興味を引くポイントとして加点されています。ただし、具体的な情報がやや不足しているため、『Spec-Driven Development』の概要やどのように試したか、どのくらい安定したか（数字や事例）を軽く触れるとさらに説得力が増します。また、ツール名や具体的な数字があればさらにスコアが上がるでしょう。Xの文化にも自然に馴染んでおり、売り込み臭やハッシュタグがない点も良いです。全体としてフォローしたくなる内容ですが、もう一歩踏み込んだ具体性が欲しいところです。
-    status: expired_legacy
-  - id: post_1771284202329
-    generated_at: 2026-02-16T23:23:22.329Z
-    scheduled_date: 2026-02-17T00:00:00.000Z
-    slot: noon
-    topic: 'AIツールで時間を節約したいのに、逆に時間が溶ける…。プロンプトの曖昧さが原因と気づき、海外で話題の『Spec-Driven Development』を試してみた。仕様を明確化することで再現性が格段に向上！失敗と学びを #BuildInPublic で公開中。 #AI開発 #LLM'
-    theme: バイブコーディングの限界
-    type: problem_statement
-    quality_score: 89
-    refinement_rounds: 1
-    variants:
-      A:
-        content: Spec-Driven Development試してみたら、AIツールの使い方が180度変わった。プロンプトの曖昧さが原因で時間が溶ける日々から脱却、明確な仕様で再現性が3倍向上。海外で話題の手法、実感した効果は数字が物語ってる。これが噂の力か...✨
-        hook_type: フック型A
-      B:
-        content: Spec-Driven Developmentを導入した結果、AIツールの使い方に革命が起きた。プロンプトの曖昧さで悩む日々から解放され、仕様の明確化で3倍の再現性を実現。海外で注目されるこの手法、数字がその効果を証明している。試してみる価値、大いにあり！🚀
-        hook_type: フック型B
-    scores:
-      hook_strength: 23
-      persona_fit: 21
-      x_culture_fit: 24
-      specificity: 13
-      credibility: 8
-      total: 89
-      feedback: この投稿は非常に効果的で、多くのフォロワーを引きつける可能性があります。Spec-Driven Developmentという具体的な手法を紹介し、再現性が3倍向上したという具体的な数字を示しているため、信憑性と具体性が高いです。さらに、海外で話題の手法として先取り情報を提供している点も評価ポイントです。改善点としては、もう少し具体的なツール名や事例を追加すると、さらに興味を引くことができるでしょう。 | この投稿は非常に効果的で、ターゲットオーディエンスに対して強い訴求力があります。Spec-Driven Developmentという具体的な手法を紹介し、効果を数字で示しているため、具体性と信頼性が高いです。また、海外トレンドを取り入れている点がターゲットにとって魅力的で、フォローしたいと思わせる要素があります。さらに、自然な投稿で売り込み臭がないため、X文化に非常に馴染んでいます。もし改善を考えるとすれば、具体的なツール名を挙げることでさらに情報の価値を高めることができるでしょう。 | 非常にバランスの取れた投稿で、ターゲットであるAIに興味のあるエンジニアやビジネスパーソンに響く内容です。『Spec-Driven Development』という海外トレンドの紹介がフックとして効果的で、+3の加点。また、『再現性が3倍向上』という具体的な数字が信頼感と興味を引くため、specificityにも+3を加点しました。Xの文化にも自然に馴染んでおり、ハッシュタグや売り込み臭がない点も好印象です。改善点としては、『Spec-Driven Development』の簡単な説明や具体的な適用例を1〜2行加えると、さらに信頼性と興味が増すでしょう。また、数字の根拠を軽く示せればcredibilityがさらに向上する可能性があります。
-    status: expired_legacy
-  - id: post_1771284175294
-    generated_at: 2026-02-16T23:22:55.294Z
-    scheduled_date: 2026-02-17T00:00:00.000Z
-    slot: mid_morning
-    topic: 深夜、AIの出力が安定しない問題に悩むエンジニアやビジネスパーソンが、海外トレンドの「Agentic Workflows for AI Automation」を使ってタスク処理の安定化を実現するストーリー。
-    theme: バイブコーディングの限界
-    type: problem_statement
-    quality_score: 89
-    refinement_rounds: 1
-    variants:
-      A:
-        content: 深夜2時、また出力がブレブレで泣きそうになったあの日々。でも、最近アメリカで流行ってる「Agentic Workflows for AI Automation」に救われた。3時間かかってたタスクが半分以下に。これ、まだ日本ではあまり知られてないけど、知ったら絶対「俺のことだ」って思うはず。
-        hook_type: フック型A
-      B:
-        content: 正直、AIの自動化に疲れたことありませんか？深夜2時のあの絶望的な瞬間から、アメリカで話題の「Agentic Workflows for AI Automation」で抜け出せました。3時間かかってたタスクが驚くほど効率化。まだ日本では知る人ぞ知る存在。でも、知ったらあなたの救世主になるかも。
-        hook_type: フック型B
-    scores:
-      hook_strength: 22
-      persona_fit: 21
-      x_culture_fit: 24
-      specificity: 13
-      credibility: 9
-      total: 89
-      feedback: この投稿は、AIに興味のあるエンジニアやビジネスパーソンにとって非常に魅力的です。『Agentic Workflows for AI Automation』という具体的なトレンドを紹介しており、それがタスク効率を劇的に改善したという具体的な体験談が含まれています。投稿は自然で、売り込み臭がなく、ハッシュタグも使用されていないため、X文化に非常に適しています。今後さらに改善するためには、具体的なツール名や事例を追加することで、さらに信頼性を高められるかもしれません。 | この投稿は非常に効果的です。最初の部分で個人的な経験を共有し、読者の関心を引くことに成功しています。また、具体的なトレンド名と効果を示すことで、読者にとって有益な情報と感じさせます。さらに、ハッシュタグや売り込み臭がなく、自然な投稿風であるため、Xでの文化にもマッチしています。改善点としては、さらに具体的な事例やツール名を挙げることで、信頼性をさらに向上させることができるでしょう。 | 投稿全体として、AIに興味のあるエンジニアやビジネスパーソンにとって魅力的な内容になっています。特に『深夜2時、また出力がブレブレで泣きそうになった』という共感を呼ぶ表現がスクロールを止める力を持っています。また、『Agentic Workflows for AI Automation』という海外トレンドの先取り情報がターゲットの興味を引き、具体的な『3時間かかってたタスクが半分以下』という数字も説得力を持たせています。ただし、ツールや方法論の詳細がもう少しあれば、さらに信頼性と具体性が向上するでしょう。たとえば、『Agentic Workflows』の簡単な説明や、どのようなタスクで効果があったのかを軽く触れると良いかもしれません。また、Xの文化に自然に馴染むカジュアルなトーンも好印象です。
-    status: expired_legacy
-  - id: post_1771284149605
-    generated_at: 2026-02-16T23:22:29.605Z
-    scheduled_date: 2026-02-17T00:00:00.000Z
-    slot: morning
-    topic: AIで時間を節約したいが、逆にプロンプト調整で時間がかかっている人向けの解決策として、海外で話題の『Spec-Driven Development』を導入し、再現性を向上させるストーリー。
-    theme: バイブコーディングの限界
-    type: problem_statement
-    quality_score: 89
-    refinement_rounds: 1
-    variants:
-      A:
-        content: 「日本ではまだ知られていないけど、Spec-Driven Developmentが海外で熱いらしい。Prompt Engineeringで時間食ってる人、これで再現性が大幅アップ。特にサンフランシスコのスタートアップが『SpecFlow』使って効果実感してるって。来月には日本でも話題になるはず。」
-        hook_type: フック型A
-      B:
-        content: 「突然ですが、次に来るトレンドを知りたくないですか？実は海外で『Spec-Driven Development』が注目を集めています。特にサンフランシスコのスタートアップでは『SpecFlow』を活用して効率を劇的に向上させているとのこと。Prompt Engineeringで悩んでいる方、要チェックですよ。日本でも間もなく話題になる予感！」
-        hook_type: フック型B
-    scores:
-      hook_strength: 23
-      persona_fit: 21
-      x_culture_fit: 24
-      specificity: 13
-      credibility: 8
-      total: 89
-      feedback: この投稿は、AIに興味のあるエンジニアやビジネスパーソンにとって非常に魅力的です。特に、海外トレンドの先取り情報や具体的なツール名（SpecFlow）を挙げているため、興味を引きやすく、信憑性も高いです。さらに、自然なX投稿であるため、読者に押しつけがましい印象を与えません。改善点としては、より具体的な事例や数字を追加することで、さらに信頼性を高めることができるでしょう。総合的に見て、フォロワーを獲得する可能性が高い投稿です。 | この投稿は海外トレンドの先取り情報として非常に魅力的で、AIに興味のあるエンジニアやビジネスパーソンにとって役立つ内容です。具体的なツール名（SpecFlow）を挙げており、信頼性も高く、共感を呼びやすいです。自然なX投稿で、売り込み臭やハッシュタグもなく、フォロワー獲得に向けた良いアプローチです。改善点としては、具体的な事例や数字の詳細をもう少し追加することで、さらに投稿の価値を高められるでしょう。 | 全体的にターゲット層に刺さる内容で、海外トレンドの先取り（+3 hook_strength）と具体的なツール名『SpecFlow』（+3 specificity）が強み。特に「日本ではまだ知られていない」「来月には話題になる」というフレーズが好奇心を刺激し、フォロー意欲を高めている（+3 persona_fit）。一方、信憑性については『サンフランシスコのスタートアップ』という言及があるものの、具体的な企業名やデータがないため少し弱い印象。次回は事例や出典を軽く触れるとさらに信頼度が上がる。また、Xの自然な口調で売り込み感がない点も好印象。
     status: expired_legacy
   - id: post_1770333620637
     generated_at: 2026-02-05T23:20:20.637Z
@@ -197,57 +122,9 @@ posts:
       total: 84
       feedback: この投稿は、深夜の開発者の苦労をリアルに描写し、ターゲットであるAIに興味のあるエンジニアやビジネスパーソンに対して強い共感を呼び起こします。Spec-Driven Developmentという具体的な手法を紹介し、海外トレンドを取り入れている点で非常に魅力的です。ただし、具体的なツール名や数字が加わると、さらに説得力が増し、情報としての価値も高まるでしょう。また、投稿のトーンは自然で、売り込み臭もなく、Xプラットフォームにおける文化にも適しています。 | この投稿は、AIに関心のあるエンジニアやビジネスパーソンにとって非常に魅力的です。深夜に仕事に追われる様子や、アメリカで話題の手法について言及することで、読者の興味を引きつけています。また、Spec-Driven Developmentという具体的な方法に触れているため、特に技術系のフォロワーにとって有用です。投稿にハッシュタグや製品の売り込みがなく、自然な流れで書かれている点も評価されます。ただし、さらに具体的なツール名や事例を挙げることで、specificityをさらに向上させることができるでしょう。 | 投稿全体としてはターゲット層に響く内容で、特に深夜の苦労話や予想外のAI出力という共感を呼ぶ導入が効果的。hook_strengthに海外トレンド（Spec-Driven Development）の先取り情報を加点し、persona_fitにも「フォローしておきたい」と思わせる要素を加点しました。specificityについては、Spec-Driven Developmentという具体的な手法名が出ているものの、詳細な事例や数字が不足しているため加点が限定的。より具体的なツール名や再現性が向上した具体例（例：『エラー率が30%減少』など）を追加するとさらに説得力が増すでしょう。また、x_culture_fitは自然な口調で売り込み臭がなく高評価ですが、ハッシュタグがない点もプラスに働いています。全体的に良い投稿ですが、具体性をもう少し強化することでさらにバズる可能性が高まります。
     status: expired_legacy
-  - id: overseas_1770766287451_ay6pse
-    content: 'プロンプトキャッシングを利用すれば、過去の優れたプロンプトを再利用でき、開発時間を短縮できます。効率的なLLM運用のカギはここに！ #AI開発 #プロンプト活用'
-    type: overseas_insight
-    topic: Prompt Caching in LLM Orchestration
-    source_accounts:
-      - '@hwchase17'
-      - '@mckaywrigley'
-    novelty_score: 9
-    persona_fit: 8
-    freshness: 10
-    japan_spread: 1
-    priority_score: 72
-    priority: high
-    created_at: 2026-02-10T23:31:17.463Z
-    expires_at: 2026-02-17T23:31:27.452Z
-    status: expired_legacy
-  - id: overseas_1770766287452_90z0a9
-    content: 'エージェントメモリを活用することで、対話型AIがユーザーの過去の会話を記憶し、よりパーソナライズされた応答が可能に。これにより、ユーザー体験が向上し、リピート利用につながるかも。#AI開発 #エージェントメモリ'
-    type: overseas_insight
-    topic: Agent Memory in AI-First Development
-    source_accounts:
-      - '@mckaywrigley'
-      - '@hwchase17'
-    novelty_score: 9
-    persona_fit: 8
-    freshness: 10
-    japan_spread: 1
-    priority_score: 72
-    priority: high
-    created_at: 2026-02-10T23:31:26.898Z
-    expires_at: 2026-02-17T23:31:27.452Z
-    status: expired_legacy
-  - id: overseas_1770852263557_62g4mt
-    content: '仕様駆動開発はAIの品質向上に役立ちます。明確な仕様設定で、再現性ある出力を得ることが可能に。具体的には、仕様書を作成してからモデルのトレーニングに入るのが効果的です。 #AIDevelopment'
-    type: overseas_insight
-    topic: Spec-Driven Development for AI
-    source_accounts:
-      - '@swyx'
-      - '@jxnlco'
-    novelty_score: 8
-    persona_fit: 9
-    freshness: 9
-    japan_spread: 2
-    priority_score: 65
-    priority: high
-    created_at: 2026-02-11T23:24:09.590Z
-    expires_at: 2026-02-18T23:24:23.557Z
-    status: expired_legacy
   - id: post_1771362685401_1
-    generated_at: '2026-02-17T21:11:25.401Z'
-    scheduled_date: '2026-02-20'
+    generated_at: 2026-02-17T21:11:25.401Z
+    scheduled_date: 2026-02-20T00:00:00.000Z
     slot: morning
     topic: |-
       Claude CodeとCursor、結局どっちがいいの？
@@ -289,8 +166,8 @@ posts:
       feedback: C7出力から変換。投稿後にメトリクスを収集して評価。
     status: expired_legacy
   - id: post_1771362685401_2
-    generated_at: '2026-02-17T21:11:25.401Z'
-    scheduled_date: '2026-02-20'
+    generated_at: 2026-02-17T21:11:25.401Z
+    scheduled_date: 2026-02-20T00:00:00.000Z
     slot: night
     topic: |-
       Cursorは「自分で運転する車にAIナビがついてる」感覚。
@@ -332,8 +209,8 @@ posts:
       feedback: C7出力から変換。投稿後にメトリクスを収集して評価。
     status: expired_legacy
   - id: post_1771362685402_3
-    generated_at: '2026-02-17T21:11:25.402Z'
-    scheduled_date: '2026-02-21'
+    generated_at: 2026-02-17T21:11:25.402Z
+    scheduled_date: 2026-02-21T00:00:00.000Z
     slot: morning
     topic: |-
       Claude Codeは全く違う。
@@ -378,8 +255,8 @@ posts:
       feedback: C7出力から変換。投稿後にメトリクスを収集して評価。
     status: expired_legacy
   - id: post_1771362685402_4
-    generated_at: '2026-02-17T21:11:25.402Z'
-    scheduled_date: '2026-02-21'
+    generated_at: 2026-02-17T21:11:25.402Z
+    scheduled_date: 2026-02-21T00:00:00.000Z
     slot: night
     topic: |-
       最大の発見は「思考の切り替え」だった。
@@ -419,8 +296,8 @@ posts:
       feedback: C7出力から変換。投稿後にメトリクスを収集して評価。
     status: expired_legacy
   - id: post_1771362685402_5
-    generated_at: '2026-02-17T21:11:25.402Z'
-    scheduled_date: '2026-02-22'
+    generated_at: 2026-02-17T21:11:25.402Z
+    scheduled_date: 2026-02-22T00:00:00.000Z
     slot: morning
     topic: |-
       正直、最初はClaude Codeが怖かった。
@@ -462,8 +339,8 @@ posts:
       feedback: C7出力から変換。投稿後にメトリクスを収集して評価。
     status: expired_legacy
   - id: post_1771362685402_6
-    generated_at: '2026-02-17T21:11:25.402Z'
-    scheduled_date: '2026-02-22'
+    generated_at: 2026-02-17T21:11:25.402Z
+    scheduled_date: 2026-02-22T00:00:00.000Z
     slot: night
     topic: |-
       意外だったのが「仕様を書く力」が問われること。
@@ -505,8 +382,8 @@ posts:
       feedback: C7出力から変換。投稿後にメトリクスを収集して評価。
     status: expired_legacy
   - id: post_1771362685402_7
-    generated_at: '2026-02-17T21:11:25.402Z'
-    scheduled_date: '2026-02-23'
+    generated_at: 2026-02-17T21:11:25.402Z
+    scheduled_date: 2026-02-23T00:00:00.000Z
     slot: morning
     topic: |-
       使い分けのコツ。
@@ -555,8 +432,8 @@ posts:
       feedback: C7出力から変換。投稿後にメトリクスを収集して評価。
     status: expired_legacy
   - id: post_1771362685402_8
-    generated_at: '2026-02-17T21:11:25.402Z'
-    scheduled_date: '2026-02-23'
+    generated_at: 2026-02-17T21:11:25.402Z
+    scheduled_date: 2026-02-23T00:00:00.000Z
     slot: night
     topic: |-
       コスト面も意外な発見があった。
@@ -600,8 +477,8 @@ posts:
       feedback: C7出力から変換。投稿後にメトリクスを収集して評価。
     status: expired_legacy
   - id: post_1771362685402_9
-    generated_at: '2026-02-17T21:11:25.402Z'
-    scheduled_date: '2026-02-24'
+    generated_at: 2026-02-17T21:11:25.402Z
+    scheduled_date: 2026-02-24T00:00:00.000Z
     slot: morning
     topic: |-
       2026年のAI開発、もう「ツール1つだけ」の時代じゃない。
@@ -640,8 +517,8 @@ posts:
       feedback: C7出力から変換。投稿後にメトリクスを収集して評価。
     status: expired_legacy
   - id: post_1771362685402_10
-    generated_at: '2026-02-17T21:11:25.402Z'
-    scheduled_date: '2026-02-24'
+    generated_at: 2026-02-17T21:11:25.402Z
+    scheduled_date: 2026-02-24T00:00:00.000Z
     slot: night
     topic: |-
       結論: 迷ってる時間が一番もったいない。
@@ -685,8 +562,8 @@ posts:
       feedback: C7出力から変換。投稿後にメトリクスを収集して評価。
     status: expired_legacy
   - id: post_1771545786767_mt_0
-    generated_at: '2026-02-20T00:03:06.767Z'
-    scheduled_date: '2026-02-20'
+    generated_at: 2026-02-20T00:03:06.767Z
+    scheduled_date: 2026-02-20T00:00:00.000Z
     slot: morning
     topic: |-
       AppleがAIエージェントコーディングに本気出した🍎
@@ -727,8 +604,8 @@ posts:
       feedback: 'C7マルチテーマ出力から変換。テーマ: Xcode 26.3 エージェントコーディング'
     status: expired_legacy
   - id: post_1771545786767_mt_1
-    generated_at: '2026-02-20T00:03:06.767Z'
-    scheduled_date: '2026-02-20'
+    generated_at: 2026-02-20T00:03:06.767Z
+    scheduled_date: 2026-02-20T00:00:00.000Z
     slot: night
     topic: |-
       NVIDIAの開発者3万人が毎日Cursor使用→コミット量3倍。
@@ -771,8 +648,8 @@ posts:
       feedback: 'C7マルチテーマ出力から変換。テーマ: NVIDIA 3万人Cursor導入の衝撃'
     status: expired_legacy
   - id: post_1771545786767_mt_2
-    generated_at: '2026-02-20T00:03:06.767Z'
-    scheduled_date: '2026-02-21'
+    generated_at: 2026-02-20T00:03:06.767Z
+    scheduled_date: 2026-02-21T00:00:00.000Z
     slot: morning
     topic: |-
       Claude CodeとCursor、3ヶ月迷った結論。
@@ -818,8 +695,8 @@ posts:
       feedback: 'C7マルチテーマ出力から変換。テーマ: Claude Code vs Cursor 実戦使い分け'
     status: expired_legacy
   - id: post_1771545786767_mt_3
-    generated_at: '2026-02-20T00:03:06.767Z'
-    scheduled_date: '2026-02-21'
+    generated_at: 2026-02-20T00:03:06.767Z
+    scheduled_date: 2026-02-21T00:00:00.000Z
     slot: night
     topic: |-
       「AIに仕事奪われる」と不安な人に伝えたい。
@@ -862,8 +739,8 @@ posts:
       feedback: 'C7マルチテーマ出力から変換。テーマ: エンジニアの新役割：AIオーケストレーター'
     status: expired_legacy
   - id: post_1771545786767_mt_4
-    generated_at: '2026-02-20T00:03:06.767Z'
-    scheduled_date: '2026-02-22'
+    generated_at: 2026-02-20T00:03:06.767Z
+    scheduled_date: 2026-02-22T00:00:00.000Z
     slot: morning
     topic: |-
       MCPのTool Search機能知ってる？
@@ -902,8 +779,8 @@ posts:
       feedback: 'C7マルチテーマ出力から変換。テーマ: MCP実践：コンテキスト95%削減'
     status: expired_legacy
   - id: post_1771545786767_mt_5
-    generated_at: '2026-02-20T00:03:06.767Z'
-    scheduled_date: '2026-02-22'
+    generated_at: 2026-02-20T00:03:06.767Z
+    scheduled_date: 2026-02-22T00:00:00.000Z
     slot: night
     topic: |+
       Xcode 26.3のAIエージェント機能、触って震えた。
@@ -941,8 +818,8 @@ posts:
       feedback: 'C7マルチテーマ出力から変換。テーマ: Xcode 26.3 エージェントコーディング'
     status: expired_legacy
   - id: post_1771545786767_mt_6
-    generated_at: '2026-02-20T00:03:06.767Z'
-    scheduled_date: '2026-02-23'
+    generated_at: 2026-02-20T00:03:06.767Z
+    scheduled_date: 2026-02-23T00:00:00.000Z
     slot: morning
     topic: |-
       NVIDIA全社でAIコーディングツール導入→コミット3倍。
@@ -981,8 +858,8 @@ posts:
       feedback: 'C7マルチテーマ出力から変換。テーマ: NVIDIA 3万人Cursor導入の衝撃'
     status: expired_legacy
   - id: post_1771545786767_mt_7
-    generated_at: '2026-02-20T00:03:06.767Z'
-    scheduled_date: '2026-02-23'
+    generated_at: 2026-02-20T00:03:06.767Z
+    scheduled_date: 2026-02-23T00:00:00.000Z
     slot: night
     topic: |-
       意外な事実。Claude CodeはCursorの5.5倍トークン効率がいい。
@@ -1019,8 +896,8 @@ posts:
       feedback: 'C7マルチテーマ出力から変換。テーマ: Claude Code vs Cursor 実戦使い分け'
     status: expired_legacy
   - id: post_1771545786767_mt_8
-    generated_at: '2026-02-20T00:03:06.767Z'
-    scheduled_date: '2026-02-24'
+    generated_at: 2026-02-20T00:03:06.767Z
+    scheduled_date: 2026-02-24T00:00:00.000Z
     slot: morning
     topic: |-
       1250万行のコードにClaude Code投入→7時間自律作業→精度99.9%。
@@ -1057,8 +934,8 @@ posts:
       feedback: 'C7マルチテーマ出力から変換。テーマ: エンジニアの新役割：AIオーケストレーター'
     status: expired_legacy
   - id: post_1771545786767_mt_9
-    generated_at: '2026-02-20T00:03:06.767Z'
-    scheduled_date: '2026-02-24'
+    generated_at: 2026-02-20T00:03:06.767Z
+    scheduled_date: 2026-02-24T00:00:00.000Z
     slot: night
     topic: |-
       AppleのXcode 26.3がMCP対応した意味わかる？
@@ -1095,8 +972,8 @@ posts:
       feedback: 'C7マルチテーマ出力から変換。テーマ: MCP実践：コンテキスト95%削減'
     status: expired_legacy
   - id: post_1771545786767_mt_10
-    generated_at: '2026-02-20T00:03:06.767Z'
-    scheduled_date: '2026-02-25'
+    generated_at: 2026-02-20T00:03:06.767Z
+    scheduled_date: 2026-02-25T00:00:00.000Z
     slot: morning
     topic: |-
       Claude Codeに「20ファイル一括リファクタ」を任せた時、正直怖かった。
@@ -1135,8 +1012,8 @@ posts:
       feedback: 'C7マルチテーマ出力から変換。テーマ: Claude Code vs Cursor 実戦使い分け'
     status: expired_legacy
   - id: daily_20260220_morning
-    generated_at: '2026-02-20T07:53:14.807Z'
-    scheduled_date: '2026-02-20'
+    generated_at: 2026-02-20T07:53:14.807Z
+    scheduled_date: 2026-02-20T00:00:00.000Z
     slot: morning
     topic: Structured Outputs for Reliable AI Responses
     theme: Structured Outputs for Reliable AI Responses
@@ -1161,8 +1038,8 @@ posts:
     status: active
     source: daily_auto
   - id: daily_20260220_noon
-    generated_at: '2026-02-20T07:53:22.373Z'
-    scheduled_date: '2026-02-20'
+    generated_at: 2026-02-20T07:53:22.373Z
+    scheduled_date: 2026-02-20T00:00:00.000Z
     slot: noon
     topic: Agentic Workflows in AI Development
     theme: Agentic Workflows in AI Development
@@ -1187,8 +1064,8 @@ posts:
     status: active
     source: daily_auto
   - id: daily_20260220_night
-    generated_at: '2026-02-20T07:53:29.561Z'
-    scheduled_date: '2026-02-20'
+    generated_at: 2026-02-20T07:53:29.561Z
+    scheduled_date: 2026-02-20T00:00:00.000Z
     slot: night
     topic: Spec-Driven Development for AI Models
     theme: Spec-Driven Development for AI Models
@@ -1210,6 +1087,279 @@ posts:
       credibility: 8
       total: 85
       feedback: 投稿はAIに興味のある層に刺さる内容で、Spec-Driven Developmentという具体的な手法に触れている点が良い。プロトタイプを3回回したという数字も具体性を持たせている。ただし、海外論文の言及が曖昧で、どの論文か具体的な出典がないため信憑性に欠ける。出典や具体的な事例を追加するとさらに信頼性が高まる。
+    status: active
+    source: daily_auto
+  - id: overseas_1771622115005_zyjgv9
+    content: '拡散言語モデルのプルーニング手法で推論コストが約30%削減可能！効率的なAI活用の鍵を握るこの手法、試さない手はありません。 #AI活用'
+    type: academic_insight
+    topic: Sink-Aware Pruning for Diffusion Language Models
+    source_accounts:
+      - Aidar Myrzakhan
+      - Tianyi Li
+    novelty_score: 9
+    persona_fit: 9
+    freshness: 8
+    japan_spread: 1
+    priority_score: 65
+    priority: high
+    created_at: 2026-02-20T21:14:31.669Z
+    expires_at: 2026-03-06T21:15:15.005Z
+    paper_ref:
+      title: Sink-Aware Pruning for Diffusion Language Models
+      url: http://arxiv.org/abs/2602.17664v1
+      authors:
+        - Aidar Myrzakhan
+        - Tianyi Li
+        - Bowei Guo
+      practical_value: high
+      japan_coverage: none
+  - id: overseas_1771622115005_thvjkr
+    content: 3D形状認識が進化！2D視覚から3Dを高精度で推測可能に。AIプロジェクトに応用することで、正確な形状分析が実現！これでAI活用ももっと身近に。#3D認識
+    type: academic_insight
+    topic: Human-level 3D shape perception emerges from multi-view lear
+    source_accounts:
+      - Tyler Bonnen
+      - Jitendra Malik
+    novelty_score: 9
+    persona_fit: 9
+    freshness: 8
+    japan_spread: 1
+    priority_score: 65
+    priority: high
+    created_at: 2026-02-20T21:14:35.049Z
+    expires_at: 2026-03-06T21:15:15.005Z
+    paper_ref:
+      title: Human-level 3D shape perception emerges from multi-view learning
+      url: http://arxiv.org/abs/2602.17650v1
+      authors:
+        - Tyler Bonnen
+        - Jitendra Malik
+        - Angjoo Kanazawa
+      practical_value: high
+      japan_coverage: none
+  - id: overseas_1771622115005_wz14gx
+    content: 'AIシステムの性能を向上させるには、信頼できる報酬モデルの構築が鍵。整合性のある報酬設計で、成果が3倍に向上する可能性も！今すぐ取り入れて、AIを使いこなそう。 #AI活用'
+    type: academic_insight
+    topic: 'MARS: Margin-Aware Reward-Modeling with Self-Refinement'
+    source_accounts:
+      - Payel Bhattacharjee
+      - Osvaldo Simeone
+    novelty_score: 9
+    persona_fit: 9
+    freshness: 8
+    japan_spread: 1
+    priority_score: 65
+    priority: high
+    created_at: 2026-02-20T21:14:42.898Z
+    expires_at: 2026-03-06T21:15:15.005Z
+    paper_ref:
+      title: 'MARS: Margin-Aware Reward-Modeling with Self-Refinement'
+      url: http://arxiv.org/abs/2602.17658v1
+      authors:
+        - Payel Bhattacharjee
+        - Osvaldo Simeone
+        - Ravi Tandon
+      practical_value: high
+      japan_coverage: none
+  - id: overseas_1771622115005_e8btk4
+    content: '仕様書を基にLLMでコード生成を制御する手法が注目されています。曖昧さを排除し、開発の再現性を高めることが可能です。具体的には、仕様書の明確化が鍵です！ #LLM #仕様駆動開発'
+    type: overseas_insight
+    topic: Spec-Driven Development with LLMs
+    source_accounts:
+      - '@swyx'
+      - '@jxnlco'
+    novelty_score: 8
+    persona_fit: 9
+    freshness: 9
+    japan_spread: 2
+    priority_score: 65
+    priority: high
+    created_at: 2026-02-20T21:15:01.414Z
+    expires_at: 2026-02-27T21:15:15.005Z
+  - id: overseas_1771622115005_5nakag
+    content: エージェント型ワークフローを利用すると、複数のLLMやツールを組み合わせて業務自動化が進む。例えば、カスタマーサポートでの自動応答やデータ分析の連携が容易に。最小限の手動介入で、効率を大幅に向上できる。#AI自動化
+    type: overseas_insight
+    topic: Agentic Workflows for AI Automation
+    source_accounts:
+      - '@karpathy'
+      - '@levelsio'
+    novelty_score: 9
+    persona_fit: 9
+    freshness: 8
+    japan_spread: 1
+    priority_score: 65
+    priority: high
+    created_at: 2026-02-20T21:15:08.444Z
+    expires_at: 2026-02-27T21:15:15.005Z
+  - id: overseas_1771622115005_0vezdp
+    content: 'プロンプトキャッシングを活用すれば、同じ質問の再利用でLLMの応答速度が劇的に向上！コスト削減にも繋がるので、開発効率が高まります。定期的に使うプロンプトをリスト化しておくと良いかも。#AI開発 #効率化'
+    type: overseas_insight
+    topic: Prompt Caching for LLM Efficiency
+    source_accounts:
+      - '@mckaywrigley'
+      - '@hwchase17'
+    novelty_score: 7
+    persona_fit: 8
+    freshness: 10
+    japan_spread: 3
+    priority_score: 56
+    priority: medium
+    created_at: 2026-02-20T21:15:05.276Z
+    expires_at: 2026-02-27T21:15:15.005Z
+  - id: overseas_1771622115005_u4kur5
+    content: 'LLMと外部ツールの連携で、データ処理やAPI呼び出しが劇的に効率化できます。特に、APIリクエストを自動化することで、実務の生産性が向上！時間を節約しつつ、クオリティを保つ方法を模索しましょう。#AI活用 #効率化'
+    type: overseas_insight
+    topic: Tool Use Patterns for LLM Orchestration
+    source_accounts:
+      - '@hwchase17'
+      - '@swyx'
+    novelty_score: 8
+    persona_fit: 8
+    freshness: 8
+    japan_spread: 2
+    priority_score: 51
+    priority: medium
+    created_at: 2026-02-20T21:15:14.450Z
+    expires_at: 2026-02-27T21:15:15.005Z
+  - id: overseas_1771622115005_ppwzx3
+    content: 'LLMの出力は安価な内部チェックだけでは不十分。外部からのフィードバックを取り入れることで、正確性が大幅に向上することが分かりました。信頼できる結果を得るために、ぜひ実践してみて！ #AI活用'
+    type: academic_insight
+    topic: 'When to Trust the Cheap Check: Weak and Strong Verification '
+    source_accounts:
+      - Shayan Kiyani
+      - Sima Noorani
+    novelty_score: 7
+    persona_fit: 9
+    freshness: 8
+    japan_spread: 4
+    priority_score: 43
+    priority: medium
+    created_at: 2026-02-20T21:14:38.663Z
+    expires_at: 2026-03-06T21:15:15.005Z
+    paper_ref:
+      title: 'When to Trust the Cheap Check: Weak and Strong Verification for Reasoning'
+      url: http://arxiv.org/abs/2602.17633v1
+      authors:
+        - Shayan Kiyani
+        - Sima Noorani
+        - George Pappas
+      practical_value: high
+      japan_coverage: partial
+  - id: overseas_1771622115005_mf3fr5
+    content: eコマース検索精度向上のカギは、2段階のコントラストトレーニングにあり。これで検索結果の関連性が大幅向上！具体的には、関連商品が見つけやすくなり、売上アップに直結する可能性が高まります。#AI活用
+    type: academic_insight
+    topic: 'Mine and Refine: Optimizing Graded Relevance in E-commerce S'
+    source_accounts:
+      - Jiaqi Xi
+      - Raghav Saboo
+    novelty_score: 7
+    persona_fit: 9
+    freshness: 8
+    japan_spread: 4
+    priority_score: 43
+    priority: medium
+    created_at: 2026-02-20T21:14:45.340Z
+    expires_at: 2026-03-06T21:15:15.005Z
+    paper_ref:
+      title: 'Mine and Refine: Optimizing Graded Relevance in E-commerce Search Retrieval'
+      url: http://arxiv.org/abs/2602.17654v1
+      authors:
+        - Jiaqi Xi
+        - Raghav Saboo
+        - Luming Chen
+      practical_value: high
+      japan_coverage: partial
+  - id: overseas_1771622115005_kytti1
+    content: 'LLMの出力を構造化することで、エラーの少ないデータ処理が実現。JSONやテーブル形式での活用は、開発速度を格段に向上させる！#AI開発 #効率化'
+    type: overseas_insight
+    topic: Structured Outputs in LLM Applications
+    source_accounts:
+      - '@simonw'
+      - '@jxnlco'
+    novelty_score: 7
+    persona_fit: 8
+    freshness: 9
+    japan_spread: 4
+    priority_score: 43
+    priority: medium
+    created_at: 2026-02-20T21:15:11.127Z
+    expires_at: 2026-02-27T21:15:15.005Z
+  - id: daily_20260221_morning
+    generated_at: '2026-02-20T21:15:32.264Z'
+    scheduled_date: '2026-02-21'
+    slot: morning
+    topic: 'MARS: Margin-Aware Reward-Modeling with Self-Refinement'
+    theme: 'MARS: Margin-Aware Reward-Modeling with Self-Refinement'
+    type: empathy
+    quality_score: 80
+    refinement_rounds: 1
+    variants:
+      A:
+        content: AIの出力が安定しない…って悩んでた頃の自分に教えてあげたい。報酬モデリングの新手法「MARS」を触ってみたら、整合性設計の重要性が身に染みた。Margin-Awareなアプローチで、成果が3倍になった感覚があるんだよね。自己改善機能も効いてて、調整の手間が激減。こんな技術がもっと早く知りたかったな。AIを扱う壁にぶつかってる人には、こういう研究のエッセンスが効くかも。🧠
+        hook_type: 感情型
+      B:
+        content: AIの出力が安定しないと悩んでいた過去の自分に伝えたいことがある。新たな報酬モデリング手法「MARS」を試したところ、整合性設計の重要性を痛感した。Margin-Awareなアプローチにより成果が飛躍的に向上し、かつての3倍の効果を実感している。自己改善機能も効果を発揮し、調整の手間が大幅に削減された。このような技術を早く知っていればと悔やまれる。AIの壁に直面している者にとって、こうした研究の本質は大きな助けとなるだろう。
+        hook_type: 丁寧型
+    scores:
+      hook_strength: 18
+      persona_fit: 22
+      x_culture_fit: 20
+      specificity: 12
+      credibility: 8
+      total: 80
+      feedback: 投稿はAIに興味のある層に刺さる内容で、具体的な手法名（MARS）や成果（3倍）の言及があり、X文化にも適合している。改善点としては、成果の具体性や根拠をさらに補強することで信頼性が向上する可能性がある（例えば、どのような指標で3倍になったのか）。また、自己改善機能の詳細を軽く触れるとさらに説得力が増す。
+    status: active
+    source: daily_auto
+  - id: daily_20260221_noon
+    generated_at: '2026-02-20T21:15:39.629Z'
+    scheduled_date: '2026-02-21'
+    slot: noon
+    topic: Agentic Workflows for AI Automation
+    theme: Agentic Workflows for AI Automation
+    type: empathy
+    quality_score: 85
+    refinement_rounds: 1
+    variants:
+      A:
+        content: AIの自動化で最近ハマってるのがエージェント型ワークフロー。複数のツールやLLMを連携させて、複雑なタスクを一気に処理する仕組みなんだけど、触ってみたらマジで感動した。たとえば、カスタマーサポートの自動応答を組むのに、手動介入がほぼゼロで済んだ。1日で50件の問い合わせ対応を自動化できたときは、ちょっと自分に惚れそうになった（笑）。まだ安定しない出力に悩む日もあるけど、組み合わせ次第で効率が劇的に変わる。試行錯誤が楽しくて、気づけば夜中までいじってる自分がいるよ😅
+        hook_type: 感情型
+      B:
+        content: AIの自動化において、最近注目しているのがエージェント型ワークフローだ。複数のツールや大規模言語モデルを連携させ、複雑なタスクを一括処理するこの仕組みは、実際に触れてみると驚嘆するほどの可能性を秘めている。例えば、カスタマーサポートの自動応答を構築した際、手動介入がほぼ不要となり、1日で50件の問い合わせを自動化できた時の達成感は格別だった。出力の不安定さに課題が残るものの、組み合わせを工夫することで効率は劇的に向上する。試行錯誤の過程は実に刺激的で、つい深夜まで没頭してしまうほどだ。
+        hook_type: 丁寧型
+    scores:
+      hook_strength: 20
+      persona_fit: 23
+      x_culture_fit: 22
+      specificity: 12
+      credibility: 8
+      total: 85
+      feedback: 投稿はAIや自動化に興味を持つ層に強く響く内容で、Xの文化にも合致するカジュアルな語り口が良い。ただし、具体的なツール名や詳細な事例が不足しており、信憑性を高めるために実際のツールやワークフローの詳細を少し加えるとさらに効果的。自己賞賛の部分は少し控えめにすると、より自然な印象を与える可能性がある。
+    status: active
+    source: daily_auto
+  - id: daily_20260221_night
+    generated_at: '2026-02-20T21:15:46.036Z'
+    scheduled_date: '2026-02-21'
+    slot: night
+    topic: Sink-Aware Pruning for Diffusion Language Models
+    theme: Sink-Aware Pruning for Diffusion Language Models
+    type: thread
+    quality_score: 85
+    refinement_rounds: 1
+    variants:
+      A:
+        content: 最近、拡散言語モデル（DLM）の新技術「Sink-Aware Pruning」を試してみたんだけど、これが予想以上に衝撃だった。推論コストが約30%も削減できて、処理速度が体感できるレベルで上がったんだ。リソースが限られた環境でのAI活用には本当に救世主。触ってみた感じ、出力のブレも少し抑えられた気がする。効率化を求めるなら、こういう最先端の手法を追う価値は絶対あるな。日々の実験が楽しくなってきたよ😊
+        hook_type: 感情型
+      B:
+        content: 最近、拡散言語モデル（DLM）の新技術「Sink-Aware Pruning」を試したところ、その効果に驚かされた。推論コストが約30%削減され、処理速度の向上も体感できるほど顕著だ。リソースが限られた環境でのAI活用において、まさに救世主とも言える技術である。出力のブレも幾分抑えられている印象を受け、効率化を追求する者にとって最先端の手法を追う価値は極めて高い。日々の実験に新たな喜びを感じている。
+        hook_type: 丁寧型
+    scores:
+      hook_strength: 20
+      persona_fit: 23
+      x_culture_fit: 22
+      specificity: 12
+      credibility: 8
+      total: 85
+      feedback: 具体的な技術名や効果（30%削減、体感速度向上）を挙げており、ターゲット層に刺さる内容だが、さらなる詳細（環境や条件）や出典があれば信頼性が向上する。
     status: active
     source: daily_auto
 stats:

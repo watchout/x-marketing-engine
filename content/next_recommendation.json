@@ -1,102 +1,102 @@
 {
-  "generated_at": "2026-02-20T12:51:10.261Z",
+  "generated_at": "2026-02-20T21:12:31.930Z",
   "based_on": {
     "total_analyzed": 71,
     "avg_xas": 21.53
   },
   "recommended": {
-    "theme": "一般",
+    "theme": "AI開発の品質",
     "approach": "thread",
     "text_features": {
       "length": "medium",
       "emoji": "many",
-      "hook": "data",
+      "hook": "neutral",
       "sentiment": "neutral"
     }
   },
   "theme_ranking": [
     {
+      "name": "AI開発の品質",
+      "sample": 0.101,
+      "mean": 0.033,
+      "trials": 8
+    },
+    {
       "name": "一般",
-      "sample": 0.057,
+      "sample": 0.074,
       "mean": 0.08,
-      "trials": 301
+      "trials": 344
     },
     {
       "name": "Cursor活用",
-      "sample": 0.056,
-      "mean": 0.064,
-      "trials": 35
+      "sample": 0.054,
+      "mean": 0.063,
+      "trials": 40
     },
     {
       "name": "バイブコーディングの限界",
-      "sample": 0.041,
-      "mean": 0.032,
-      "trials": 154
-    },
-    {
-      "name": "AI開発の品質",
-      "sample": 0,
-      "mean": 0.038,
-      "trials": 7
+      "sample": 0.023,
+      "mean": 0.031,
+      "trials": 176
     }
   ],
   "approach_ranking": [
     {
       "name": "thread",
-      "sample": 0.264,
+      "sample": 0.265,
       "mean": 0.192,
-      "trials": 77
-    },
-    {
-      "name": "problem_statement",
-      "sample": 0.071,
-      "mean": 0.056,
-      "trials": 77
-    },
-    {
-      "name": "tips",
-      "sample": 0.058,
-      "mean": 0.02,
-      "trials": 14
-    },
-    {
-      "name": "unknown",
-      "sample": 0.02,
-      "mean": 0.037,
-      "trials": 322
+      "trials": 88
     },
     {
       "name": "discovery",
-      "sample": 0.009,
-      "mean": 0.042,
-      "trials": 7
+      "sample": 0.082,
+      "mean": 0.038,
+      "trials": 8
+    },
+    {
+      "name": "problem_statement",
+      "sample": 0.056,
+      "mean": 0.056,
+      "trials": 88
+    },
+    {
+      "name": "unknown",
+      "sample": 0.047,
+      "mean": 0.037,
+      "trials": 368
+    },
+    {
+      "name": "tips",
+      "sample": 0.028,
+      "mean": 0.018,
+      "trials": 16
     }
   ],
   "slot_ranking": [
     {
       "name": "morning",
       "mean": 0.077,
-      "trials": 252
+      "trials": 288
     },
     {
       "name": "night",
-      "mean": 0.074,
-      "trials": 49
+      "mean": 0.073,
+      "trials": 56
     },
     {
       "name": "noon",
       "mean": 0.047,
-      "trials": 140
+      "trials": 160
     },
     {
       "name": "mid_morning",
-      "mean": 0.046,
-      "trials": 42
+      "mean": 0.045,
+      "trials": 48
     },
     {
       "name": "evening",
-      "mean": 0.02,
-      "trials": 14
+      "mean": 0.018,
+      "trials": 16
     }
   ],
   "accumulated_learnings": [
