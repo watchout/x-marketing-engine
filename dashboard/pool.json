@@ -28,7 +28,7 @@
   },
   {
     "id": "daily_20260221_morning",
-    "scheduled_date": "2026-02-21",
+    "scheduled_date": "2026-02-21T00:00:00.000Z",
     "slot": "morning",
     "theme": "MARS: Margin-Aware Reward-Modeling with Self-Refinement",
     "type": "empathy",
@@ -37,7 +37,7 @@
   },
   {
     "id": "daily_20260221_noon",
-    "scheduled_date": "2026-02-21",
+    "scheduled_date": "2026-02-21T00:00:00.000Z",
     "slot": "noon",
     "theme": "Agentic Workflows for AI Automation",
     "type": "empathy",
@@ -46,11 +46,38 @@
   },
   {
     "id": "daily_20260221_night",
-    "scheduled_date": "2026-02-21",
+    "scheduled_date": "2026-02-21T00:00:00.000Z",
     "slot": "night",
     "theme": "Sink-Aware Pruning for Diffusion Language Models",
     "type": "thread",
     "variant_a": "最近、拡散言語モデル（DLM）の新技術「Sink-Aware Pruning」を試してみたんだけど、これが予想以上に衝撃だった。推論コストが約30%も削減できて、処理速度が体感できるレベルで上がったんだ。リソースが限られた環境でのAI活用には本当に救世主。触ってみた感じ、出力のブレも少し抑えられた気がする。効率化を求めるなら、こういう最先端の手法を追う価値は絶対あるな。日々の実験が楽しくなってきたよ😊",
     "variant_b": "最近、拡散言語モデル（DLM）の新技術「Sink-Aware Pruning」を試したところ、その効果に驚かされた。推論コストが約30%削減され、処理速度の向上も体感できるほど顕著だ。リソースが限られた環境でのAI活用において、まさに救世主とも言える技術である。出力のブレも幾分抑えられている印象を受け、効率化を追求する者にとって最先端の手法を追う価値は極めて高い。日々の実験に新たな喜びを感じている。"
+  },
+  {
+    "id": "daily_20260222_morning",
+    "scheduled_date": "2026-02-22",
+    "slot": "morning",
+    "theme": "OpenEarthAgent: A Unified Framework for Tool-Augmented Geosp",
+    "type": "solution",
+    "variant_a": "え、リモートセンシングでAIが空間推論を85%精度でこなす時代が来てる？  \nOpenEarthAgentというフレームワークが海外で話題沸騰中。マルチモーダル推論を活用し、画像解釈や構造分析を一手に担うツールだ。地図データや衛星画像の業務活用が一気に進む可能性が。  \nこの技術、現場の課題をどう変えると思う？気になる点があれば教えてほしい。",
+    "variant_b": "リモートセンシングの分野で、AIが空間推論を85%の精度で実現する時代が到来している。OpenEarthAgentというフレームワークが海外で大きな注目を集めており、マルチモーダル推論を駆使して画像解釈や構造分析を一括して行う。地図データや衛星画像の業務活用が飛躍的に進む可能性がある。この技術が現場の課題にどのような変革をもたらすか、意見や懸念があればぜひ聞きたいと思う。"
+  },
+  {
+    "id": "daily_20260222_noon",
+    "scheduled_date": "2026-02-22",
+    "slot": "noon",
+    "theme": "When to Trust the Cheap Check: Weak and Strong Verification ",
+    "type": "warning",
+    "variant_a": "AIの出力が不安定で信頼できない？実は「弱い検証」と「強い検証」のループがカギを握っている。弱い検証で素早く結果を確認し、強い検証で精度を高める手法が海外で注目され、信頼性が50%以上向上した事例も報告されている。このサイクルを取り入れることで、出力のブレを抑え、実務での活用度が格段に上がるのではないか。日常のAI活用において、どのタイミングで強い検証を入れるのが効果的か、気になるところだ。🧠",
+    "variant_b": "AIの出力が不安定で信頼性に欠けるという懸念があるが、実は「弱い検証」と「強い検証」の反復が解決の鍵となる。弱い検証で迅速に結果を確認し、強い検証で精度を追求するこの手法は海外で注目を集め、信頼性が50%以上向上した事例も報告されている。このサイクルを導入すれば、出力のばらつきを抑え、実務での有用性が飛躍的に高まるだろう。日常的なAI活用において、どの時点で強い検証を行うのが最も効果的なのか、深く考える価値がある問題だ。"
+  },
+  {
+    "id": "daily_20260222_night",
+    "scheduled_date": "2026-02-22",
+    "slot": "night",
+    "theme": "MARS: Margin-Aware Reward-Modeling with Self-Refinement",
+    "type": "warning",
+    "variant_a": "報酬モデルのトレーニング、コストが高すぎて悩んでいませんか？放置するとAIプロジェクトが破綻するリスクも。MARS（Margin-Aware Reward-Modeling with Self-Refinement）が今、注目されています。この手法は効率的なトレーニングを実現し、RLHFやRLAIFの強化学習を強化。コストを最大50%削減し、精度を20%向上させる可能性が報告されています。AIの活用で効率化が急務な今、こうした新しいアプローチがどれだけ実務に影響を与えるのか、気になるところです。🧠",
+    "variant_b": "報酬モデルのトレーニングにおける高コストに頭を悩ませている方も多いだろう。放置すればAIプロジェクトの破綻リスクすら生じる。こうした中、MARS（Margin-Aware Reward-Modeling with Self-Refinement）が注目を集めている。この手法は効率的なトレーニングを可能にし、RLHFやRLAIFの強化学習を強化する。コストを最大50%削減し、精度を20%向上させる可能性も報告されている。AI活用による効率化が急務とされる今、この新アプローチが実務に与える影響は見逃せない。"
   }
 ]
