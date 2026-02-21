@@ -1,5 +1,16 @@
 [
   {
+    "id": "hist_1771677508423",
+    "post_id": "daily_20260221_night",
+    "variant": "B",
+    "content": "最近、拡散言語モデル（DLM）の新技術「Sink-Aware Pruning」を試したところ、その効果に驚かされた。推論コストが約30%削減され、処理速度の向上も体感できるほど顕著だ。リソースが限られた環境でのAI活用において、まさに救世主とも言える技術である。出力のブレも幾分抑えられている印象を受け、効率化を追求する者にとって最先端の手法を追う価値は極めて高い。日々の実験に新たな喜びを感じている。",
+    "tweet_id": "2025188370276909197",
+    "posted_at": "2026-02-21T12:38:28.423Z",
+    "slot": "night",
+    "theme": "Sink-Aware Pruning for Diffusion Language Models",
+    "type": "thread"
+  },
+  {
     "id": "hist_1771649041026",
     "post_id": "daily_20260221_noon",
     "variant": "A",
