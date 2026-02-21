@@ -164,6 +164,13 @@ jobs:
           npx ts-node scripts/daily_generate.ts || true
         continue-on-error: true
 
+      # ===== リプライ提案（対話による認知拡大）=====
+      - name: Suggest replies to influencers
+        run: |
+          echo "💬 インフルエンサーへのリプライ提案..."
+          npx ts-node scripts/suggest_replies.ts || true
+        continue-on-error: true
+
       - name: Check pool status and notify
         run: |
           POOL_COUNT=$(cat content/ab_test_pool.yml 2>/dev/null | grep -c "status: active" || echo "0")

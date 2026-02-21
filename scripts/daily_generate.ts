@@ -80,6 +80,8 @@ const KNOWN_TOOLS = new Set([
   'Agent', 'Agentic', 'Tool Use', 'Function Calling',
   'Transformer', 'Attention', 'Embedding',
   'Orchestration', 'Pipeline', 'Workflow', 'Framework',
+  'Pandas', 'NumPy', 'TensorFlow', 'PyTorch', 'Keras', 'scikit-learn',
+  'Spec-Driven', 'Spec-Driven Development', 'Test-Driven', 'Domain-Driven',
 ]);
 
 // ===== 型定義 =====
@@ -548,21 +550,48 @@ async function generatePost(
     tips: 'Tips型。「これ試してみて」実践的なテクニックを共有',
   };
 
-  const prompt = `あなたはAIトレンドに詳しいXインフルエンサーです。
-フォロワー24人のアカウントが成長するための投稿を作成してください。
+  // スロットごとの投稿目的（拡散/信頼/導線の3層構造）
+  const slotPurpose: Record<string, string> = {
+    morning: `【この投稿の目的：拡散（インプ獲得）】
+スクロールを止める強いフックから始めること。
+読者が「お？」「マジ？」と感じて保存・引用したくなる内容にする。
+最後に問いかけや意見を入れて、コメントが生まれるようにする。
+例：「〜で困ってない？」「あなたの現場だとどう？」`,
+
+    noon: `【この投稿の目的：信頼構築（実力証明）】
+実務ノウハウ・失敗談・設計判断を具体的に語ること。
+「この人は本当にわかってる」と思わせる実務の深みを出す。
+抽象論ではなく、具体的なツール名・数字・手順を含める。
+例：「〜を導入した結果、〜が〜%改善した」`,
+
+    night: `【この投稿の目的：思想・共感（ファン化）】
+技術の本質や自分の判断軸を語ること。
+「なぜそう考えるのか」「何を大事にしているか」を伝える。
+読者が「この人の考え方が好き」と感じる投稿にする。
+例：「〜という考え方が好きだ」「〜は本質的に〜だと思う」`,
+  };
+
+  const prompt = `あなたはAI開発の実務経験が豊富なXインフルエンサーです。
+企業のAI開発支援とSSOT×AI開発自動化を専門にしています。
 
 【テーマ】${theme.name}
 ${insightContext}
 【ペルソナ】
 ${persona}
 
+${slotPurpose[slot] || slotPurpose.morning}
+
 【アプローチ】${approach}: ${approachGuide[approach] || approachGuide.discovery}
 
 ${learningsText}
 
+【投稿の構造（この順番で書くこと）】
+1. フック（最初の1文で読者のスクロールを止める）
+2. 具体（体験・数字・事例で中身を語る）
+3. 反応導線（読者に考えさせる問いかけや気づきで締める）
+
 【最重要ルール：文字数】
 投稿は必ず200文字以上280文字以下にしてください。
-短すぎると情報不足、長すぎるとスクロールされます。
 X Premium対応のため、旧来の140文字制限は撤廃されています。
 200-280文字の範囲で、深みのある内容を書いてください。
 
