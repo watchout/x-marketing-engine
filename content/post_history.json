@@ -1,5 +1,16 @@
 [
   {
+    "id": "hist_1771715768098",
+    "post_id": "daily_20260222_morning",
+    "variant": "A",
+    "content": "え、リモートセンシングでAIが空間推論を85%精度でこなす時代が来てる？  \nOpenEarthAgentというフレームワークが海外で話題沸騰中。マルチモーダル推論を活用し、画像解釈や構造分析を一手に担うツールだ。地図データや衛星画像の業務活用が一気に進む可能性が。  \nこの技術、現場の課題をどう変えると思う？気になる点があれば教えてほしい。",
+    "tweet_id": "2025348842976170105",
+    "posted_at": "2026-02-21T23:16:08.098Z",
+    "slot": "morning",
+    "theme": "OpenEarthAgent: A Unified Framework for Tool-Augmented Geosp",
+    "type": "solution"
+  },
+  {
     "id": "hist_1771677508423",
     "post_id": "daily_20260221_night",
     "variant": "B",
