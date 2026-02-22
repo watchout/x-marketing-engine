@@ -1,5 +1,16 @@
 [
   {
+    "id": "hist_1771764019875",
+    "post_id": "daily_20260222_night",
+    "variant": "B",
+    "content": "報酬モデルのトレーニングにおける高コストに頭を悩ませている方も多いだろう。放置すればAIプロジェクトの破綻リスクすら生じる。こうした中、MARS（Margin-Aware Reward-Modeling with Self-Refinement）が注目を集めている。この手法は効率的なトレーニングを可能にし、RLHFやRLAIFの強化学習を強化する。コストを最大50%削減し、精度を20%向上させる可能性も報告されている。AI活用による効率化が急務とされる今、この新アプローチが実務に与える影響は見逃せない。",
+    "tweet_id": "2025551225488290292",
+    "posted_at": "2026-02-22T12:40:19.875Z",
+    "slot": "night",
+    "theme": "MARS: Margin-Aware Reward-Modeling with Self-Refinement",
+    "type": "warning"
+  },
+  {
     "id": "hist_1771736247404",
     "post_id": "daily_20260222_noon",
     "variant": "B",
