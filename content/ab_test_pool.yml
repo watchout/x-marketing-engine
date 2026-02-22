@@ -1483,8 +1483,8 @@ posts:
     created_at: 2026-02-21T21:12:40.620Z
     expires_at: 2026-02-28T21:12:41.181Z
   - id: daily_20260222_morning
-    generated_at: '2026-02-21T21:12:52.229Z'
-    scheduled_date: '2026-02-22'
+    generated_at: 2026-02-21T21:12:52.229Z
+    scheduled_date: 2026-02-22T00:00:00.000Z
     slot: morning
     topic: 'OpenEarthAgent: A Unified Framework for Tool-Augmented Geosp'
     theme: 'OpenEarthAgent: A Unified Framework for Tool-Augmented Geosp'
@@ -1512,8 +1512,8 @@ posts:
     status: active
     source: daily_auto
   - id: daily_20260222_noon
-    generated_at: '2026-02-21T21:12:58.486Z'
-    scheduled_date: '2026-02-22'
+    generated_at: 2026-02-21T21:12:58.486Z
+    scheduled_date: 2026-02-22T00:00:00.000Z
     slot: noon
     topic: 'When to Trust the Cheap Check: Weak and Strong Verification '
     theme: 'When to Trust the Cheap Check: Weak and Strong Verification '
@@ -1538,8 +1538,8 @@ posts:
     status: active
     source: daily_auto
   - id: daily_20260222_night
-    generated_at: '2026-02-21T21:13:04.846Z'
-    scheduled_date: '2026-02-22'
+    generated_at: 2026-02-21T21:13:04.846Z
+    scheduled_date: 2026-02-22T00:00:00.000Z
     slot: night
     topic: 'MARS: Margin-Aware Reward-Modeling with Self-Refinement'
     theme: 'MARS: Margin-Aware Reward-Modeling with Self-Refinement'
@@ -1561,6 +1561,279 @@ posts:
       credibility: 8
       total: 80
       feedback: フックは問題提起で関心を引きつけるが、やや一般的に感じる可能性がある。具体的な手法名（MARS）や数字（コスト50%削減、精度20%向上）は評価できるが、データの出典や事例がなく信頼性に欠ける。X文化には合っているが、売り込み感をさらに抑えるとより自然に。
+    status: active
+    source: daily_auto
+  - id: overseas_1771794948343_dccbiv
+    content: 画像解釈と地理空間データの統合が進化中！新しいツールを使えば、分析の精度が50%向上する可能性あり。AIを味方にしよう！
+    type: academic_insight
+    topic: 'OpenEarthAgent: A Unified Framework for Tool-Augmented Geosp'
+    source_accounts:
+      - Akashah Shabbir
+      - Muhammad Umer Sheikh
+    novelty_score: 9
+    persona_fit: 9
+    freshness: 8
+    japan_spread: 1
+    priority_score: 65
+    priority: high
+    created_at: 2026-02-22T21:15:09.985Z
+    expires_at: 2026-03-08T21:15:48.343Z
+    paper_ref:
+      title: 'OpenEarthAgent: A Unified Framework for Tool-Augmented Geospatial Agents'
+      url: http://arxiv.org/abs/2602.17665v1
+      authors:
+        - Akashah Shabbir
+        - Muhammad Umer Sheikh
+        - Muhammad Akhtar Munir
+      practical_value: high
+      japan_coverage: none
+  - id: overseas_1771794948343_cr7xuc
+    content: 拡散言語モデルの効率化が可能に。推論コストを最大50%削減できる手法を活用すれば、AIをもっと身近に！少しの工夫で今すぐ使いこなせる！
+    type: academic_insight
+    topic: Sink-Aware Pruning for Diffusion Language Models
+    source_accounts:
+      - Aidar Myrzakhan
+      - Tianyi Li
+    novelty_score: 9
+    persona_fit: 9
+    freshness: 8
+    japan_spread: 1
+    priority_score: 65
+    priority: high
+    created_at: 2026-02-22T21:15:12.214Z
+    expires_at: 2026-03-08T21:15:48.343Z
+    paper_ref:
+      title: Sink-Aware Pruning for Diffusion Language Models
+      url: http://arxiv.org/abs/2602.17664v1
+      authors:
+        - Aidar Myrzakhan
+        - Tianyi Li
+        - Bowei Guo
+      practical_value: high
+      japan_coverage: none
+  - id: overseas_1771794948343_n904eb
+    content: 3D物体認識が進化！多視点学習により、画像から立体構造を高精度に把握できるように。AIの形状認識、今こそ実装のチャンス！
+    type: academic_insight
+    topic: Human-level 3D shape perception emerges from multi-view lear
+    source_accounts:
+      - Tyler Bonnen
+      - Jitendra Malik
+    novelty_score: 9
+    persona_fit: 9
+    freshness: 8
+    japan_spread: 1
+    priority_score: 65
+    priority: high
+    created_at: 2026-02-22T21:15:14.650Z
+    expires_at: 2026-03-08T21:15:48.343Z
+    paper_ref:
+      title: Human-level 3D shape perception emerges from multi-view learning
+      url: http://arxiv.org/abs/2602.17650v1
+      authors:
+        - Tyler Bonnen
+        - Jitendra Malik
+        - Angjoo Kanazawa
+      practical_value: high
+      japan_coverage: none
+  - id: overseas_1771794948343_im0zht
+    content: 最新の検証で、言語識別が多言語AIモデルの精度向上に不可欠だと判明。正確な言語処理を実現し、データ分析がスムーズに！これでAIの使い方が変わるかも。#AI活用
+    type: academic_insight
+    topic: What Language is This? Ask Your Tokenizer
+    source_accounts:
+      - Clara Meister
+      - Ahmetcan Yavuz
+    novelty_score: 9
+    persona_fit: 9
+    freshness: 8
+    japan_spread: 1
+    priority_score: 65
+    priority: high
+    created_at: 2026-02-22T21:15:20.562Z
+    expires_at: 2026-03-08T21:15:48.343Z
+    paper_ref:
+      title: What Language is This? Ask Your Tokenizer
+      url: http://arxiv.org/abs/2602.17655v1
+      authors:
+        - Clara Meister
+        - Ahmetcan Yavuz
+        - Pietro Lesci
+      practical_value: high
+      japan_coverage: none
+  - id: overseas_1771794948343_m256kk
+    content: '仕様書に基づくLLM活用法。曖昧さを排除し、高品質なAI出力を得るために、具体的な要件を提供することがカギ。明確な仕様が再現性を向上させる！ #AI開発 #仕様駆動開発'
+    type: overseas_insight
+    topic: Spec-Driven Development with LLMs
+    source_accounts:
+      - '@swyx'
+      - '@jxnlco'
+    novelty_score: 8
+    persona_fit: 9
+    freshness: 9
+    japan_spread: 2
+    priority_score: 65
+    priority: high
+    created_at: 2026-02-22T21:15:36.328Z
+    expires_at: 2026-03-01T21:15:48.343Z
+  - id: overseas_1771794948343_3am6sp
+    content: 'AI開発にエージェント的ワークフローを導入すると、タスクの自動分割が可能に。例えば、データ前処理をエージェントに任せることで、開発の効率が劇的に向上します。開発者は戦略的なタスクに集中できます！ #AI開発 #効率化'
+    type: overseas_insight
+    topic: Agentic Workflows for AI-First Development
+    source_accounts:
+      - '@karpathy'
+      - '@levelsio'
+    novelty_score: 9
+    persona_fit: 9
+    freshness: 8
+    japan_spread: 1
+    priority_score: 65
+    priority: high
+    created_at: 2026-02-22T21:15:42.398Z
+    expires_at: 2026-03-01T21:15:48.343Z
+  - id: overseas_1771794948343_scvuwo
+    content: 'ツール使用時にLLMの出力をJSON形式などで構造化することで、アプリ統合の信頼性が格段に向上します。特にエラーハンドリングやデータ処理が容易になり、開発がスムーズに。ぜひ取り入れてみて！#AI開発 #ツール活用'
+    type: overseas_insight
+    topic: Structured Outputs in Tool Use Patterns
+    source_accounts:
+      - '@simonw'
+      - '@jxnlco'
+    novelty_score: 8
+    persona_fit: 8
+    freshness: 9
+    japan_spread: 2
+    priority_score: 58
+    priority: medium
+    created_at: 2026-02-22T21:15:45.129Z
+    expires_at: 2026-03-01T21:15:48.343Z
+  - id: overseas_1771794948343_n1ye9m
+    content: 'プロンプトキャッシングを活用すれば、同じリクエストの再計算を防げます。これにより、開発の効率が飛躍的に向上し、コスト削減にもつながります。まずはキャッシュの仕組みを実装してみては？ #AI開発 #効率化'
+    type: overseas_insight
+    topic: Prompt Caching for LLM Orchestration
+    source_accounts:
+      - '@mckaywrigley'
+      - '@hwchase17'
+    novelty_score: 7
+    persona_fit: 8
+    freshness: 10
+    japan_spread: 3
+    priority_score: 56
+    priority: medium
+    created_at: 2026-02-22T21:15:39.532Z
+    expires_at: 2026-03-01T21:15:48.343Z
+  - id: overseas_1771794948343_pzbg58
+    content: 'エージェントメモリを使うことで、複雑なAIタスクでも文脈を保持し、一貫した結果を得られます。特に長期プロジェクトでの応用が期待される！メモリの適切な管理が成功のカギ。#AIDevelopment #エージェントメモリ'
+    type: overseas_insight
+    topic: Agent Memory in Multi-Step AI Tasks
+    source_accounts:
+      - '@hwchase17'
+      - '@swyx'
+    novelty_score: 7
+    persona_fit: 8
+    freshness: 8
+    japan_spread: 3
+    priority_score: 45
+    priority: medium
+    created_at: 2026-02-22T21:15:47.772Z
+    expires_at: 2026-03-01T21:15:48.343Z
+  - id: overseas_1771794948344_oopel5
+    content: LLMの出力の信頼性を高めるには、内部の弱い検証と外部の強い検証を組み合わせることが重要。これで精度が70%から90%に向上！手法を取り入れて焦りを解消しよう。#AI活用
+    type: academic_insight
+    topic: 'When to Trust the Cheap Check: Weak and Strong Verification '
+    source_accounts:
+      - Shayan Kiyani
+      - Sima Noorani
+    novelty_score: 7
+    persona_fit: 9
+    freshness: 8
+    japan_spread: 4
+    priority_score: 43
+    priority: medium
+    created_at: 2026-02-22T21:15:17.293Z
+    expires_at: 2026-03-08T21:15:48.344Z
+    paper_ref:
+      title: 'When to Trust the Cheap Check: Weak and Strong Verification for Reasoning'
+      url: http://arxiv.org/abs/2602.17633v1
+      authors:
+        - Shayan Kiyani
+        - Sima Noorani
+        - George Pappas
+      practical_value: high
+      japan_coverage: partial
+  - id: daily_20260223_morning
+    generated_at: '2026-02-22T21:16:00.974Z'
+    scheduled_date: '2026-02-23'
+    slot: morning
+    topic: Spec-Driven Development with LLMs
+    theme: Spec-Driven Development with LLMs
+    type: empathy
+    quality_score: 81
+    refinement_rounds: 1
+    variants:
+      A:
+        content: AIの出力が毎回バラバラで困ったことない？実は「Spec-Driven Development with LLMs」という手法が海外で注目されている。仕様書を基に明確な要件をAIに与えることで、曖昧さを排除し再現性を高めるアプローチだ。具体的には、細かい仕様をプロンプトに落とし込むことで、安定した高品質な結果が期待できる。日本の現場でも、要件定義をしっかり固めることでAI活用の壁を突破できるんじゃないだろうか。あなたのプロジェクトでは、プロンプトの曖昧さにどう対処してる？🧐
+        hook_type: 感情型
+      B:
+        content: AIの出力が一貫せず、悩まされた経験はないだろうか。海外で注目を集める「Spec-Driven Development with LLMs」という手法がある。仕様書に基づき、明確な要件をAIに提示することで曖昧さを排し、再現性を高めるものだ。具体的には、詳細な仕様をプロンプトに反映させ、安定した高品質な結果を導き出す。日本でも要件定義を徹底すれば、AI活用の障壁を乗り越えられるだろう。あなたのプロジェクトでは、プロンプトの曖昧さに対し、どのような対策を講じているのか。興味深いテーマだ。
+        hook_type: 丁寧型
+    scores:
+      hook_strength: 20
+      persona_fit: 22
+      x_culture_fit: 23
+      specificity: 8
+      credibility: 8
+      total: 81
+      feedback: フックとして問題提起が効果的で、AIに関心のある層に響く内容。X文化にも適合し、売り込み臭がなく自然な問いかけがある。ただし、具体的な事例やツール名がなく、方法論の詳細が薄いため、具体性がやや不足。信憑性は高いが、参照元や実例があればさらに信頼度が上がる。
+    status: active
+    source: daily_auto
+  - id: daily_20260223_noon
+    generated_at: '2026-02-22T21:16:07.783Z'
+    scheduled_date: '2026-02-23'
+    slot: noon
+    topic: Sink-Aware Pruning for Diffusion Language Models
+    theme: Sink-Aware Pruning for Diffusion Language Models
+    type: empathy
+    quality_score: 78
+    refinement_rounds: 1
+    variants:
+      A:
+        content: 拡散言語モデルの推論コストがネックだと感じたこと、ありませんか？Sink-Aware Pruningという手法が海外で注目されています。この手法では、モデルの効率化を図り、推論コストを最大50%削減できると報告されています。論文では、モデル内の不要な部分を戦略的に削減するアプローチが詳細に解説されています。こうした技術が進展すれば、リソースが限られた環境でも高性能なAIを活用する道が開けるのではないでしょうか。気になるところです。😊
+        hook_type: 感情型
+      B:
+        content: 拡散言語モデルの推論コストが課題と感じた経験はないだろうか。海外で注目を集めるSink-Aware Pruningという手法がある。これはモデル効率化を目指し、推論コストを最大50%削減可能と報告されている。論文では、不要な部分を戦略的に削減するアプローチが詳細に述べられている。このような技術の進展は、リソースが限られた環境でも高性能なAIの活用を可能にする道を開くはずだ。注目に値するテーマである。
+        hook_type: 丁寧型
+    scores:
+      hook_strength: 18
+      persona_fit: 22
+      x_culture_fit: 20
+      specificity: 10
+      credibility: 8
+      total: 78
+      feedback: 投稿はAIに興味のある層に刺さる内容で、Xの文化にも適合しているが、具体的な論文名や著者、実際の事例を追加すると信頼性と具体性が向上する。また、フックとして冒頭にもう少し感情的な訴求や意外性を加えると、スクロールを止める力が強まる可能性がある。
+    status: active
+    source: daily_auto
+  - id: daily_20260223_night
+    generated_at: '2026-02-22T21:16:14.947Z'
+    scheduled_date: '2026-02-23'
+    slot: night
+    topic: 一般
+    theme: 一般
+    type: solution
+    quality_score: 80
+    refinement_rounds: 1
+    variants:
+      A:
+        content: AIの出力が毎回バラつく…そんな悩み、エンジニアなら一度は直面する壁ですよね。海外の研究では、プロンプトに「具体的な指示」と「出力例」を加えると一貫性が30%以上向上するという報告が。たとえば「データ分析のまとめを表形式で」と指定するだけでも差が出るそう。こうした細かい工夫が安定性を生むのではないかと気になります。試す価値はありそうです。😊
+        hook_type: 感情型
+      B:
+        content: AIの出力が一貫しないという課題は、エンジニアにとって避けがたい壁だ。海外の研究によれば、プロンプトに「具体的な指示」と「出力例」を明示することで、一貫性が30%以上向上するという。例えば、「データ分析のまとめを表形式で」と指定するだけでも効果が見られるとのことだ。こうした細かな工夫が安定性をもたらす鍵となるだろう。試してみる価値は十分にあると考える。
+        hook_type: 丁寧型
+    scores:
+      hook_strength: 18
+      persona_fit: 22
+      x_culture_fit: 20
+      specificity: 12
+      credibility: 8
+      total: 80
+      feedback: フックはエンジニアの共感を誘う内容で良いが、もう少し強い問題提起や意外性があればさらにスクロールを止められる。ペルソナへの適合度は高く、AIに興味を持つ層に刺さる内容。X文化にも合い、売り込み臭がなく自然な語り口が好印象。具体性は数字や事例があるものの、研究の出典や詳細が不明。信頼性もやや弱く、海外研究の参照元を示せれば向上する。
     status: active
     source: daily_auto
 stats:
