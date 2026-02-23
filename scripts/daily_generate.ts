@@ -399,10 +399,17 @@ function selectThemes(
   // 候補を集める
   const candidates: ThemeCandidate[] = [];
 
-  // 1. overseas insights からテーマ候補
+  // 1. overseas insights からテーマ候補（日本語テーマ名を生成）
   for (const insight of insights.slice(0, 5)) {
-    const name = insight.topic;
-    const params = themeScores[name] || defaultPrior;
+    // テーマ名を日本語化（簡潔に）
+    const rawSummary = insight.summary || '';
+    const firstSentence = rawSummary.split('。')[0] || '';
+    // 20文字以内に収める短いテーマ名を作る
+    const japaneseName = firstSentence.length > 20
+      ? firstSentence.slice(0, 20)
+      : firstSentence;
+    const name = japaneseName || insight.topic.slice(0, 20);
+    const params = themeScores[name] || themeScores[insight.topic] || defaultPrior;
     const sample = sampleBeta(params.alpha, params.beta);
     candidates.push({
       name,

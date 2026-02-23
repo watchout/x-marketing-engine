@@ -960,7 +960,7 @@ posts:
       credibility: 8
       total: 80
       feedback: 全体的にAIに興味を持つ層に刺さる内容で、Structured Outputsという具体的なツール名や80%減という数字が説得力を増している。ただし、80%減の根拠が感覚ベースであるため、データの裏付けがあればさらに信頼性が高まる。フックの力は強いが、冒頭でもう少し感情的なインパクトや意外性を加えるとスクロール停止率が上がる可能性がある。
-    status: active
+    status: expired_dishonest
     source: daily_auto
   - id: daily_20260220_noon
     generated_at: 2026-02-20T07:53:22.373Z
@@ -986,7 +986,7 @@ posts:
       credibility: 8
       total: 78
       feedback: 具体的な数字（出力のバラつき30%安定）は良いが、使用したツールやプロジェクトの詳細が不足しているため、具体性と信頼性がやや弱い。ツール名や設定の具体的な課題を追加するとより説得力が増す。また、フックは悪くないが、冒頭でもう少しインパクトのある表現（例：『AIが開発負担を激減させた話』）を取り入れるとスクロールを止める力が強まる。
-    status: active
+    status: expired_dishonest
     source: daily_auto
   - id: daily_20260220_night
     generated_at: 2026-02-20T07:53:29.561Z
@@ -1012,7 +1012,7 @@ posts:
       credibility: 8
       total: 85
       feedback: 投稿はAIに興味のある層に刺さる内容で、Spec-Driven Developmentという具体的な手法に触れている点が良い。プロトタイプを3回回したという数字も具体性を持たせている。ただし、海外論文の言及が曖昧で、どの論文か具体的な出典がないため信憑性に欠ける。出典や具体的な事例を追加するとさらに信頼性が高まる。
-    status: active
+    status: expired_dishonest
     source: daily_auto
   - id: overseas_1771622115005_zyjgv9
     content: '拡散言語モデルのプルーニング手法で推論コストが約30%削減可能！効率的なAI活用の鍵を握るこの手法、試さない手はありません。 #AI活用'
@@ -1233,7 +1233,7 @@ posts:
       credibility: 8
       total: 80
       feedback: 投稿はAIに興味のある層に刺さる内容で、具体的な手法名（MARS）や成果（3倍）の言及があり、X文化にも適合している。改善点としては、成果の具体性や根拠をさらに補強することで信頼性が向上する可能性がある（例えば、どのような指標で3倍になったのか）。また、自己改善機能の詳細を軽く触れるとさらに説得力が増す。
-    status: active
+    status: expired_dishonest
     source: daily_auto
   - id: daily_20260221_noon
     generated_at: 2026-02-20T21:15:39.629Z
@@ -1259,7 +1259,7 @@ posts:
       credibility: 8
       total: 85
       feedback: 投稿はAIや自動化に興味を持つ層に強く響く内容で、Xの文化にも合致するカジュアルな語り口が良い。ただし、具体的なツール名や詳細な事例が不足しており、信憑性を高めるために実際のツールやワークフローの詳細を少し加えるとさらに効果的。自己賞賛の部分は少し控えめにすると、より自然な印象を与える可能性がある。
-    status: active
+    status: expired_dishonest
     source: daily_auto
   - id: daily_20260221_night
     generated_at: 2026-02-20T21:15:46.036Z
@@ -1285,7 +1285,7 @@ posts:
       credibility: 8
       total: 85
       feedback: 具体的な技術名や効果（30%削減、体感速度向上）を挙げており、ターゲット層に刺さる内容だが、さらなる詳細（環境や条件）や出典があれば信頼性が向上する。
-    status: active
+    status: expired_dishonest
     source: daily_auto
   - id: overseas_1771708361181_6ahoxp
     content: 'リモートセンシングにおける空間的推論が進化中。AIエージェントは画像解釈で85%の精度を目指せる時代に。使いこなして、業務を一歩先へ！ #AI活用'
