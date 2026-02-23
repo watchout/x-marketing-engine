@@ -280,12 +280,36 @@ async function researchAcademicPapers(settings: any): Promise<AcademicPaper[]> {
 
   console.log(`  📊 ${allPapers.length}件の論文を発見\n`);
 
+  // AI開発実務に関連するカテゴリのみ通過させる（地理空間、暗号、CV系は除外）
+  const relevantCategories = new Set([
+    'cs.AI', 'cs.CL', 'cs.SE', 'cs.LG', 'cs.PL', 'cs.HC', 'cs.MA'
+  ]);
+  const irrelevantCategories = new Set([
+    'cs.CV', 'cs.CR', 'cs.IR', 'stat.AP', 'cs.RO', 'cs.GR',
+    'cs.NI', 'cs.DC', 'eess.SP', 'eess.AS', 'physics'
+  ]);
+  const filteredPapers = allPapers.filter(p => {
+    const cats = p.categories || [];
+    // 完全に無関係なカテゴリのみの論文は除外
+    if (cats.length > 0 && cats.every((c: string) => irrelevantCategories.has(c))) {
+      console.log(`  ⏭️ カテゴリ除外: [${cats.join(',')}] ${p.title.substring(0, 50)}...`);
+      return false;
+    }
+    // 関連カテゴリが1つも含まれていない場合も除外
+    if (cats.length > 0 && !cats.some((c: string) => relevantCategories.has(c))) {
+      console.log(`  ⏭️ 関連カテゴリなし: [${cats.join(',')}] ${p.title.substring(0, 50)}...`);
+      return false;
+    }
+    return true;
+  });
+  console.log(`  🔍 カテゴリフィルタ後: ${filteredPapers.length}件\n`);
+
   // GPTで論文の実務価値を評価・翻訳
   const evaluatedPapers: AcademicPaper[] = [];
   const personaContext = getPersonaContext(settings);
 
-  // 上位15件を評価
-  for (const paper of allPapers.slice(0, 15)) {
+  // 上位15件を評価（カテゴリフィルタ済み）
+  for (const paper of filteredPapers.slice(0, 15)) {
     try {
       const evalPrompt = `あなたはAI開発の実務者であり、学術論文を実務に翻訳する専門家です。
 
@@ -301,11 +325,18 @@ ${personaContext}
 カテゴリ: ${paper.categories.join(', ')}
 ${paper.citation_count ? `引用数: ${paper.citation_count}` : ''}
 
-【評価基準】
-1. 実務への翻訳可能性: この研究結果は明日からの開発にどう活かせるか？
-2. ターゲットペルソナの課題との接点
+【評価基準（厳格に判定すること。大半はlow評価が正しい）】
+1. 実務への翻訳可能性: この研究結果は明日からのAI開発（LLM、エージェント、プロンプト設計、コード生成）に直接使えるか？
+2. ターゲットペルソナの課題との接点: AIを使ったソフトウェア開発に関係するか？
 3. 日本語での解説がまだ存在しない可能性
-4. 「へぇ」ファクター: エンジニアが知って驚く・人に話したくなるか
+4. 「へぇ」ファクター: AI開発者が知って驚く・人に話したくなるか
+
+【重要：以下に該当する場合は必ずlow評価にすること】
+- コンピュータビジョン（画像認識・3D・リモートセンシング）→ low
+- 暗号理論・セキュリティ理論 → low
+- eコマース・マーケティング最適化 → low
+- 自然言語処理でもAI開発の実務に無関係な応用（歴史テキスト、市場分析等）→ low
+- ペルソナが「AIを使いこなしたい開発者」であることを常に意識すること
 
 JSON形式で回答:
 {
@@ -446,15 +477,48 @@ ${(persona.desires || []).map((d: string) => `- ${d}`).join('\n')}
 `;
 }
 
+// 前回のトピックを読み込み（重複防止用）
+function loadPreviousTopics(): string[] {
+  try {
+    if (!fs.existsSync(OUTPUT_FILE)) return [];
+    const data = JSON.parse(fs.readFileSync(OUTPUT_FILE, 'utf-8'));
+    const topics: string[] = [];
+    // Grokトレンドのトピック
+    if (data.insights) {
+      for (const insight of data.insights) {
+        if (insight.topic) topics.push(insight.topic);
+      }
+    }
+    // ideasからもトピック取得
+    if (data.ideas) {
+      for (const idea of data.ideas) {
+        const t = idea.insight?.topic || idea.topic;
+        if (t) topics.push(t);
+      }
+    }
+    return [...new Set(topics)];
+  } catch { return []; }
+}
+
 // Grokで海外トレンドをリサーチ（ペルソナフィルタリング付き）
 async function researchWithGrok(keywords: string[], influencers: string[], settings: any): Promise<TrendInsight[]> {
   console.log('🔍 Grokで海外AI情報をリサーチ中...\n');
-  
+
   const personaContext = getPersonaContext(settings);
-  
+
+  // 前回のトピックを取得（重複防止）
+  const previousTopics = loadPreviousTopics();
+  const exclusionList = previousTopics.length > 0
+    ? `\n【除外トピック（前回と同じネタは禁止。これらとは異なる新しいトピックを探すこと）】\n${previousTopics.map(t => `- ${t}`).join('\n')}\n`
+    : '';
+
+  // 今日の日付を含めて鮮度を強調
+  const today = new Date().toISOString().split('T')[0];
+
   const prompt = `あなたはX（Twitter）の情報に精通したAIリサーチャーです。
 
-以下の条件で、過去24-48時間にXで話題になっている海外AI開発関連のトピックを調査してください。
+今日は${today}です。
+過去24-48時間にXで話題になっている海外AI開発関連のトピックを調査してください。
 
 ${personaContext}
 
@@ -463,19 +527,20 @@ ${keywords.join(', ')}
 
 【注目インフルエンサー】
 ${influencers.join(', ')}
-
+${exclusionList}
 【重要な調査条件】
 1. 上記ペルソナの「ペインポイント」を解決する情報を優先
-2. 「バイブコーディングの限界」「仕様駆動開発」「AI開発の品質向上」に関連するもの
+2. AI開発の実務に直接使える情報（ツール、手法、ワークフロー、Tips）
 3. 日本ではまだあまり知られていない概念や手法
 4. 実用的で、すぐに試せるTipsやアプローチ
 5. 曖昧な開発から脱却し、再現性のある開発を実現する情報
+6. 除外トピックと同じテーマを別の言い方で返すのも禁止。本当に新しいネタを探すこと
 
 【出力形式】JSON配列で5件
 [
   {
-    "topic": "トピック名（英語）",
-    "summary": "概要（日本語で100文字程度）",
+    "topic": "トピック名（英語で簡潔に）",
+    "summary": "日本語で概要を100文字程度。何が新しく、なぜ重要かを具体的に説明",
     "key_accounts": ["@account1", "@account2"],
     "example_posts": ["投稿の要約1", "投稿の要約2"],
     "japan_relevance": "日本での活用可能性（50文字）",
@@ -748,13 +813,10 @@ async function main() {
 
   fs.writeFileSync(OUTPUT_FILE, JSON.stringify(output, null, 2));
 
-  // 高品質アイデアを投稿プールに追加
-  const addedCount = addToPool(ideas);
-  if (addedCount > 0) {
-    console.log(`\n✅ ${addedCount}件を投稿プールに追加（新規性7+ & ペルソナ適合7+）`);
-  } else {
-    console.log(`\n⚠️ 条件を満たすコンテンツがありませんでした`);
-  }
+  // NOTE: プールへの直接追加は廃止。daily_generate.ts が overseas_insights.json を
+  // 読み取り、Thompson Sampling でテーマ選定→LLM生成→プールに投入する。
+  // research_overseas.ts はデータソース（overseas_insights.json）の更新のみ担当。
+  console.log(`\n📋 overseas_insights.json を更新しました（daily_generate.ts がテーマ選定に使用）`);
 
   // サマリー
   console.log('\n' + '='.repeat(60));

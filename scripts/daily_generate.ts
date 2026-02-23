@@ -458,13 +458,23 @@ function selectThemes(
   const twoDaysAgo = new Date(new Date(today).getTime() - 2 * 24 * 60 * 60 * 1000)
     .toISOString().split('T')[0];
 
-  // 過去2日間に使用されたテーマを取得
-  const recentThemes = new Set(
-    history
-      .filter(h => h.posted_at && h.posted_at.split('T')[0] >= twoDaysAgo)
-      .map(h => h.theme)
-      .filter(Boolean)
-  );
+  // 過去2日間に使用されたテーマを取得（投稿履歴 + プール内アクティブ投稿）
+  const recentThemes = new Set<string>();
+  // 投稿済みテーマ
+  for (const h of history) {
+    if (h.posted_at && h.posted_at.split('T')[0] >= twoDaysAgo && h.theme) {
+      recentThemes.add(h.theme);
+    }
+  }
+  // プール内のアクティブ投稿のテーマ（まだ投稿されてないが生成済み）
+  const pool = loadPool();
+  for (const p of (pool.posts || [])) {
+    if (p.status === 'active' && p.source === 'daily_auto' && p.theme) {
+      recentThemes.add(p.theme);
+      // topicフィールドも（英語テーマ名対策）
+      if (p.topic) recentThemes.add(p.topic);
+    }
+  }
 
   for (const c of candidates) {
     // トレンドブースト: freshness >= 8 & japan_spread <= 3
@@ -731,12 +741,37 @@ function cleanupPool(pool: any, history: any[]): number {
   const postedIds = new Set(history.map(h => h.post_id));
   const originalCount = pool.posts.length;
 
-  // 3日前以前 & 投稿済み → 削除
   pool.posts = pool.posts.filter((p: any) => {
-    const dateStr = getDateStr(p.scheduled_date);
-    if (dateStr < threeDaysAgo && postedIds.has(p.id)) {
+    // 1. overseas_* エントリは削除（research_overseas.ts が直接追加した旧形式のゴミ）
+    if (typeof p.id === 'string' && p.id.startsWith('overseas_')) {
       return false;
     }
+
+    // 2. expired/dishonest ステータスのものは削除
+    if (p.status === 'expired_legacy' || p.status === 'expired_dishonest' || p.status === 'expired') {
+      return false;
+    }
+
+    // 3. ハッシュタグ付きの投稿は削除（旧ルールで生成されたゴミ）
+    const contentToCheck = p.content || p.variants?.A?.content || '';
+    if (contentToCheck.includes('#')) {
+      return false;
+    }
+
+    // 4. 3日前以前 & 投稿済み → 削除
+    const dateStr = getDateStr(p.scheduled_date);
+    if (dateStr && dateStr < threeDaysAgo && postedIds.has(p.id)) {
+      return false;
+    }
+
+    // 5. expires_at が過ぎたエントリ → 削除
+    if (p.expires_at) {
+      const expiresStr = getDateStr(p.expires_at);
+      if (expiresStr && expiresStr < today) {
+        return false;
+      }
+    }
+
     return true;
   });
 
@@ -939,7 +974,7 @@ async function main() {
       generated_at: new Date().toISOString(),
       scheduled_date: today,
       slot,
-      topic: theme.insight?.topic || theme.name,
+      topic: theme.name,
       theme: theme.name,
       type: approach,
       quality_score: scores.total,
