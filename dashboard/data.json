@@ -1,5 +1,16 @@
 [
   {
+    "id": "hist_1771823196033",
+    "post_id": "daily_20260223_noon",
+    "variant": "A",
+    "content": "拡散言語モデルの推論コストがネックだと感じたこと、ありませんか？Sink-Aware Pruningという手法が海外で注目されています。この手法では、モデルの効率化を図り、推論コストを最大50%削減できると報告されています。論文では、モデル内の不要な部分を戦略的に削減するアプローチが詳細に解説されています。こうした技術が進展すれば、リソースが限られた環境でも高性能なAIを活用する道が開けるのではないでしょうか。気になるところです。😊",
+    "tweet_id": "2025799428355903575",
+    "posted_at": "2026-02-23T05:06:36.033Z",
+    "slot": "noon",
+    "theme": "Sink-Aware Pruning for Diffusion Language Models",
+    "type": "empathy"
+  },
+  {
     "id": "hist_1771802215634",
     "post_id": "daily_20260223_morning",
     "variant": "A",
