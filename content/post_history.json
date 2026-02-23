@@ -1,5 +1,16 @@
 [
   {
+    "id": "hist_1771889237655",
+    "post_id": "daily_20260223_morning",
+    "variant": "A",
+    "content": "AIの出力が毎回バラバラで困ったことない？実は「Spec-Driven Development with LLMs」という手法が海外で注目されている。仕様書を基に明確な要件をAIに与えることで、曖昧さを排除し再現性を高めるアプローチだ。具体的には、細かい仕様をプロンプトに落とし込むことで、安定した高品質な結果が期待できる。日本の現場でも、要件定義をしっかり固めることでAI活用の壁を突破できるんじゃないだろうか。あなたのプロジェクトでは、プロンプトの曖昧さにどう対処してる？🧐",
+    "tweet_id": "2026076427016085567",
+    "posted_at": "2026-02-23T23:27:17.655Z",
+    "slot": "morning",
+    "theme": "Spec-Driven Development with LLMs",
+    "type": "empathy"
+  },
+  {
     "id": "hist_1771851350851",
     "post_id": "daily_20260223_night",
     "variant": "B",
