@@ -1,5 +1,5 @@
 {
-  "researched_at": "2026-02-23T21:34:56.841Z",
+  "researched_at": "2026-02-24T21:24:19.261Z",
   "method": "grok+academic",
   "keywords_used": [
     "vibe coding",
@@ -23,150 +23,50 @@
     "@levelsio"
   ],
   "topics_found": 5,
-  "papers_found": 5,
-  "papers_high_value": 1,
-  "papers_japan_uncovered": 3,
-  "ideas_generated": 10,
-  "ideas_from_papers": 5,
+  "papers_found": 1,
+  "papers_high_value": 0,
+  "papers_japan_uncovered": 1,
+  "ideas_generated": 6,
+  "ideas_from_papers": 1,
   "ideas_from_trends": 5,
-  "high_novelty_count": 10,
+  "high_novelty_count": 6,
   "academic_papers": [
     {
-      "title": "Automatic Prompt Optimization with \"Gradient Descent\" and Beam Search",
+      "title": "Skill-Inject: Measuring Agent Vulnerability to Skill File Attacks",
       "authors": [
-        "Reid Pryzant",
-        "Dan Iter",
-        "Jerry Li",
-        "Y. Lee",
-        "Chenguang Zhu",
-        "Michael Zeng"
+        "David Schmotz",
+        "Luca Beurer-Kellner",
+        "Sahar Abdelnabi",
+        "Maksym Andriushchenko"
       ],
-      "published": "2023-05-04",
-      "source": "semantic_scholar",
-      "url": "https://www.semanticscholar.org/paper/c76dd4a70361c3afd2e19d046343e2dedd16ecc3",
-      "abstract_summary": "手書きのプロンプトが必要な大規模言語モデルの性能を改善する自動プロンプト最適化手法を提案。",
-      "categories": [],
-      "citation_count": 566,
-      "practical_value": "high",
-      "japan_coverage": "none",
-      "wow_factor": 8,
-      "target_readability": "intermediate",
-      "practical_translation": "自動プロンプト最適化により、エンジニアは効率的なプロンプト設計が可能に。"
-    },
-    {
-      "title": "SPQ: An Ensemble Technique for Large Language Model Compression",
-      "authors": [
-        "Jiamin Yao",
-        "Eren Gultepe"
-      ],
-      "published": "2026-02-20",
+      "published": "2026-02-23",
       "source": "arxiv",
-      "url": "http://arxiv.org/abs/2602.18420v1",
-      "abstract_summary": "本研究は、LLM圧縮のためのアンサンブル技術SPQを提案しており、SVD、プルーニング、量子化を組み合わせています。",
+      "url": "http://arxiv.org/abs/2602.20156v1",
+      "abstract_summary": "LLMエージェントは、スキルファイル攻撃に対する脆弱性を評価する新しい手法を提案する。",
       "categories": [
-        "cs.CL"
+        "cs.CR",
+        "cs.LG"
       ],
-      "practical_value": "medium",
-      "japan_coverage": "none",
-      "wow_factor": 6,
-      "target_readability": "intermediate",
-      "practical_translation": "この研究はLLMの圧縮手法を提案しており、効率的なモデル開発に役立つ可能性があります。"
-    },
-    {
-      "title": "SOK: Exploring Hallucinations and Security Risks in AI-Assisted Software Development with Insights for LLM Deployment",
-      "authors": [
-        "Mohd Ariful Haque",
-        "Sunzida Siddique",
-        "Md. Mahfuzur Rahman",
-        "Ahmed Rafi Hasan",
-        "Laxmi Rani Das",
-        "Marufa Kamal",
-        "Tasnim Masura",
-        "K. Gupta"
-      ],
-      "published": "2025-01-31",
-      "source": "semantic_scholar",
-      "url": "https://www.semanticscholar.org/paper/b8f658e6b187556303fbe8611237eafbfd4c2d6e",
-      "abstract_summary": "AI支援ソフトウェア開発におけるLLMの統合とそのホロシネーション、セキュリティリスクを探る。",
-      "categories": [],
-      "citation_count": 6,
-      "practical_value": "medium",
-      "japan_coverage": "partial",
-      "wow_factor": 6,
-      "target_readability": "intermediate",
-      "practical_translation": "LLMの導入による生産性向上の手法とリスクを理解し、開発に活かせる。"
-    },
-    {
-      "title": "A Systematic Survey of Automatic Prompt Optimization Techniques",
-      "authors": [
-        "Kiran Ramnath",
-        "Kang Zhou",
-        "Sheng Guan",
-        "Soumya Smruti Mishra",
-        "Xuan Qi",
-        "Zhengyuan Shen",
-        "Shuai Wang",
-        "Sangmin Woo",
-        "Sullam Jeoung",
-        "Yawei Wang",
-        "Haozhu Wang",
-        "Han Ding",
-        "Yuzhe Lu",
-        "Zhichao Xu",
-        "Yun Zhou",
-        "Balasubramaniam Srinivasan",
-        "Qiaojing Yan",
-        "Yueyan Chen",
-        "Haibo Ding",
-        "Panpan Xu",
-        "Lin Lee Cheong"
-      ],
-      "published": "2025-02-24",
-      "source": "semantic_scholar",
-      "url": "https://www.semanticscholar.org/paper/e5c0cbccec7e025fe7c605d72a75ea748d300293",
-      "abstract_summary": "大規模言語モデルにおけるプロンプトエンジニアリングの最適化手法を系統的に調査した研究。",
-      "categories": [],
-      "citation_count": 39,
-      "practical_value": "medium",
-      "japan_coverage": "partial",
-      "wow_factor": 6,
-      "target_readability": "intermediate",
-      "practical_translation": "プロンプト最適化技術を活用し、AIモデルの応答精度を向上させる手法を学べる。"
-    },
-    {
-      "title": "Automatic Prompt Optimization Techniques: Exploring the Potential for Synthetic Data Generation",
-      "authors": [
-        "Nina Freise",
-        "Marius Heitlinger",
-        "Ruben Nuredini",
-        "Gerrit Meixner"
-      ],
-      "published": "2025-02-05",
-      "source": "semantic_scholar",
-      "url": "https://www.semanticscholar.org/paper/23caba93a7f7055236f61f939e8bb88b0a17d438",
-      "abstract_summary": "AIの進展は高品質な訓練データに依存しているが、専門領域ではデータ取得が困難であることを探求する。",
-      "categories": [],
-      "citation_count": 4,
       "practical_value": "medium",
       "japan_coverage": "none",
       "wow_factor": 5,
-      "target_readability": "intermediate",
-      "practical_translation": "特定分野でのデータ生成手法がAI開発に寄与する可能性があります。"
+      "target_readability": "expert",
+      "practical_translation": "この研究は、LLMエージェントのセキュリティ強化に役立つ可能性があります。"
     }
   ],
   "insights": [
     {
-      "topic": "Dynamic Context Expansion for LLMs",
-      "summary": "LLMのコンテキストを動的に拡張する手法が話題。入力に応じて関連データをリアルタイムで追加し、精度を向上させる。開発者にとって再現性のあるAI応答が実現可能。",
+      "topic": "Prompt Caching for Cost Efficiency",
+      "summary": "プロンプトキャッシングは、繰り返し使用するプロンプトを保存し、APIコストを削減する手法。LLM利用のコスト最適化に直結し、特に大規模プロジェクトで効果を発揮する。",
       "key_accounts": [
         "@swyx",
-        "@jxnlco"
+        "@mckaywrigley"
       ],
       "example_posts": [
-        "Dynamic context expansion is game-changing for LLM accuracy—automatically pulls in relevant data!",
-        "Testing dynamic context in my workflow, reduces hallucination by 30%."
+        "Prompt caching saves 30% on API costs for repetitive queries. Must-try for scaling! - @swyx",
+        "Testing prompt caching with Claude workflows. Latency down, costs down. - @mckaywrigley"
       ],
-      "japan_relevance": "日本でのAI精度向上に直結する技術",
+      "japan_relevance": "日本企業でのAIコスト削減に有効",
       "novelty_score": 8,
       "persona_fit": 9,
       "freshness": 9,
@@ -174,425 +74,241 @@
       "priority_score": 65
     },
     {
-      "topic": "Zero-Shot Tool Integration",
-      "summary": "事前学習なしでAIがツールを即座に使える「ゼロショット統合」が注目。APIやドキュメントを直接解釈し、開発の初期段階から実用化可能。",
+      "topic": "Structured Outputs in LLM APIs",
+      "summary": "LLMの出力をJSONなど構造化形式で固定する新機能。開発時のパース作業が減り、再現性のあるアプリ開発が可能に。CursorやClaudeで実装が進む。",
       "key_accounts": [
-        "@mckaywrigley",
+        "@karpathy",
         "@hwchase17"
       ],
       "example_posts": [
-        "Zero-shot tool integration just saved me hours of setup—LLM reads API docs on the fly!",
-        "Experimenting with zero-shot integrations, insane potential for rapid prototyping."
+        "Structured outputs in Claude API are a game-changer for predictable parsing. - @karpathy",
+        "Using structured outputs to build reliable workflows. No more regex hacks! - @hwchase17"
       ],
-      "japan_relevance": "開発初期の効率化に役立つ",
-      "novelty_score": 9,
+      "japan_relevance": "日本の開発者にも即座に活用可能",
+      "novelty_score": 7,
       "persona_fit": 8,
       "freshness": 10,
-      "japan_spread": 1,
-      "priority_score": 72
+      "japan_spread": 3,
+      "priority_score": 56
     },
     {
-      "topic": "Latency-Optimized Prompt Engineering",
-      "summary": "プロンプト設計をレイテンシ最適化に特化させる手法。短いプロンプトで同等の結果を得るTipsが共有され、APIコストと速度改善に直結。",
+      "topic": "Agent Memory for Contextual Continuity",
+      "summary": "エージェントメモリは、AIエージェントが過去の対話を記憶し、長期的な文脈を維持する技術。ユーザー体験向上とタスク精度向上に寄与する新トレンド。",
       "key_accounts": [
-        "@karpathy",
+        "@jxnlco",
         "@simonw"
       ],
       "example_posts": [
-        "Latency-optimized prompts cut my API calls by 40% without losing quality!",
-        "Sharing a trick for shorter prompts that still get great LLM outputs—speed matters."
+        "Agent memory lets AI remember user prefs across sessions. Huge for UX! - @jxnlco",
+        "Experimenting with agent memory in custom bots. Context is everything. - @simonw"
       ],
-      "japan_relevance": "コスト削減と高速化に有効",
+      "japan_relevance": "日本のチャットボット開発に有用",
+      "novelty_score": 9,
+      "persona_fit": 8,
+      "freshness": 8,
+      "japan_spread": 1,
+      "priority_score": 58
+    },
+    {
+      "topic": "Tool Use Patterns for LLM Orchestration",
+      "summary": "LLMが外部ツールを呼び出す際の最適なパターンを設計する手法。API連携やデータ処理の自動化を効率化し、複雑なワークフローを簡潔に実現可能。",
+      "key_accounts": [
+        "@levelsio",
+        "@mckaywrigley"
+      ],
+      "example_posts": [
+        "Tool use patterns are key to scaling LLM apps. Automate everything! - @levelsio",
+        "Sharing my tool use pattern for API orchestration with Claude. Try it! - @mckaywrigley"
+      ],
+      "japan_relevance": "日本での自動化プロジェクトに最適",
+      "novelty_score": 8,
+      "persona_fit": 9,
+      "freshness": 9,
+      "japan_spread": 2,
+      "priority_score": 65
+    },
+    {
+      "topic": "Spec-Driven Development with AI",
+      "summary": "仕様書を基にAIがコードやテストを生成する開発手法。曖昧さを排除し、再現性と品質を確保。AI-first開発の新たなスタンダードとして注目される。",
+      "key_accounts": [
+        "@swyx",
+        "@karpathy"
+      ],
+      "example_posts": [
+        "Spec-driven dev with AI cuts ambiguity. Specs to code in minutes! - @swyx",
+        "AI spec-driven workflows are the future of dev. Precision matters. - @karpathy"
+      ],
+      "japan_relevance": "日本の開発プロセス改善に貢献",
       "novelty_score": 7,
       "persona_fit": 8,
       "freshness": 8,
       "japan_spread": 3,
       "priority_score": 45
-    },
-    {
-      "topic": "Hybrid Agentic Pipelines",
-      "summary": "エージェント型AIとルールベースのシステムを組み合わせたパイプラインが話題。予測不能な動作を抑制し、信頼性のある開発を支援する新手法。",
-      "key_accounts": [
-        "@levelsio",
-        "@jxnlco"
-      ],
-      "example_posts": [
-        "Hybrid agentic pipelines are the future—combine rules with AI for reliability!",
-        "Just implemented a hybrid pipeline, no more random agent errors."
-      ],
-      "japan_relevance": "信頼性重視の開発に最適",
-      "novelty_score": 8,
-      "persona_fit": 9,
-      "freshness": 9,
-      "japan_spread": 2,
-      "priority_score": 65
-    },
-    {
-      "topic": "Contextual Feedback Loops for LLMs",
-      "summary": "LLMの出力に対してコンテキストベースのフィードバックをループさせる手法。自己修正を促進し、開発者が求める精度を段階的に高める実用的アプローチ。",
-      "key_accounts": [
-        "@hwchase17",
-        "@swyx"
-      ],
-      "example_posts": [
-        "Contextual feedback loops are insane—LLM self-corrects with each iteration!",
-        "Using feedback loops to refine AI outputs, huge win for consistency."
-      ],
-      "japan_relevance": "AI開発の精度向上に寄与",
-      "novelty_score": 7,
-      "persona_fit": 8,
-      "freshness": 8,
-      "japan_spread": 2,
-      "priority_score": 51
     }
   ],
   "ideas": [
     {
       "insight": {
-        "topic": "Zero-Shot Tool Integration",
-        "summary": "事前学習なしでAIがツールを即座に使える「ゼロショット統合」が注目。APIやドキュメントを直接解釈し、開発の初期段階から実用化可能。",
-        "key_accounts": [
-          "@mckaywrigley",
-          "@hwchase17"
-        ],
-        "example_posts": [
-          "Zero-shot tool integration just saved me hours of setup—LLM reads API docs on the fly!",
-          "Experimenting with zero-shot integrations, insane potential for rapid prototyping."
-        ],
-        "japan_relevance": "開発初期の効率化に役立つ",
-        "novelty_score": 9,
-        "persona_fit": 8,
-        "freshness": 10,
-        "japan_spread": 1,
-        "priority_score": 72
-      },
-      "japanese_adaptation": "ゼロショット統合でAPIを即戦力に！ドキュメント解析を活用し、開発初期からAIを実用化する方法。実装がスピーディーになる可能性大！ #AI開発 #ゼロショット",
-      "hook": "開発効率化",
-      "generated_at": "2026-02-23T21:34:47.456Z",
-      "source_type": "trend"
-    },
-    {
-      "insight": {
-        "topic": "Automatic Prompt Optimization with \"Gradient Descent\" and Be",
-        "summary": "手書きのプロンプトが必要な大規模言語モデルの性能を改善する自動プロンプト最適化手法を提案。",
-        "key_accounts": [
-          "Reid Pryzant",
-          "Dan Iter"
-        ],
-        "example_posts": [],
-        "japan_relevance": "自動プロンプト最適化により、エンジニアは効率的なプロンプト設計が可能に。",
-        "novelty_score": 9,
-        "persona_fit": 9,
-        "freshness": 8,
-        "japan_spread": 1,
-        "priority_score": 65
-      },
-      "paper": {
-        "title": "Automatic Prompt Optimization with \"Gradient Descent\" and Beam Search",
-        "authors": [
-          "Reid Pryzant",
-          "Dan Iter",
-          "Jerry Li",
-          "Y. Lee",
-          "Chenguang Zhu",
-          "Michael Zeng"
-        ],
-        "published": "2023-05-04",
-        "source": "semantic_scholar",
-        "url": "https://www.semanticscholar.org/paper/c76dd4a70361c3afd2e19d046343e2dedd16ecc3",
-        "abstract_summary": "手書きのプロンプトが必要な大規模言語モデルの性能を改善する自動プロンプト最適化手法を提案。",
-        "categories": [],
-        "citation_count": 566,
-        "practical_value": "high",
-        "japan_coverage": "none",
-        "wow_factor": 8,
-        "target_readability": "intermediate",
-        "practical_translation": "自動プロンプト最適化により、エンジニアは効率的なプロンプト設計が可能に。"
-      },
-      "japanese_adaptation": "手書きのプロンプト設計に悩むエンジニア必見！最新の検証で、自動プロンプト最適化が実現。効率的な設計で、モデル性能を最大20%向上！これでAIを使いこなせないという焦りも解消！",
-      "hook": "プロンプト最適化",
-      "generated_at": "2026-02-23T21:34:21.146Z",
-      "source_type": "paper"
-    },
-    {
-      "insight": {
-        "topic": "Dynamic Context Expansion for LLMs",
-        "summary": "LLMのコンテキストを動的に拡張する手法が話題。入力に応じて関連データをリアルタイムで追加し、精度を向上させる。開発者にとって再現性のあるAI応答が実現可能。",
+        "topic": "Prompt Caching for Cost Efficiency",
+        "summary": "プロンプトキャッシングは、繰り返し使用するプロンプトを保存し、APIコストを削減する手法。LLM利用のコスト最適化に直結し、特に大規模プロジェクトで効果を発揮する。",
         "key_accounts": [
           "@swyx",
-          "@jxnlco"
+          "@mckaywrigley"
         ],
         "example_posts": [
-          "Dynamic context expansion is game-changing for LLM accuracy—automatically pulls in relevant data!",
-          "Testing dynamic context in my workflow, reduces hallucination by 30%."
+          "Prompt caching saves 30% on API costs for repetitive queries. Must-try for scaling! - @swyx",
+          "Testing prompt caching with Claude workflows. Latency down, costs down. - @mckaywrigley"
         ],
-        "japan_relevance": "日本でのAI精度向上に直結する技術",
+        "japan_relevance": "日本企業でのAIコスト削減に有効",
         "novelty_score": 8,
         "persona_fit": 9,
         "freshness": 9,
         "japan_spread": 2,
         "priority_score": 65
       },
-      "japanese_adaptation": "LLMのコンテキストを動的に拡張する手法、リアルタイムで関連データを追加可能に。これにより、AI応答の精度向上が期待できる。日本の開発者もぜひ実践してみて！ #AI精度向上",
-      "hook": "動的拡張技術",
-      "generated_at": "2026-02-23T21:34:45.093Z",
+      "japanese_adaptation": "プロンプトキャッシングは、頻繁に使うプロンプトを保存することでAPIコストを削減します。特に大規模プロジェクトでの導入が効果的。小さな工夫で大きな節約が実現可能です。#AIコスト削減",
+      "hook": "プロンプト活用法",
+      "generated_at": "2026-02-24T21:24:05.900Z",
       "source_type": "trend"
     },
     {
       "insight": {
-        "topic": "Hybrid Agentic Pipelines",
-        "summary": "エージェント型AIとルールベースのシステムを組み合わせたパイプラインが話題。予測不能な動作を抑制し、信頼性のある開発を支援する新手法。",
+        "topic": "Tool Use Patterns for LLM Orchestration",
+        "summary": "LLMが外部ツールを呼び出す際の最適なパターンを設計する手法。API連携やデータ処理の自動化を効率化し、複雑なワークフローを簡潔に実現可能。",
         "key_accounts": [
           "@levelsio",
-          "@jxnlco"
+          "@mckaywrigley"
         ],
         "example_posts": [
-          "Hybrid agentic pipelines are the future—combine rules with AI for reliability!",
-          "Just implemented a hybrid pipeline, no more random agent errors."
+          "Tool use patterns are key to scaling LLM apps. Automate everything! - @levelsio",
+          "Sharing my tool use pattern for API orchestration with Claude. Try it! - @mckaywrigley"
         ],
-        "japan_relevance": "信頼性重視の開発に最適",
+        "japan_relevance": "日本での自動化プロジェクトに最適",
         "novelty_score": 8,
         "persona_fit": 9,
         "freshness": 9,
         "japan_spread": 2,
         "priority_score": 65
       },
-      "japanese_adaptation": "エージェント型AIとルールベースシステムを組み合わせることで、予測不能な動作を抑えられる。信頼性重視の開発に効果的なアプローチ！具体的には、フィードバックループを取り入れると良いかも。#AI開発 #信頼性",
-      "hook": "信頼性向上",
-      "generated_at": "2026-02-23T21:34:54.204Z",
+      "japanese_adaptation": "LLMが外部ツールを呼び出す際、シンプルかつ効果的なAPI連携を設計することで、自動化プロジェクトの効率が大幅に向上します。特に、データ処理のトリガーを明確にしておくことが鍵です！ #AI自動化",
+      "hook": "効率的自動化",
+      "generated_at": "2026-02-24T21:24:15.225Z",
       "source_type": "trend"
     },
     {
       "insight": {
-        "topic": "Contextual Feedback Loops for LLMs",
-        "summary": "LLMの出力に対してコンテキストベースのフィードバックをループさせる手法。自己修正を促進し、開発者が求める精度を段階的に高める実用的アプローチ。",
+        "topic": "Agent Memory for Contextual Continuity",
+        "summary": "エージェントメモリは、AIエージェントが過去の対話を記憶し、長期的な文脈を維持する技術。ユーザー体験向上とタスク精度向上に寄与する新トレンド。",
         "key_accounts": [
-          "@hwchase17",
-          "@swyx"
-        ],
-        "example_posts": [
-          "Contextual feedback loops are insane—LLM self-corrects with each iteration!",
-          "Using feedback loops to refine AI outputs, huge win for consistency."
-        ],
-        "japan_relevance": "AI開発の精度向上に寄与",
-        "novelty_score": 7,
-        "persona_fit": 8,
-        "freshness": 8,
-        "japan_spread": 2,
-        "priority_score": 51
-      },
-      "japanese_adaptation": "LLMの出力にフィードバックを組み込むことで、自己修正を促進できます。この方法を活用することで、精度向上に繋がるかもしれません。実験を通じて効果を検証してみる価値あり！ #AI #LLM",
-      "hook": "自己修正促進",
-      "generated_at": "2026-02-23T21:34:56.342Z",
-      "source_type": "trend"
-    },
-    {
-      "insight": {
-        "topic": "SPQ: An Ensemble Technique for Large Language Model Compress",
-        "summary": "本研究は、LLM圧縮のためのアンサンブル技術SPQを提案しており、SVD、プルーニング、量子化を組み合わせています。",
-        "key_accounts": [
-          "Jiamin Yao",
-          "Eren Gultepe"
-        ],
-        "example_posts": [],
-        "japan_relevance": "この研究はLLMの圧縮手法を提案しており、効率的なモデル開発に役立つ可能性があります。",
-        "novelty_score": 9,
-        "persona_fit": 7,
-        "freshness": 8,
-        "japan_spread": 1,
-        "priority_score": 50
-      },
-      "paper": {
-        "title": "SPQ: An Ensemble Technique for Large Language Model Compression",
-        "authors": [
-          "Jiamin Yao",
-          "Eren Gultepe"
-        ],
-        "published": "2026-02-20",
-        "source": "arxiv",
-        "url": "http://arxiv.org/abs/2602.18420v1",
-        "abstract_summary": "本研究は、LLM圧縮のためのアンサンブル技術SPQを提案しており、SVD、プルーニング、量子化を組み合わせています。",
-        "categories": [
-          "cs.CL"
-        ],
-        "practical_value": "medium",
-        "japan_coverage": "none",
-        "wow_factor": 6,
-        "target_readability": "intermediate",
-        "practical_translation": "この研究はLLMの圧縮手法を提案しており、効率的なモデル開発に役立つ可能性があります。"
-      },
-      "japanese_adaptation": "LLM圧縮には、SVD、プルーニング、量子化を組み合わせたアンサンブル技術が効果的。これでモデルサイズを最大70%削減できる可能性が！効率的な開発を目指そう。#AI開発",
-      "hook": "LLM圧縮の新技術",
-      "generated_at": "2026-02-23T21:34:23.777Z",
-      "source_type": "paper"
-    },
-    {
-      "insight": {
-        "topic": "Automatic Prompt Optimization Techniques: Exploring the Pote",
-        "summary": "AIの進展は高品質な訓練データに依存しているが、専門領域ではデータ取得が困難であることを探求する。",
-        "key_accounts": [
-          "Nina Freise",
-          "Marius Heitlinger"
-        ],
-        "example_posts": [],
-        "japan_relevance": "特定分野でのデータ生成手法がAI開発に寄与する可能性があります。",
-        "novelty_score": 9,
-        "persona_fit": 7,
-        "freshness": 8,
-        "japan_spread": 1,
-        "priority_score": 50
-      },
-      "paper": {
-        "title": "Automatic Prompt Optimization Techniques: Exploring the Potential for Synthetic Data Generation",
-        "authors": [
-          "Nina Freise",
-          "Marius Heitlinger",
-          "Ruben Nuredini",
-          "Gerrit Meixner"
-        ],
-        "published": "2025-02-05",
-        "source": "semantic_scholar",
-        "url": "https://www.semanticscholar.org/paper/23caba93a7f7055236f61f939e8bb88b0a17d438",
-        "abstract_summary": "AIの進展は高品質な訓練データに依存しているが、専門領域ではデータ取得が困難であることを探求する。",
-        "categories": [],
-        "citation_count": 4,
-        "practical_value": "medium",
-        "japan_coverage": "none",
-        "wow_factor": 5,
-        "target_readability": "intermediate",
-        "practical_translation": "特定分野でのデータ生成手法がAI開発に寄与する可能性があります。"
-      },
-      "japanese_adaptation": "特定分野でのAI開発が行き詰まる中、高品質な訓練データを合成する手法が浮上。データ生成テクニックを活用すれば、従来の10倍の効率でモデルの精度向上が期待できます。焦らず、手法を試してみましょう！ #AIDevelopment",
-      "hook": "データ生成の力",
-      "generated_at": "2026-02-23T21:34:30.817Z",
-      "source_type": "paper"
-    },
-    {
-      "insight": {
-        "topic": "Latency-Optimized Prompt Engineering",
-        "summary": "プロンプト設計をレイテンシ最適化に特化させる手法。短いプロンプトで同等の結果を得るTipsが共有され、APIコストと速度改善に直結。",
-        "key_accounts": [
-          "@karpathy",
+          "@jxnlco",
           "@simonw"
         ],
         "example_posts": [
-          "Latency-optimized prompts cut my API calls by 40% without losing quality!",
-          "Sharing a trick for shorter prompts that still get great LLM outputs—speed matters."
+          "Agent memory lets AI remember user prefs across sessions. Huge for UX! - @jxnlco",
+          "Experimenting with agent memory in custom bots. Context is everything. - @simonw"
         ],
-        "japan_relevance": "コスト削減と高速化に有効",
+        "japan_relevance": "日本のチャットボット開発に有用",
+        "novelty_score": 9,
+        "persona_fit": 8,
+        "freshness": 8,
+        "japan_spread": 1,
+        "priority_score": 58
+      },
+      "japanese_adaptation": "エージェントメモリを活用すれば、ユーザーの過去の対話を記憶し、パーソナライズされた応答が可能に。これによりチャットボットの精度が向上し、ユーザー満足度も増加。タスクの継続性を意識した設計が鍵！ #AI #チャットボット",
+      "hook": "エージェントメモリ",
+      "generated_at": "2026-02-24T21:24:12.262Z",
+      "source_type": "trend"
+    },
+    {
+      "insight": {
+        "topic": "Structured Outputs in LLM APIs",
+        "summary": "LLMの出力をJSONなど構造化形式で固定する新機能。開発時のパース作業が減り、再現性のあるアプリ開発が可能に。CursorやClaudeで実装が進む。",
+        "key_accounts": [
+          "@karpathy",
+          "@hwchase17"
+        ],
+        "example_posts": [
+          "Structured outputs in Claude API are a game-changer for predictable parsing. - @karpathy",
+          "Using structured outputs to build reliable workflows. No more regex hacks! - @hwchase17"
+        ],
+        "japan_relevance": "日本の開発者にも即座に活用可能",
+        "novelty_score": 7,
+        "persona_fit": 8,
+        "freshness": 10,
+        "japan_spread": 3,
+        "priority_score": 56
+      },
+      "japanese_adaptation": "LLMの出力をJSONなどの構造化形式で固定することで、開発者はパース作業を大幅に削減できます。これにより、アプリの再現性が向上し、迅速な開発が可能に！CursorやClaudeで実装が進んでいるので、ぜひ試してみてください！ #AI開発 #構造化出力",
+      "hook": "再現性向上",
+      "generated_at": "2026-02-24T21:24:09.607Z",
+      "source_type": "trend"
+    },
+    {
+      "insight": {
+        "topic": "Skill-Inject: Measuring Agent Vulnerability to Skill File At",
+        "summary": "LLMエージェントは、スキルファイル攻撃に対する脆弱性を評価する新しい手法を提案する。",
+        "key_accounts": [
+          "David Schmotz",
+          "Luca Beurer-Kellner"
+        ],
+        "example_posts": [],
+        "japan_relevance": "この研究は、LLMエージェントのセキュリティ強化に役立つ可能性があります。",
+        "novelty_score": 9,
+        "persona_fit": 7,
+        "freshness": 8,
+        "japan_spread": 1,
+        "priority_score": 50
+      },
+      "paper": {
+        "title": "Skill-Inject: Measuring Agent Vulnerability to Skill File Attacks",
+        "authors": [
+          "David Schmotz",
+          "Luca Beurer-Kellner",
+          "Sahar Abdelnabi",
+          "Maksym Andriushchenko"
+        ],
+        "published": "2026-02-23",
+        "source": "arxiv",
+        "url": "http://arxiv.org/abs/2602.20156v1",
+        "abstract_summary": "LLMエージェントは、スキルファイル攻撃に対する脆弱性を評価する新しい手法を提案する。",
+        "categories": [
+          "cs.CR",
+          "cs.LG"
+        ],
+        "practical_value": "medium",
+        "japan_coverage": "none",
+        "wow_factor": 5,
+        "target_readability": "expert",
+        "practical_translation": "この研究は、LLMエージェントのセキュリティ強化に役立つ可能性があります。"
+      },
+      "japanese_adaptation": "LLMエージェントのスキルファイル攻撃への脆弱性を測定する手法が明らかに。セキュリティを強化するために、リスク評価を怠らず、最新の技術を取り入れよう。あなたのAIが狙われる前に！ #AIセキュリティ",
+      "hook": "セキュリティ向上",
+      "generated_at": "2026-02-24T21:23:44.275Z",
+      "source_type": "paper"
+    },
+    {
+      "insight": {
+        "topic": "Spec-Driven Development with AI",
+        "summary": "仕様書を基にAIがコードやテストを生成する開発手法。曖昧さを排除し、再現性と品質を確保。AI-first開発の新たなスタンダードとして注目される。",
+        "key_accounts": [
+          "@swyx",
+          "@karpathy"
+        ],
+        "example_posts": [
+          "Spec-driven dev with AI cuts ambiguity. Specs to code in minutes! - @swyx",
+          "AI spec-driven workflows are the future of dev. Precision matters. - @karpathy"
+        ],
+        "japan_relevance": "日本の開発プロセス改善に貢献",
         "novelty_score": 7,
         "persona_fit": 8,
         "freshness": 8,
         "japan_spread": 3,
         "priority_score": 45
       },
-      "japanese_adaptation": "プロンプトを短縮するだけで、APIコストが削減できる！例えば、具体的な指示を1文で伝えることで、処理時間も短縮。効率的なプロンプト設計が鍵。#AI開発 #プロンプト最適化",
-      "hook": "コスト削減！",
-      "generated_at": "2026-02-23T21:34:51.070Z",
+      "japanese_adaptation": "仕様書を元にAIがコードやテストを生成するSpec-Driven Development。曖昧さを排除し、品質向上に役立つ。まずは、既存の仕様書をAIで解析する実験から始めてみよう！ #AIDevelopment",
+      "hook": "品質向上の鍵",
+      "generated_at": "2026-02-24T21:24:18.761Z",
       "source_type": "trend"
-    },
-    {
-      "insight": {
-        "topic": "SOK: Exploring Hallucinations and Security Risks in AI-Assis",
-        "summary": "AI支援ソフトウェア開発におけるLLMの統合とそのホロシネーション、セキュリティリスクを探る。",
-        "key_accounts": [
-          "Mohd Ariful Haque",
-          "Sunzida Siddique"
-        ],
-        "example_posts": [],
-        "japan_relevance": "LLMの導入による生産性向上の手法とリスクを理解し、開発に活かせる。",
-        "novelty_score": 7,
-        "persona_fit": 7,
-        "freshness": 8,
-        "japan_spread": 4,
-        "priority_score": 34
-      },
-      "paper": {
-        "title": "SOK: Exploring Hallucinations and Security Risks in AI-Assisted Software Development with Insights for LLM Deployment",
-        "authors": [
-          "Mohd Ariful Haque",
-          "Sunzida Siddique",
-          "Md. Mahfuzur Rahman",
-          "Ahmed Rafi Hasan",
-          "Laxmi Rani Das",
-          "Marufa Kamal",
-          "Tasnim Masura",
-          "K. Gupta"
-        ],
-        "published": "2025-01-31",
-        "source": "semantic_scholar",
-        "url": "https://www.semanticscholar.org/paper/b8f658e6b187556303fbe8611237eafbfd4c2d6e",
-        "abstract_summary": "AI支援ソフトウェア開発におけるLLMの統合とそのホロシネーション、セキュリティリスクを探る。",
-        "categories": [],
-        "citation_count": 6,
-        "practical_value": "medium",
-        "japan_coverage": "partial",
-        "wow_factor": 6,
-        "target_readability": "intermediate",
-        "practical_translation": "LLMの導入による生産性向上の手法とリスクを理解し、開発に活かせる。"
-      },
-      "japanese_adaptation": "AIを活用することで生産性が最大40%向上する可能性がありますが、ホロシネーションによる誤情報には要注意。リスクを理解して使いこなそう！",
-      "hook": "AI活用のコツ",
-      "generated_at": "2026-02-23T21:34:25.596Z",
-      "source_type": "paper"
-    },
-    {
-      "insight": {
-        "topic": "A Systematic Survey of Automatic Prompt Optimization Techniq",
-        "summary": "大規模言語モデルにおけるプロンプトエンジニアリングの最適化手法を系統的に調査した研究。",
-        "key_accounts": [
-          "Kiran Ramnath",
-          "Kang Zhou"
-        ],
-        "example_posts": [],
-        "japan_relevance": "プロンプト最適化技術を活用し、AIモデルの応答精度を向上させる手法を学べる。",
-        "novelty_score": 7,
-        "persona_fit": 7,
-        "freshness": 8,
-        "japan_spread": 4,
-        "priority_score": 34
-      },
-      "paper": {
-        "title": "A Systematic Survey of Automatic Prompt Optimization Techniques",
-        "authors": [
-          "Kiran Ramnath",
-          "Kang Zhou",
-          "Sheng Guan",
-          "Soumya Smruti Mishra",
-          "Xuan Qi",
-          "Zhengyuan Shen",
-          "Shuai Wang",
-          "Sangmin Woo",
-          "Sullam Jeoung",
-          "Yawei Wang",
-          "Haozhu Wang",
-          "Han Ding",
-          "Yuzhe Lu",
-          "Zhichao Xu",
-          "Yun Zhou",
-          "Balasubramaniam Srinivasan",
-          "Qiaojing Yan",
-          "Yueyan Chen",
-          "Haibo Ding",
-          "Panpan Xu",
-          "Lin Lee Cheong"
-        ],
-        "published": "2025-02-24",
-        "source": "semantic_scholar",
-        "url": "https://www.semanticscholar.org/paper/e5c0cbccec7e025fe7c605d72a75ea748d300293",
-        "abstract_summary": "大規模言語モデルにおけるプロンプトエンジニアリングの最適化手法を系統的に調査した研究。",
-        "categories": [],
-        "citation_count": 39,
-        "practical_value": "medium",
-        "japan_coverage": "partial",
-        "wow_factor": 6,
-        "target_readability": "intermediate",
-        "practical_translation": "プロンプト最適化技術を活用し、AIモデルの応答精度を向上させる手法を学べる。"
-      },
-      "japanese_adaptation": "プロンプトの最適化でAIの応答精度が10%以上向上することが分かりました。効果的な質問を工夫し、あなたのAIをもっと賢く育てましょう！",
-      "hook": "AI応答精度向上",
-      "generated_at": "2026-02-23T21:34:27.887Z",
-      "source_type": "paper"
     }
   ]
 }
