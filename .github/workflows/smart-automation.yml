@@ -74,17 +74,11 @@ jobs:
         run: npm run smart-post
         continue-on-error: true
 
-      # ===== 投稿後の学習ループ（毎回実行）=====
-      # メトリクス収集: 24h以上経過 & 7日以内 & 未取得の投稿のみ対象
-      # バルクAPI（1回で最大100件）なので月6-12回程度の消費で収まる
-      - name: Collect metrics (daily)
-        run: |
-          echo "📊 メトリクス収集（24h以上経過した投稿）..."
-          npm run metrics || true
-        continue-on-error: true
+      # ===== メトリクス収集はdaily_setupのみ（月間API上限節約）=====
+      # smart_postではメトリクス収集をスキップ
+      # daily_setup（1日1回 JST 06:00）で一括収集
 
-      # XAS分析 → 仮説検証 → 推薦を毎回実行
-      # learning_state.json と next_recommendation.json を更新
+      # XAS分析は既存メトリクスがあれば実行可能
       - name: Analyze and learn
         run: |
           echo "🧠 分析→学習→推薦を実行..."
@@ -193,13 +187,13 @@ jobs:
           echo "  \"last_run\": \"$(date -u +%Y-%m-%dT%H:%M:%SZ)\"," >> dashboard/logs.json
           echo "  \"job\": \"daily_setup\"," >> dashboard/logs.json
           echo "  \"status\": \"success\"," >> dashboard/logs.json
-          echo "  \"actions\": [" >> dashboard/logs.json
+          echo "  \"actions\": {" >> dashboard/logs.json
           echo "    \"metrics_collected\": true," >> dashboard/logs.json
           echo "    \"patterns_updated\": true," >> dashboard/logs.json
           echo "    \"overseas_researched\": true," >> dashboard/logs.json
           echo "    \"influencers_watched\": true," >> dashboard/logs.json
           echo "    \"posts_generated\": true" >> dashboard/logs.json
-          echo "  ]" >> dashboard/logs.json
+          echo "  }" >> dashboard/logs.json
           echo "}" >> dashboard/logs.json
 
       - name: Commit daily setup
