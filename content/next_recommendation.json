@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-02-27T04:53:08.009Z",
+  "generated_at": "2026-02-27T12:50:20.616Z",
   "based_on": {
     "total_analyzed": 71,
     "avg_xas": 21.53
   },
   "recommended": {
-    "theme": "Cursor活用",
+    "theme": "一般",
     "approach": "thread",
     "text_features": {
       "length": "medium",
@@ -16,87 +16,87 @@
   },
   "theme_ranking": [
     {
-      "name": "Cursor活用",
-      "sample": 0.086,
-      "mean": 0.059,
-      "trials": 170
+      "name": "一般",
+      "sample": 0.08,
+      "mean": 0.08,
+      "trials": 1505
     },
     {
-      "name": "一般",
-      "sample": 0.078,
-      "mean": 0.08,
-      "trials": 1462
+      "name": "Cursor活用",
+      "sample": 0.039,
+      "mean": 0.059,
+      "trials": 175
     },
     {
       "name": "バイブコーディングの限界",
-      "sample": 0.024,
+      "sample": 0.025,
       "mean": 0.03,
-      "trials": 748
+      "trials": 770
     },
     {
       "name": "AI開発の品質",
-      "sample": 0.022,
-      "mean": 0.009,
-      "trials": 34
+      "sample": 0.014,
+      "mean": 0.008,
+      "trials": 35
     }
   ],
   "approach_ranking": [
     {
       "name": "thread",
-      "sample": 0.211,
+      "sample": 0.185,
       "mean": 0.191,
-      "trials": 374
+      "trials": 385
     },
     {
       "name": "problem_statement",
-      "sample": 0.048,
+      "sample": 0.046,
       "mean": 0.053,
-      "trials": 374
+      "trials": 385
     },
     {
       "name": "unknown",
-      "sample": 0.038,
+      "sample": 0.039,
       "mean": 0.037,
-      "trials": 1564
+      "trials": 1610
     },
     {
       "name": "discovery",
-      "sample": 0.03,
+      "sample": 0.003,
       "mean": 0.013,
-      "trials": 34
+      "trials": 35
     },
     {
       "name": "tips",
       "sample": 0,
       "mean": 0.004,
-      "trials": 68
+      "trials": 70
     }
   ],
   "slot_ranking": [
     {
       "name": "morning",
       "mean": 0.076,
-      "trials": 1224
+      "trials": 1260
     },
     {
       "name": "night",
       "mean": 0.07,
-      "trials": 238
+      "trials": 245
     },
     {
       "name": "noon",
       "mean": 0.046,
-      "trials": 680
+      "trials": 700
     },
     {
       "name": "mid_morning",
       "mean": 0.041,
-      "trials": 204
+      "trials": 210
     },
     {
       "name": "evening",
       "mean": 0.004,
-      "trials": 68
+      "trials": 70
     }
   ],
   "accumulated_learnings": [
