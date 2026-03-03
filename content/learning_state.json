@@ -1,223 +1,223 @@
 {
   "version": "2.0",
-  "last_updated": "2026-03-03T21:21:23.223Z",
+  "last_updated": "2026-03-03T23:17:49.485Z",
   "theme_scores": {
     "バイブコーディングの限界": {
-      "alpha": 34.464,
-      "beta": 1110.536,
-      "trials": 1144,
+      "alpha": 35.121,
+      "beta": 1131.879,
+      "trials": 1166,
       "mean": 0.03
     },
     "Cursor活用": {
-      "alpha": 15.172,
-      "beta": 245.828,
-      "trials": 260,
+      "alpha": 15.458,
+      "beta": 250.542,
+      "trials": 265,
       "mean": 0.058
     },
     "AI開発の品質": {
       "alpha": 0.3,
-      "beta": 52.7,
-      "trials": 52,
+      "beta": 53.7,
+      "trials": 53,
       "mean": 0.006
     },
     "一般": {
-      "alpha": 178.348,
-      "beta": 2058.652,
-      "trials": 2236,
+      "alpha": 181.772,
+      "beta": 2098.228,
+      "trials": 2279,
       "mean": 0.08
     }
   },
   "approach_scores": {
     "unknown": {
-      "alpha": 87.868,
-      "beta": 2305.132,
-      "trials": 2392,
+      "alpha": 89.552,
+      "beta": 2349.448,
+      "trials": 2438,
       "mean": 0.037
     },
     "tips": {
       "alpha": 0.3,
-      "beta": 104.7,
-      "trials": 104,
+      "beta": 106.7,
+      "trials": 106,
       "mean": 0.003
     },
     "problem_statement": {
-      "alpha": 30.512,
-      "beta": 542.488,
-      "trials": 572,
+      "alpha": 31.093,
+      "beta": 552.907,
+      "trials": 583,
       "mean": 0.053
     },
     "thread": {
-      "alpha": 109.344,
-      "beta": 463.656,
-      "trials": 572,
+      "alpha": 111.441,
+      "beta": 472.559,
+      "trials": 583,
       "mean": 0.191
     },
     "discovery": {
-      "alpha": 0.56,
-      "beta": 52.44,
-      "trials": 52,
-      "mean": 0.011
+      "alpha": 0.565,
+      "beta": 53.435,
+      "trials": 53,
+      "mean": 0.01
     }
   },
   "slot_scores": {
     "noon": {
-      "alpha": 47.672,
-      "beta": 993.328,
-      "trials": 1040,
+      "alpha": 48.583,
+      "beta": 1012.417,
+      "trials": 1060,
       "mean": 0.046
     },
     "mid_morning": {
-      "alpha": 12.676,
-      "beta": 300.324,
-      "trials": 312,
+      "alpha": 12.914,
+      "beta": 306.086,
+      "trials": 318,
       "mean": 0.04
     },
     "morning": {
-      "alpha": 142.52,
-      "beta": 1730.48,
-      "trials": 1872,
+      "alpha": 145.255,
+      "beta": 1763.745,
+      "trials": 1908,
       "mean": 0.076
     },
     "evening": {
       "alpha": 0.3,
-      "beta": 104.7,
-      "trials": 104,
+      "beta": 106.7,
+      "trials": 106,
       "mean": 0.003
     },
     "night": {
-      "alpha": 25.416,
-      "beta": 339.584,
-      "trials": 364,
+      "alpha": 25.899,
+      "beta": 346.101,
+      "trials": 371,
       "mean": 0.07
     }
   },
   "variant_scores": {
     "A": {
-      "alpha": 75.024,
-      "beta": 1433.976,
-      "trials": 1508,
+      "alpha": 76.461,
+      "beta": 1461.539,
+      "trials": 1537,
       "mean": 0.05
     },
     "B": {
-      "alpha": 152.66,
-      "beta": 2032.34,
-      "trials": 2184,
+      "alpha": 155.59,
+      "beta": 2071.41,
+      "trials": 2226,
       "mean": 0.07
     }
   },
   "feature_scores": {
     "len_medium": {
-      "alpha": 160.408,
-      "beta": 1660.592,
-      "trials": 1820,
+      "alpha": 163.487,
+      "beta": 1692.513,
+      "trials": 1855,
       "mean": 0.088
     },
     "emoji_none": {
-      "alpha": 26.612,
-      "beta": 1898.388,
-      "trials": 1924,
+      "alpha": 27.118,
+      "beta": 1934.882,
+      "trials": 1961,
       "mean": 0.014
     },
     "hook_empathy": {
       "alpha": 0.3,
-      "beta": 260.7,
-      "trials": 260,
+      "beta": 265.7,
+      "trials": 265,
       "mean": 0.001
     },
     "sentiment_neutral": {
-      "alpha": 176.008,
-      "beta": 2164.992,
-      "trials": 2340,
+      "alpha": 179.387,
+      "beta": 2206.613,
+      "trials": 2385,
       "mean": 0.075
     },
     "hashtag_none": {
-      "alpha": 169.768,
-      "beta": 1703.232,
-      "trials": 1872,
+      "alpha": 173.027,
+      "beta": 1735.973,
+      "trials": 1908,
       "mean": 0.091
     },
     "has_numbers": {
-      "alpha": 74.244,
-      "beta": 550.756,
-      "trials": 624,
+      "alpha": 75.666,
+      "beta": 561.334,
+      "trials": 636,
       "mean": 0.119
     },
     "emoji_few": {
-      "alpha": 142.312,
-      "beta": 1522.688,
-      "trials": 1664,
+      "alpha": 145.043,
+      "beta": 1551.957,
+      "trials": 1696,
       "mean": 0.085
     },
     "hook_confession": {
-      "alpha": 27.704,
-      "beta": 337.296,
-      "trials": 364,
+      "alpha": 28.231,
+      "beta": 343.769,
+      "trials": 371,
       "mean": 0.076
     },
     "sentiment_negative": {
-      "alpha": 21.204,
-      "beta": 395.796,
-      "trials": 416,
+      "alpha": 21.606,
+      "beta": 403.394,
+      "trials": 424,
       "mean": 0.051
     },
     "no_numbers": {
-      "alpha": 153.44,
-      "beta": 2915.56,
-      "trials": 3068,
+      "alpha": 156.385,
+      "beta": 2971.615,
+      "trials": 3127,
       "mean": 0.05
     },
     "len_short": {
-      "alpha": 67.276,
-      "beta": 1805.724,
-      "trials": 1872,
+      "alpha": 68.564,
+      "beta": 1840.436,
+      "trials": 1908,
       "mean": 0.036
     },
     "hook_discovery": {
       "alpha": 0.3,
-      "beta": 156.7,
-      "trials": 156,
+      "beta": 159.7,
+      "trials": 159,
       "mean": 0.002
     },
     "hook_neutral": {
-      "alpha": 195.508,
-      "beta": 2457.492,
-      "trials": 2652,
+      "alpha": 199.262,
+      "beta": 2504.738,
+      "trials": 2703,
       "mean": 0.074
     },
     "sentiment_positive": {
-      "alpha": 30.772,
-      "beta": 646.228,
-      "trials": 676,
+      "alpha": 31.358,
+      "beta": 658.642,
+      "trials": 689,
       "mean": 0.045
     },
     "hashtag_yes": {
-      "alpha": 57.916,
-      "beta": 1763.084,
-      "trials": 1820,
+      "alpha": 59.024,
+      "beta": 1796.976,
+      "trials": 1855,
       "mean": 0.032
     },
     "sentiment_mixed": {
       "alpha": 0.3,
-      "beta": 260.7,
-      "trials": 260,
+      "beta": 265.7,
+      "trials": 265,
       "mean": 0.001
     },
     "emoji_many": {
-      "alpha": 59.06,
-      "beta": 45.94,
-      "trials": 104,
-      "mean": 0.562
+      "alpha": 60.19,
+      "beta": 46.81,
+      "trials": 106,
+      "mean": 0.563
     },
     "hook_question": {
-      "alpha": 2.276,
-      "beta": 154.724,
-      "trials": 156,
+      "alpha": 2.314,
+      "beta": 157.686,
+      "trials": 159,
       "mean": 0.014
     },
     "hook_data": {
-      "alpha": 2.796,
-      "beta": 102.204,
-      "trials": 104,
+      "alpha": 2.844,
+      "beta": 104.156,
+      "trials": 106,
       "mean": 0.027
     }
   },
@@ -230,9 +230,9 @@
   },
   "source_type_scores": {
     "domestic": {
-      "alpha": 223.017,
-      "beta": 3398.983,
-      "trials": 3621,
+      "alpha": 227.384,
+      "beta": 3465.616,
+      "trials": 3692,
       "mean": 0.062
     }
   }
