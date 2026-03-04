@@ -1,5 +1,5 @@
 {
-  "researched_at": "2026-03-03T21:23:48.520Z",
+  "researched_at": "2026-03-04T21:23:43.600Z",
   "method": "grok+academic",
   "keywords_used": [
     "vibe coding",
@@ -23,34 +23,14 @@
     "@levelsio"
   ],
   "topics_found": 5,
-  "papers_found": 2,
+  "papers_found": 1,
   "papers_high_value": 0,
-  "papers_japan_uncovered": 2,
-  "ideas_generated": 7,
-  "ideas_from_papers": 2,
+  "papers_japan_uncovered": 1,
+  "ideas_generated": 6,
+  "ideas_from_papers": 1,
   "ideas_from_trends": 5,
-  "high_novelty_count": 7,
+  "high_novelty_count": 6,
   "academic_papers": [
-    {
-      "title": "Reasoning Core: A Scalable Procedural Data Generation Suite for Symbolic Pre-training and Post-Training",
-      "authors": [
-        "Valentin Lacombe",
-        "Valentin Quesnel",
-        "Damien Sileo"
-      ],
-      "published": "2026-03-02",
-      "source": "arxiv",
-      "url": "http://arxiv.org/abs/2603.02208v1",
-      "abstract_summary": "この研究は、象徴的なデータ生成のためのスケーラブルな手法を提案し、言語モデルの推論能力を向上させる可能性を探ります。",
-      "categories": [
-        "cs.CL"
-      ],
-      "practical_value": "medium",
-      "japan_coverage": "none",
-      "wow_factor": 6,
-      "target_readability": "intermediate",
-      "practical_translation": "この研究は、より多様なデータ生成が可能になり、モデルの推論能力向上に寄与します。"
-    },
     {
       "title": "SOK: Exploring Hallucinations and Security Risks in AI-Assisted Software Development with Insights for LLM Deployment",
       "authors": [
@@ -66,29 +46,29 @@
       "published": "2025-01-31",
       "source": "semantic_scholar",
       "url": "https://www.semanticscholar.org/paper/b8f658e6b187556303fbe8611237eafbfd4c2d6e",
-      "abstract_summary": "LLMを用いたソフトウェア開発の利点と、生成AIによるセキュリティリスクやハルシネーションを探求する研究。",
+      "abstract_summary": "LLMを活用したソフトウェア開発の生産性向上やデバッグ能力の強化を探求する論文。",
       "categories": [],
       "citation_count": 6,
       "practical_value": "medium",
       "japan_coverage": "none",
-      "wow_factor": 6,
+      "wow_factor": 5,
       "target_readability": "intermediate",
-      "practical_translation": "AIを利用した開発の生産性向上とセキュリティリスクを理解する手助けになる。"
+      "practical_translation": "LLMを活用する際のセキュリティリスクや判断ミスの重要性を理解できる。"
     }
   ],
   "insights": [
     {
-      "topic": "Vibe Coding with AI Pair Programming",
-      "summary": "AIをペアプログラミングのパートナーとして活用する「Vibe Coding」が話題。感情や直感をコードに反映する手法で、創造性と効率が向上する。",
+      "topic": "Prompt Caching for Cost-Efficient LLM Usage",
+      "summary": "LLMのプロンプトをキャッシュすることでAPIコストを削減し、応答速度を向上させる手法。開発者にとってコスト管理と効率化が同時に実現可能。",
       "key_accounts": [
         "@swyx",
         "@mckaywrigley"
       ],
       "example_posts": [
-        "AIと一緒にコードを書くVibe Codingが楽しい。感情をコードに込める新体験！",
-        "Vibe CodingでAIがアイデアを即座に形にしてくれる。開発速度が2倍に！"
+        "Prompt caching saves 30% on API costs by reusing common queries. Game-changer for scaling AI apps!",
+        "Testing prompt caching with OpenAI API—latency down by 40%. Here’s my setup script."
       ],
-      "japan_relevance": "日本のエンジニアにも創造性向上のツールとして有用",
+      "japan_relevance": "日本でもAPIコスト削減ニーズ高く、即適用可能",
       "novelty_score": 8,
       "persona_fit": 9,
       "freshness": 9,
@@ -96,226 +76,161 @@
       "priority_score": 65
     },
     {
-      "topic": "Agentic Workflows for Autonomous Task Handling",
-      "summary": "AIエージェントがタスクを自律的に処理する「Agentic Workflows」が注目。複雑な業務を自動化し、開発者の負担を軽減する実践的手法。",
+      "topic": "Structured Outputs in LLM for Reliable Data Parsing",
+      "summary": "LLMの出力をJSONなどの構造化形式に固定する手法。開発時のデータ処理が安定し、エラー率が減少する実用的アプローチ。",
       "key_accounts": [
-        "@hwchase17",
-        "@jxnlco"
+        "@simonw",
+        "@hwchase17"
       ],
       "example_posts": [
-        "Agentic WorkflowsでAIがタスクを自動分割・実行。開発効率が劇的に向上！",
-        "エージェント同士の連携でプロジェクト管理を自動化。試してみる価値あり。"
+        "Structured outputs from LLMs are a lifesaver for parsing—finally no more regex nightmares!",
+        "Tutorial on forcing JSON output from Claude for clean API integration. Link below."
       ],
-      "japan_relevance": "日本の業務自動化ニーズにマッチ",
+      "japan_relevance": "日本開発者にもデータ処理の課題解決に有用",
       "novelty_score": 7,
       "persona_fit": 8,
       "freshness": 8,
-      "japan_spread": 1,
-      "priority_score": 58
+      "japan_spread": 3,
+      "priority_score": 45
     },
     {
-      "topic": "LLM Orchestration for Multi-Model Collaboration",
-      "summary": "複数のLLMを協調させる「LLM Orchestration」が話題。モデルごとに役割を分担させ、精度と速度を両立させる開発手法。",
+      "topic": "Tool Use Patterns for LLM-Driven Automation",
+      "summary": "LLMが外部ツールを活用するパターンを設計し、自動化を強化する手法。タスクの再現性と効率性が向上し、開発者に新しい可能性を提供。",
       "key_accounts": [
         "@karpathy",
-        "@simonw"
+        "@jxnlco"
       ],
       "example_posts": [
-        "LLM OrchestrationでGPTとClaudeを連携。精度が段違い！",
-        "複数モデルをオーケストレーションする手法で、複雑な課題を解決中。"
+        "Tool use patterns with LLMs: automate data scraping with a single prompt. Here’s how.",
+        "Building a tool-calling pipeline with ChatGPT—cuts manual work by 50%."
       ],
-      "japan_relevance": "日本のAI開発者にも応用可能",
+      "japan_relevance": "日本の業務自動化ニーズに合致し応用可能",
       "novelty_score": 9,
+      "persona_fit": 9,
+      "freshness": 10,
+      "japan_spread": 1,
+      "priority_score": 81
+    },
+    {
+      "topic": "Agent Memory for Context-Aware AI Interactions",
+      "summary": "AIエージェントに長期記憶を持たせることで、ユーザーとの対話をより自然かつ文脈に沿ったものにする技術。パーソナライズが強化される。",
+      "key_accounts": [
+        "@levelsio",
+        "@mckaywrigley"
+      ],
+      "example_posts": [
+        "Agent memory lets AI remember past convos—feels like talking to a friend now!",
+        "Implementing agent memory in my chatbot. Retention of user prefs up by 60%."
+      ],
+      "japan_relevance": "日本の顧客対応AIに革新をもたらす可能性",
+      "novelty_score": 8,
       "persona_fit": 8,
       "freshness": 9,
       "japan_spread": 2,
       "priority_score": 58
     },
     {
-      "topic": "AI-First Development with Iterative Feedback Loops",
-      "summary": "AIを開発の初期段階から活用する「AI-First Development」が注目。反復的なフィードバックで再現性のある設計を実現する新アプローチ。",
+      "topic": "Spec-Driven Development with AI for Precision Coding",
+      "summary": "AIを活用した仕様主導開発で、要件定義からコード生成までを精密化。開発の曖昧さを排除し、再現性のある成果物を得る手法。",
       "key_accounts": [
-        "@levelsio",
-        "@swyx"
+        "@swyx",
+        "@hwchase17"
       ],
       "example_posts": [
-        "AI-First Developmentで初期設計からAIを活用。エラーが激減！",
-        "反復フィードバックでAIが設計を最適化。開発が超効率的に。"
+        "Spec-driven dev with AI: turn vague ideas into tight code with clear specs. My workflow here.",
+        "Using AI to validate specs before coding—reduces bugs by 25%. Try it!"
       ],
-      "japan_relevance": "日本の開発プロセス改善に寄与",
-      "novelty_score": 8,
+      "japan_relevance": "日本の開発プロセス改善に直結する手法",
+      "novelty_score": 7,
       "persona_fit": 9,
       "freshness": 8,
       "japan_spread": 3,
       "priority_score": 50
-    },
-    {
-      "topic": "MCP (Model Context Protocol) for Seamless AI Integration",
-      "summary": "AIモデル間のコンテキスト共有を標準化する「MCP」が話題。異なるモデルやツール間でのスムーズな連携を実現し、開発効率を向上。",
-      "key_accounts": [
-        "@jxnlco",
-        "@hwchase17"
-      ],
-      "example_posts": [
-        "MCPでモデル間のコンテキスト共有が簡単になった。統合がスムーズ！",
-        "Model Context ProtocolがAI開発の未来を変える。試す価値あり。"
-      ],
-      "japan_relevance": "日本でのAI統合プロジェクトに有効",
-      "novelty_score": 9,
-      "persona_fit": 8,
-      "freshness": 9,
-      "japan_spread": 1,
-      "priority_score": 65
     }
   ],
   "ideas": [
     {
       "insight": {
-        "topic": "Vibe Coding with AI Pair Programming",
-        "summary": "AIをペアプログラミングのパートナーとして活用する「Vibe Coding」が話題。感情や直感をコードに反映する手法で、創造性と効率が向上する。",
+        "topic": "Tool Use Patterns for LLM-Driven Automation",
+        "summary": "LLMが外部ツールを活用するパターンを設計し、自動化を強化する手法。タスクの再現性と効率性が向上し、開発者に新しい可能性を提供。",
+        "key_accounts": [
+          "@karpathy",
+          "@jxnlco"
+        ],
+        "example_posts": [
+          "Tool use patterns with LLMs: automate data scraping with a single prompt. Here’s how.",
+          "Building a tool-calling pipeline with ChatGPT—cuts manual work by 50%."
+        ],
+        "japan_relevance": "日本の業務自動化ニーズに合致し応用可能",
+        "novelty_score": 9,
+        "persona_fit": 9,
+        "freshness": 10,
+        "japan_spread": 1,
+        "priority_score": 81
+      },
+      "japanese_adaptation": "LLMと外部ツールの連携が進化中。業務の再現性向上には、API活用が鍵！具体的には、定型業務を自動化する際、ツールを組み合わせて効率化を図るべき。新たな可能性を探ろう。 #業務自動化",
+      "hook": "業務効率化の鍵",
+      "generated_at": "2026-03-04T21:23:37.420Z",
+      "source_type": "trend"
+    },
+    {
+      "insight": {
+        "topic": "Prompt Caching for Cost-Efficient LLM Usage",
+        "summary": "LLMのプロンプトをキャッシュすることでAPIコストを削減し、応答速度を向上させる手法。開発者にとってコスト管理と効率化が同時に実現可能。",
         "key_accounts": [
           "@swyx",
           "@mckaywrigley"
         ],
         "example_posts": [
-          "AIと一緒にコードを書くVibe Codingが楽しい。感情をコードに込める新体験！",
-          "Vibe CodingでAIがアイデアを即座に形にしてくれる。開発速度が2倍に！"
+          "Prompt caching saves 30% on API costs by reusing common queries. Game-changer for scaling AI apps!",
+          "Testing prompt caching with OpenAI API—latency down by 40%. Here’s my setup script."
         ],
-        "japan_relevance": "日本のエンジニアにも創造性向上のツールとして有用",
+        "japan_relevance": "日本でもAPIコスト削減ニーズ高く、即適用可能",
         "novelty_score": 8,
         "persona_fit": 9,
         "freshness": 9,
         "japan_spread": 2,
         "priority_score": 65
       },
-      "japanese_adaptation": "AIをペアプログラミングの相棒に！感情や直感をコードに反映する「Vibe Coding」で、創造性を引き出し、効率もアップ。自分の感覚を大切にしながら、AIと共創する楽しさを実感してみて！ #VibeCoding #AIプログラミング",
-      "hook": "AIと共創！",
-      "generated_at": "2026-03-03T21:23:33.819Z",
+      "japanese_adaptation": "プロンプトキャッシュを活用すれば、APIコスト削減と応答速度の向上が同時に実現可能。定期的なキャッシュ見直しで、より効率的な運用が実現します。開発に役立ててみてください！ #AI活用",
+      "hook": "コスト削減法",
+      "generated_at": "2026-03-04T21:23:31.258Z",
       "source_type": "trend"
     },
     {
       "insight": {
-        "topic": "MCP (Model Context Protocol) for Seamless AI Integration",
-        "summary": "AIモデル間のコンテキスト共有を標準化する「MCP」が話題。異なるモデルやツール間でのスムーズな連携を実現し、開発効率を向上。",
+        "topic": "Agent Memory for Context-Aware AI Interactions",
+        "summary": "AIエージェントに長期記憶を持たせることで、ユーザーとの対話をより自然かつ文脈に沿ったものにする技術。パーソナライズが強化される。",
         "key_accounts": [
-          "@jxnlco",
-          "@hwchase17"
+          "@levelsio",
+          "@mckaywrigley"
         ],
         "example_posts": [
-          "MCPでモデル間のコンテキスト共有が簡単になった。統合がスムーズ！",
-          "Model Context ProtocolがAI開発の未来を変える。試す価値あり。"
+          "Agent memory lets AI remember past convos—feels like talking to a friend now!",
+          "Implementing agent memory in my chatbot. Retention of user prefs up by 60%."
         ],
-        "japan_relevance": "日本でのAI統合プロジェクトに有効",
-        "novelty_score": 9,
-        "persona_fit": 8,
-        "freshness": 9,
-        "japan_spread": 1,
-        "priority_score": 65
-      },
-      "japanese_adaptation": "MCPを活用すれば、異なるAIモデル間でのデータ共有がスムーズに。これにより、開発時間を短縮し、精度も向上。日本のプロジェクトでもぜひ試してみて！ #AI統合 #MCP",
-      "hook": "開発効率化",
-      "generated_at": "2026-03-03T21:23:48.020Z",
-      "source_type": "trend"
-    },
-    {
-      "insight": {
-        "topic": "Agentic Workflows for Autonomous Task Handling",
-        "summary": "AIエージェントがタスクを自律的に処理する「Agentic Workflows」が注目。複雑な業務を自動化し、開発者の負担を軽減する実践的手法。",
-        "key_accounts": [
-          "@hwchase17",
-          "@jxnlco"
-        ],
-        "example_posts": [
-          "Agentic WorkflowsでAIがタスクを自動分割・実行。開発効率が劇的に向上！",
-          "エージェント同士の連携でプロジェクト管理を自動化。試してみる価値あり。"
-        ],
-        "japan_relevance": "日本の業務自動化ニーズにマッチ",
-        "novelty_score": 7,
-        "persona_fit": 8,
-        "freshness": 8,
-        "japan_spread": 1,
-        "priority_score": 58
-      },
-      "japanese_adaptation": "自律的なタスク処理を実現する「Agentic Workflows」は、業務効率化に革命をもたらすかも。AIエージェントが複雑なプロセスを自動化し、開発者の負担を軽減。まずは小さなタスクから導入してみては？ #業務自動化 #AIエージェント",
-      "hook": "業務効率化の鍵",
-      "generated_at": "2026-03-03T21:23:38.073Z",
-      "source_type": "trend"
-    },
-    {
-      "insight": {
-        "topic": "LLM Orchestration for Multi-Model Collaboration",
-        "summary": "複数のLLMを協調させる「LLM Orchestration」が話題。モデルごとに役割を分担させ、精度と速度を両立させる開発手法。",
-        "key_accounts": [
-          "@karpathy",
-          "@simonw"
-        ],
-        "example_posts": [
-          "LLM OrchestrationでGPTとClaudeを連携。精度が段違い！",
-          "複数モデルをオーケストレーションする手法で、複雑な課題を解決中。"
-        ],
-        "japan_relevance": "日本のAI開発者にも応用可能",
-        "novelty_score": 9,
+        "japan_relevance": "日本の顧客対応AIに革新をもたらす可能性",
+        "novelty_score": 8,
         "persona_fit": 8,
         "freshness": 9,
         "japan_spread": 2,
         "priority_score": 58
       },
-      "japanese_adaptation": "複数のLLMを役割分担させることで、精度と速度を両立！例えば、生成系と解析系のモデルを組み合わせると、効率的なシステムが構築できます。これからの開発にぜひ取り入れたい手法ですね！ #AI開発 #LLMオーケストレーション",
-      "hook": "役割分担の利点",
-      "generated_at": "2026-03-03T21:23:40.975Z",
+      "japanese_adaptation": "AIエージェントに長期記憶を持たせることで、ユーザーの過去のインタラクションを思い出し、より的確なサポートが可能に。これにより顧客満足度が飛躍的に向上するかも。具体的には、ユーザーの好みや履歴を反映した提案が実現します。 #AI #顧客体験",
+      "hook": "顧客体験革新",
+      "generated_at": "2026-03-04T21:23:40.279Z",
       "source_type": "trend"
     },
     {
       "insight": {
-        "topic": "Reasoning Core: A Scalable Procedural Data Generation Suite ",
-        "summary": "この研究は、象徴的なデータ生成のためのスケーラブルな手法を提案し、言語モデルの推論能力を向上させる可能性を探ります。",
-        "key_accounts": [
-          "Valentin Lacombe",
-          "Valentin Quesnel"
-        ],
-        "example_posts": [],
-        "japan_relevance": "この研究は、より多様なデータ生成が可能になり、モデルの推論能力向上に寄与します。",
-        "novelty_score": 9,
-        "persona_fit": 7,
-        "freshness": 8,
-        "japan_spread": 1,
-        "priority_score": 50
-      },
-      "paper": {
-        "title": "Reasoning Core: A Scalable Procedural Data Generation Suite for Symbolic Pre-training and Post-Training",
-        "authors": [
-          "Valentin Lacombe",
-          "Valentin Quesnel",
-          "Damien Sileo"
-        ],
-        "published": "2026-03-02",
-        "source": "arxiv",
-        "url": "http://arxiv.org/abs/2603.02208v1",
-        "abstract_summary": "この研究は、象徴的なデータ生成のためのスケーラブルな手法を提案し、言語モデルの推論能力を向上させる可能性を探ります。",
-        "categories": [
-          "cs.CL"
-        ],
-        "practical_value": "medium",
-        "japan_coverage": "none",
-        "wow_factor": 6,
-        "target_readability": "intermediate",
-        "practical_translation": "この研究は、より多様なデータ生成が可能になり、モデルの推論能力向上に寄与します。"
-      },
-      "japanese_adaptation": "象徴的データ生成が進化！多様なデータを活用することで、モデルの推論力が最大30%向上する可能性。AIを使いこなせるチャンスを逃さないで！",
-      "hook": "データ進化",
-      "generated_at": "2026-03-03T21:23:09.895Z",
-      "source_type": "paper"
-    },
-    {
-      "insight": {
         "topic": "SOK: Exploring Hallucinations and Security Risks in AI-Assis",
-        "summary": "LLMを用いたソフトウェア開発の利点と、生成AIによるセキュリティリスクやハルシネーションを探求する研究。",
+        "summary": "LLMを活用したソフトウェア開発の生産性向上やデバッグ能力の強化を探求する論文。",
         "key_accounts": [
           "Mohd Ariful Haque",
           "Sunzida Siddique"
         ],
         "example_posts": [],
-        "japan_relevance": "AIを利用した開発の生産性向上とセキュリティリスクを理解する手助けになる。",
+        "japan_relevance": "LLMを活用する際のセキュリティリスクや判断ミスの重要性を理解できる。",
         "novelty_score": 9,
         "persona_fit": 7,
         "freshness": 8,
@@ -337,42 +252,66 @@
         "published": "2025-01-31",
         "source": "semantic_scholar",
         "url": "https://www.semanticscholar.org/paper/b8f658e6b187556303fbe8611237eafbfd4c2d6e",
-        "abstract_summary": "LLMを用いたソフトウェア開発の利点と、生成AIによるセキュリティリスクやハルシネーションを探求する研究。",
+        "abstract_summary": "LLMを活用したソフトウェア開発の生産性向上やデバッグ能力の強化を探求する論文。",
         "categories": [],
         "citation_count": 6,
         "practical_value": "medium",
         "japan_coverage": "none",
-        "wow_factor": 6,
+        "wow_factor": 5,
         "target_readability": "intermediate",
-        "practical_translation": "AIを利用した開発の生産性向上とセキュリティリスクを理解する手助けになる。"
+        "practical_translation": "LLMを活用する際のセキュリティリスクや判断ミスの重要性を理解できる。"
       },
-      "japanese_adaptation": "AIを活用することでソフトウェア開発の生産性が最大30%向上する一方、ハルシネーションやセキュリティリスクも無視できません。開発にはリスク管理が不可欠です！#AI開発",
-      "hook": "生産性向上",
-      "generated_at": "2026-03-03T21:23:12.863Z",
+      "japanese_adaptation": "AIを活用することで生産性が最大40%向上することが分かりました。しかし、判断ミスやセキュリティリスクも増加。AIを使いこなすためには、リスク管理が不可欠です。#AI活用",
+      "hook": "生産性40%向上",
+      "generated_at": "2026-03-04T21:23:09.879Z",
       "source_type": "paper"
     },
     {
       "insight": {
-        "topic": "AI-First Development with Iterative Feedback Loops",
-        "summary": "AIを開発の初期段階から活用する「AI-First Development」が注目。反復的なフィードバックで再現性のある設計を実現する新アプローチ。",
+        "topic": "Spec-Driven Development with AI for Precision Coding",
+        "summary": "AIを活用した仕様主導開発で、要件定義からコード生成までを精密化。開発の曖昧さを排除し、再現性のある成果物を得る手法。",
         "key_accounts": [
-          "@levelsio",
-          "@swyx"
+          "@swyx",
+          "@hwchase17"
         ],
         "example_posts": [
-          "AI-First Developmentで初期設計からAIを活用。エラーが激減！",
-          "反復フィードバックでAIが設計を最適化。開発が超効率的に。"
+          "Spec-driven dev with AI: turn vague ideas into tight code with clear specs. My workflow here.",
+          "Using AI to validate specs before coding—reduces bugs by 25%. Try it!"
         ],
-        "japan_relevance": "日本の開発プロセス改善に寄与",
-        "novelty_score": 8,
+        "japan_relevance": "日本の開発プロセス改善に直結する手法",
+        "novelty_score": 7,
         "persona_fit": 9,
         "freshness": 8,
         "japan_spread": 3,
         "priority_score": 50
       },
-      "japanese_adaptation": "AI-First Developmentで初期段階からAIを活用し、反復的なフィードバックループを取り入れることで、設計の再現性が向上。プロトタイピングにも役立つ！具体的には、ユーザーテストを早期に行い、フィードバックを即座に反映させると良いでしょう。#AI開発 #フィードバック",
-      "hook": "新アプローチ",
-      "generated_at": "2026-03-03T21:23:44.969Z",
+      "japanese_adaptation": "仕様主導開発でAIを活用すると、要件からコード生成までの精度が向上。曖昧さを排除し、チーム全体が理解しやすい成果物を得られる！具体的には、ユーザー要件を明確にした後、AIにコード化を依頼するのが効果的。#開発効率 #AI活用",
+      "hook": "精密開発の新常識",
+      "generated_at": "2026-03-04T21:23:43.101Z",
+      "source_type": "trend"
+    },
+    {
+      "insight": {
+        "topic": "Structured Outputs in LLM for Reliable Data Parsing",
+        "summary": "LLMの出力をJSONなどの構造化形式に固定する手法。開発時のデータ処理が安定し、エラー率が減少する実用的アプローチ。",
+        "key_accounts": [
+          "@simonw",
+          "@hwchase17"
+        ],
+        "example_posts": [
+          "Structured outputs from LLMs are a lifesaver for parsing—finally no more regex nightmares!",
+          "Tutorial on forcing JSON output from Claude for clean API integration. Link below."
+        ],
+        "japan_relevance": "日本開発者にもデータ処理の課題解決に有用",
+        "novelty_score": 7,
+        "persona_fit": 8,
+        "freshness": 8,
+        "japan_spread": 3,
+        "priority_score": 45
+      },
+      "japanese_adaptation": "LLMの出力をJSONなどの構造化形式に固定することで、データ処理が安定しエラーも減少。日本の開発者はこの手法を取り入れることで、より信頼性の高いアプリケーションを作れるかも！ #AI開発 #データ処理",
+      "hook": "データ処理の安定",
+      "generated_at": "2026-03-04T21:23:33.766Z",
       "source_type": "trend"
     }
   ]
