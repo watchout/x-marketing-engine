@@ -677,6 +677,84 @@ posts:
       feedback: 投稿はAIに興味のある層に刺さる内容で、Xの文化にも適合しているが、具体的な事例やツール名、数字が不足しているため、説得力と具体性が向上する余地がある。技術的な仕組みの詳細や実際の事例を追加すると、さらに信頼性と興味を引く力が強まるだろう。
     status: active
     source: daily_auto
+  - id: daily_20260308_morning
+    generated_at: '2026-03-07T21:11:54.129Z'
+    scheduled_date: '2026-03-08'
+    slot: morning
+    topic: AIエージェントが自律的にタスクを連携・
+    theme: AIエージェントが自律的にタスクを連携・
+    type: warning
+    quality_score: 80
+    refinement_rounds: 1
+    variants:
+      A:
+        content: え、AIが勝手にタスクを連携する時代が来てる？ 海外で話題の「Agentic Workflows」がヤバい。AIエージェントが自律的にプロジェクトを管理し、複雑な作業を自動で繋げる仕組みだ。開発効率が劇的に上がり、エンジニアは創造性に集中できると注目されている。実際、こうした自動化が進むと、単純作業から解放される未来が見えてくる。こんなワークフローが現場に導入されたら、働き方はどう変わると思う？ 意見を聞かせてほしい。😲
+        hook_type: 感情型
+      B:
+        content: AIが自らタスクを連携する時代が到来しているようだ。海外で話題の「Agentic Workflows」は、AIエージェントが自律的にプロジェクトを管理し、複雑な作業を自動で繋げる画期的な仕組みである。開発効率が飛躍的に向上し、エンジニアが創造性に専念できる点で注目を集めている。単純作業からの解放が進む未来を予感させるが、こうしたワークフローが現場に導入された際、働き方はどのように変貌するのだろうか。率直な意見を伺いたい。
+        hook_type: 丁寧型
+    scores:
+      hook_strength: 20
+      persona_fit: 22
+      x_culture_fit: 23
+      specificity: 8
+      credibility: 7
+      total: 80
+      feedback: 投稿はAIに興味のある層に響く内容で、X文化にも適合しているが、具体的な事例やツール名、数字が不足しているため、信憑性と具体性が向上する余地がある。『Agentic Workflows』の事例や関連ツールを軽く触れると、より説得力が増すだろう。
+    status: active
+    source: daily_auto
+  - id: daily_20260308_noon
+    generated_at: '2026-03-07T21:12:04.071Z'
+    scheduled_date: '2026-03-08'
+    slot: noon
+    topic: 直感的な「雰囲気」でコードを書く手法をA
+    theme: 直感的な「雰囲気」でコードを書く手法をA
+    type: empathy
+    quality_score: 85
+    refinement_rounds: 1
+    variants:
+      A:
+        content: AIで直感的にコードを書く「Vibe Coding」が海外で話題だ。AI駆動のフィードバックループを使い、コードの「雰囲気」を書くだけで即座に補正がかかる仕組み。試行錯誤の速度が劇的に上がり、初心者でも高品質な成果が出せると注目されている。たとえば、GitHub CopilotやCursorといったツールがこの流れを加速させている。この手法、学習曲線をどう変えるのか気になるところだ。直感を形にする新しいコーディングスタイルが、今後の開発現場にどう影響するのか、動向を見守りたい。😊
+        hook_type: 感情型
+      B:
+        content: AIを活用し直感的にコードを記述する「Vibe Coding」が海外で注目を集めている。AIによるフィードバックループを駆使し、コードの「雰囲気」を書くだけで即座に補正が施される仕組みだ。試行錯誤の速度が飛躍的に向上し、初心者であっても高品質な成果を上げられると評判である。GitHub CopilotやCursorといったツールがこの潮流を加速させている。直感を形にするこの新しいコーディングスタイルが、学習曲線や開発現場にどのような影響を及ぼすのか、今後の動向に注目していきたい。
+        hook_type: 丁寧型
+    scores:
+      hook_strength: 20
+      persona_fit: 22
+      x_culture_fit: 23
+      specificity: 12
+      credibility: 8
+      total: 85
+      feedback: 投稿はAIやコーディングに興味のある層に刺さる内容で、Xの文化にも適合している。ツール名（GitHub Copilot, Cursor）の具体的な言及がある点は良いが、『Vibe Coding』の詳細な事例や効果を示すデータが不足している。信憑性向上のため、海外での話題性を裏付けるソースや具体的なユーザーの声を補足するとより説得力が増す。
+    status: active
+    source: daily_auto
+  - id: daily_20260308_night
+    generated_at: '2026-03-07T21:12:12.868Z'
+    scheduled_date: '2026-03-08'
+    slot: night
+    topic: モデル間のコンテキスト共有を標準化するプ
+    theme: モデル間のコンテキスト共有を標準化するプ
+    type: solution
+    quality_score: 75
+    refinement_rounds: 1
+    variants:
+      A:
+        content: AI開発の新風！モデル間のコンテキスト共有を標準化する「MCP（Model Context Protocol）」が海外で注目されています。異なるAIモデル間でデータをスムーズに共有でき、互換性や再利用性が飛躍的に向上する仕組みです。これにより、開発の手間が減り、プロジェクトのスピードアップが期待できます。日本のAIシーンでも、こうした標準化が進めば、開発者の負担が減るのではないでしょうか。技術の本質は「再現性」と「効率」にあると改めて感じます。🖥️
+        hook_type: 感情型
+      B:
+        content: AI開発の領域に新たな潮流が生まれている。海外で注目を集める「MCP（Model Context Protocol）」は、モデル間のコンテキスト共有を標準化する画期的な仕組みだ。これにより、異なるAIモデル間でのデータ共有が円滑になり、互換性や再利用性が飛躍的に向上する。開発の手間が軽減され、プロジェクトの加速が期待できるだろう。日本のAI業界もこうした標準化を進めることで、開発者の負担が軽くなるはずだ。技術の本質は「再現性」と「効率」にあると再認識させられる。
+        hook_type: 丁寧型
+    scores:
+      hook_strength: 18
+      persona_fit: 22
+      x_culture_fit: 20
+      specificity: 8
+      credibility: 7
+      total: 75
+      feedback: 投稿はAIに興味を持つ層に対して魅力的で、Xの文化にも比較的適合しているが、具体的な事例や数字、MCPの詳細が不足しているため、信憑性と具体性が向上の余地あり。MCPの具体的な利点や実例を追加すると、さらに説得力が増す。
+    status: active
+    source: daily_auto
 stats:
   total_posts: 0
   total_impressions: 0
