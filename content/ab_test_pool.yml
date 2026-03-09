@@ -22,32 +22,6 @@ time_slots:
     purpose: 思想でファンにする
     type: Type3_思想
 posts:
-  - id: daily_20260225_morning
-    generated_at: '2026-02-24T21:24:35.045Z'
-    scheduled_date: '2026-02-25'
-    slot: morning
-    topic: LLMの出力をJSONなど構造化形式で固
-    theme: LLMの出力をJSONなど構造化形式で固
-    type: warning
-    quality_score: 85
-    refinement_rounds: 1
-    variants:
-      A:
-        content: え、LLMの出力がバラバラで開発が進まない？ もうその悩みは終わりかも。海外で話題の「Structured Outputs」機能がCursorやClaudeで実装中。JSONなど構造化形式で出力を固定でき、パース作業が激減するらしい。これで再現性のあるアプリ開発が一気に加速する可能性が。気になるのは、実際の開発現場での使い勝手。どんなプロジェクトで試してみたい？
-        hook_type: 感情型
-      B:
-        content: LLMの出力が一貫せず開発が停滞しているという問題は、そろそろ過去のものになるかもしれない。海外で注目を集める「Structured Outputs」機能がCursorやClaudeに実装されつつあるのだ。JSONなどの構造化形式で出力を固定でき、パース作業が大幅に削減されるという。再現性のあるアプリ開発が加速する可能性は高い。気になるのは実際の開発現場での実用性だ。どのようなプロジェクトでこの機能を試すのが効果的だろうか。
-        hook_type: 丁寧型
-    scores:
-      hook_strength: 20
-      persona_fit: 22
-      x_culture_fit: 23
-      specificity: 12
-      credibility: 8
-      total: 85
-      feedback: 投稿はAIに興味のあるエンジニアやビジネスパーソンに刺さる内容で、X文化にも合致している。具体的なツール名（Cursor, Claude）や機能名（Structured Outputs）が含まれ、話題性もある。ただし、実際の効果や事例が不足しているため、具体性と信頼性がやや弱い。実プロジェクトでの使用例や海外での反応を補足するとさらに説得力が増す。
-    status: active
-    source: daily_auto
   - id: daily_20260227_morning
     generated_at: '2026-02-26T21:24:22.814Z'
     scheduled_date: '2026-02-27'
@@ -831,6 +805,84 @@ posts:
       credibility: 8
       total: 73
       feedback: 投稿はAIに興味を持つエンジニアやビジネスパーソンに刺さる内容で、Xの文化にも適合しているが、具体的なツール名や事例がなく、内容がやや抽象的。具体例や数字を交えると、より説得力と興味を引く力が向上する。
+    status: active
+    source: daily_auto
+  - id: daily_20260310_morning
+    generated_at: '2026-03-09T21:21:30.662Z'
+    scheduled_date: '2026-03-10'
+    slot: morning
+    topic: 異なるAIモデル間でコンテキストを共有す
+    theme: 異なるAIモデル間でコンテキストを共有す
+    type: solution
+    quality_score: 77
+    refinement_rounds: 1
+    variants:
+      A:
+        content: 異なるAIモデル間で出力がバラバラ…そんな悩みを解決する新技術が話題だ！「MCP（Model Context Protocol）」は、モデル間でコンテキストをスムーズに共有するプロトコル。これにより、複数のAIを連携させても一貫した結果が得やすくなり、開発の効率が格段にアップする。海外ではすでに注目を集めており、多モデル環境での実装に期待が高まる。この技術、チームでのAI活用をどう変えると思う？🧠
+        hook_type: 感情型
+      B:
+        content: 異なるAIモデル間での出力の不一致に悩まされる状況を打破する新技術が注目を集めている。「MCP（Model Context Protocol）」は、モデル間でコンテキストを円滑に共有するプロトコルだ。これにより、複数のAIを連携させた際にも一貫性のある結果を得ることが容易となり、開発効率が飛躍的に向上する。海外ではすでに高い関心を呼び、多モデル環境への実装に期待が寄せられている。この技術が、チームでのAI活用をどのように革新するのか、興味深いところだ。
+        hook_type: 丁寧型
+    scores:
+      hook_strength: 20
+      persona_fit: 22
+      x_culture_fit: 20
+      specificity: 8
+      credibility: 7
+      total: 77
+      feedback: 投稿はAIに興味を持つターゲット層に刺さる内容で、冒頭のフックも効果的です。X文化にも比較的適合しており、売り込み臭が少ない点は良いです。ただし、MCPに関する具体的な事例や実績が不足しており、信憑性を高めるための詳細（開発元や実際の効果など）が欲しいところです。技術の概要をもう少し補足すると、より信頼性と具体性が増すでしょう。
+    status: active
+    source: daily_auto
+  - id: daily_20260310_noon
+    generated_at: '2026-03-09T21:21:37.573Z'
+    scheduled_date: '2026-03-10'
+    slot: noon
+    topic: 複数のLLMをモジュール化し、パイプライ
+    theme: 複数のLLMをモジュール化し、パイプライ
+    type: empathy
+    quality_score: 81
+    refinement_rounds: 1
+    variants:
+      A:
+        content: 複数のLLMを連携させる「モジュラー・パイプライン」が海外で話題だ。タスクを分解し、特定の得意分野を持つLLMを組み合わせることで、出力の精度が大幅に向上する手法。具体例として、文章生成と要約を別々のモデルで処理すると、品質が安定するケースが報告されている。このアプローチは、特に複雑なAIプロジェクトで再現性を高める可能性があり、今後国内でも注目されそうだ。どんなタスクに応用できそうか、気になるところだ😊
+        hook_type: 感情型
+      B:
+        content: 海外で注目を集めている「モジュラー・パイプライン」とは、複数のLLMを連携させる手法だ。タスクを細分化し、得意分野を持つモデルを組み合わせることで、出力精度が飛躍的に向上する。具体例として、文章生成と要約を別モデルで処理すると品質が安定するケースが報告されている。複雑なAIプロジェクトでの再現性向上に寄与する可能性が高く、国内でも今後関心を集めるだろう。どのようなタスクに応用可能か、探求の余地があるテーマだ。
+        hook_type: 丁寧型
+    scores:
+      hook_strength: 18
+      persona_fit: 22
+      x_culture_fit: 23
+      specificity: 10
+      credibility: 8
+      total: 81
+      feedback: 投稿はAIに興味のある層に響く内容で、Xの文化にも合致しているが、具体的な事例やツール名が少ないため、説得力や興味をさらに引く余地がある。海外での事例や具体的なモデル名を追加すると、より信憑性と具体性が増すだろう。
+    status: active
+    source: daily_auto
+  - id: daily_20260310_night
+    generated_at: '2026-03-09T21:21:42.185Z'
+    scheduled_date: '2026-03-10'
+    slot: night
+    topic: AIを開発の初期段階から組み込み、反復的
+    theme: AIを開発の初期段階から組み込み、反復的
+    type: empathy
+    quality_score: 73
+    refinement_rounds: 1
+    variants:
+      A:
+        content: AIを開発の初期から取り入れる「AI-First Development」が海外で話題になっています。反復的なフィードバックループを回しながら、チームとAIが協働することで精度を高め、再現性のある成果を生み出す手法です。人間とAIの連携を本質的に強化するこのアプローチ、生産性向上のカギになるのではないでしょうか。実際に小さなプロジェクトから試す価値がありそうです。🛠️
+        hook_type: 感情型
+      B:
+        content: 海外で注目を集めている「AI-First Development」は、AIを開発の初期段階から導入する手法だ。チームとAIが反復的なフィードバックループを通じて協働し、精度を向上させ、再現性のある成果を導き出す。人間とAIの連携を本質的に強化するこのアプローチは、生産性向上の鍵となる可能性が高い。小規模なプロジェクトから試してみる価値は十分にあるだろう。🛠️
+        hook_type: 丁寧型
+    scores:
+      hook_strength: 18
+      persona_fit: 22
+      x_culture_fit: 20
+      specificity: 5
+      credibility: 8
+      total: 73
+      feedback: 投稿はAIに興味のある層に刺さる内容で、Xの文化にも適合しているが、具体的な事例やツール名がなく、内容がやや抽象的。実際のプロジェクトや数字を交えると信頼性と具体性が向上する。
     status: active
     source: daily_auto
 stats:
