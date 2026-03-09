@@ -266,10 +266,32 @@ async function callGPT(prompt: string): Promise<string> {
 }
 
 async function callClaude(prompt: string): Promise<string> {
-  // OpenAI GPT-4o を使用（Geminiからの移行: 2026-03-09）
-  // 理由: Gemini APIキーが不安定 / GPT-4oに統一してLLM管理をシンプルにする
-  console.log('  [callClaude → GPT-4o]');
-  return callGPT(prompt);
+  const apiKey = process.env.ANTHROPIC_API_KEY;
+  if (!apiKey || apiKey.startsWith('YOUR_')) {
+    console.warn('  [callClaude] ANTHROPIC_API_KEY未設定 → GPT-4oにフォールバック');
+    return callGPT(prompt);
+  }
+  console.log('  [callClaude → Claude Sonnet]');
+  const response = await fetch('https://api.anthropic.com/v1/messages', {
+    method: 'POST',
+    headers: {
+      'x-api-key': apiKey,
+      'anthropic-version': '2023-06-01',
+      'content-type': 'application/json'
+    },
+    body: JSON.stringify({
+      model: 'claude-sonnet-4-5',
+      max_tokens: 1024,
+      messages: [{ role: 'user', content: prompt }]
+    })
+  });
+  if (!response.ok) {
+    const error = await response.text();
+    console.warn(`  [callClaude] APIエラー: ${error} → GPT-4oにフォールバック`);
+    return callGPT(prompt);
+  }
+  const data = await response.json() as any;
+  return data.content[0].text;
 }
 
 // ===== 推薦フォーマット読み込み =====
