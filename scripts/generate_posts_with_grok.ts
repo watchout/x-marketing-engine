@@ -84,7 +84,7 @@ function loadWinningPatterns(): string {
     const insights: string[] = [];
     
     insights.push(`【過去の分析結果から学んだこと】`);
-    insights.push(`- 最もインプレッションが高い投稿タイプ: ${bestType[0]} (平均${bestType[1].avg_impressions}インプ)`);
+    insights.push(`- 最もインプレッションが高い投稿タイプ: ${bestType[0]} (平均${(bestType[1] as any).avg_impressions}インプ)`);
     
     // 時間帯パフォーマンス
     const slotPerf = patterns.slot_performance || {};
