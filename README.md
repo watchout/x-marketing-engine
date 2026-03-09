@@ -30,8 +30,17 @@ cp .env.api.example .env.api
 | `X_ACCESS_TOKEN` | X Access Token |
 | `X_ACCESS_SECRET` | X Access Secret |
 | `OPENAI_API_KEY` | OpenAI API Key (GPT-4o) |
-| `GOOGLE_AI_API_KEY` | Google AI API Key (Gemini) |
+| `GOOGLE_AI_API_KEY` | Google AI API Key (Gemini) - optional, 現在未使用 |
 | `GROK_API_KEY` | Grok API Key (optional) |
+
+## ⚠️ ローカル実行の注意
+
+APIキーは `.env.api` に設定が必要です（GitHub Secretsのみでは `npm run generate:dry` が動きません）：
+
+```bash
+cp .env.api.example .env.api
+# .env.api を編集: OPENAI_API_KEY と（必要なら）GROK_API_KEY を設定
+```
 
 ## 🛠 Commands
 
