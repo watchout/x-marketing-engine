@@ -266,38 +266,39 @@ async function callGPT(prompt: string): Promise<string> {
 }
 
 async function callClaude(prompt: string): Promise<string> {
-  // Gemini を Claude の代わりに使用（Anthropic APIキーがないため）
-  const apiKey = process.env.GOOGLE_AI_API_KEY;
-  if (!apiKey) {
-    console.warn('⚠️ GOOGLE_AI_API_KEY not found, using GPT as fallback');
-    return callGPT(prompt);
-  }
-  
+  // OpenAI GPT-4o を使用（Geminiからの移行: 2026-03-09）
+  // 理由: Gemini APIキーが不安定 / GPT-4oに統一してLLM管理をシンプルにする
+  console.log('  [callClaude → GPT-4o]');
+  return callGPT(prompt);
+}
+
+// ===== 推薦フォーマット読み込み =====
+
+interface NextRecommendation {
+  recommended: {
+    theme: string;
+    approach: string;
+  };
+  approach_ranking: Array<{ name: string; mean: number; trials: number }>;
+  theme_ranking: Array<{ name: string; mean: number; trials: number }>;
+}
+
+function loadNextRecommendation(): NextRecommendation | null {
+  const recFile = path.join(PROJECT_ROOT, 'content/next_recommendation.json');
   try {
-    const response = await fetch(
-      `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`,
-      {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          contents: [{ parts: [{ text: prompt }] }],
-          generationConfig: { temperature: 0.7 }
-        })
-      }
-    );
-    
-    if (!response.ok) {
-      const error = await response.text();
-      console.warn(`⚠️ Gemini API error: ${error}, using GPT as fallback`);
-      return callGPT(prompt);
-    }
-    
-    const data = await response.json() as any;
-    return data.candidates[0].content.parts[0].text;
+    if (!fs.existsSync(recFile)) return null;
+    return JSON.parse(fs.readFileSync(recFile, 'utf-8'));
   } catch (e) {
-    console.warn(`⚠️ Gemini error: ${e}, using GPT as fallback`);
-    return callGPT(prompt);
+    return null;
   }
+}
+
+// thread形式を使うべきか判定（approach_rankingでthreadが1位かつmean >= 0.15）
+function shouldUseThread(): boolean {
+  const rec = loadNextRecommendation();
+  if (!rec) return false;
+  const top = rec.approach_ranking[0];
+  return top?.name === 'thread' && top?.mean >= 0.15;
 }
 
 // ===== 勝ちパターン読み込み =====
@@ -423,7 +424,7 @@ ${grokResponse}
 `;
   
   const claudeResponse = await callClaude(claudePrompt);
-  console.log('  Claude(Gemini): ネタ選定 ✓');
+  console.log('  Claude(GPT-4o): ネタ選定 ✓');
   
   // JSONパース
   try {
@@ -717,6 +718,59 @@ Bパターンの投稿文のみを出力（説明不要）
   return variantB.trim();
 }
 
+// ===== Thread形式生成 =====
+
+async function generateThreadParts(topic: string, contentA: string): Promise<string[]> {
+  console.log('\n🧵 Thread形式生成...');
+  
+  const prompt = `
+あなたはXで人気のAI系インフルエンサーです。
+フォロワーに深い価値を届ける「スレッド投稿」を作成してください。
+
+【テーマ・ネタ】
+${topic}
+
+【参考（通常版の投稿）】
+${contentA}
+
+【スレッド作成ルール】
+1. 1ツイート目: 強力なフック（スクロールを止める）→ 「続き」を見させる終わり方
+2. 2〜3ツイート目: 具体的な内容・詳細・事例（各140〜200文字程度）
+3. 最終ツイート: まとめ・takeaway（フォロー誘導はしない）
+
+- 全ツイートで280文字以内（1ツイート目は特に重要、150文字以内推奨）
+- ハッシュタグ禁止
+- 各ツイートの末尾に「→」や「（続き）」は不要（自然な流れで）
+- 絵文字は控えめに（1〜2個まで）
+
+【出力形式（JSON）】
+{
+  "parts": [
+    "1ツイート目のテキスト",
+    "2ツイート目のテキスト",
+    "3ツイート目のテキスト（最終）"
+  ]
+}
+`;
+  
+  try {
+    const response = await callGPT(prompt);
+    const jsonMatch = response.match(/\{[\s\S]*\}/);
+    if (jsonMatch) {
+      const result = JSON.parse(jsonMatch[0]);
+      if (Array.isArray(result.parts) && result.parts.length >= 2) {
+        console.log(`  Thread生成 ✓ (${result.parts.length}ツイート)`);
+        return result.parts;
+      }
+    }
+  } catch (e) {
+    console.warn(`  ⚠️ Thread生成失敗: ${e}`);
+  }
+  
+  // フォールバック: contentAをそのまま単一ツイートとして返す
+  return [contentA];
+}
+
 // ===== メイン処理 =====
 
 async function generatePost(dryRun: boolean = false): Promise<void> {
@@ -736,9 +790,20 @@ async function generatePost(dryRun: boolean = false): Promise<void> {
   const { content: contentA, scores, rounds } = await refinementLoop(draft);
   console.log(`\n--- 最終版A (${rounds}ラウンド, ${scores.total}点) ---\n${contentA}\n-----------`);
   
-  // Round 6: A/B生成
+  // Round 6: A/B生成 & Thread生成（推奨フォーマットに応じて）
   const contentB = await generateVariantB(contentA);
   console.log(`\n--- Bパターン ---\n${contentB}\n-----------`);
+  
+  // Thread形式が推奨されている場合はThread投稿も生成
+  const useThread = shouldUseThread();
+  let threadParts: string[] | undefined;
+  if (useThread) {
+    console.log('\n📊 next_recommendation.json: thread が最高パフォーマンス → Thread生成');
+    threadParts = await generateThreadParts(topic, contentA);
+    console.log('\n--- Thread ---');
+    threadParts.forEach((part, i) => console.log(`[${i + 1}] ${part}`));
+    console.log('-----------');
+  }
   
   // スコア内訳
   console.log('\n📊 スコア内訳:');
@@ -784,15 +849,20 @@ async function generatePost(dryRun: boolean = false): Promise<void> {
     nextSlot = 'morning';
   }
   
+  // 投稿タイプの決定（thread推奨時はthread、それ以外はnext_recommendationに従う）
+  const rec = loadNextRecommendation();
+  const postType = useThread ? 'thread' : (rec?.recommended?.approach || 'problem_statement');
+  const postTheme = rec?.recommended?.theme || topic.substring(0, 20);
+  
   // 投稿プールに追加
-  const postEntry = {
+  const postEntry: any = {
     id: `post_${Date.now()}`,
     generated_at: new Date().toISOString(),
     scheduled_date: nextDate,
     slot: nextSlot,
     topic: topic,
-    theme: 'バイブコーディングの限界',
-    type: 'problem_statement',
+    theme: postTheme,
+    type: postType,
     quality_score: scores.total,
     refinement_rounds: rounds,
     variants: {
@@ -808,6 +878,11 @@ async function generatePost(dryRun: boolean = false): Promise<void> {
     scores: scores,
     status: 'active'
   };
+  
+  // Thread投稿の場合はthread_partsを追加
+  if (threadParts && threadParts.length > 1) {
+    postEntry.thread_parts = threadParts;
+  }
   
   console.log(`\n📅 スケジュール: ${nextDate} ${nextSlot}`);
   
