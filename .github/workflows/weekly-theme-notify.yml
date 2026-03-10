@@ -13,13 +13,14 @@ permissions:
   contents: write
 
 on:
-  schedule:
-    # 毎週日曜 00:00 UTC = JST 09:00（テーマ決定リマインド）
-    - cron: '0 0 * * 0'
-    # 毎日 12:00 UTC = JST 21:00（日次レポート）
-    - cron: '0 12 * * *'
-    # 毎週土曜 06:00 UTC = JST 15:00（週次振り返り）
-    - cron: '0 6 * * 6'
+  # [PAUSED 2026-03-10] 自動投稿を一時停止。仕組み再構築のため手動実行のみに変更。
+  # schedule:
+  #   # 毎週日曜 00:00 UTC = JST 09:00（テーマ決定リマインド）
+  #   - cron: '0 0 * * 0'
+  #   # 毎日 12:00 UTC = JST 21:00（日次レポート）
+  #   - cron: '0 12 * * *'
+  #   # 毎週土曜 06:00 UTC = JST 15:00（週次振り返り）
+  #   - cron: '0 6 * * 6'
 
   workflow_dispatch:
     inputs:

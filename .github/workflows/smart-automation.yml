@@ -13,13 +13,14 @@ permissions:
   contents: write
 
 on:
-  schedule:
-    # 毎朝リサーチ＆投稿生成（daily_setup）
-    - cron: '0 21 * * *'  # JST 06:00 (リサーチ→生成→プール投入)
-    # 1日3回投稿（smart_post）
-    - cron: '0 23 * * *'  # JST 08:00 (朝の通勤時間)
-    - cron: '0 3 * * *'   # JST 12:00 (昼休み)
-    - cron: '0 12 * * *'  # JST 21:00 (夜のリラックス - ER最強スロット)
+  # [PAUSED 2026-03-10] 自動投稿を一時停止。仕組み再構築のため手動実行のみに変更。
+  # schedule:
+  #   # 毎朝リサーチ＆投稿生成（daily_setup）
+  #   - cron: '0 21 * * *'  # JST 06:00 (リサーチ→生成→プール投入)
+  #   # 1日3回投稿（smart_post）
+  #   - cron: '0 23 * * *'  # JST 08:00 (朝の通勤時間)
+  #   - cron: '0 3 * * *'   # JST 12:00 (昼休み)
+  #   - cron: '0 12 * * *'  # JST 21:00 (夜のリラックス - ER最強スロット)
 
   workflow_dispatch:
     inputs:
