@@ -1,56 +1,125 @@
 # X コンテンツ戦略
-version: "1.0"
+version: "2.0"
+updated: "2026-03-10"
+# v2変更点:
+# - 「肝共有型」を主力投稿タイプとして追加
+# - ハッシュタグ廃止（2026年現在、リーチ向上効果なし・宣伝感が出る）
+# - 投稿フォーマットを現行バズ構文に更新
 
 post_types:
+  insight_core:
+    description: "肝共有型（問題→発見→解決の核）- 主力"
+    hook_pattern: |
+      【問題】〇〇が突然△△になった
+      
+      原因を掘ったら、〜〜だった。
+      
+      → 〜〜したら即解決。
+      
+      [1行で本質を語る]
+    hook_words: ["突然", "気づいたら", "原因を掘ったら", "→"]
+    tone: "実録・簡潔・本質だけ"
+    rules:
+      - "体験した事実のみ書く"
+      - "教訓・比喩で締める"
+      - "ハッシュタグなし"
+      - "140字前後が理想"
+    time_slot: morning
+    priority: 1
+
   tips:
     description: "具体的なTips・ノウハウ"
     hook_words: ["正直", "これだけで変わる", "知らないと損"]
+    tone: "断言・簡潔"
+    rules:
+      - "ハッシュタグなし"
+      - "体験ベースのみ"
     time_slot: morning
-  
+    priority: 2
+
   problem_statement:
     description: "問題提起・共感"
-    hook_words: ["〜していませんか？", "実は", "多くの人が"]
+    hook_words: ["〜してた", "実は", "ずっと困ってた"]
+    tone: "等身大・共感"
+    rules:
+      - "ハッシュタグなし"
+      - "解決まで書く"
     time_slot: noon
-  
+    priority: 3
+
   story:
     description: "物語・体験談"
     hook_words: ["〜を始めて", "気づいた", "変わった"]
+    tone: "人間的・リアル"
+    rules:
+      - "ハッシュタグなし"
+      - "失敗談も含めてOK"
     time_slot: night
-  
+    priority: 3
+
   discovery:
     description: "発見・気づき"
     hook_words: ["発見した", "わかった", "見つけた"]
+    tone: "驚き・即実用"
+    rules:
+      - "ハッシュタグなし"
     time_slot: any
-  
+    priority: 4
+
   thread:
     description: "スレッド形式の詳細解説"
     hook_words: ["解説します", "ステップ", "手順"]
+    tone: "丁寧・構造的"
+    rules:
+      - "ハッシュタグなし（最終ツイートも不要）"
+      - "スレッドは5ツイート以内が理想"
     time_slot: any
+    priority: 5
 
 buzz_elements:
   visuals:
-    - "動画デモ"
-    - "スクリーンショット"
-    - "Before/After画像"
-  
-  hook_words:
-    - "正直"
-    - "断言します"
-    - "最強すぎ"
-    - "有能すぎ"
-    - "やばい"
-  
-  structure:
-    - "①②③のステップ形式"
-    - "問題→解決の流れ"
-    - "質問形式の導入"
-  
+    - "動画デモ（Telegram→実行→完了の流れ）"
+    - "スクリーンショット（実際の画面）"
+    - "Before/After（数字で示す）"
+
+  hook_structure:
+    - "【問題】から始める（読み手が『あるある』と思う状況）"
+    - "原因→解決の順番"
+    - "最後に1行で本質を語る（比喩・教訓）"
+    - "問いかけで終わらせるのも有効"
+
+  do:
+    - "自分が実際に経験したことだけ書く"
+    - "具体的な数字を入れる（時間・回数・コスト）"
+    - "比喩や日常の例えで難しい概念を説明する"
+    - "短い文を改行でリズムよく並べる"
+
+  dont:
+    - "ハッシュタグをつけない（2026年現在は逆効果）"
+    - "宣伝色を出さない"
+    - "知識をひけらかす書き方をしない"
+    - "長すぎるスレッドにしない"
+    - "AI感・bot感のある均一な文体にしない"
+
   numbers:
     - "具体的な数字を入れる"
     - "時間短縮の数値"
     - "成果の数字"
 
+# 投稿タイプ配分（週次目安）
+weekly_mix:
+  insight_core: "40%（週3〜4件）- 主力"
+  tips: "20%（週1〜2件）"
+  story: "20%（週1〜2件）"
+  discovery: "10%（週1件）"
+  thread: "10%（週1件）"
+
 optimal_times:
-  morning: "09:00"
+  morning: "07:00"
   noon: "12:00"
-  night: "20:00"
+  night: "21:00"
+
+# ハッシュタグ方針
+hashtag_policy:
+  enabled: false
+  reason: "2026年現在、Xのアルゴリズムはハッシュタグによるリーチ向上効果がほぼゼロ。宣伝感・bot感が出てエンゲージメントを下げる。廃止。"
