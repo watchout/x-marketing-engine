@@ -1,23 +1,96 @@
 {
+  "updated_at": "2026-03-10",
+  "note": "肝共有型（問題→発見→解決の核）に近い投稿スタイルのアカウントを優先",
   "influencers": [
-    { "handle": "satori_sz9", "category": "AI初心者・マーケ", "genre": "ai_marketing", "added_at": "2026-02-18T12:00:00.000Z" },
-    { "handle": "masahirochaen", "category": "AIニュース速報", "genre": "ai_news", "added_at": "2026-02-18T12:00:00.000Z" },
-    { "handle": "ai_jitan", "category": "AI×時短・ツール活用", "genre": "ai_tools", "added_at": "2026-02-18T12:00:00.000Z" },
-    { "handle": "commte", "category": "Claude Code・Agentic AI", "genre": "ai_dev", "added_at": "2026-02-18T12:00:00.000Z" },
-    { "handle": "Fujin_Metaverse", "category": "AIエージェント・自動化", "genre": "ai_dev", "added_at": "2026-02-18T12:00:00.000Z" },
-    { "handle": "fladdict", "category": "AI UX・プロンプト設計", "genre": "ai_tools", "added_at": "2026-02-18T12:00:00.000Z" },
-    { "handle": "ctgptlb", "category": "AI速報+技術解説", "genre": "ai_news", "added_at": "2026-02-18T12:00:00.000Z" },
-    { "handle": "karaage0703", "category": "ハンズオンAI開発", "genre": "ai_dev", "added_at": "2026-02-18T12:00:00.000Z" }
+    {
+      "handle": "commte",
+      "category": "Claude Code・Agentic AI",
+      "genre": "ai_dev",
+      "style": "実録・技術的発見の共有",
+      "why": "非エンジニア寄りの視点でAIエージェントを語る。肝共有型に近い",
+      "added_at": "2026-02-18T12:00:00.000Z"
+    },
+    {
+      "handle": "Fujin_Metaverse",
+      "category": "AIエージェント・自動化",
+      "genre": "ai_dev",
+      "style": "実装体験・気づきの共有",
+      "why": "自動化の試行錯誤をリアルに語る。参考になる構文あり",
+      "added_at": "2026-02-18T12:00:00.000Z"
+    },
+    {
+      "handle": "ai_jitan",
+      "category": "AI×時短・ツール活用",
+      "genre": "ai_tools",
+      "style": "ビフォーアフター・時間短縮の数字",
+      "why": "数字で語るスタイルが参考になる",
+      "added_at": "2026-02-18T12:00:00.000Z"
+    },
+    {
+      "handle": "fladdict",
+      "category": "AI UX・プロンプト設計",
+      "genre": "ai_tools",
+      "style": "本質を短く語る・哲学的な視点",
+      "why": "肝を一言で言い切るスタイルが最も参考になる",
+      "added_at": "2026-02-18T12:00:00.000Z"
+    },
+    {
+      "handle": "satori_sz9",
+      "category": "AI初心者・マーケ",
+      "genre": "ai_marketing",
+      "style": "非エンジニア視点・実用的",
+      "why": "CEOのターゲット読者に近い層に刺さる投稿スタイル",
+      "added_at": "2026-02-18T12:00:00.000Z"
+    },
+    {
+      "handle": "masahirochaen",
+      "category": "AIニュース速報",
+      "genre": "ai_news",
+      "style": "速報・要約",
+      "why": "トレンド把握用。投稿スタイルの参考というより情報源",
+      "added_at": "2026-02-18T12:00:00.000Z"
+    },
+    {
+      "handle": "ctgptlb",
+      "category": "AI速報+技術解説",
+      "genre": "ai_news",
+      "style": "速報・技術寄り",
+      "why": "トレンド把握用",
+      "added_at": "2026-02-18T12:00:00.000Z"
+    },
+    {
+      "handle": "karaage0703",
+      "category": "ハンズオンAI開発",
+      "genre": "ai_dev",
+      "style": "実装ログ・ハンズオン",
+      "why": "実際にやってみた系。CEOのスタイルに近い",
+      "added_at": "2026-02-18T12:00:00.000Z"
+    }
+  ],
+  "reddit_accounts": [
+    {
+      "handle": "TBD",
+      "subreddit": "r/LocalLLaMA",
+      "category": "OpenClaw・ローカルAI",
+      "genre": "ai_dev_en",
+      "note": "英語圏の上位投稿パターンを収集。バズ投稿のフォーマットをX日本語版に転用する"
+    },
+    {
+      "handle": "TBD",
+      "subreddit": "r/Automate",
+      "category": "自動化・ワークフロー",
+      "genre": "ai_tools_en",
+      "note": "Upwork案件に繋がる投稿パターンを収集"
+    }
   ],
   "genres": {
-    "ai_dev": { "label": "AI開発・エージェント", "icon": "🛠️" },
-    "ai_tools": { "label": "AIツール活用", "icon": "⚡" },
-    "ai_news": { "label": "AIニュース・速報", "icon": "📰" },
-    "ai_marketing": { "label": "AI×マーケ・発信術", "icon": "📣" },
-    "overseas": { "label": "海外AI動向", "icon": "🌐" },
-    "other": { "label": "その他", "icon": "📌" }
+    "ai_dev": { "label": "AI開発・エージェント（日本語）", "icon": "🛠️" },
+    "ai_tools": { "label": "AIツール活用（日本語）", "icon": "⚡" },
+    "ai_news": { "label": "AIニュース・速報（日本語）", "icon": "📰" },
+    "ai_marketing": { "label": "AI×マーケ・発信術（日本語）", "icon": "📣" },
+    "ai_dev_en": { "label": "AI開発・エージェント（英語・Reddit）", "icon": "🌐" },
+    "ai_tools_en": { "label": "AIツール活用（英語・Reddit）", "icon": "🌐" }
   },
   "posts": [],
-  "updated_at": "2026-02-19T00:00:00.000Z",
   "last_exported": null
 }
