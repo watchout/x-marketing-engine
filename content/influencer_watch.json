@@ -68,6 +68,14 @@
     }
   ],
     {
+      "handle": "moriyorihayash1",
+      "category": "最先端技術・先行情報",
+      "genre": "ai_dev",
+      "style": "技術的に一歩先を語る",
+      "why": "CEOが「技術的に先を行っている」と評価。最新トレンドの早期キャッチと、先進的な視点の投稿パターンを学習するため追加。",
+      "added_at": "2026-03-10T09:19:00.000Z"
+    },
+    {
       "handle": "tetumemo",
       "category": "CEO参照・投稿スタイル手本",
       "genre": "style_reference",
