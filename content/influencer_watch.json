@@ -67,6 +67,15 @@
       "added_at": "2026-02-18T12:00:00.000Z"
     }
   ],
+    {
+      "handle": "tetumemo",
+      "category": "CEO参照・投稿スタイル手本",
+      "genre": "style_reference",
+      "style": "要確認（CEO推薦）",
+      "why": "CEOが「この書き方がいい」と指定したアカウント。投稿スタイルの最優先参照元。",
+      "added_at": "2026-03-10T09:00:00.000Z"
+    }
+  ],
   "reddit_accounts": [
     {
       "handle": "TBD",
